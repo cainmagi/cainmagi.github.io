@@ -1,0 +1,389 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	<meta name="generator" content="Hugo 0.40.3" />
+	<title>Instructions for creating a Hugo site &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="http://cainmagi.github.io/css/main.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="http://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="http://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="http://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+    
+    
+    <script src="http://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="http://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</head>
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="http://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="http://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="http://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="http://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="http://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="http://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="http://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>Instructions for creating a Hugo site</h1>
+                            </header>
+                            
+                                <span class="image main"><img src="/img/playground/20180524ichs_title.jpg" alt="" /></span>
+                            
+                            
+
+<h1 id="背景">背景</h1>
+
+<p>这是一篇中文教程，基于前人的经验，补全一些没有提到的技巧。首先我们可以阅读以下站点的教程：</p>
+
+<p><a href="http://newoxygen.github.io/post/hugo%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%99/" title="氧气计算-Hugo快速建站">一篇基础的、关于如何使用Hugo创建新站点，并托管到Github的流程</a></p>
+
+<p><a href="https://jimmysong.io/posts/building-github-pages-with-hugo/" title="零基础使用Hugo">补全教程：关于如何理解、使用Hugo主题</a></p>
+
+<p>然而，实际编写站点内容没有固定的套路，很多情况下能使用哪些功能取决于对应的主题。譬如有的主题支持HTML5，我们就能实现一些对应的技巧；而有些相对简单的主题不支持，我们就只能实现一些基本功能。共通的一些技巧可以查阅：</p>
+
+<p><a href="http://gohugo.io/documentation/" title="Hugo Official Documents">Hugo官方文档</a></p>
+
+<p>本站使用的模板是<a href="https://themes.gohugo.io/forty/" title="Hugo Theme - Forty"><strong>Forty</strong></a>，这个模板支持HTML5。在做好所有的基础设置以后，我们可以用MarkDown写任何一篇内容。关于更高级的编写内容的技巧，可以查阅模板自带的<a href="../../elements.html" title="Hugo Theme - Forty elements"><strong>Element</strong></a>范例。这些高级技巧无一例外需要通过HTML语法实现，包括但不限于<em>分栏</em> ，<em>按钮</em> ，<em>图标</em> ，<em>表单</em> ，<em>分栏</em> ，<em>下标</em> 或者<em>上标</em><sup>如此</sup>等等……</p>
+
+<h1 id="补全">补全</h1>
+
+<h2 id="套用模板来定制主页">套用模板来定制主页</h2>
+
+<p>以<a href="https://themes.gohugo.io/forty/" title="Hugo Theme - Forty"><strong>Forty</strong></a>为例，下载后，其模板文档的关键结构如下：</p>
+
+<pre><code class="language-bash">forty
+|---archetypes
+|---exampleSite
+|   |---archetypes
+|   |---content
+|   |   `---blogs
+|   |       |---_index.md
+|   |       `---blog1.md
+|   |---static
+|   |---config.toml
+|   `---netlify.toml
+|---images
+|---layouts
+|---static
+|   |---img
+|   `---elements.html
+`---theme.toml
+</code></pre>
+
+<p>我们可以看到，<a href="../../elements.html" title="Hugo Theme - Forty elements"><strong>Element</strong></a>就在<code>static</code>目录下，它不是由MarkDown渲染出的，而是静态网页，我们需要的参考都只能通过HTML的形式获取。图像文件都保存在<code>static/img</code>下，但是这里有不只一个<code>static</code>文件夹，我们稍后再讨论。现在我们需要关注的是<code>exampleSite</code>，它是一个模板自带的范例站点，通过调用</p>
+
+<pre><code class="language-bash">hugo server --buildDrafts --watch
+</code></pre>
+
+<p>可以直接渲染出该范例，它就是模板提供预览的Demo。在这个Demo里面，主页是由<code>config.toml</code>定制的，我们需要将它和<code>netlify.toml</code>拷贝到我们自己的站点根目录下，覆盖原有的文件，通过上述命令，我们可以直接看到，主页的定制生效在了我们自己的站点上。</p>
+
+<p><code>config.toml</code>是用Golang编写的，但是作为配置文件，它对于新手并不难懂，并且有丰富的注释。从<code>[params]</code>开始，该文件开始定义主页存在的要素，包括但不限于顶部的导航条（导航菜单）、主页Banner，精美的导航图片模块、联系方式以及底格的社交媒体按钮。通过替换图片文件、修改模块参数等方式，我们可以逐渐将范例的内容替换成我们自己的。</p>
+
+<p>特别注意的是使用图标的技巧。这一套图标是来自<a href="https://fontawesome.com/v4.7.0/icons/" title="Font Awesome Icons"><strong>Font Awesome Icons</strong></a>的开源协议，通过以下的按钮，我们可以查阅所有我们能使用的图标：</p>
+
+<p><a href="https://fontawesome.com/v4.7.0/icons/" class="button icon fa-font-awesome">Font Awesome Icons</a></p>
+
+<h2 id="内容的基本结构">内容的基本结构</h2>
+
+<p>让我们来重点关注根目录下<code>content</code>的内容</p>
+
+<pre><code class="language-bash">.
+|---archetypes
+|---content
+|   |---blogs
+|   |   |---_index.md
+|   |   `---blog1.md
+|   `---about.md
+|---static
+|---config.toml
+`---netlify.toml
+</code></pre>
+
+<p>一般来说，我们自定义的内容可以分成两种结构。第一种是直接从属于*main*范畴下的页面，例如上述的<code>about.md</code>，其域名为形如<code>http://site/about</code>的形式。</p>
+
+<p>另一种是二级页面，它由一个文件夹来构成，例如<code>blogs</code>，其主域名为<code>http://site/blogs</code>，但实际指向的是_index.md的内容；<code>blogs</code>下又从属许多页面，例如<code>blog1.md</code>，其域名为形如<code>http://site/blogs/blog1/</code>的形式。主页面<code>_index.md</code>除了提供标题、标题画面以及类型简介以外，不提供任何实质的内容。但是通过添加从页面，这些从页面的简介（包括标题图，如果存在的话）都会显示在主页面下。而每个从页面的简介在对应的文件里面定义，不需要重新声明在主页面里。</p>
+
+<h2 id="补全模板的缺失">补全模板的缺失</h2>
+
+<p>模板自带的功能不支持两个关键的要素：Latex公式渲染和代码高亮。为了解决这一问题，我们需要进行一些额外的工作。</p>
+
+<h3 id="latex渲染">Latex渲染</h3>
+
+<p>渲染Latex公式需要使用MathJax，这需要我们略微修改模板。参考如下资料：</p>
+
+<p><a href="https://divadnojnarg.github.io/blog/mathjax/" title="Hugo with MathJax">Setting MathJax with Hugo</a></p>
+
+<p>注意，要使用文中的第二种方法(A second method)实现，亲测使用第一种方法里的Code无法正常实现渲染功能。</p>
+
+<p>完成对应步骤后，测试行内公式：$\mathbf{A}_a = \theta_1$。</p>
+
+<p>测试行间公式，麦克斯韦方程组：</p>
+
+<p>\begin{equation}
+\begin{aligned}
+  \frac{\partial\mathcal{D}}{\partial t} \quad &amp; = \quad \nabla\times\mathcal{H},   &amp; \quad \text{(Loi de Faraday)} \\[5pt]
+  \frac{\partial\mathcal{B}}{\partial t} \quad &amp; = \quad -\nabla\times\mathcal{E},  &amp; \quad \text{(Loi d&rsquo;Ampère)}   \\[5pt]
+  \nabla\cdot\mathcal{B}                 \quad &amp; = \quad 0,                         &amp; \quad \text{(Loi de Gauss)}   \\[5pt]
+  \nabla\cdot\mathcal{D}                 \quad &amp; = \quad 0.                         &amp; \quad \text{(Loi de Colomb)}
+\end{aligned}
+\end{equation}</p>
+
+<h3 id="代码高亮">代码高亮</h3>
+
+<p>直接查阅上述的<a href="http://newoxygen.github.io/post/hugo%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%99/" title="氧气计算-Hugo快速建站"><strong>基础流程</strong></a>，按照其中代码高亮的操作步骤修改模板即可。</p>
+
+<h2 id="高级技巧的范例">高级技巧的范例</h2>
+
+<p>事实上，这些都可以在<a href="../../elements.html" title="Hugo Theme - Forty elements"><strong>Element</strong></a>中查到，这里直接Copy一个例子（分栏与表单），当然，它是通过Copy HTML代码到MarkDown文件里实现的</p>
+
+<div id="wrapper">
+  <section id="contact">
+    <div class="inner">
+      <section>
+        <form method="post" action="#">
+          <div class="field half first">
+            <label for="name">姓名</label>
+            <input type="text" name="name" id="name" />
+          </div>
+          <div class="field half">
+            <label for="email">电邮</label>
+            <input type="text" name="email" id="email" />
+          </div>
+          <div class="field">
+            <label for="message">正文</label>
+            <textarea name="message" id="message" rows="6"></textarea>
+          </div>
+          <ul class="actions">
+            <li><input type="submit" value="发送" class="special" /></li>
+            <li><input type="reset" value="清空" /></li>
+          </ul>
+        </form>
+      </section>
+      <section class="split">
+        <section>
+          <div class="contact-method">
+            <span class="icon alt fa-envelope"></span>
+            <h3>电邮</h3>
+            <a href="#">information@untitled.tld</a>
+          </div>
+        </section>
+        <section>
+          <div class="contact-method">
+            <span class="icon alt fa-phone"></span>
+            <h3>电话</h3>
+            <span>(000) 000-0000 x12387</span>
+          </div>
+        </section>
+        <section>
+          <div class="contact-method">
+            <span class="icon alt fa-home"></span>
+            <h3>住址</h3>
+            <span>1234 Somewhere Road #5432<br />
+            Nashville, TN 00000<br />
+            United States of America</span>
+          </div>
+        </section>
+      </section>
+    </div>
+  </section>
+</div>
+
+<p>代码如下</p>
+
+<pre><code class="language-html">&lt;div id=&quot;wrapper&quot;&gt;
+  &lt;section id=&quot;contact&quot;&gt;
+    &lt;div class=&quot;inner&quot;&gt;
+      &lt;section&gt;
+        &lt;form method=&quot;post&quot; action=&quot;#&quot;&gt;
+          &lt;div class=&quot;field half first&quot;&gt;
+            &lt;label for=&quot;name&quot;&gt;姓名&lt;/label&gt;
+            &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; /&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;field half&quot;&gt;
+            &lt;label for=&quot;email&quot;&gt;电邮&lt;/label&gt;
+            &lt;input type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot; /&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;field&quot;&gt;
+            &lt;label for=&quot;message&quot;&gt;正文&lt;/label&gt;
+            &lt;textarea name=&quot;message&quot; id=&quot;message&quot; rows=&quot;6&quot;&gt;&lt;/textarea&gt;
+          &lt;/div&gt;
+          &lt;ul class=&quot;actions&quot;&gt;
+            &lt;li&gt;&lt;input type=&quot;submit&quot; value=&quot;发送&quot; class=&quot;special&quot; /&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;input type=&quot;reset&quot; value=&quot;清空&quot; /&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/form&gt;
+      &lt;/section&gt;
+      &lt;section class=&quot;split&quot;&gt;
+        &lt;section&gt;
+          &lt;div class=&quot;contact-method&quot;&gt;
+            &lt;span class=&quot;icon alt fa-envelope&quot;&gt;&lt;/span&gt;
+            &lt;h3&gt;电邮&lt;/h3&gt;
+            &lt;a href=&quot;#&quot;&gt;information@untitled.tld&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+          &lt;div class=&quot;contact-method&quot;&gt;
+            &lt;span class=&quot;icon alt fa-phone&quot;&gt;&lt;/span&gt;
+            &lt;h3&gt;电话&lt;/h3&gt;
+            &lt;span&gt;(000) 000-0000 x12387&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+        &lt;section&gt;
+          &lt;div class=&quot;contact-method&quot;&gt;
+            &lt;span class=&quot;icon alt fa-home&quot;&gt;&lt;/span&gt;
+            &lt;h3&gt;住址&lt;/h3&gt;
+            &lt;span&gt;1234 Somewhere Road #5432&lt;br /&gt;
+            Nashville, TN 00000&lt;br /&gt;
+            United States of America&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+      &lt;/section&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+</code></pre>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmgi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="http://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="http://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="http://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="http://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="http://cainmagi.github.io/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="http://cainmagi.github.io/js/main.js"></script>
+
+    
+
+    
+
+    </body>
+</html>

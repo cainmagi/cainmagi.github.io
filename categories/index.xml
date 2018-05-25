@@ -28,5 +28,32 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Playground</title>
+      <link>http://cainmagi.github.io/categories/playground/</link>
+      <pubDate>Thu, 24 May 2018 16:13:10 -0500</pubDate>
+      
+      <guid>http://cainmagi.github.io/categories/playground/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Technique</title>
+      <link>http://cainmagi.github.io/categories/technique/</link>
+      <pubDate>Thu, 24 May 2018 16:13:10 -0500</pubDate>
+      
+      <guid>http://cainmagi.github.io/categories/technique/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>http://cainmagi.github.io/categories/web/</link>
+      <pubDate>Thu, 24 May 2018 16:13:10 -0500</pubDate>
+      
+      <guid>http://cainmagi.github.io/categories/web/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

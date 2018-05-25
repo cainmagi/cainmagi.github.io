@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://cainmagi.github.io/playground/20180524ichs/</loc>
+    <lastmod>2018-05-24T16:13:10-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://cainmagi.github.io/playground/</loc>
     <lastmod>2018-05-24T13:22:21-05:00</lastmod>
   </url>
@@ -45,13 +50,31 @@
   </url>
   
   <url>
+    <loc>http://cainmagi.github.io/categories/playground/</loc>
+    <lastmod>2018-05-24T16:13:10-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://cainmagi.github.io/</loc>
-    <lastmod>2018-05-23T16:49:20-05:00</lastmod>
+    <lastmod>2018-05-24T16:13:10-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://cainmagi.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cainmagi.github.io/categories/technique/</loc>
+    <lastmod>2018-05-24T16:13:10-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cainmagi.github.io/categories/web/</loc>
+    <lastmod>2018-05-24T16:13:10-05:00</lastmod>
     <priority>0</priority>
   </url>
   
