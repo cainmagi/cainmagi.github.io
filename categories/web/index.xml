@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web on Rosenkreutz Studio</title>
-    <link>http://cainmagi.github.io/categories/web/</link>
+    <link>https://cainmagi.github.io/categories/web/</link>
     <description>Recent content in Web on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 24 May 2018 16:13:10 -0500</lastBuildDate>
     
-	<atom:link href="http://cainmagi.github.io/categories/web/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cainmagi.github.io/categories/web/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Instructions for creating a Hugo site</title>
-      <link>http://cainmagi.github.io/playground/20180524ichs/</link>
+      <link>https://cainmagi.github.io/playground/20180524ichs/</link>
       <pubDate>Thu, 24 May 2018 16:13:10 -0500</pubDate>
       
-      <guid>http://cainmagi.github.io/playground/20180524ichs/</guid>
+      <guid>https://cainmagi.github.io/playground/20180524ichs/</guid>
       <description>背景 这是一篇中文教程，基于前人的经验，补全一些没有提到的技巧。首先我们可以阅读以下站点的教程：
 一篇基础的、关于如何使用Hugo创建新站点，并托管到Github的流程
 补全教程：关于如何理解、使用Hugo主题
