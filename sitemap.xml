@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://cainmagi.github.io/notes/note20180518/</loc>
+    <lastmod>2018-05-25T17:32:01-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/playground/20180525biblestudy/</loc>
+    <lastmod>2018-05-25T09:43:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/projects/python_agt201812/</loc>
+    <lastmod>2018-05-25T09:42:19-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/projects/python_shell201812/</loc>
+    <lastmod>2018-05-25T09:42:05-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/projects/python_deeputilities/</loc>
+    <lastmod>2018-05-25T09:41:43-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/projects/python_ffmpegendecoder/</loc>
+    <lastmod>2018-05-24T23:42:08-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/playground/20180524ichs/</loc>
     <lastmod>2018-05-24T16:13:10-05:00</lastmod>
   </url>
@@ -44,8 +74,26 @@
   </url>
   
   <url>
+    <loc>https://cainmagi.github.io/categories/latex/</loc>
+    <lastmod>2018-05-25T09:43:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/categories/main/</loc>
     <lastmod>2018-05-23T16:49:20-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/categories/notes/</loc>
+    <lastmod>2018-05-25T17:32:01-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/categories/papers/</loc>
+    <lastmod>2018-05-25T17:32:01-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -56,8 +104,20 @@
   </url>
   
   <url>
+    <loc>https://cainmagi.github.io/categories/projects/</loc>
+    <lastmod>2018-05-25T09:43:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/categories/python/</loc>
+    <lastmod>2018-05-25T09:42:19-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/</loc>
-    <lastmod>2018-05-24T16:13:10-05:00</lastmod>
+    <lastmod>2018-05-25T17:32:01-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -69,6 +129,12 @@
   <url>
     <loc>https://cainmagi.github.io/categories/technique/</loc>
     <lastmod>2018-05-24T16:13:10-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/categories/tensorflow/</loc>
+    <lastmod>2018-05-25T09:42:19-05:00</lastmod>
     <priority>0</priority>
   </url>
   

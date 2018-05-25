@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>Bibile Study Notes of UH Group</title>
+      <link>https://cainmagi.github.io/playground/20180525biblestudy/</link>
+      <pubDate>Fri, 25 May 2018 09:43:00 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/playground/20180525biblestudy/</guid>
+      <description>Introduction This is a latex project of the Thursday fellowship in UH religion center. Although I attempt to build a full collection of our bible study progress, I have failed on this work. Now it only contains notes for several but not all meetings. Some of these notes are materials when I need to host the meeting.
+Note that the language is Chinese.
+Contents Now it contents:
+旧约 (Old Testament)    新约 (New Testament)  耶稣的降生（路加福音第2章） 耶稣受洗、被试探（路加福音第3、4章） 耶稣的论爱仇敌（路加福音第6章）    Instruction for Compile This book is compiled with $La\TeX$ and ${Xe}\TeX$ on $\TeX{Live}$ platform.</description>
+    </item>
+    
+    <item>
       <title>Instructions for creating a Hugo site</title>
       <link>https://cainmagi.github.io/playground/20180524ichs/</link>
       <pubDate>Thu, 24 May 2018 16:13:10 -0500</pubDate>
@@ -22,7 +34,7 @@
 补全教程：关于如何理解、使用Hugo主题
 然而，实际编写站点内容没有固定的套路，很多情况下能使用哪些功能取决于对应的主题。譬如有的主题支持HTML5，我们就能实现一些对应的技巧；而有些相对简单的主题不支持，我们就只能实现一些基本功能。共通的一些技巧可以查阅：
 Hugo官方文档
-本站使用的模板是Forty，这个模板支持HTML5。在做好所有的基础设置以后，我们可以用MarkDown写任何一篇内容。关于更高级的编写内容的技巧，可以查阅模板自带的Element范例。这些高级技巧无一例外需要通过HTML语法实现，包括但不限于分栏 ，按钮 ，图标 ，表单 ，分栏 ，下标 或者上标如此等等……
+本站使用的模板是Forty，这个模板支持HTML5。在做好所有的基础设置以后，我们可以用MarkDown写任何一篇内容。关于更高级的编写内容的技巧，可以查阅模板自带的Element范例。这些高级技巧无一例外需要通过HTML语法实现，包括但不限于分栏 ，按钮 ，图标 ，表单 ，下标 或者上标如此等等……
 补全 套用模板来定制主页 以Forty为例，下载后，其模板文档的关键结构如下：
 forty |---archetypes |---exampleSite | |---archetypes | |---content | | `---blogs | | |---_index.md | | `---blog1.md | |---static | |---config.toml | `---netlify.toml |---images |---layouts |---static | |---img | `---elements.html `---theme.toml  我们可以看到，Element就在static目录下，它不是由MarkDown渲染出的，而是静态网页，我们需要的参考都只能通过HTML的形式获取。图像文件都保存在static/img下，但是这里有不只一个static文件夹，我们稍后再讨论。现在我们需要关注的是exampleSite，它是一个模板自带的范例站点，通过调用
 hugo server --buildDrafts --watch  可以直接渲染出该范例，它就是模板提供预览的Demo。在这个Demo里面，主页是由config.toml定制的，我们需要将它和netlify.toml拷贝到我们自己的站点根目录下，覆盖原有的文件，通过上述命令，我们可以直接看到，主页的定制生效在了我们自己的站点上。

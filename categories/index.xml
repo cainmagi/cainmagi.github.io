@@ -20,11 +20,38 @@
     </item>
     
     <item>
+      <title>Latex</title>
+      <link>https://cainmagi.github.io/categories/latex/</link>
+      <pubDate>Fri, 25 May 2018 09:43:00 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/categories/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Main</title>
       <link>https://cainmagi.github.io/categories/main/</link>
       <pubDate>Wed, 23 May 2018 16:49:20 -0500</pubDate>
       
       <guid>https://cainmagi.github.io/categories/main/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Notes</title>
+      <link>https://cainmagi.github.io/categories/notes/</link>
+      <pubDate>Fri, 25 May 2018 17:32:01 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/categories/notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Papers</title>
+      <link>https://cainmagi.github.io/categories/papers/</link>
+      <pubDate>Fri, 25 May 2018 17:32:01 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/categories/papers/</guid>
       <description></description>
     </item>
     
@@ -38,11 +65,38 @@
     </item>
     
     <item>
+      <title>Projects</title>
+      <link>https://cainmagi.github.io/categories/projects/</link>
+      <pubDate>Fri, 25 May 2018 09:43:00 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/categories/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://cainmagi.github.io/categories/python/</link>
+      <pubDate>Fri, 25 May 2018 09:42:19 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Technique</title>
       <link>https://cainmagi.github.io/categories/technique/</link>
       <pubDate>Thu, 24 May 2018 16:13:10 -0500</pubDate>
       
       <guid>https://cainmagi.github.io/categories/technique/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tensorflow</title>
+      <link>https://cainmagi.github.io/categories/tensorflow/</link>
+      <pubDate>Fri, 25 May 2018 09:42:19 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/categories/tensorflow/</guid>
       <description></description>
     </item>
     
