@@ -6,10 +6,20 @@
     <description>Recent content in Technique on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 May 2018 16:13:10 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 26 May 2018 17:01:12 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/categories/technique/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Basic Linux Skills for Remote Controlling</title>
+      <link>https://cainmagi.github.io/playground/20180526linuxskill/</link>
+      <pubDate>Sat, 26 May 2018 17:01:12 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/playground/20180526linuxskill/</guid>
+      <description>Contents  Instruction Access  CygWin Approach  Install Setting Get Accessed  Putty with Xming  Install Setting Get Accessed  Exchange Data  Useful Commands  Basic Commands Work Installation and Upgrade Others   Instruction Here we provides some basic instructions for how to access to the remote Linux server. We assume that the reader who learn this instruction could grant such conditions:
+ Use a client device equipped with Windows; Has the full authority on both the client and the server; The client and the server is in the same domain.</description>
+    </item>
     
     <item>
       <title>Instructions for creating a Hugo site</title>

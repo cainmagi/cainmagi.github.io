@@ -1,0 +1,667 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	<meta name="generator" content="Hugo 0.40.3" />
+	<title>Basic Linux Skills for Remote Controlling &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>Basic Linux Skills for Remote Controlling</h1>
+                            </header>
+                            
+                                <span class="image main"><img src="/img/playground/coding.jpg" alt="" /></span>
+                            
+                            
+
+<h1 id="contents">Contents</h1>
+
+<ul>
+<li><a href="#instruction-contents">Instruction</a></li>
+<li><a href="#access-contents">Access</a>
+
+<ul>
+<li><a href="#cygwin-approach-contents">CygWin Approach</a>
+
+<ul>
+<li><a href="#install-contents">Install</a></li>
+<li><a href="#setting-contents">Setting</a></li>
+<li><a href="#get-accessed-contents">Get Accessed</a></li>
+</ul></li>
+<li><a href="#putty-with-xming-contents">Putty with Xming</a>
+
+<ul>
+<li><a href="#install-contents-1">Install</a></li>
+<li><a href="#setting-contents-1">Setting</a></li>
+<li><a href="#get-accessed-contents-1">Get Accessed</a></li>
+</ul></li>
+<li><a href="#exchange-data-contents">Exchange Data</a></li>
+</ul></li>
+<li><a href="#useful-commands-contents">Useful Commands</a>
+
+<ul>
+<li><a href="#basic-commands-contents">Basic Commands</a></li>
+<li><a href="#work-contents">Work</a></li>
+<li><a href="#installation-and-upgrade-contents">Installation and Upgrade</a></li>
+<li><a href="#others-contents">Others</a></li>
+</ul></li>
+</ul>
+
+<h1 id="instruction-contents"><a href="#contents">Instruction</a></h1>
+
+<p>Here we provides some basic instructions for how to access to the remote Linux server. We assume that the reader who learn this instruction could grant such conditions:</p>
+
+<ul>
+<li>Use a client device equipped with Windows;</li>
+<li>Has the full authority on both the client and the server;</li>
+<li>The client and the server is in the same domain.</li>
+</ul>
+
+<p>To perform a test of whether it is ok for network equipments, type this command in Windows CMD:</p>
+
+<pre><code class="language-DOS.bat">ping xx.xx.xx.xx -t
+</code></pre>
+
+<p>If the network access is OK, you would see the left result, otherwise the result is like the right one.</p>
+
+<table>
+<thead>
+<tr>
+<th>Success to access</th>
+<th>Network fail</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="ping_success.png" alt="" title="Success to access" /></td>
+<td><img src="ping_fail.png" alt="" title="Network fail" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>After confirming that the network works well, we could begin to get access to the remote server.</p>
+
+<h1 id="access-contents"><a href="#contents">Access</a></h1>
+
+<p>We have two methods to get access to the remote server. The first one is using CygWin to simulate a Linux environment, which means we could use the same method on a Linux client. However, CygWin is a huge application which may take much space. The second method is more suitable for Windows user, we only need to download Putty and Xming both of which are small.</p>
+
+<p>We recommend to use WinSCP to exchange data, although you could use <code>scp</code> command on Linux environment. It is easy to use WinSCP because the GUI is similar to explorer on Windows.</p>
+
+<h2 id="cygwin-approach-contents"><a href="#contents">CygWin Approach</a></h2>
+
+<h3 id="install-contents"><a href="#contents">Install</a></h3>
+
+<p>Check here to download the CygWin installer:</p>
+
+<p><a href="https://cygwin.com/install.html" class="button icon fa-download">Install CygWin</a></p>
+
+<p>You could also find some instructions about installing CygWin here. But for getting access to the server, we need to pay attention to some options during the installation:</p>
+
+<table>
+<thead>
+<tr>
+<th>Package Name</th>
+<th>Instruction</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>CygWin-SSH</td>
+<td><img src="cygwin_inst_ssh.png" alt="" title="Install Cygwin-SSH" /> <br /> It is important to install SSH so that you could get access successfully.</td>
+</tr>
+
+<tr>
+<td>CygWin-SSL</td>
+<td><img src="cygwin_inst_ssl.png" alt="" title="Install Cygwin-SSL" /> <br /> SSL could be used to grant the security of the connection.</td>
+</tr>
+
+<tr>
+<td>CygWin-X11</td>
+<td><img src="cygwin_inst_x11.png" alt="" title="Install Cygwin-X11" /> <br /> Last but most important, we need to install the whole X11 category to enable our terminal show the remote GUI.</td>
+</tr>
+</tbody>
+</table>
+
+<p>It may take a little bit long for you to install CygWin.</p>
+
+<h3 id="setting-contents"><a href="#contents">Setting</a></h3>
+
+<p>After installation, you need to modify the <code>.bashrc</code> file in the user root folder where CygWin installed. For example, my folder address is: <code>C:\cygwin64\home\username</code>. Then you would be able to see <code>.bashrc</code> file. We could open it and add these lines to the bottom of the file:</p>
+
+<pre><code class="language-Bash">export DISPLAY=:0.0
+startxwin &amp;
+</code></pre>
+
+<p>These commands would be run automatically every time you open the CygWin shell. Note that because it would create the sub-thread to run the Xming initializer, when we close the shell we need to close this thread mannually (in the system tray).</p>
+
+<p>After that, open the CygWin Shell. Wait for the Xming initialized. Then you could type</p>
+
+<pre><code class="language-Bash">$ xterm &amp;
+</code></pre>
+
+<p>If it success, you could see the result like below:</p>
+
+<table>
+<thead>
+<tr>
+<th>Success to open X termination</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="cygwin_run_xterm.png" alt="" title="Success to open X termination" /></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="get-accessed-contents"><a href="#contents">Get Accessed</a></h3>
+
+<p>Now we could use the X termination to get access to the server.</p>
+
+<p>First, type this command:</p>
+
+<pre><code class="language-Bash">$ ssh -Y username@xx.xx.xx.xx
+</code></pre>
+
+<p>If you connect the server for the first time, you may see a question about whether to accept the fingerprint, type <code>yes</code> as the response. Then it requires you to type the password. Do it as you know. Although you could not see any response on the screen, if you type, it takes effect actually. After that you could get access to the remote server successfully. The name of the device would change to the name of the server.</p>
+
+<p>Try to run an application as you know, you could see that the GUI works well.</p>
+
+<table>
+<thead>
+<tr>
+<th>Use remote GUI</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="cygwin_run_gui.png" alt="" title="Use remote GUI" /></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="putty-with-xming-contents"><a href="#contents">Putty with Xming</a></h2>
+
+<h3 id="install-contents-1"><a href="#contents">Install</a></h3>
+
+<p>Check here to download and install Putty. This application is lightweight and portable. You do not need to download the install package.</p>
+
+<p><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" class="button icon fa-download">Install Putty</a></p>
+
+<p>Here is the official site of Xming. You could download the binary package and install it. And here is also an instruction about how to link Xming with portable Putty, although we would discuss about this topic later. Note that downloading the website version (latest) of Xming needs donation. We need to choose public domain version.</p>
+
+<p><a href="http://www.straightrunning.com/XmingNotes/" class="button icon fa-download">Install Xming</a></p>
+
+<h3 id="setting-contents-1"><a href="#contents">Setting</a></h3>
+
+<p>Note that before we run Putty, we need to run <em>XLaunch</em>. Choose all default options, and you could see X11 on your system tray. Then we run Putty. As shown in the following screenshots, you need to fill the IP address of your server and give a name in the main page. Click <em>Save</em> then you could save the options. Then we need to enter the <em>SSH/X11</em> option, enable the X11 forwarding and set the display location as <code>:0.0</code>. After that, <strong>do not</strong> click <code>Open</code> button because you need to get back to the main page and save the options again. Then you could click <code>Open</code> and run the Putty terminal.</p>
+
+<table>
+<thead>
+<tr>
+<th>Putty Configuration (Base)</th>
+<th>Putty Configuration (X11)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="Putty_config_base.png" alt="" title="Putty Configuration (Base)" /></td>
+<td><img src="Putty_config_x11.png" alt="" title="Putty Configuration (X11)" /></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="get-accessed-contents-1"><a href="#contents">Get Accessed</a></h3>
+
+<p>When you run the terminal firstly, you may receive the warning about ssh fingerprints like the left screenshot. Just confirm <code>yes</code> and let it continue. Then you would be required to fill your user name and password on remote server. When you typing password, there would be no response shown on the screen, but your typing takes effect. If you get verified, you could log in successfully.</p>
+
+<table>
+<thead>
+<tr>
+<th>SSH Warning</th>
+<th>Use remote GUI</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="Putty_run_ssh.png" alt="" title="SSH Warning" /></td>
+<td><img src="Putty_run_gui.png" alt="" title="Use remote GUI" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The right screenshot show an example of using GUI (firefox). Make sure your X11 client running on your system tray, otherwise you could not open the GUI applications.</p>
+
+<h2 id="exchange-data-contents"><a href="#contents">Exchange Data</a></h2>
+
+<p>Compared to <code>scp</code> command, we recommend you to use WinSCP application. You could download it here:</p>
+
+<p><a href="https://winscp.net/eng/download.php" class="button icon fa-download">Install WinSCP</a></p>
+
+<p>This application is also lightweight. After the installation, you could open it and create a server shortcut on your desktop. The configuration is like this:</p>
+
+<table>
+<thead>
+<tr>
+<th>Configure WinSCP</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="winscp.png" alt="" title="Configure WinSCP" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>After logging in, you could exchange your data by dragging them on both sides of the window. The data transfer is realized by SCP protocol.</p>
+
+<h1 id="useful-commands-contents"><a href="#contents">Useful Commands</a></h1>
+
+<p>Here we show some useful commands when using Linux shell (Bash). By reading this part you would know how to work with software, install new packages and make some checking.</p>
+
+<h2 id="basic-commands-contents"><a href="#contents">Basic Commands</a></h2>
+
+<p>This part gives you an imagination about how to make basic operations. If you have not used Bash before, this part would be useful.</p>
+
+<ol>
+<li><p><strong>See help</strong>: You could add <code>--help</code> to almost all command and see the help description. By using this option you could learn more specific options for various usages of those applications.</p></li>
+
+<li><p><strong>Make a new directory</strong>: For example, if we want to create a folder named <code>new folder</code>, we could type:</p>
+
+<pre><code class="language-Bash">$ mkdir &quot;new folder&quot;
+</code></pre></li>
+
+<li><p><strong>See current path</strong>: Typing this command you would see your current path. If you use <code>-P</code> option, you would see the real path instead of shotcut version.</p>
+
+<pre><code class="language-Bash">$ pwd
+</code></pre></li>
+
+<li><p><strong>See all avaliable files</strong>: Use <code>ls</code> to see all files and directories in the current path. If you use <code>-l</code> option (as below), you would see the detail information of each items. Use <code>-a</code> option you may see some ignored items.</p>
+
+<pre><code class="language-Bash">$ ls -l
+</code></pre>
+
+<p>Note that either an abosolute path or a relative path is acceptable. For example, if we want to see items in <code>home/Downloads</code>, we could use <code>~</code> to replace the <code>home</code> and type:</p>
+
+<pre><code class="language-Bash">$ ls ~/Downloads
+</code></pre>
+
+<p>And do not use <code>\</code> to replace <code>/</code> on Linux.</p>
+
+<p>The <code>home</code> folder, i.e. the <code>~</code> path is not the root folder actually. To get access to the root folder of the computer, use <code>/</code> as the beginning. For example, we want to see the <code>usr</code> folder in the root folder, type</p>
+
+<pre><code class="language-Bash">$ ls /usr -al
+</code></pre>
+
+<p>In this example we use a multiplied option with <code>-a</code> and <code>-l</code>.</p></li>
+
+<li><p><strong>Change the current path</strong>: Like what we do on Windows, use <code>cd</code> command to do that.</p></li>
+
+<li><p><strong>Delete files and directories</strong>: Use <code>rm</code> to delete files, it supports the asterisk wildcard. For example, if we want to delete all files with a name begin with <code>rss</code>,</p>
+
+<pre><code class="language-Bash">$ rm rss*
+</code></pre>
+
+<p>If we want to delete a folder, we should use <code>rmdir</code> or <code>rm -r</code> rather than <code>rm</code>. For example, we use this command to delete <code>new folder</code> created before:</p>
+
+<pre><code class="language-Bash">$ rmdir &quot;new folder&quot;
+</code></pre>
+
+<p>Note that here is also a command like this:</p>
+
+<pre><code class="language-Bash">$ rm -rf xxx
+</code></pre>
+
+<p>This means delete <code>xxx</code> recursively. It would delete all directories and files in <code>xxx</code> without any confirmation. So this command is dangerous. Make sure you would not delete any file by mistake before calling it.</p></li>
+
+<li><p><strong>Move files</strong>: Use <code>mv</code> to move files. For example, we want to move <code>a.txt</code> and <code>b.sh</code> to <code>home/folder/xxx</code>,</p>
+
+<pre><code class="language-Bash">$ mv a.txt b.sh ~/folder/xxx
+</code></pre>
+
+<p>We could move multiple files here.</p></li>
+
+<li><p><strong>Duplicate files</strong>: Use <code>cp</code> to get a copy of a file. The basic usage is like <code>mv</code>, and we could copy a folder like this:</p>
+
+<pre><code>$ cp folderA folderB -rf
+</code></pre></li>
+
+<li><p><strong>See command history</strong>: Use <code>history</code> to see which commands we used before.</p></li>
+
+<li><p><strong>Track a file</strong>: Use <code>tail</code> to see the last few lines of a large file. This command is useful when we need to tracking some log files which are growing when we check them. For example, if <code>a.log</code> is growing with one line per second, we could use</p>
+
+<pre><code class="language-Bash">$ tail a.log -f
+</code></pre>
+
+<p>to follow it. When we do not want to see the results, use <code>CTRL+C</code> to terminate this process.</p></li>
+
+<li><p><strong>Creating a thread</strong>: Use <code>&amp;</code> after any command or application, you could open / run it in a sub-thread. For example,</p>
+
+<pre><code class="language-Bash">$ gedit &amp; a.txt
+</code></pre>
+
+<p>would call an editor without blocking the Bash.</p></li>
+
+<li><p><strong>Search keywords from results</strong>: Use a postfix <code>| grep key</code> after any command, you could search for some specific results. For example, if you want to search <code>*.txt</code> in <code>home</code>, you could use</p>
+
+<pre><code class="language-Bash">$ ls ~ -al | grep .txt
+</code></pre>
+
+<p>If you want to see any historical commands about <code>ssh</code>, you could type:</p>
+
+<pre><code class="language-Bash">$ history | grep ssh
+</code></pre></li>
+
+<li><p><strong>See any enviromental variable</strong>: For example, if we want to see the enviromental variable named <code>PATH</code>, we could use this command to see the result:</p>
+
+<pre><code class="language-Bash">$ echo $PATH
+</code></pre></li>
+
+<li><p><strong>See network information</strong>: Use <code>ifconfig</code> to do that. You could check the IP address of this computer by this command. Certainly, you could also use <code>ping</code> like what we do on Windows to check the connection with an IP address.</p></li>
+</ol>
+
+<h2 id="work-contents"><a href="#contents">Work</a></h2>
+
+<p>Working with matlab is easy, because matlab has a full GUI. You could use <code>matlab &amp;</code> to open a new thread.</p>
+
+<p>If you have installed <code>Anaconda3</code>, you could use these commands to make some operations:</p>
+
+<ol>
+<li><p><strong>Upgrade anaconda itself</strong>: Use this command to upgrade conda.</p>
+
+<pre><code class="language-Bash">$ conda update conda
+</code></pre></li>
+
+<li><p><strong>Upgrade all packages</strong>: Use this command to update to the newest version of the anaconda:</p>
+
+<pre><code class="language-Bash">$ conda update --all
+</code></pre></li>
+
+<li><p><strong>Upgrade pip</strong>: Use this command to update the pip tool:</p>
+
+<pre><code class="language-Bash">$ python -m pip install --upgrade pip
+</code></pre></li>
+
+<li><p><strong>Install a new package via conda</strong>: For example, we could use such command to install opencv from <code>conda-forge</code> repository.</p>
+
+<pre><code class="language-Bash">$ conda install -c conda-forge opencv
+</code></pre></li>
+
+<li><p><strong>enter a conda environment</strong>: For example, if we need to enter an environment named <code>py35</code>, use</p>
+
+<pre><code class="language-Bash">$ source activate py35
+</code></pre>
+
+<p>If we want to enter the base environment, use</p>
+
+<pre><code class="language-Bash">$ source activate base
+</code></pre></li>
+
+<li><p><strong>exit from the conda environment</strong>: Use this command to exit from the current environment:</p>
+
+<pre><code class="language-Bash">$ source deactivate
+</code></pre></li>
+</ol>
+
+<h2 id="installation-and-upgrade-contents"><a href="#contents">Installation and Upgrade</a></h2>
+
+<p>Sometimes some applications would provide us with package for downloading. For example, you could download Linux Anaconda3 here:</p>
+
+<p><a href="https://www.anaconda.com/download/" class="button icon fa-download">Install Anaconda</a></p>
+
+<p>In this example, we could have a <code>Anaconda.sh</code> file. Use this command on Bash</p>
+
+<pre><code class="language-Bash">$ ./Anaconda.sh
+</code></pre>
+
+<p>and follow the instructions, we could install it successfully and add the environmental path automatically.</p>
+
+<p>However, here we want to introduce another method for managing packages. This method is used more on Linux. It is <code>apt</code> command series.</p>
+
+<ol>
+<li><p><strong>Check whether an app is installed</strong>: For example, if we want to check whether <em>gvim</em> has been installed, we could use</p>
+
+<pre><code class="language-Bash">$ which gvim
+</code></pre></li>
+
+<li><p><strong>List all installed apps</strong>: Use this command to do that,</p>
+
+<pre><code class="language-Bash">$ apt list --installed
+</code></pre>
+
+<p>Or use</p>
+
+<pre><code class="language-Bash">$ dpkg -l
+</code></pre></li>
+
+<li><p><strong>Updating the avaliable app list</strong>: Before we get a new app, we need to update the available app list. Use this command to do that,</p>
+
+<pre><code class="language-Bash">$ sudo apt-get update
+</code></pre>
+
+<p><code>sudo</code> means we need to give the administrator&rsquo;s authority to do that. This is also required when we installing packages. <code>conda</code> or <code>pip</code> do not need it because these operations are in the user domain.</p></li>
+
+<li><p><strong>Search whether an app could be installed</strong>: For example, we could use this command to check where we could install an application. This command is important because it could return the name of the repository. For exmaple, we want to check where we could install <code>gvim</code>,</p>
+
+<pre><code class="language-Bash">$ apt-cache search gvim
+</code></pre></li>
+
+<li><p><strong>Download and install an app</strong>: For example, we want to install <code>gvim</code> which locates in <code>vim-gnome</code> repository. Then we use</p>
+
+<pre><code class="language-Bash">$ sudo apt-get install vim-gnome
+</code></pre></li>
+
+<li><p><strong>Remove an app</strong>: For example, if we want to remove <code>gvim</code> which locates in <code>vim-gnome</code> repository. Then we use</p>
+
+<pre><code class="language-Bash">$ sudo apt-get remove vim-gnome
+</code></pre></li>
+
+<li><p><strong>Upgrade an app</strong>: For example, if we want to upgrade <code>gvim</code> which locates in <code>vim-gnome</code> repository to the newest version. Then we use</p>
+
+<pre><code class="language-Bash">$ sudo apt-get upgrade vim-gnome
+</code></pre></li>
+</ol>
+
+<h1 id="others-contents"><a href="#contents">Others</a></h1>
+
+<div class="box">
+    <p style="color:#FAA"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Ooops! This part is still not avaliable. We plan to add how to use Docker in this section.</p>
+</div>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmgi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-119875813-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>

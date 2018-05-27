@@ -6,10 +6,29 @@
     <description>Recent content on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 May 2018 17:32:01 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 26 May 2018 17:01:12 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Basic Linux Skills for Remote Controlling</title>
+      <link>https://cainmagi.github.io/playground/20180526linuxskill/</link>
+      <pubDate>Sat, 26 May 2018 17:01:12 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/playground/20180526linuxskill/</guid>
+      <description>Contents  Instruction Access  CygWin Approach  Install Setting Get Accessed  Putty with Xming  Install Setting Get Accessed  Exchange Data  Useful Commands  Basic Commands Work Installation and Upgrade Others   Instruction Here we provides some basic instructions for how to access to the remote Linux server. We assume that the reader who learn this instruction could grant such conditions:
+ Use a client device equipped with Windows; Has the full authority on both the client and the server; The client and the server is in the same domain.</description>
+    </item>
+    
+    <item>
+      <title>Notes on May 26, 2018</title>
+      <link>https://cainmagi.github.io/notes/note20180526/</link>
+      <pubDate>Sat, 26 May 2018 02:10:27 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20180526/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Notes on May 18, 2018</title>
@@ -108,7 +127,7 @@ Font Awesome Icons
 Curriculum Vitae Click here to see my curriculum vitae created in 2017.
 Curriculum Vitae
  Personal Statement
-  Skill  Coding  Python: Using tensorflow, python-c-api, PyQt5 and opencv3 to process data. Matlab: Be able to use several toolboxes and matlab-c-api. C/C++: Familiar with Qt5 and ffmpeg4. Ruby/RGSS2: Knowing a little because of using RPG maker.</description>
+  Skill Coding  Python: Using tensorflow, python-c-api, PyQt5 and opencv3 to process data. Matlab: Be able to use several toolboxes and matlab-c-api. C/C++: Familiar with Qt5 and ffmpeg4. Ruby/RGSS2: Knowing a little because of using RPG maker.</description>
     </item>
     
   </channel>

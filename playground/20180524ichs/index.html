@@ -12,6 +12,7 @@
 	<!-- Stylesheets -->
 	
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
 	
 	
 
@@ -153,7 +154,7 @@
 `---netlify.toml
 </code></pre>
 
-<p>一般来说，我们自定义的内容可以分成两种结构。第一种是直接从属于*main*范畴下的页面，例如上述的<code>about.md</code>，其域名为形如<code>http://site/about</code>的形式。</p>
+<p>一般来说，我们自定义的内容可以分成两种结构。第一种是直接从属于<em>main</em> 范畴下的页面，例如上述的<code>about.md</code>，其域名为形如<code>http://site/about</code>的形式。</p>
 
 <p>另一种是二级页面，它由一个文件夹来构成，例如<code>blogs</code>，其主域名为<code>http://site/blogs</code>，但实际指向的是_index.md的内容；<code>blogs</code>下又从属许多页面，例如<code>blog1.md</code>，其域名为形如<code>http://site/blogs/blog1/</code>的形式。主页面<code>_index.md</code>除了提供标题、标题画面以及类型简介以外，不提供任何实质的内容。但是通过添加从页面，这些从页面的简介（包括标题图，如果存在的话）都会显示在主页面下。而每个从页面的简介在对应的文件里面定义，不需要重新声明在主页面里。</p>
 
@@ -185,6 +186,124 @@
 <h3 id="代码高亮">代码高亮</h3>
 
 <p>直接查阅上述的<a href="http://newoxygen.github.io/post/hugo%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%99/" title="氧气计算-Hugo快速建站"><strong>基础流程</strong></a>，按照其中代码高亮的操作步骤修改模板即可。</p>
+
+<h3 id="弹出图片窗口">弹出图片窗口</h3>
+
+<p><a href="https://themes.gohugo.io/forty/" title="Hugo Theme - Forty"><strong>Forty</strong></a>模板自身不具备点击图片弹出（放大）窗口的功能。我们可以自行将它添加上。这一功能要求我们实现以下细节：</p>
+
+<ul>
+<li>每页的title图不能被点击放大；</li>
+<li>带有超链接的图不能被点击放大；</li>
+<li>除上述两条，所有的<code>&lt;img&gt;</code>标签都允许被点击放大。</li>
+</ul>
+
+<p>基础功能（点击放大的实现在<a href="https://www.outlier.com/blog/jquery-image-pop-over-click" title="JQuery image pop over click">这里</a>）。</p>
+
+<h4 id="扩展js代码">扩展JS代码</h4>
+
+<p>为此，我们不妨关注这些不能被点击放大图的特性：</p>
+
+<ul>
+<li>title图的父标签一定是<code>&lt;span class='image main'&gt;</code>；</li>
+<li>带有超链接的图父标签一定是<code>&lt;a&gt;</code>。</li>
+</ul>
+
+<p>故而，可以通过筛选器，排除掉上述的两种情况，代码如下：</p>
+
+<pre><code class="language-JavaScript">$('body').append('&lt;div class=&quot;product-image-overlay&quot;&gt;&lt;span class=&quot;product-image-overlay-close&quot;&gt;&lt;i class=&quot;fa fa-times&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;img src=&quot;&quot; /&gt;&lt;/div&gt;');
+var productParent = $('img').parent(':not(span.image.main):not(a)');
+var productImage = productParent.find('img');
+var productOverlay = $('.product-image-overlay');
+var productOverlayImage = $('.product-image-overlay img');
+productImage.addClass(&quot;show_img&quot;);
+
+productImage.click(function () {
+    var productImageSource = $(this).attr('src');
+    productImage.removeClass(&quot;show_img&quot;);
+
+    productOverlayImage.attr('src', productImageSource);
+    productOverlay.fadeIn(300);
+    $('body').css('overflow', 'hidden');
+
+    $('.product-image-overlay-close').click(function () {
+        productOverlay.fadeOut(300);
+        productImage.addClass(&quot;show_img&quot;);
+        $('body').css('overflow', 'auto');
+    });
+});
+</code></pre>
+
+<p>相比原始代码，这一改进包括：</p>
+
+<ul>
+<li>将字符<code>X</code>代表的关闭键替换成了<i class="fa fa-times" aria-hidden="true"></i>；</li>
+<li>取出所有<code>&lt;img&gt;</code>标签的直属父元素，并排除掉了<code>span.image.main</code>和<code>a</code>两种父标签。</li>
+<li>增加了一个悬浮其上产生的效果。</li>
+</ul>
+
+<p>将这一代码保存为<code>jquery.images.js</code>，并保存到模板的<code>static/js</code>目录下；</p>
+
+<h4 id="扩展css">扩展CSS</h4>
+
+<p>同样，将<a href="https://www.outlier.com/blog/jquery-image-pop-over-click" title="JQuery image pop over click">参考资料</a>提供的css代码保存为<code>jq-images.css</code>，保存到模板的<code>static/css</code>目录下。本站中对该css还进行了微调，这些改动包括：</p>
+
+<ul>
+<li>将按钮加粗，放置在右上角而不是屏幕左上角；</li>
+<li>配合悬浮状态的效果，提高图片的亮度。</li>
+</ul>
+
+<p>具体实现的代码如下，替换掉原代码部分即可：</p>
+
+<pre><code class="language-css">.product-image-overlay .product-image-overlay-close {
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 100%;
+  margin-left: -60px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #eee;
+  line-height: 35px;
+  font-size: 20px;
+  color: #eee;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.product-image-overlay .product-image-overlay-close:hover {
+    color: #AAF;
+    border: 3px solid #AAF;
+}
+
+.show_img {
+    transition: 0.3s;
+}
+
+.show_img:hover {
+    -webkit-filter: invert(5%) brightness(200%);
+    filter: invert(5%) brightness(200%);
+}
+</code></pre>
+
+<h4 id="扩展模板的layout文件">扩展模板的Layout文件</h4>
+
+<p>最后，为了使CSS和JS生效，需要修改模板<code>layouts/partials</code>目录下的如下两个文件：</p>
+
+<ol>
+<li><p><code>header.html</code>: 在<code>main.css</code>所在的行下添加</p>
+
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &quot;css/jq-images.css&quot; | absURL}}&quot;/&gt;
+</code></pre></li>
+
+<li><p><code>js.html</code>: 在任意空行下添加</p>
+
+<pre><code class="language-html">&lt;script src=&quot;{{ &quot;js/jquery.images.js&quot;| absURL }}&quot;&gt;&lt;/script&gt;
+</code></pre></li>
+</ol>
+
+<p>该改动即可生效。类似地，如果我们还需要实现别的JQuery插件，同样也可以通过类似的步骤完成。</p>
 
 <h2 id="高级技巧的范例">高级技巧的范例</h2>
 
@@ -359,6 +478,7 @@
     <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
     <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
     <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
     <script src="https://cainmagi.github.io/js/skel.min.js"></script>
     <script src="https://cainmagi.github.io/js/util.js"></script>
 
