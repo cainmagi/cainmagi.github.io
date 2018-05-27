@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Rosenkreutz Studio</title>
+    <link>https://cainmagi.github.io/tags/python/</link>
+    <description>Recent content in Python on Rosenkreutz Studio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 May 2018 09:42:19 -0500</lastBuildDate>
+    
+	<atom:link href="https://cainmagi.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deep Learning for AGT</title>
+      <link>https://cainmagi.github.io/projects/python_agt201812/</link>
+      <pubDate>Fri, 25 May 2018 09:42:19 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/projects/python_agt201812/</guid>
+      <description>Introduction This project is for AGT (Advanced Geophysical Technology) and 2018 SEG (Society of Exploration Geophysicists) conference. We concentrate on the seismic raw data and use deep learning approaches to improve the performance in some special application.
+Beat Tone Network The first application is for improving the FWI of Beat Tone, see here to learn the background of this application:
+Reference
+When the basic signal frequency increases, the effectiveness of the Beat Tone method reduces significantly.</description>
+    </item>
+    
+    <item>
+      <title>Real-time Shaker Video Analysis for Shell Project</title>
+      <link>https://cainmagi.github.io/projects/python_shell201812/</link>
+      <pubDate>Fri, 25 May 2018 09:42:05 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/projects/python_shell201812/</guid>
+      <description>Introduction In this project, we aim to process video stream by utilizing deep learning tools (tensorflow). The data is from the camera deployed beside the real shaker on well-logging site. When the shaker is spare, the surface of it is clean. However, during the well-logging process, the cuttings flow would come and get captured by the camera.
+To build a complete system, we divde our work into two phases.</description>
+    </item>
+    
+    <item>
+      <title>Deep Learning Utilities</title>
+      <link>https://cainmagi.github.io/projects/python_deeputilities/</link>
+      <pubDate>Fri, 25 May 2018 09:41:43 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/projects/python_deeputilities/</guid>
+      <description>Introduction Processing data with tensorflow (python) could be accelerated with utilizing advanced CPU drivers and GPU. In this case, the pre-processing and post-processing may delay the fast GPU processing. For example, one of the most ordinary application is converting the segmentation mask picture to the multi-channel mask.
+Matrix projecting As is shown below, in the segmentation picture, we use each color to represent a label. But in real application, to avoid the overlapping of the label value, we need to separate each label in one-hot format, i.</description>
+    </item>
+    
+    <item>
+      <title>FFmpeg Encoder Decoder for Python</title>
+      <link>https://cainmagi.github.io/projects/python_ffmpegendecoder/</link>
+      <pubDate>Thu, 24 May 2018 23:42:08 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/projects/python_ffmpegendecoder/</guid>
+      <description>Introduction As a python-c-api implementation, this project allows users to use pure python codes to read/write video files as easily as calling open function series. Currently it supports the formats including mpeg2, h254, h265(hevc), vp8, vp9, etc.
+By designing a dual-thread architecture, it could also demux the remote video stream including rtp, rstp, etc. Because it is used for analytical purposes, this project does not extract the audio stream in the video file/stream.</description>
+    </item>
+    
+  </channel>
+</rss>

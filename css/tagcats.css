@@ -1,0 +1,65 @@
+.grid {
+  padding-top: 2em;
+  padding-left: 2em;
+  overflow-y: hidden;
+}
+
+.content-column {
+  padding-top: 40px;
+}
+
+.box-limitation {
+  max-width: 20em;
+}
+
+.box-masonry {
+  background: #3A3F5A;
+  margin-bottom: 30px;
+  position: relative;
+  box-shadow: 0 0 5px #ccc;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.box-masonry h4 {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.box-masonry h4 a {
+  color: #FFF;
+  border-bottom: solid 1px transparent;
+}
+.box-masonry h4 a:hover {
+  border-bottom: dotted 1px #379392;
+  text-decoration: none;
+}
+.box-masonry .box-masonry-text {
+  padding: 15px 20px 15px;
+}
+.box-masonry .box-masonry-text p {
+  color: #BBB;
+  font-size: 14px;
+}
+.box-masonry:hover {
+  background: #4A4F6A;
+  box-shadow: 0 0 5px #999;
+}
+.box-masonry h2:last-child,
+.box-masonry p:last-child {
+  margin-bottom: 0;
+}
+.box-masonry:hover p{
+  color: #FFF;
+}
+
+.box-back {
+    background: #5A3F3A;
+}
+.box-back:hover  {
+    background: #6A4F4A;
+}

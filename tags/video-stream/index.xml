@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Video Stream on Rosenkreutz Studio</title>
+    <link>https://cainmagi.github.io/tags/video-stream/</link>
+    <description>Recent content in Video Stream on Rosenkreutz Studio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 May 2018 23:42:08 -0500</lastBuildDate>
+    
+	<atom:link href="https://cainmagi.github.io/tags/video-stream/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>FFmpeg Encoder Decoder for Python</title>
+      <link>https://cainmagi.github.io/projects/python_ffmpegendecoder/</link>
+      <pubDate>Thu, 24 May 2018 23:42:08 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/projects/python_ffmpegendecoder/</guid>
+      <description>Introduction As a python-c-api implementation, this project allows users to use pure python codes to read/write video files as easily as calling open function series. Currently it supports the formats including mpeg2, h254, h265(hevc), vp8, vp9, etc.
+By designing a dual-thread architecture, it could also demux the remote video stream including rtp, rstp, etc. Because it is used for analytical purposes, this project does not extract the audio stream in the video file/stream.</description>
+    </item>
+    
+  </channel>
+</rss>

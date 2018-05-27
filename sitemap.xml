@@ -73,6 +73,30 @@
   </url>
   
   <url>
+    <loc>https://cainmagi.github.io/tags/about/</loc>
+    <lastmod>2018-05-23T16:49:20-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/bible/</loc>
+    <lastmod>2018-05-25T09:43:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/bible-study/</loc>
+    <lastmod>2018-05-25T09:43:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/blog/</loc>
+    <lastmod>2018-05-24T16:13:10-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/categories/</loc>
     <priority>0</priority>
   </url>
@@ -80,6 +104,54 @@
   <url>
     <loc>https://cainmagi.github.io/categories/command/</loc>
     <lastmod>2018-05-26T17:01:12-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/cv/</loc>
+    <lastmod>2018-05-23T16:49:20-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/cygwin/</loc>
+    <lastmod>2018-05-26T17:01:12-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/deep-learning/</loc>
+    <lastmod>2018-05-26T02:10:27-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/denoising/</loc>
+    <lastmod>2018-05-25T09:42:19-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/ffmpeg/</loc>
+    <lastmod>2018-05-24T23:42:08-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/houston-chinese-church/</loc>
+    <lastmod>2018-05-25T09:43:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/hugo/</loc>
+    <lastmod>2018-05-24T16:13:10-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/image-processing/</loc>
+    <lastmod>2018-05-25T09:42:05-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -96,14 +168,38 @@
   </url>
   
   <url>
+    <loc>https://cainmagi.github.io/tags/linux/</loc>
+    <lastmod>2018-05-26T17:01:12-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/categories/main/</loc>
     <lastmod>2018-05-23T16:49:20-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://cainmagi.github.io/tags/markdown/</loc>
+    <lastmod>2018-05-24T16:13:10-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/nips/</loc>
+    <lastmod>2018-05-26T02:10:27-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/categories/notes/</loc>
     <lastmod>2018-05-26T02:10:27-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/numpy/</loc>
+    <lastmod>2018-05-25T09:41:43-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -121,7 +217,19 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/projects/</loc>
-    <lastmod>2018-05-25T09:43:00-05:00</lastmod>
+    <lastmod>2018-05-25T09:42:19-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/putty/</loc>
+    <lastmod>2018-05-26T17:01:12-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/python/</loc>
+    <lastmod>2018-05-25T09:42:19-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -132,13 +240,68 @@
   </url>
   
   <url>
+    <loc>https://cainmagi.github.io/tags/python-c-api/</loc>
+    <lastmod>2018-05-25T09:42:19-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/reformation/</loc>
+    <lastmod>2018-05-25T09:43:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/remote-access/</loc>
+    <lastmod>2018-05-26T17:01:12-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/remote-gui/</loc>
+    <lastmod>2018-05-26T17:01:12-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/research/</loc>
+    <lastmod>2018-05-26T02:10:27-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/resume/</loc>
+    <lastmod>2018-05-23T16:49:20-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/</loc>
     <lastmod>2018-05-26T17:01:12-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://cainmagi.github.io/tags/rtsp-player/</loc>
+    <lastmod>2018-05-24T23:42:08-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/seismic-processing/</loc>
+    <lastmod>2018-05-25T09:42:19-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/signal-processing/</loc>
+    <lastmod>2018-05-25T09:42:19-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/tags/</loc>
+    <lastmod>2018-05-23T16:49:20-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -149,14 +312,38 @@
   </url>
   
   <url>
+    <loc>https://cainmagi.github.io/tags/tensorflow/</loc>
+    <lastmod>2018-05-25T09:42:19-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/categories/tensorflow/</loc>
     <lastmod>2018-05-25T09:42:19-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://cainmagi.github.io/tags/video-processing/</loc>
+    <lastmod>2018-05-25T09:42:05-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/video-stream/</loc>
+    <lastmod>2018-05-24T23:42:08-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/categories/web/</loc>
     <lastmod>2018-05-24T16:13:10-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/winscp/</loc>
+    <lastmod>2018-05-26T17:01:12-05:00</lastmod>
     <priority>0</priority>
   </url>
   

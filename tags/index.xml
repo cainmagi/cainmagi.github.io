@@ -6,9 +6,289 @@
     <description>Recent content in Tags on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Wed, 23 May 2018 16:49:20 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>About</title>
+      <link>https://cainmagi.github.io/tags/about/</link>
+      <pubDate>Wed, 23 May 2018 16:49:20 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bible</title>
+      <link>https://cainmagi.github.io/tags/bible/</link>
+      <pubDate>Fri, 25 May 2018 09:43:00 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/bible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bible Study</title>
+      <link>https://cainmagi.github.io/tags/bible-study/</link>
+      <pubDate>Fri, 25 May 2018 09:43:00 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/bible-study/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog</title>
+      <link>https://cainmagi.github.io/tags/blog/</link>
+      <pubDate>Thu, 24 May 2018 16:13:10 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cv</title>
+      <link>https://cainmagi.github.io/tags/cv/</link>
+      <pubDate>Wed, 23 May 2018 16:49:20 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/cv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cygwin</title>
+      <link>https://cainmagi.github.io/tags/cygwin/</link>
+      <pubDate>Sat, 26 May 2018 17:01:12 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/cygwin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Learning</title>
+      <link>https://cainmagi.github.io/tags/deep-learning/</link>
+      <pubDate>Sat, 26 May 2018 02:10:27 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Denoising</title>
+      <link>https://cainmagi.github.io/tags/denoising/</link>
+      <pubDate>Fri, 25 May 2018 09:42:19 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/denoising/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ffmpeg</title>
+      <link>https://cainmagi.github.io/tags/ffmpeg/</link>
+      <pubDate>Thu, 24 May 2018 23:42:08 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/ffmpeg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Houston Chinese Church</title>
+      <link>https://cainmagi.github.io/tags/houston-chinese-church/</link>
+      <pubDate>Fri, 25 May 2018 09:43:00 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/houston-chinese-church/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://cainmagi.github.io/tags/hugo/</link>
+      <pubDate>Thu, 24 May 2018 16:13:10 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image Processing</title>
+      <link>https://cainmagi.github.io/tags/image-processing/</link>
+      <pubDate>Fri, 25 May 2018 09:42:05 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/image-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://cainmagi.github.io/tags/linux/</link>
+      <pubDate>Sat, 26 May 2018 17:01:12 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markdown</title>
+      <link>https://cainmagi.github.io/tags/markdown/</link>
+      <pubDate>Thu, 24 May 2018 16:13:10 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nips</title>
+      <link>https://cainmagi.github.io/tags/nips/</link>
+      <pubDate>Sat, 26 May 2018 02:10:27 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/nips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Numpy</title>
+      <link>https://cainmagi.github.io/tags/numpy/</link>
+      <pubDate>Fri, 25 May 2018 09:41:43 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/numpy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Putty</title>
+      <link>https://cainmagi.github.io/tags/putty/</link>
+      <pubDate>Sat, 26 May 2018 17:01:12 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/putty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://cainmagi.github.io/tags/python/</link>
+      <pubDate>Fri, 25 May 2018 09:42:19 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python C Api</title>
+      <link>https://cainmagi.github.io/tags/python-c-api/</link>
+      <pubDate>Fri, 25 May 2018 09:42:19 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/python-c-api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reformation</title>
+      <link>https://cainmagi.github.io/tags/reformation/</link>
+      <pubDate>Fri, 25 May 2018 09:43:00 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/reformation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Remote Access</title>
+      <link>https://cainmagi.github.io/tags/remote-access/</link>
+      <pubDate>Sat, 26 May 2018 17:01:12 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/remote-access/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Remote Gui</title>
+      <link>https://cainmagi.github.io/tags/remote-gui/</link>
+      <pubDate>Sat, 26 May 2018 17:01:12 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/remote-gui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>https://cainmagi.github.io/tags/research/</link>
+      <pubDate>Sat, 26 May 2018 02:10:27 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resume</title>
+      <link>https://cainmagi.github.io/tags/resume/</link>
+      <pubDate>Wed, 23 May 2018 16:49:20 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/resume/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rtsp Player</title>
+      <link>https://cainmagi.github.io/tags/rtsp-player/</link>
+      <pubDate>Thu, 24 May 2018 23:42:08 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/rtsp-player/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Seismic Processing</title>
+      <link>https://cainmagi.github.io/tags/seismic-processing/</link>
+      <pubDate>Fri, 25 May 2018 09:42:19 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/seismic-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Signal Processing</title>
+      <link>https://cainmagi.github.io/tags/signal-processing/</link>
+      <pubDate>Fri, 25 May 2018 09:42:19 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/signal-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tensorflow</title>
+      <link>https://cainmagi.github.io/tags/tensorflow/</link>
+      <pubDate>Fri, 25 May 2018 09:42:19 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/tensorflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Video Processing</title>
+      <link>https://cainmagi.github.io/tags/video-processing/</link>
+      <pubDate>Fri, 25 May 2018 09:42:05 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/video-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Video Stream</title>
+      <link>https://cainmagi.github.io/tags/video-stream/</link>
+      <pubDate>Thu, 24 May 2018 23:42:08 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/video-stream/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Winscp</title>
+      <link>https://cainmagi.github.io/tags/winscp/</link>
+      <pubDate>Sat, 26 May 2018 17:01:12 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/winscp/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

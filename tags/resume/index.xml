@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resume on Rosenkreutz Studio</title>
+    <link>https://cainmagi.github.io/tags/resume/</link>
+    <description>Recent content in Resume on Rosenkreutz Studio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 23 May 2018 16:49:20 -0500</lastBuildDate>
+    
+	<atom:link href="https://cainmagi.github.io/tags/resume/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Me</title>
+      <link>https://cainmagi.github.io/about/</link>
+      <pubDate>Wed, 23 May 2018 16:49:20 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/about/</guid>
+      <description>My Personal Statements A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.
+Curriculum Vitae Click here to see my curriculum vitae created in 2017.
+Curriculum Vitae
+ Personal Statement
+  Skill Coding  Python: Using tensorflow, python-c-api, PyQt5 and opencv3 to process data. Matlab: Be able to use several toolboxes and matlab-c-api. C/C++: Familiar with Qt5 and ffmpeg4. Ruby/RGSS2: Knowing a little because of using RPG maker.</description>
+    </item>
+    
+  </channel>
+</rss>

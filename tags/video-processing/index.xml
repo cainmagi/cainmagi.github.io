@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Video Processing on Rosenkreutz Studio</title>
+    <link>https://cainmagi.github.io/tags/video-processing/</link>
+    <description>Recent content in Video Processing on Rosenkreutz Studio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 May 2018 09:42:05 -0500</lastBuildDate>
+    
+	<atom:link href="https://cainmagi.github.io/tags/video-processing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Real-time Shaker Video Analysis for Shell Project</title>
+      <link>https://cainmagi.github.io/projects/python_shell201812/</link>
+      <pubDate>Fri, 25 May 2018 09:42:05 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/projects/python_shell201812/</guid>
+      <description>Introduction In this project, we aim to process video stream by utilizing deep learning tools (tensorflow). The data is from the camera deployed beside the real shaker on well-logging site. When the shaker is spare, the surface of it is clean. However, during the well-logging process, the cuttings flow would come and get captured by the camera.
+To build a complete system, we divde our work into two phases.</description>
+    </item>
+    
+  </channel>
+</rss>
