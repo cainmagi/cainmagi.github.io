@@ -437,6 +437,75 @@ startxwin &amp;
 </code></pre></li>
 
 <li><p><strong>See network information</strong>: Use <code>ifconfig</code> to do that. You could check the IP address of this computer by this command. Certainly, you could also use <code>ping</code> like what we do on Windows to check the connection with an IP address.</p></li>
+
+<li><p><strong>Change the authority of files</strong>: Use <code>chmod</code> to change the authority. We use 3 digits to represent the authority stage. The meanings of each stage are as below:</p>
+
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Permission</th>
+<th>rwx</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>7</td>
+<td>read, write and execute</td>
+<td>rwx</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>read and write</td>
+<td>rw-</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>read and execute</td>
+<td>r-x</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>read only</td>
+<td>r&ndash;</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>write and execute</td>
+<td>-wx</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>write only</td>
+<td>-w-</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>execute only</td>
+<td>&ndash;x</td>
+</tr>
+
+<tr>
+<td>0</td>
+<td>none</td>
+<td>&mdash;</td>
+</tr>
+</tbody>
+</table>
+
+<p>And the three digits represents the authority of owner, the group, and other users respectively. Thus, for example, if we want to let all users have the full authority of a file named <code>x.txt</code>, we could use:</p>
+
+<pre><code class="language-Bash">$ sudo chmod 777 x.txt
+</code></pre></li>
+
+<li><p><strong>Change my password</strong>: Type <code>passwd</code>, and you could change your password. It requires you to enter the current password, new password and retyped new password.</p></li>
 </ol>
 
 <h2 id="work-contents"><a href="#contents">Work</a></h2>
@@ -541,7 +610,7 @@ startxwin &amp;
 </code></pre></li>
 </ol>
 
-<h1 id="others-contents"><a href="#contents">Others</a></h1>
+<h2 id="others-contents"><a href="#contents">Others</a></h2>
 
 <div class="box">
     <p style="color:#FAA"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Ooops! This part is still not avaliable. We plan to add how to use Docker in this section.</p>
