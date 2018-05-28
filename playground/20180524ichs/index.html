@@ -11,7 +11,9 @@
 	<title>Instructions for creating a Hugo site &middot; Rosenkreutz Studio</title>
 	<!-- Stylesheets -->
 	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
     <link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
 	
 	
@@ -79,10 +81,71 @@
                     <section id="one">
                         <div class="inner">
                             <header class="major">
-                                <h1>Instructions for creating a Hugo site</h1>
+                                <h1 id='main_title'>Instructions for creating a Hugo site</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>May 24, 2018</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>May 27, 2018</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/playground" title="Playground">Playground</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/technique" title="Technique">Technique</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/web" title="Web">Web</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/hugo" title="hugo">hugo</a>
+                                                    
+                                                    <a class="ui label" href="/tags/blog" title="blog">blog</a>
+                                                    
+                                                    <a class="ui label" href="/tags/markdown" title="markdown">markdown</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </header>
                             
                                 <span class="image main"><img src="/img/playground/20180524ichs_title.jpg" alt="" /></span>
+                            
+                            
+                                <h1 id="contents">Contents</h1>
+                                <p><nav id="TableOfContents">
+<ul>
+<li><a href="#背景">背景</a></li>
+<li><a href="#补全">补全</a>
+<ul>
+<li><a href="#套用模板来定制主页">套用模板来定制主页</a></li>
+<li><a href="#内容的基本结构">内容的基本结构</a></li>
+<li><a href="#补全模板的缺失">补全模板的缺失</a>
+<ul>
+<li><a href="#latex渲染">Latex渲染</a></li>
+<li><a href="#代码高亮">代码高亮</a></li>
+<li><a href="#弹出图片窗口">弹出图片窗口</a>
+<ul>
+<li><a href="#扩展js代码">扩展JS代码</a></li>
+<li><a href="#扩展css">扩展CSS</a></li>
+<li><a href="#扩展模板的layout文件">扩展模板的Layout文件</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#高级技巧的范例">高级技巧的范例</a></li>
+</ul></li>
+</ul>
+</nav></p>
                             
                             
 
@@ -486,6 +549,10 @@ productImage.click(function () {
 
     <!-- Main JS -->
     <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
 
     
 <script>
@@ -531,6 +598,10 @@ ga('send', 'pageview');
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
+    <script>
+        setSemanticUIColor();
+    </script>
 
     </body>
 </html>

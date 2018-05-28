@@ -17,8 +17,8 @@
       <pubDate>Sat, 26 May 2018 17:01:12 -0500</pubDate>
       
       <guid>https://cainmagi.github.io/playground/20180526linuxskill/</guid>
-      <description>Contents  Instruction Access  CygWin Approach  Install Setting Get Accessed  Putty with Xming  Install Setting Get Accessed  Exchange Data  Useful Commands  Basic Commands Work Installation and Upgrade Others   Instruction Here we provides some basic instructions for how to access to the remote Linux server. We assume that the reader who learn this instruction could grant such conditions:
- Use a client device equipped with Windows; Has the full authority on both the client and the server; The client and the server is in the same domain.</description>
+      <description>Instruction Here we provides some basic instructions for how to access to the remote Linux server. We assume that the reader who learn this instruction could grant such conditions:
+ Use a client device equipped with Windows; Has the full authority on both the client and the server; The client and the server is in the same domain.  To perform a test of whether it is ok for network equipments, type this command in Windows CMD:</description>
     </item>
     
     <item>
@@ -29,8 +29,7 @@
       <guid>https://cainmagi.github.io/playground/20180525biblestudy/</guid>
       <description>Introduction This is a latex project of the Thursday fellowship in UH religion center. Although I attempt to build a full collection of our bible study progress, I have failed on this work. Now it only contains notes for several but not all meetings. Some of these notes are materials when I need to host the meeting.
 Note that the language is Chinese.
-Contents Now it contents:
-旧约 (Old Testament)    新约 (New Testament)  耶稣的降生（路加福音第2章） 耶稣受洗、被试探（路加福音第3、4章） 耶稣的论爱仇敌（路加福音第6章）    Instruction for Compile This book is compiled with $La\TeX$ and ${Xe}\TeX$ on $\TeX{Live}$ platform.</description>
+Contents of the Book Now it contents:</description>
     </item>
     
     <item>

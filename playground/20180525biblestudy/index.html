@@ -11,7 +11,9 @@
 	<title>Bibile Study Notes of UH Group &middot; Rosenkreutz Studio</title>
 	<!-- Stylesheets -->
 	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
     <link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
 	
 	
@@ -79,10 +81,57 @@
                     <section id="one">
                         <div class="inner">
                             <header class="major">
-                                <h1>Bibile Study Notes of UH Group</h1>
+                                <h1 id='main_title'>Bibile Study Notes of UH Group</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>May 25, 2018</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>May 28, 2018</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/playground" title="Playground">Playground</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/latex" title="Latex">Latex</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/bible" title="bible">bible</a>
+                                                    
+                                                    <a class="ui label" href="/tags/bible-study" title="bible-study">bible-study</a>
+                                                    
+                                                    <a class="ui label" href="/tags/reformation" title="reformation">reformation</a>
+                                                    
+                                                    <a class="ui label" href="/tags/houston-chinese-church" title="houston-chinese-church">houston-chinese-church</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </header>
                             
                                 <span class="image main"><img src="/img/playground/20180525_biblestudy_title.jpg" alt="" /></span>
+                            
+                            
+                                <h1 id="contents">Contents</h1>
+                                <p><nav id="TableOfContents">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#contents-of-the-book">Contents of the Book</a></li>
+<li><a href="#instruction-for-compilation">Instruction for Compilation</a></li>
+<li><a href="#project-page">Project Page</a></li>
+</ul>
+</nav></p>
                             
                             
 
@@ -92,18 +141,18 @@
 
 <p>Note that the language is Chinese.</p>
 
-<h1 id="contents">Contents</h1>
+<h1 id="contents-of-the-book">Contents of the Book</h1>
 
 <p>Now it contents:</p>
 
 <div class="row">
   <div class="6u 12u(mobilep)">
-    <h3>旧约 (Old Testament)</h3>
+    <h3 id="old-testament">旧约 (Old Testament)</h3>
     <ul>
     </ul> 
   </div>
   <div class="6u 12u(mobilep)">
-    <h3>新约 (New Testament)</h3>
+    <h3 id="new-testament">新约 (New Testament)</h3>
     <ul>
       <li>耶稣的降生（路加福音第2章）</li>
       <li>耶稣受洗、被试探（路加福音第3、4章）</li>
@@ -113,7 +162,7 @@
 </div>
   
 
-<h1 id="instruction-for-compile">Instruction for Compile</h1>
+<h1 id="instruction-for-compilation">Instruction for Compilation</h1>
 
 <p>This book is compiled with $La\TeX$ and ${Xe}\TeX$ on $\TeX{Live}$ platform. Apart from this, we need users to install such fonts into the operating system:</p>
 
@@ -208,6 +257,10 @@
 
     <!-- Main JS -->
     <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
 
     
 <script>
@@ -253,6 +306,10 @@ ga('send', 'pageview');
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
+    <script>
+        setSemanticUIColor();
+    </script>
 
     </body>
 </html>

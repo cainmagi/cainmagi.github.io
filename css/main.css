@@ -1820,16 +1820,17 @@
 	}
 
 	header.major {
-		width: -moz-max-content;
-		width: -webkit-max-content;
-		width: -ms-max-content;
-		width: max-content;
+		width: 100%;
 		margin-bottom: 2em;
 	}
 
 		header.major > :first-child {
+			max-width: -moz-max-content;
+			max-width: -webkit-max-content;
+			max-width: -ms-max-content;
+			max-width: max-content;
 			margin-bottom: 0;
-			width: calc(100% + 0.5em);
+			/*width: calc(100% + 0.5em);*/
 		}
 
 			header.major > :first-child:after {

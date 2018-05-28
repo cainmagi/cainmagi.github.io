@@ -11,7 +11,9 @@
 	<title>Basic Linux Skills for Remote Controlling &middot; Rosenkreutz Studio</title>
 	<!-- Stylesheets -->
 	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
     <link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
 	
 	
@@ -79,47 +81,87 @@
                     <section id="one">
                         <div class="inner">
                             <header class="major">
-                                <h1>Basic Linux Skills for Remote Controlling</h1>
+                                <h1 id='main_title'>Basic Linux Skills for Remote Controlling</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>May 26, 2018</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>May 28, 2018</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/playground" title="Playground">Playground</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/technique" title="Technique">Technique</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/command" title="Command">Command</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/linux" title="linux">linux</a>
+                                                    
+                                                    <a class="ui label" href="/tags/remote-access" title="remote-access">remote-access</a>
+                                                    
+                                                    <a class="ui label" href="/tags/cygwin" title="CygWin">CygWin</a>
+                                                    
+                                                    <a class="ui label" href="/tags/putty" title="putty">putty</a>
+                                                    
+                                                    <a class="ui label" href="/tags/winscp" title="WinSCP">WinSCP</a>
+                                                    
+                                                    <a class="ui label" href="/tags/remote-gui" title="remote-GUI">remote-GUI</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </header>
                             
                                 <span class="image main"><img src="/img/playground/coding.jpg" alt="" /></span>
                             
                             
-
-<h1 id="contents">Contents</h1>
-
+                                <h1 id="contents">Contents</h1>
+                                <p><nav id="TableOfContents">
 <ul>
-<li><a href="#instruction-contents">Instruction</a></li>
-<li><a href="#access-contents">Access</a>
-
+<li><a href="#instruction">Instruction</a></li>
+<li><a href="#access">Access</a>
 <ul>
-<li><a href="#cygwin-approach-contents">CygWin Approach</a>
-
+<li><a href="#cygwin-approach">CygWin Approach</a>
 <ul>
-<li><a href="#install-contents">Install</a></li>
-<li><a href="#setting-contents">Setting</a></li>
-<li><a href="#get-accessed-contents">Get Accessed</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#setting">Setting</a></li>
+<li><a href="#get-accessed">Get Accessed</a></li>
 </ul></li>
-<li><a href="#putty-with-xming-contents">Putty with Xming</a>
-
+<li><a href="#putty-with-xming">Putty with Xming</a>
 <ul>
-<li><a href="#install-contents-1">Install</a></li>
-<li><a href="#setting-contents-1">Setting</a></li>
-<li><a href="#get-accessed-contents-1">Get Accessed</a></li>
+<li><a href="#install-1">Install</a></li>
+<li><a href="#setting-1">Setting</a></li>
+<li><a href="#get-accessed-1">Get Accessed</a></li>
 </ul></li>
-<li><a href="#exchange-data-contents">Exchange Data</a></li>
+<li><a href="#exchange-data">Exchange Data</a></li>
 </ul></li>
-<li><a href="#useful-commands-contents">Useful Commands</a>
-
+<li><a href="#useful-commands">Useful Commands</a>
 <ul>
-<li><a href="#basic-commands-contents">Basic Commands</a></li>
-<li><a href="#work-contents">Work</a></li>
-<li><a href="#installation-and-upgrade-contents">Installation and Upgrade</a></li>
-<li><a href="#others-contents">Others</a></li>
+<li><a href="#basic-commands">Basic Commands</a></li>
+<li><a href="#work">Work</a></li>
+<li><a href="#installation-and-upgrade">Installation and Upgrade</a></li>
+<li><a href="#others">Others</a></li>
 </ul></li>
 </ul>
+</nav></p>
+                            
+                            
 
-<h1 id="instruction-contents"><a href="#contents">Instruction</a></h1>
+<h1 id="instruction">Instruction</h1>
 
 <p>Here we provides some basic instructions for how to access to the remote Linux server. We assume that the reader who learn this instruction could grant such conditions:</p>
 
@@ -154,15 +196,15 @@
 
 <p>After confirming that the network works well, we could begin to get access to the remote server.</p>
 
-<h1 id="access-contents"><a href="#contents">Access</a></h1>
+<h1 id="access">Access</h1>
 
 <p>We have two methods to get access to the remote server. The first one is using CygWin to simulate a Linux environment, which means we could use the same method on a Linux client. However, CygWin is a huge application which may take much space. The second method is more suitable for Windows user, we only need to download Putty and Xming both of which are small.</p>
 
 <p>We recommend to use WinSCP to exchange data, although you could use <code>scp</code> command on Linux environment. It is easy to use WinSCP because the GUI is similar to explorer on Windows.</p>
 
-<h2 id="cygwin-approach-contents"><a href="#contents">CygWin Approach</a></h2>
+<h2 id="cygwin-approach">CygWin Approach</h2>
 
-<h3 id="install-contents"><a href="#contents">Install</a></h3>
+<h3 id="install">Install</h3>
 
 <p>Check here to download the CygWin installer:</p>
 
@@ -198,7 +240,7 @@
 
 <p>It may take a little bit long for you to install CygWin.</p>
 
-<h3 id="setting-contents"><a href="#contents">Setting</a></h3>
+<h3 id="setting">Setting</h3>
 
 <p>After installation, you need to modify the <code>.bashrc</code> file in the user root folder where CygWin installed. For example, my folder address is: <code>C:\cygwin64\home\username</code>. Then you would be able to see <code>.bashrc</code> file. We could open it and add these lines to the bottom of the file:</p>
 
@@ -229,7 +271,7 @@ startxwin &amp;
 </tbody>
 </table>
 
-<h3 id="get-accessed-contents"><a href="#contents">Get Accessed</a></h3>
+<h3 id="get-accessed">Get Accessed</h3>
 
 <p>Now we could use the X termination to get access to the server.</p>
 
@@ -256,9 +298,9 @@ startxwin &amp;
 </tbody>
 </table>
 
-<h2 id="putty-with-xming-contents"><a href="#contents">Putty with Xming</a></h2>
+<h2 id="putty-with-xming">Putty with Xming</h2>
 
-<h3 id="install-contents-1"><a href="#contents">Install</a></h3>
+<h3 id="install-1">Install</h3>
 
 <p>Check here to download and install Putty. This application is lightweight and portable. You do not need to download the install package.</p>
 
@@ -268,7 +310,7 @@ startxwin &amp;
 
 <p><a href="http://www.straightrunning.com/XmingNotes/" class="button icon fa-download">Install Xming</a></p>
 
-<h3 id="setting-contents-1"><a href="#contents">Setting</a></h3>
+<h3 id="setting-1">Setting</h3>
 
 <p>Note that before we run Putty, we need to run <em>XLaunch</em>. Choose all default options, and you could see X11 on your system tray. Then we run Putty. As shown in the following screenshots, you need to fill the IP address of your server and give a name in the main page. Click <em>Save</em> then you could save the options. Then we need to enter the <em>SSH/X11</em> option, enable the X11 forwarding and set the display location as <code>:0.0</code>. After that, <strong>do not</strong> click <code>Open</code> button because you need to get back to the main page and save the options again. Then you could click <code>Open</code> and run the Putty terminal.</p>
 
@@ -288,7 +330,7 @@ startxwin &amp;
 </tbody>
 </table>
 
-<h3 id="get-accessed-contents-1"><a href="#contents">Get Accessed</a></h3>
+<h3 id="get-accessed-1">Get Accessed</h3>
 
 <p>When you run the terminal firstly, you may receive the warning about ssh fingerprints like the left screenshot. Just confirm <code>yes</code> and let it continue. Then you would be required to fill your user name and password on remote server. When you typing password, there would be no response shown on the screen, but your typing takes effect. If you get verified, you could log in successfully.</p>
 
@@ -310,7 +352,7 @@ startxwin &amp;
 
 <p>The right screenshot show an example of using GUI (firefox). Make sure your X11 client running on your system tray, otherwise you could not open the GUI applications.</p>
 
-<h2 id="exchange-data-contents"><a href="#contents">Exchange Data</a></h2>
+<h2 id="exchange-data">Exchange Data</h2>
 
 <p>Compared to <code>scp</code> command, we recommend you to use WinSCP application. You could download it here:</p>
 
@@ -334,11 +376,11 @@ startxwin &amp;
 
 <p>After logging in, you could exchange your data by dragging them on both sides of the window. The data transfer is realized by SCP protocol.</p>
 
-<h1 id="useful-commands-contents"><a href="#contents">Useful Commands</a></h1>
+<h1 id="useful-commands">Useful Commands</h1>
 
 <p>Here we show some useful commands when using Linux shell (Bash). By reading this part you would know how to work with software, install new packages and make some checking.</p>
 
-<h2 id="basic-commands-contents"><a href="#contents">Basic Commands</a></h2>
+<h2 id="basic-commands">Basic Commands</h2>
 
 <p>This part gives you an imagination about how to make basic operations. If you have not used Bash before, this part would be useful.</p>
 
@@ -508,7 +550,7 @@ startxwin &amp;
 <li><p><strong>Change my password</strong>: Type <code>passwd</code>, and you could change your password. It requires you to enter the current password, new password and retyped new password.</p></li>
 </ol>
 
-<h2 id="work-contents"><a href="#contents">Work</a></h2>
+<h2 id="work">Work</h2>
 
 <p>Working with matlab is easy, because matlab has a full GUI. You could use <code>matlab &amp;</code> to open a new thread.</p>
 
@@ -551,7 +593,7 @@ startxwin &amp;
 </code></pre></li>
 </ol>
 
-<h2 id="installation-and-upgrade-contents"><a href="#contents">Installation and Upgrade</a></h2>
+<h2 id="installation-and-upgrade">Installation and Upgrade</h2>
 
 <p>Sometimes some applications would provide us with package for downloading. For example, you could download Linux Anaconda3 here:</p>
 
@@ -610,7 +652,7 @@ startxwin &amp;
 </code></pre></li>
 </ol>
 
-<h2 id="others-contents"><a href="#contents">Others</a></h2>
+<h2 id="others">Others</h2>
 
 <div class="box">
     <p style="color:#FAA"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Ooops! This part is still not avaliable. We plan to add how to use Docker in this section.</p>
@@ -686,6 +728,10 @@ startxwin &amp;
 
     <!-- Main JS -->
     <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
 
     
 <script>
@@ -731,6 +777,10 @@ ga('send', 'pageview');
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
+
+    <script>
+        setSemanticUIColor();
+    </script>
 
     </body>
 </html>
