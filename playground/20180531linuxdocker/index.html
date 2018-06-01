@@ -283,6 +283,10 @@
 
 <p>You may check the official document to learn how to create an account on NGC. Or you could also read instructions here.</p>
 
+<div class="box">
+    <p style="color:#F77"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Note that if you plan to get the commercial account, it is better to avoid using your primary email to sign up NGC cloud, because this free account would take your email address and make this address invalid when signing up the commercial cloud.</p>
+</div>
+
 <ol>
 <li><p>From your browser, go to <a href="https://ngc.nvidia.com">https://ngc.nvidia.com</a>. Click Sign Up to start the sign-up process.</p>
 
@@ -314,7 +318,7 @@
 <p>Open your Bash (Linux shell), and type</p>
 
 <pre><code class="language-Bash">$ cd ~
-$ sudo nvidia-docker login
+$ sudo nvidia-docker login nvcr.io
 </code></pre>
 
 <p>Then you would be required to provide the username and password. The user name must be <code>$oauthtoken</code>, and the key is specified for your account (free or commercial). After typing the correct information, you would see the information that you have succeeded to log in. In fact, you would not need to log in from now on, unless you want to change your account.</p>
@@ -378,7 +382,7 @@ $ sudo chmod 777 .docker/*.*
 
 <h3 id="terminate-remove-a-container">Terminate / Remove a container</h3>
 
-<p>Sometimes we may need to terminate a docker manually. For example, if we forget to add <code>-it</code> option to <code>run</code> command. In this case we need to find the running sessions. Use such a command to find the ID of the running container.</p>
+<p>Sometimes we may need to terminate a docker manually. For example, if we forget to add <code>--rm</code> option to <code>run</code> command. In this case we need to find the running sessions. Use such a command to find the ID of the running container.</p>
 
 <pre><code class="language-Bash">$ nvidia-docker ps -a
 </code></pre>
