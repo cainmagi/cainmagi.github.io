@@ -1,0 +1,85 @@
+div .wiki{
+    clear: right;
+    width: 25%;
+    min-width: 250px;
+    padding: 0.5em;
+    text-align: left;
+    float: right;
+    transition: 0.3s;
+    border-width: 2px;
+    border-radius: 5px;
+    background-color: #242943;
+    box-shadow: 0 0 5px #223;
+}
+div .wiki p{
+    font-size: medium;
+}
+div .wiki:hover{
+    background-color: #2A2F4A;
+}
+
+div .overflow {
+    padding-top: 0;
+    padding-bottom: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+div .overflow .check{
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: auto;
+}
+
+@media screen and (max-width: 600px) {
+    div .wiki{
+        float: none;
+        margin-right: auto;
+        margin-left:auto;
+    }
+}
+
+.youtube.container {
+    position: relative;
+    margin: auto auto 1em auto;
+    width: 80%;
+    padding-bottom: 45%;
+    -webkit-box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 1px 1px 20px 0px rgba(0, 0, 0, 1);
+    box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 1);
+}
+  
+.youtube.container .youtube {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@media screen and (min-width: 600px) {
+    img {
+        max-height: 300px;
+    }
+    .image.main img{
+        max-height: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .\36u {
+        float: none;
+        max-width: none;
+        width: 100%;
+        clear: none;
+		margin: none;
+    }
+}
+
+.nolimits{
+    max-height: none;
+}

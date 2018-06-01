@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-
+    <!-- Header -->
     <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +14,7 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
     <link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
 	
 	
@@ -35,10 +36,11 @@
 	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
 	<![endif]-->
 </head>
+
     <body>
 
     <!-- Wrapper -->
-        <div id="wrapper">
+    <div id="wrapper">
 
             <!-- Header -->
     <header id="header" class="alt">
@@ -80,7 +82,7 @@
                 
                     <section id="one">
                         <div class="inner">
-                            <header class="major">
+                            <header id="pagetitle" class="major">
                                 <h1 id='main_title'>Basic Linux Skills for Remote Controlling</h1>
                                 <table class="sub-title">
                                     <tbody>
@@ -90,7 +92,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>May 28, 2018</td>
+                                            <td>May 29, 2018</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -124,10 +126,10 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </header>
-                            
+                                
                                 <span class="image main"><img src="/img/playground/coding.jpg" alt="" /></span>
-                            
+                                
+                            </header>
                             
                                 <h1 id="contents">Contents</h1>
                                 <p><nav id="TableOfContents">
@@ -152,8 +154,13 @@
 <li><a href="#useful-commands">Useful Commands</a>
 <ul>
 <li><a href="#basic-commands">Basic Commands</a></li>
+<li><a href="#installation-and-upgrade">Installation and Upgrade</a>
+<ul>
+<li><a href="#install-anaconda3">Install Anaconda3</a></li>
+<li><a href="#install-matlab">Install Matlab</a></li>
+<li><a href="#install-public-packages">Install public packages</a></li>
+</ul></li>
 <li><a href="#work">Work</a></li>
-<li><a href="#installation-and-upgrade">Installation and Upgrade</a></li>
 <li><a href="#others">Others</a></li>
 </ul></li>
 </ul>
@@ -550,50 +557,9 @@ startxwin &amp;
 <li><p><strong>Change my password</strong>: Type <code>passwd</code>, and you could change your password. It requires you to enter the current password, new password and retyped new password.</p></li>
 </ol>
 
-<h2 id="work">Work</h2>
-
-<p>Working with matlab is easy, because matlab has a full GUI. You could use <code>matlab &amp;</code> to open a new thread.</p>
-
-<p>If you have installed <code>Anaconda3</code>, you could use these commands to make some operations:</p>
-
-<ol>
-<li><p><strong>Upgrade anaconda itself</strong>: Use this command to upgrade conda.</p>
-
-<pre><code class="language-Bash">$ conda update conda
-</code></pre></li>
-
-<li><p><strong>Upgrade all packages</strong>: Use this command to update to the newest version of the anaconda:</p>
-
-<pre><code class="language-Bash">$ conda update --all
-</code></pre></li>
-
-<li><p><strong>Upgrade pip</strong>: Use this command to update the pip tool:</p>
-
-<pre><code class="language-Bash">$ python -m pip install --upgrade pip
-</code></pre></li>
-
-<li><p><strong>Install a new package via conda</strong>: For example, we could use such command to install opencv from <code>conda-forge</code> repository.</p>
-
-<pre><code class="language-Bash">$ conda install -c conda-forge opencv
-</code></pre></li>
-
-<li><p><strong>enter a conda environment</strong>: For example, if we need to enter an environment named <code>py35</code>, use</p>
-
-<pre><code class="language-Bash">$ source activate py35
-</code></pre>
-
-<p>If we want to enter the base environment, use</p>
-
-<pre><code class="language-Bash">$ source activate base
-</code></pre></li>
-
-<li><p><strong>exit from the conda environment</strong>: Use this command to exit from the current environment:</p>
-
-<pre><code class="language-Bash">$ source deactivate
-</code></pre></li>
-</ol>
-
 <h2 id="installation-and-upgrade">Installation and Upgrade</h2>
+
+<h3 id="install-anaconda3">Install Anaconda3</h3>
 
 <p>Sometimes some applications would provide us with package for downloading. For example, you could download Linux Anaconda3 here:</p>
 
@@ -605,6 +571,43 @@ startxwin &amp;
 </code></pre>
 
 <p>and follow the instructions, we could install it successfully and add the environmental path automatically.</p>
+
+<h3 id="install-matlab">Install Matlab</h3>
+
+<p>First, you need to sign in <a href="https://www.mathworks.com/" title="MathWorks">MathWorks<sup><i class="fa fa-registered" aria-hidden="true"></i></sup></a>. And you could enter your account profile to see the avaliable license for you to download matlab. You could also use the following link to download it after logging in.</p>
+
+<p><a href="https://www.mathworks.com/downloads/web_downloads/select_release" class="button icon fa-download">Install Matlab</a></p>
+
+<p>Since generally matlab only offers one license to one user, we should not install it in system space. After downloading and extracting the installation package, make sure that you <strong>do not</strong> use <code>sudo</code> mode to run the installation. The command should be like this:</p>
+
+<pre><code>$ ./install
+</code></pre>
+
+<p>Then you would be required to follow the instructions of the installation guides. Be careful that you should not install it in system space, i.e. <code>/usr/local/MATLAB/R2018a</code>. You should change it as <code>/home/username/MATLAB/R2018a</code>. And you should not create the shortcut in <code>/usr/local/bin</code> either.</p>
+
+<p>Because we do not create the shortcut, if we type <code>matlab</code> in Bash we would get the error that this command does not exist. To fix this problem, we need to modify our user enviroment variables mannually. Type</p>
+
+<pre><code class="language-Bash">$ cd ~
+$ gedit .bashrc &amp;
+</code></pre>
+
+<p>Then add such lines to the bottom of the file:</p>
+
+<pre><code class="language-Bash">PATH=$PATH:~/MATLAB/R2018a/bin
+export PATH
+</code></pre>
+
+<p>Save the file and close the editor. Then run this code:</p>
+
+<pre><code class="language-Bash">$ . .bashrc
+</code></pre>
+
+<p>And your new environmental variables would take effect. Now you could use this command to open matlab:</p>
+
+<pre><code class="language-Bash">$ matlab &amp;
+</code></pre>
+
+<h3 id="install-public-packages">Install public packages</h3>
 
 <p>However, here we want to introduce another method for managing packages. This method is used more on Linux. It is <code>apt</code> command series.</p>
 
@@ -649,6 +652,49 @@ startxwin &amp;
 <li><p><strong>Upgrade an app</strong>: For example, if we want to upgrade <code>gvim</code> which locates in <code>vim-gnome</code> repository to the newest version. Then we use</p>
 
 <pre><code class="language-Bash">$ sudo apt-get upgrade vim-gnome
+</code></pre></li>
+</ol>
+
+<h2 id="work">Work</h2>
+
+<p>Working with matlab is easy, because matlab has a full GUI. You could use <code>matlab &amp;</code> to open a new thread.</p>
+
+<p>If you have installed <code>Anaconda3</code>, you could use these commands to make some operations:</p>
+
+<ol>
+<li><p><strong>Upgrade anaconda itself</strong>: Use this command to upgrade conda.</p>
+
+<pre><code class="language-Bash">$ conda update conda
+</code></pre></li>
+
+<li><p><strong>Upgrade all packages</strong>: Use this command to update to the newest version of the anaconda:</p>
+
+<pre><code class="language-Bash">$ conda update --all
+</code></pre></li>
+
+<li><p><strong>Upgrade pip</strong>: Use this command to update the pip tool:</p>
+
+<pre><code class="language-Bash">$ python -m pip install --upgrade pip
+</code></pre></li>
+
+<li><p><strong>Install a new package via conda</strong>: For example, we could use such command to install opencv from <code>conda-forge</code> repository.</p>
+
+<pre><code class="language-Bash">$ conda install -c conda-forge opencv
+</code></pre></li>
+
+<li><p><strong>enter a conda environment</strong>: For example, if we need to enter an environment named <code>py35</code>, use</p>
+
+<pre><code class="language-Bash">$ source activate py35
+</code></pre>
+
+<p>If we want to enter the base environment, use</p>
+
+<pre><code class="language-Bash">$ source activate base
+</code></pre></li>
+
+<li><p><strong>exit from the conda environment</strong>: Use this command to exit from the current environment:</p>
+
+<pre><code class="language-Bash">$ source deactivate
 </code></pre></li>
 </ol>
 
@@ -759,7 +805,8 @@ ga('send', 'pageview');
     processEnvironments: true,
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
     TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+        extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js"]
+    }
   }
   });
   MathJax.Hub.Queue(function() {
@@ -777,10 +824,6 @@ ga('send', 'pageview');
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
-
-    <script>
-        setSemanticUIColor();
-    </script>
 
     </body>
 </html>

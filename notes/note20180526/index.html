@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-
+    <!-- Header -->
     <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +14,7 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
     <link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
 	
 	
@@ -35,10 +36,11 @@
 	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
 	<![endif]-->
 </head>
+
     <body>
 
     <!-- Wrapper -->
-        <div id="wrapper">
+    <div id="wrapper">
 
             <!-- Header -->
     <header id="header" class="alt">
@@ -80,7 +82,7 @@
                 
                     <section id="one">
                         <div class="inner">
-                            <header class="major">
+                            <header id="pagetitle" class="major">
                                 <h1 id='main_title'>Notes on May 26, 2018</h1>
                                 <table class="sub-title">
                                     <tbody>
@@ -90,7 +92,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>May 27, 2018</td>
+                                            <td>May 31, 2018</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -116,15 +118,500 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                
+                                <span class="image main"><img src="/img/notes/default.jpg" alt="" /></span>
+                                
                             </header>
                             
-                                <span class="image main"><img src="/img/notes/default.jpg" alt="" /></span>
-                            
-                            
                                 <h1 id="contents">Contents</h1>
-                                <p></p>
+                                <p><nav id="TableOfContents">
+<ul>
+<li><a href="#set-invariant-network">Set-invariant network</a>
+<ul>
+<li><a href="#theory">Theory</a></li>
+<li><a href="#extension">Extension</a></li>
+<li><a href="#results">Results</a></li>
+</ul></li>
+<li><a href="#style-transfer">Style Transfer</a>
+<ul>
+<li><a href="#theory-1">Theory</a>
+<ul>
+<li><a href="#previous-work-gramian-optimization">Previous work: Gramian optimization</a></li>
+<li><a href="#previous-work-instance-normalization">Previous work: Instance normalization</a></li>
+<li><a href="#this-work-whitening-transformation">This work: Whitening Transformation</a></li>
+</ul></li>
+<li><a href="#results-1">Results</a></li>
+</ul></li>
+<li><a href="#style-transfer-1">Style Transfer</a></li>
+</ul>
+</nav></p>
                             
                             
+
+<h1 id="set-invariant-network">Set-invariant network</h1>
+
+<p>Check here to see the article <em>Deep Sets</em>:</p>
+
+<p><a href="https://arxiv.org/abs/1703.06114" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<h2 id="theory">Theory</h2>
+
+<p>This article discusses about how to build a neural network with order-invariant input set.</p>
+
+<blockquote>
+<p><strong>Theorem 1</strong>: which function could be set invariant: <br/>
+Such a function $f(\mathbb{X})$ need to be able to be decomposed as such a form:
+<div class="overflow">
+\begin{align}
+    f(\mathbb{X}) = \rho(\sum\limits_{x \in \mathbb{X}} \phi(x)).
+\end{align}
+</div></p>
+</blockquote>
+
+<p>Since the general form of the layer of neural network is $F(\mathbf{x},~\boldsymbol{\Theta}) = \sigma (\boldsymbol{\Theta}\mathbf{x})$, we could know that according to the above theorem, only when</p>
+
+<div class="overflow">
+\begin{align} 
+    \boldsymbol{\Theta} = \lambda \mathbf{I} + \gamma \left( \mathbf{1} \mathbf{1}^T \right),
+\end{align}
+</div>
+
+<p>where $\mathbf{1} = [1,~1,~1,~\ldots,~1]^T$.</p>
+
+<p>The whole network could be described as stacked layers as below. Each layer is set-invariant.</p>
+
+<table>
+<thead>
+<tr>
+<th>Network Structure</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="deepset-str.svg" alt="" title="Deep Set Network Structure" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The final revised network layer could be formulated as</p>
+
+<div class="overflow">
+\begin{align} \label{fml:sec1:final}
+    F(\mathbf{x},~\boldsymbol{\Gamma},~\boldsymbol{\beta}) = \sigma \left( \boldsymbol{\beta} + \left(\mathbf{x} - \mathbf{1} \cdot \mathrm{maxpool}(\mathbf{x}) \right) \boldsymbol{\Gamma} \right).
+\end{align}
+</div>
+
+<p>$\eqref{fml:sec1:final}$ shows that the trainable parameters are just $\boldsymbol{\Gamma}$ and $\boldsymbol{\beta}$. Denote the input $\mathbf{x}$ is a $K \times M$ matrix which has $K$ samples and output is a $K \times N$ matrix. Then we know that $\boldsymbol{\beta}$ is a bias variable which satisfies $\boldsymbol{\beta} \in \mathbb{R}^{N}$. $\boldsymbol{\Gamma}$ should be a trainable kernel which satisfies $\boldsymbol{\Gamma} \in \mathbb{R}^{M \times N}$. Note that $\boldsymbol{\Gamma}$ needs to be a diagonal matrix.</p>
+
+<h2 id="extension">Extension</h2>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/De_Finetti%27s_theorem" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/De_Finetti%27s_theorem"><b>de Finetti&#39;s theorem</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>In fact, I could not understand this part well. But I could give an explanation about how to derive the solution of this part. It is based on <em>de Finetti</em> ’s theorem:</p>
+
+<blockquote>
+<p><strong>$de~Finetti$&rsquo;s Theorem</strong>: which function could be set invariant: <br/>
+An exchangeable model $p(\mathbb{X})$ need to satisfy the exchangeable distribution as
+<div class="overflow">
+\begin{align}
+    p(\mathbb{X} | \alpha) = \int \left[ \prod_{m=1}^{M} p(x_m | \theta) \right] p(\theta | \alpha) \mathrm{d} \theta .
+\end{align}
+</div></p>
+</blockquote>
+
+<p>In this application, we know that:</p>
+
+<div class="overflow">
+\begin{align}
+    p(x | \theta) &= e^{\langle \phi(x),~\theta \rangle - g(\theta)}; \\[5pt]
+    p(\theta | \alpha, M_0) &= e^{\langle \theta,~\alpha \rangle - M_0 g(\theta) - h(\alpha,~M_0)}; \\[5pt]
+    e^{h(\alpha,~M_0)} &= \int e^{\langle \theta,~\alpha \rangle - M_0 g(\theta)} \mathrm{d} \theta; \\[5pt]
+    \phi(\mathbb{X}) &= \sum_{m} \phi(x_m).
+\end{align}
+</div>
+
+<p>We use $\langle \cdot \rangle$ to represent the inner product. Due to the exchangeability of the inner product, we could rewrite the model formula as:</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        p(\mathbb{X} | \alpha,~ M_0) &= \int \left[ \prod_{m=1}^{M} p(x_m | \theta) \right] p(\theta | \alpha,~ M_0) \mathrm{d} \theta \\[5pt]
+        &= \int \left[ \prod_{m=1}^{M} e^{\langle \phi(x_m),~\theta \rangle - g(\theta)} \right] e^{\langle \theta,~\alpha \rangle - M_0 g(\theta) - h(\alpha,~M_0)} \mathrm{d} \theta \\[5pt]
+        &= \int e^{\sum_{m=1}^{M} \left[ \langle \phi(x_m),~\theta \rangle \right] - M g(\theta)} e^{\langle \alpha,~\theta \rangle - M_0 g(\theta) - h(\alpha,~M_0)} \mathrm{d} \theta \\[5pt]
+        &= \int e^{\langle \alpha + \sum_{m=1}^{M} \phi(x_m),~\theta \rangle} e^{- (M+M_0) g(\theta) - h(\alpha,~M_0)} \mathrm{d} \theta \\[5pt]
+        &= e^{- h(\alpha,~M_0)} \int e^{\langle \alpha + \phi(\mathbb{X}),~\theta \rangle - (M+M_0) g(\theta)}  \mathrm{d} \theta \\[5pt]
+        &= e^{h(\alpha + \phi(\mathbb{X}),~ M+M_0)- h(\alpha,~M_0)}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<h2 id="results">Results</h2>
+
+<p>Here we show the results. <span class="ui label green">Green</span> means labels that exist but do not appear in ground truth. <span class="ui label brown">Brown</span> means that labels appearing in ground truth. <span class="ui label red">Red</span> means wrong prediction. We could know that the results are order-invariant.</p>
+
+<table>
+<thead>
+<tr>
+<th>Results</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="deepset-res.svg" alt="" title="Deep Set Prediction Result" /></td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="style-transfer">Style Transfer</h1>
+
+<p>Check here to see the article <em>Universal Style Transfer via Feature Transforms</em>:</p>
+
+<p><a href="https://arxiv.org/abs/1705.08086" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<h2 id="theory-1">Theory</h2>
+
+<p>The basic idea is that the correlation (i.e. the Gramian matrix or covariance matrix) between features extracted by deep network could be used to describe the visual style of images. Along this idea, there are 3 models aiming to the same work. In the following part, we would discuss about them respectively.</p>
+
+<h3 id="previous-work-gramian-optimization">Previous work: Gramian optimization</h3>
+
+<p>This is a previous work. Check here to see the article <em>Image Style Transfer Using Convolutional Neural Networks</em>:</p>
+
+<p><a href="https://ieeexplore.ieee.org/document/7780634/" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<p>Defining the output of a convolutional network layer as $\mathcal{F}^{(l)}(\mathbf{x})$ where $l$ represents the number of the layer and $\mathbf{x}$ represents the input image. Then the reconstruction process could be defined as</p>
+
+<div class="overflow">
+\begin{align} \label{fml:sec2:reconst-cont}
+    \mathbf{x} = \arg \min\limits_{\boldsymbol{\theta}} \lVert \mathcal{F}^{(l)}(\boldsymbol{\theta}) - \mathcal{F}^{(l)}(\mathbf{x}_0) \rVert_2^2.
+\end{align}
+</div>
+
+<p>where $\mathbf{x}_0$ is the ground truth, i.e. the image that needs to be reconstructed. We use a white noise image $\boldsymbol{\theta}$ as the input, and optimize it so that it could match the output feature of $\mathbf{x}_0$. Here we call $\eqref{fml:sec2:reconst-cont}$ as the <em>Content Reconstruction</em>.</p>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Gramian_matrix" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Gramian_matrix"><b>Gramian matrix</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>We use <em>Gramian matrix</em> to describe the style of a image. Denote $\mathcal{G}^{(l)}$ as the Gramian matrix calculated by $\mathcal{F}^{(l)}$, we have the definition as</p>
+
+<div class="overflow">
+\begin{align}
+    \mathcal{G}^{(l)}(\mathbf{x})_{ij} = \frac{1}{K} \sum_k \mathcal{F}^{(l)}(\mathbf{x})_{ik} \mathcal{F}^{(l)}(\mathbf{x})_{jk}.
+\end{align}
+</div>
+
+<p>Gramian matrix is invariable with the location where the element (pixel) exists, so it could integrate the style of the image and omit the content features. Then we would get the idea that such optimization could be used to make the <em>style reconstruction</em>:</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbf{x} = \arg \min\limits_{\boldsymbol{\theta}} \lVert \mathcal{G}^{(l)}(\boldsymbol{\theta}) - \mathcal{G}^{(l)}(\mathbf{x}_0) \rVert_2^2.
+\end{align}
+</div>
+
+<p>Then we could use the following figure to show the whole architecture of this work. In this work, the network has been pre-trained for object detection (or other purpose) and all of its parameters are fixed. We input a content image $\mathbf{x}_c$ and a style image $\mathbf{x}_s$. The style transformation is realized by optimizing the conjugated reconstruction loss $\mathcal{L}$.</p>
+
+<table>
+<thead>
+<tr>
+<th>Gramian Optimization Architecture</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="styletrans-pre-gram.svg" alt="" title="Gramian Optimization Architecture" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Denote $\boldsymbol{\theta}$ as another input image which needs to be optimized for reconstruction. The $\mathcal{L}$ is defined by two parts:</p>
+
+<div class="overflow">
+\begin{align}
+    \mathcal{L} = \alpha \mathcal{L}_c (\boldsymbol{\theta},~\mathbf{x}_c) + \beta \mathcal{L}_s (\boldsymbol{\theta},~\mathbf{x}_s),
+\end{align}
+</div>
+
+<p>where $\mathcal{L}_c$ is the content loss which is defined as</p>
+
+<div class="overflow">
+\begin{align}
+    \mathcal{L}_c = \lVert \mathcal{F}^{(L)}(\boldsymbol{\theta}) - \mathcal{F}^{(L)}(\mathbf{x}_c) \rVert_2^2,
+\end{align}
+</div>
+
+<p>where we only use the $L^{\mathrm{th}}$ layer to optimize the content features.</p>
+
+<p>And $\mathcal{L}_s$ is the style loss which is defined by mixing style features from all layers:</p>
+
+<div class="overflow">
+\begin{align}
+    \mathcal{L}_s = \sum_{l} w_l \lVert \mathcal{G}^{(l)}(\boldsymbol{\theta}) - \mathcal{G}^{(l)}(\mathbf{x}_s) \rVert_2^2,
+\end{align}
+</div>
+
+<p>where we use $w_l$ to define weights of features from each layer. The weights $w_l$ could be pre-defined and fixed during the optimization.</p>
+
+<p>The final optimization target could be described as reconstructing an image with the content of $\mathbf{x}_c$ and style of $\mathbf{x}_s$.</p>
+
+<div class="overflow">
+\begin{align} \label{fml:sec2:final}
+    \mathbf{x} = \arg \min\limits_{\boldsymbol{\theta}} \mathcal{L}(\boldsymbol{\theta},~\mathbf{x}_c,~\mathbf{x}_s).
+\end{align}
+</div>
+
+<p>$\eqref{fml:sec2:final}$ requires us to input an initialized image $\boldsymbol{\theta}$ and optimize the conjugated loss over it. The input image could be a white noise image, the content image or the style image. The author performs the experiments and show that the input would not influence the results greatly.</p>
+
+<h3 id="previous-work-instance-normalization">Previous work: Instance normalization</h3>
+
+<p>This is also a previous work. Check here to see the article <em>Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization</em>:</p>
+
+<p><a href="https://arxiv.org/abs/1703.06868" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<p>This work is based on modifying instance normalization (IN). We know that the original form of the IN is</p>
+
+<div class="overflow">
+\begin{align} \label{fml:sec3:in}
+    \mathrm{IN}(\mathbf{x}) = \gamma \left( \frac{\mathbf{x} - \mu(\mathbf{x})}{\sigma(\mathbf{x})} \right) + \beta,
+\end{align}
+</div>
+
+<p>where $\gamma$ and $\beta$ are trainable. They are used as scaling factor. Since $\eqref{fml:sec3:in}$ is performed on each instance, we know that if $\mathbf{x}$ is group of $C$ channel images, i.e. a $N \times H \times W \times C$ tensor where $N$ represents the sample number, $H$ is the height, $W$ is the width and $C$ is the channel number, both $\gamma$ and $\beta$ have a size of $N \times C$. The $\mu(\cdot)$ and $\sigma(\cdot)$ are mean function and standard deviation (std) function respectively. Both of the two functions are performed on each channel and each sample individually.</p>
+
+<p>The author think that the style of the image locates in mean and std values. So assuming that we have a content image $\mathbf{x}_c$ and a style image $\mathbf{x}_s$, the IN is modified as</p>
+
+<div class="overflow">
+\begin{align}
+    \hat{\mathrm{IN}}_{\mathbf{x}_s}(\mathbf{x}_c) = \sigma(\mathbf{x}_s) \left( \frac{\mathbf{x}_c - \mu(\mathbf{x}_c)}{\sigma(\mathbf{x}_c)} \right) + \mu(\mathbf{x}_s),
+\end{align}
+</div>
+
+<p>which means we use the mean and std of the style image to replace the the same parameters of the content image. To some extent, if we perform $\hat{\mathrm{IN}}$ on original image, there would not be some significant change. However, in this work it is performed in compressed feature space.</p>
+
+<table>
+<thead>
+<tr>
+<th>Instance Normalization Architecture</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="styletrans-pre-instnorm.svg" alt="" title="Instance Normalization Architecture" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>In this figure, we know the basic architecture is auto-encoder. Both the $\mathbf{x}_c$ and $\mathbf{x}_s$ are feed into the encoder. Then in the feature space, the mean and std of the features of $\mathbf{x}_c$ are replaced by that of the features of $\mathbf{x}_s$. Then the changed features are feed into the decoder which would reconstruct a style-transferred image.</p>
+
+<p>Note that we use a pre-trained VGG auto-encoder network, but the parameters of the encoder are fixed. We only train the decoder (whose parameters are denoted as $\boldsymbol{\Theta}_D$) so that it would not only reconstruct the content but also take the style into consideration. The conjugated loss function $\mathcal{L}$ is</p>
+
+<div class="overflow">
+\begin{align}
+    \mathcal{L} = \mathcal{L}_c (\mathbf{x}_c,~\mathbf{x}_s,~\boldsymbol{\Theta}_D) + \lambda \mathcal{L}_s (\mathbf{x}_c,~\mathbf{x}_s,~\boldsymbol{\Theta}_D).
+\end{align}
+</div>
+
+<p>We use $E$ to represent the encoder (which is fixed) and $D$ (with parameters as $\boldsymbol{\Theta}_D$) to represent the decoder (which needs to be trained). First we use $\hat{\mathbf{y}}_c$ to represents the adjusted features of $\mathbf{x}_c$,</p>
+
+<div class="overflow">
+\begin{align}
+    \hat{\mathbf{y}} = \hat{\mathrm{IN}}_{\mathbf{x}_s} (E(\mathbf{x}_c)).
+\end{align}
+</div>
+
+<p>This part is calculated directly and would not be influenced by training. Then we could define the first part of the loss, i.e. the content loss as</p>
+
+<div class="overflow">
+\begin{align}
+    \mathcal{L}_c = \lVert E(D(\hat{\mathbf{y}})) - \hat{\mathbf{y}} \rVert_2^2.
+\end{align}
+</div>
+
+<p>Here we match the features rather than the image because we do not have a image that could be matched. This idea is just like inverse the order of the auto-encoder but the coherence of the encoder and the decoder would not be damaged.</p>
+
+<p>The style loss could be given by Gramian loss, but the author prefers to use the mean and the std.</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathcal{L}_s &= \sum_{l} \lVert \mu(E^{(l)}(D(\hat{\mathbf{y}}))) - \mu(E^{(l)}(\mathbf{x}_s) \rVert_2^2 \\
+        &+ \sum_{l} \lVert \sigma(E^{(l)}(D(\hat{\mathbf{y}}))) - \sigma(E^{(l)}(\mathbf{x}_s)) \rVert_2^2,
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>where we use $E^{(l)}$ to represent the output features of the $l^{\mathrm{th}}$ layer of the VGG encoder network. In fact, we do not need to use all layers&rsquo; outputs but just need to select several layers.</p>
+
+<p>The final optimization could be formulated as</p>
+
+<div class="overflow">
+\begin{align}
+    \arg \min\limits_{\boldsymbol{\Theta}_D} \mathcal{L} (\mathbf{x}_c,~\mathbf{x}_s,~\boldsymbol{\Theta}_D).
+\end{align}
+</div>
+
+<p>After training, we could get the testing results as</p>
+
+<div class="overflow">
+\begin{align}
+    \hat{\mathbf{x}} = D(\hat{\mathrm{IN}}_{\mathbf{x}_s} (E(\mathbf{x}_c)),~\boldsymbol{\Theta}_D).
+\end{align}
+</div>
+
+<h3 id="this-work-whitening-transformation">This work: Whitening Transformation</h3>
+
+<p>In this paper, the author propose two improvements compared to the second previous work:</p>
+
+<ol>
+<li>Use whitening and coloring transformation to replace the optimization for mean and std.</li>
+<li>Propose a stacked auto-encoder framework to transfer style in different feature spaces.</li>
+</ol>
+
+<p>Compared to the previous works, this work does not need to train networks or optimize for any target. It is totally based on embedding a statistic idea, i.e. the <em>whitening and coloring transformation</em> (WCT) into the deep learning architecture.</p>
+
+<table>
+<thead>
+<tr>
+<th>WCT Architecture</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="styletrans-str.svg" alt="" title="Whitening &amp; Coloring Transformation Architecture" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>As is shown in the figure, (a) shows that a basic architecture of auto-encoder which is composed of an encoder and a decoder. This network should be pre-trained and kept fixed in this work. (b) is the core of this work, the author uses the WCT to transform the features produced by the encoder into another style, and use the original decoder to reconstruct the transformed features into the original image domain. &copy; is used to improve the performance. Although it is only simply composed of several stacks of (b), it could produce the similar performance of optimizing for style loss from all layers. Since the deeper the features are, the less the details would remain, the original image would be transformed in deep space first, and get the same transformation in the shallow space. By this scheme, the main style would be transformed in deep space and the details would be added in shallow space.</p>
+
+<p>Here we would like to discuss the core, i.e. the WCT in this paper. Denoting one input image as $\mathbf{x}$, then the output of the $l^{\mathrm{th}}$ layer of the encoder could be defined as $E^{(l)}(\mathbf{x})$ corresponded with the inverse transformation $D^{(l)}(E^{(l)}(\mathbf{x}))$. For the features $E^{(l)}(\mathbf{x})$, which has the size of $H \times W \times C$, from any sample, we could reshape it as $C \times HW$, then we could defines the centered features $\mathbf{y}$ as</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbf{y} = E^{(l)}(\mathbf{x}) - \mu(E^{(l)}(\mathbf{x})).
+\end{align}
+</div>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Eigendecomposition_of_a_matrix" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Eigendecomposition_of_a_matrix"><b>Eigendecomposition of a matrix</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>Note that the $\mathbf{y}$ should be reshaped, i.e. with a size of $C \times HW$. So it is apparent that the covariance matrix of $\mathbf{y}$ is $\mathbf{y}\mathbf{y}^T$. This covariance matrix is a real, symmetric and square matrix. Check the reference and we would know that this kind of matrix should be able to be decomposed of a diagonal eigenvalue matrix $\boldsymbol{\Lambda}$ and the corresponding eigenvector matrix $\mathbf{Q}$. Both of them are $C \times C$ matrix. This decomposition could be described as:</p>
+
+<div class="overflow">
+\begin{align} \label{fml:sec2:eigendecomp}
+    \mathbf{y}\mathbf{y}^T = \mathbf{Q} \boldsymbol{\Lambda} \mathbf{Q}^T.
+\end{align}
+</div>
+
+<p>Calculating the decomposition is a trick. We summarize the algorithm of $\eqref{fml:sec2:eigendecomp}$ as follow:</p>
+
+<div class="box">
+    <ol>
+        <li>Solve the equation $\det(\mathbf{y}\mathbf{y}^T - \lambda \mathbf{I})=0$. We should have $C$ solutions. These solutions are eigenvalue which could be used to construct the diagonal eigenvalue matrix $\boldsymbol{\Lambda}$.</li>
+        <li>Solve the equation $\det((\mathbf{y}\mathbf{y}^T - \lambda \mathbf{I})\mathbf{q}) = 0$ for each $\lambda$. The corresponding solution, i.e. the vector $\mathbf{q}$ is the eigenvector. Since we have $C$ eigenvalue, here we also have $C$ eigenvectors. Use them to construct the eigenvector matrix $\mathbf{Q}_0$.</li>
+        <li>We could make $\mathbf{Q}_0$ orthogonal. Solve $k$ from $k \mathbf{I} = \mathbf{Q}_0\mathbf{Q}_0^T$, then we could adjust the matrix by letting $\mathbf{Q} = \frac{1}{k}\mathbf{Q}_0$. Note that as an orthogonal matrix, $\mathbf{Q}^{-1} = \mathbf{Q}^T$.</li>
+    </ol>
+</div>
+
+<p>Then we could define the <em>whitening transformation</em> as</p>
+
+<div class="overflow">
+\begin{align}  \label{fml:sec2:whitening}
+    \hat{\mathbf{y}} = \mathbf{Q} \boldsymbol{\Lambda}^{-\frac{1}{2}} \mathbf{Q}^T \mathbf{y}.
+\end{align}
+</div>
+
+<p>Hence we could check that</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \hat{\mathbf{y}}\hat{\mathbf{y}}^T &= \mathbf{Q} \boldsymbol{\Lambda}^{-\frac{1}{2}} \mathbf{Q}^T \mathbf{y} \mathbf{y}^T \mathbf{Q} \boldsymbol{\Lambda}^{-\frac{1}{2}} \mathbf{Q}^T \\[5pt]
+        &= \mathbf{Q} \boldsymbol{\Lambda}^{-\frac{1}{2}} \mathbf{Q}^T \mathbf{Q} \boldsymbol{\Lambda} \mathbf{Q}^T \mathbf{Q} \boldsymbol{\Lambda}^{-\frac{1}{2}} \mathbf{Q}^T \\[5pt]
+        &= \mathbf{Q} \boldsymbol{\Lambda}^{-\frac{1}{2}} \boldsymbol{\Lambda}^{\frac{1}{2}} \mathbf{Q}^T \\[5pt]
+        &= \mathbf{Q} \mathbf{Q}^T = \mathbf{I}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>We could know that the whitening transformation converts the features as a form that satisfies $\hat{\mathbf{y}}\hat{\mathbf{y}}^T = \mathbf{I}$. Also, we have the inverse transformation as</p>
+
+<div class="overflow">
+\begin{align} \label{fml:sec2:coloring}
+    \mathbf{y} = \mathbf{Q} \boldsymbol{\Lambda}^{\frac{1}{2}} \mathbf{Q}^T \hat{\mathbf{y}}.
+\end{align}
+</div>
+
+<p>This is also named <em>coloring transformation</em>. It is easy to check that both sides equal to each other if we use $\eqref{fml:sec2:whitening}$ to substitute $\hat{\mathbf{y}}$ in $\eqref{fml:sec2:coloring}$.</p>
+
+<p>In the application, we use a content image $\mathbf{x}_c$ and a style image $\mathbf{x}_s$. Then we perform the whitening transformation over $\mathbf{y}_c$ (the features of $\mathbf{x}_c$), and use $\mathbf{y}_s$ (the features of $\mathbf{x}_s$) to perform the coloring transformation. We would embed the style into the content features. This conjugated transformation is defined as WCT which could be formulated as</p>
+
+<div class="overflow">
+\begin{align} \label{fml:sec2:wct}
+    \mathrm{WCT}_{\mathbf{y}_s}(\mathbf{y}_c) = \mathbf{Q}_s \boldsymbol{\Lambda}_s^{\frac{1}{2}} \mathbf{Q}_s^T \mathbf{Q}_c \boldsymbol{\Lambda}_c^{-\frac{1}{2}} \mathbf{Q}_c^T \mathbf{y}_c.
+\end{align}
+</div>
+
+<p>The $\eqref{fml:sec2:wct}$ is $O(1)$, which means it would be efficient to insert WCT into the auto-encoder.</p>
+
+<h2 id="results-1">Results</h2>
+
+<p>First we show the results that how the depth of the space influences the results. The following figure shows that although the WCT deeper space could transferring the style effectively, the details are lost. But we could add the details by stacking WCT auto-encoders in different depth.</p>
+
+<table>
+<thead>
+<tr>
+<th>How the depth of the space influence the result</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="styletrans-res1.jpg" alt="" title="How the depth of the space influence the result" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>And we also show the results compared with other works. Note that (c) [15] is from the previous work 2 and (e) [9] is from the previous work 1, which are discussed before.</p>
+
+<table>
+<thead>
+<tr>
+<th>Results with comparisons</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="styletrans-res2.jpg" alt="" title="Results with Comparisons" /></td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="style-transfer-1">Style Transfer</h1>
+
                         </div>
                     </section>
             <!-- Disqus Inject -->
@@ -226,7 +713,8 @@ ga('send', 'pageview');
     processEnvironments: true,
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
     TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+        extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js"]
+    }
   }
   });
   MathJax.Hub.Queue(function() {
@@ -244,10 +732,6 @@ ga('send', 'pageview');
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
-
-    <script>
-        setSemanticUIColor();
-    </script>
 
     </body>
 </html>

@@ -2432,14 +2432,18 @@
 					padding-left: 0.75em;
 				}
 
-			@media screen and (max-width: 480px) {
+			@media screen and (max-width: 600px) {
 
-				ul.pagination li:nth-child(n+2):nth-last-child(n+2) {
+				ul.pagination li:nth-child(n+3):nth-last-child(n+3) {
 					display: none;
 				}
 
-				ul.pagination li:first-child {
-					padding-right: 0;
+				ul.pagination li:first-child, ul.pagination li:last-child {
+					display: none; 
+				}
+
+				ul.pagination li:nth-child(n+2) {
+					padding-right: 1em;
 				}
 
 			}

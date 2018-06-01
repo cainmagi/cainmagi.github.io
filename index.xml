@@ -27,7 +27,11 @@
       <pubDate>Sat, 26 May 2018 02:10:27 -0500</pubDate>
       
       <guid>https://cainmagi.github.io/notes/note20180526/</guid>
-      <description></description>
+      <description>Set-invariant network Check here to see the article Deep Sets:
+Reference
+Theory This article discusses about how to build a neural network with order-invariant input set.
+ Theorem 1: which function could be set invariant:  Such a function $f(\mathbb{X})$ need to be able to be decomposed as such a form: \begin{align} f(\mathbb{X}) = \rho(\sum\limits_{x \in \mathbb{X}} \phi(x)). \end{align} 
+ Since the general form of the layer of neural network is $F(\mathbf{x},~\boldsymbol{\Theta}) = \sigma (\boldsymbol{\Theta}\mathbf{x})$, we could know that according to the above theorem, only when</description>
     </item>
     
     <item>

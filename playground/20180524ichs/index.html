@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-
+    <!-- Header -->
     <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +14,7 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
     <link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
 	
 	
@@ -35,10 +36,11 @@
 	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
 	<![endif]-->
 </head>
+
     <body>
 
     <!-- Wrapper -->
-        <div id="wrapper">
+    <div id="wrapper">
 
             <!-- Header -->
     <header id="header" class="alt">
@@ -80,7 +82,7 @@
                 
                     <section id="one">
                         <div class="inner">
-                            <header class="major">
+                            <header id="pagetitle" class="major">
                                 <h1 id='main_title'>Instructions for creating a Hugo site</h1>
                                 <table class="sub-title">
                                     <tbody>
@@ -118,10 +120,10 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </header>
-                            
+                                
                                 <span class="image main"><img src="/img/playground/20180524ichs_title.jpg" alt="" /></span>
-                            
+                                
+                            </header>
                             
                                 <h1 id="contents">Contents</h1>
                                 <p><nav id="TableOfContents">
@@ -237,14 +239,16 @@
 
 <p>测试行间公式，麦克斯韦方程组：</p>
 
-<p>\begin{equation}
+<div class="overflow">
+\begin{equation}
 \begin{aligned}
-  \frac{\partial\mathcal{D}}{\partial t} \quad &amp; = \quad \nabla\times\mathcal{H},   &amp; \quad \text{(Loi de Faraday)} \\[5pt]
-  \frac{\partial\mathcal{B}}{\partial t} \quad &amp; = \quad -\nabla\times\mathcal{E},  &amp; \quad \text{(Loi d&rsquo;Ampère)}   \\[5pt]
-  \nabla\cdot\mathcal{B}                 \quad &amp; = \quad 0,                         &amp; \quad \text{(Loi de Gauss)}   \\[5pt]
-  \nabla\cdot\mathcal{D}                 \quad &amp; = \quad 0.                         &amp; \quad \text{(Loi de Colomb)}
+  \frac{\partial\mathcal{D}}{\partial t} \quad & = \quad \nabla\times\mathcal{H},   & \quad \text{(Loi de Faraday)} \\[5pt]
+  \frac{\partial\mathcal{B}}{\partial t} \quad & = \quad -\nabla\times\mathcal{E},  & \quad \text{(Loi d'Ampère)}   \\[5pt]
+  \nabla\cdot\mathcal{B}                 \quad & = \quad 0,                         & \quad \text{(Loi de Gauss)}   \\[5pt]
+  \nabla\cdot\mathcal{D}                 \quad & = \quad 0.                         & \quad \text{(Loi de Colomb)}
 \end{aligned}
-\end{equation}</p>
+\end{equation}
+</div>
 
 <h3 id="代码高亮">代码高亮</h3>
 
@@ -580,7 +584,8 @@ ga('send', 'pageview');
     processEnvironments: true,
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
     TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+        extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js"]
+    }
   }
   });
   MathJax.Hub.Queue(function() {
@@ -598,10 +603,6 @@ ga('send', 'pageview');
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
-
-    <script>
-        setSemanticUIColor();
-    </script>
 
     </body>
 </html>

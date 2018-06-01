@@ -13,3 +13,10 @@ function setSemanticUIColor() {
         });
     }
 }
+
+$(document).ready(function() {
+    setSemanticUIColor(); 
+    $('div .overflow').each(function() { 
+        $(this).wrapInner('<div class="check" />'); 
+    })
+});

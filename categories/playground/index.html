@@ -231,7 +231,8 @@ ga('send', 'pageview');
     processEnvironments: true,
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
     TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+        extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js"]
+    }
   }
   });
   MathJax.Hub.Queue(function() {
@@ -249,10 +250,6 @@ ga('send', 'pageview');
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
-
-    <script>
-        setSemanticUIColor();
-    </script>
         
     </body>
 </html>

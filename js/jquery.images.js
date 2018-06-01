@@ -1,4 +1,4 @@
-$('body').append('<div class="product-image-overlay"><span class="product-image-overlay-close"><i class="fa fa-times" aria-hidden="true"></i></span><img src="" /></div>');
+$('body').append('<div class="product-image-overlay"><span class="product-image-overlay-close"></span><img src="" /></div>');
 var productParent = $('img').parent(':not(span.image.main):not(a)');
 var productImage = productParent.find('img');
 var productOverlay = $('.product-image-overlay');
@@ -9,7 +9,10 @@ productImage.click(function () {
     var productImageSource = $(this).attr('src');
     productImage.removeClass("show_img");
 
+    $('#header').addClass('alt');
+
     productOverlayImage.attr('src', productImageSource);
+
     productOverlay.fadeIn(300);
     $('body').css('overflow', 'hidden');
 
@@ -17,5 +20,10 @@ productImage.click(function () {
         productOverlay.fadeOut(300);
         productImage.addClass("show_img");
         $('body').css('overflow', 'auto');
+        $('#header').removeClass('alt');
     });
 });
+
+function newFunction() {
+    return 'alt';
+}

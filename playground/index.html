@@ -13,6 +13,7 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
     <link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
 	
 	
@@ -81,7 +82,7 @@
                     <div class="inner">
 			
                         <span class="image">
-                            <img src="/img/bannerplayground.jpg" alt="" />
+                            <img src="/img/bannerplayground.jpg" alt="" class="nolimits" />
                         </span>
 			
                         <header class="major">
@@ -98,7 +99,7 @@
                     
                     <section>
                         <a href="/playground/20180526linuxskill/" class="image">
-							<img src="/img/playground/coding.jpg" alt="" data-position="center center" />
+							<img src="/img/playground/coding.jpg" alt="" data-position="center center" class="nolimits" />
 						</a>
                         <div class="content">
                             <div class="inner">
@@ -115,7 +116,7 @@
                     
                     <section>
                         <a href="/playground/20180525biblestudy/" class="image">
-							<img src="/img/playground/20180525_biblestudy_title.jpg" alt="" data-position="center center" />
+							<img src="/img/playground/20180525_biblestudy_title.jpg" alt="" data-position="center center" class="nolimits" />
 						</a>
                         <div class="content">
                             <div class="inner">
@@ -132,7 +133,7 @@
                     
                     <section>
                         <a href="/playground/20180524ichs/" class="image">
-							<img src="/img/playground/20180524ichs_title.jpg" alt="" data-position="center center" />
+							<img src="/img/playground/20180524ichs_title.jpg" alt="" data-position="center center" class="nolimits" />
 						</a>
                         <div class="content">
                             <div class="inner">
@@ -146,7 +147,25 @@
                             </div>
                         </div>
                     </section>
-                    
+                     
+                    <!-- Pagination -->
+
+
+
+<!-- Number of links either side of the current page. -->
+
+
+<!-- $max_links = ($adjacent_links * 2) + 1 -->
+
+
+<!-- $lower_limit = $adjacent_links + 1 -->
+
+
+<!-- $upper_limit = $paginator.TotalPages - $adjacent_links -->
+
+
+
+<!-- end pagination partial //-->
                 </section>
             </div>
             
@@ -226,7 +245,8 @@ ga('send', 'pageview');
     processEnvironments: true,
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
     TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+        extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js"]
+    }
   }
   });
   MathJax.Hub.Queue(function() {
@@ -244,10 +264,6 @@ ga('send', 'pageview');
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
-
-    <script>
-        setSemanticUIColor();
-    </script>
         
     </body>
 </html>
