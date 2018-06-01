@@ -2265,11 +2265,12 @@
 
 	ul {
 		list-style: disc;
-		margin: 0 0 0 0;
+		margin-bottom: 1em;
 		padding-left: 1em;
 	}
 		ul ul{
 			list-style: circle;
+			margin: 0 0 0 0;
 		}
 
 			ul ul ul{

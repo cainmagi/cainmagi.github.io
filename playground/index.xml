@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>Advanced Linux Skills for Using NVIDIA Docker</title>
+      <link>https://cainmagi.github.io/playground/20180531linuxdocker/</link>
+      <pubDate>Thu, 31 May 2018 23:43:48 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/playground/20180531linuxdocker/</guid>
+      <description>Instruction   This is an instruction for those who want to know and make use of NVIDIA docker. In this section we would introduce what is docker and why we choose docker. If you have already know these, you could skip this section and get to the next one.
+What is docker Before we talk about docker, to be specific, we need to introduce you some concepts:
+   Name Meaning     Docker A tool for managing containers.</description>
+    </item>
+    
+    <item>
       <title>Basic Linux Skills for Remote Controlling</title>
       <link>https://cainmagi.github.io/playground/20180526linuxskill/</link>
       <pubDate>Sat, 26 May 2018 17:01:12 -0500</pubDate>

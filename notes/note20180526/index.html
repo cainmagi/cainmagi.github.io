@@ -142,7 +142,7 @@
 </ul></li>
 <li><a href="#results-1">Results</a></li>
 </ul></li>
-<li><a href="#style-transfer-1">Style Transfer</a></li>
+<li><a href="#semi-supervised-learning">Semi-supervised Learning</a></li>
 </ul>
 </nav></p>
                             
@@ -498,7 +498,7 @@ An exchangeable model $p(\mathbb{X})$ need to satisfy the exchangeable distribut
 </tbody>
 </table>
 
-<p>As is shown in the figure, (a) shows that a basic architecture of auto-encoder which is composed of an encoder and a decoder. This network should be pre-trained and kept fixed in this work. (b) is the core of this work, the author uses the WCT to transform the features produced by the encoder into another style, and use the original decoder to reconstruct the transformed features into the original image domain. &copy; is used to improve the performance. Although it is only simply composed of several stacks of (b), it could produce the similar performance of optimizing for style loss from all layers. Since the deeper the features are, the less the details would remain, the original image would be transformed in deep space first, and get the same transformation in the shallow space. By this scheme, the main style would be transformed in deep space and the details would be added in shallow space.</p>
+<p>As is shown in the figure, (a) shows that a basic architecture of auto-encoder which is composed of an encoder and a decoder. This network should be pre-trained and kept fixed in this work. (b) is the core of this work, the author uses the WCT to transform the features produced by the encoder into another style, and use the original decoder to reconstruct the transformed features into the original image domain. (c) is used to improve the performance. Although it is only simply composed of several stacks of (b), it could produce the similar performance of optimizing for style loss from all layers. Since the deeper the features are, the less the details would remain, the original image would be transformed in deep space first, and get the same transformation in the shallow space. By this scheme, the main style would be transformed in deep space and the details would be added in shallow space.</p>
 
 <p>Here we would like to discuss the core, i.e. the WCT in this paper. Denoting one input image as $\mathbf{x}$, then the output of the $l^{\mathrm{th}}$ layer of the encoder could be defined as $E^{(l)}(\mathbf{x})$ corresponded with the inverse transformation $D^{(l)}(E^{(l)}(\mathbf{x}))$. For the features $E^{(l)}(\mathbf{x})$, which has the size of $H \times W \times C$, from any sample, we could reshape it as $C \times HW$, then we could defines the centered features $\mathbf{y}$ as</p>
 
@@ -610,7 +610,11 @@ An exchangeable model $p(\mathbb{X})$ need to satisfy the exchangeable distribut
 </tbody>
 </table>
 
-<h1 id="style-transfer-1">Style Transfer</h1>
+<h1 id="semi-supervised-learning">Semi-supervised Learning</h1>
+
+<p>This is a previous work. Check here to see the article <em>Semi-Supervised Learning for Optical Flow with Generative Adversarial Networks</em>:</p>
+
+<p><a href="https://papers.nips.cc/paper/6639-semi-supervised-learning-for-optical-flow-with-generative-adversarial-networks.html" class="button icon fa-file-pdf-o">Reference</a></p>
 
                         </div>
                     </section>

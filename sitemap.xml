@@ -3,8 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://cainmagi.github.io/playground/20180531linuxdocker/</loc>
+    <lastmod>2018-06-01T05:06:01-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/playground/20180526linuxskill/</loc>
-    <lastmod>2018-05-29T12:49:00-05:00</lastmod>
+    <lastmod>2018-06-01T05:31:41-05:00</lastmod>
   </url>
   
   <url>
@@ -103,7 +108,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/command/</loc>
-    <lastmod>2018-05-29T12:49:00-05:00</lastmod>
+    <lastmod>2018-06-01T05:06:01-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -115,7 +120,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/cygwin/</loc>
-    <lastmod>2018-05-29T12:49:00-05:00</lastmod>
+    <lastmod>2018-06-01T05:31:41-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -128,6 +133,12 @@
   <url>
     <loc>https://cainmagi.github.io/tags/denoising/</loc>
     <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/docker/</loc>
+    <lastmod>2018-06-01T05:06:01-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -169,7 +180,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/linux/</loc>
-    <lastmod>2018-05-29T12:49:00-05:00</lastmod>
+    <lastmod>2018-06-01T05:06:01-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -204,6 +215,12 @@
   </url>
   
   <url>
+    <loc>https://cainmagi.github.io/tags/nvidia/</loc>
+    <lastmod>2018-06-01T05:06:01-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/categories/papers/</loc>
     <lastmod>2018-05-31T23:13:11-05:00</lastmod>
     <priority>0</priority>
@@ -211,7 +228,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/playground/</loc>
-    <lastmod>2018-05-29T12:49:00-05:00</lastmod>
+    <lastmod>2018-06-01T05:06:01-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -223,18 +240,18 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/putty/</loc>
-    <lastmod>2018-05-29T12:49:00-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cainmagi.github.io/categories/python/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <lastmod>2018-06-01T05:31:41-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://cainmagi.github.io/tags/python/</loc>
+    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/categories/python/</loc>
     <lastmod>2018-05-27T01:47:00-05:00</lastmod>
     <priority>0</priority>
   </url>
@@ -253,13 +270,13 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/remote-access/</loc>
-    <lastmod>2018-05-29T12:49:00-05:00</lastmod>
+    <lastmod>2018-06-01T05:31:41-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://cainmagi.github.io/tags/remote-gui/</loc>
-    <lastmod>2018-05-29T12:49:00-05:00</lastmod>
+    <lastmod>2018-06-01T05:31:41-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -277,7 +294,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/</loc>
-    <lastmod>2018-05-29T12:49:00-05:00</lastmod>
+    <lastmod>2018-06-01T05:06:01-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -307,18 +324,18 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/technique/</loc>
-    <lastmod>2018-05-29T12:49:00-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cainmagi.github.io/categories/tensorflow/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <lastmod>2018-06-01T05:06:01-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://cainmagi.github.io/tags/tensorflow/</loc>
+    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/categories/tensorflow/</loc>
     <lastmod>2018-05-27T01:47:00-05:00</lastmod>
     <priority>0</priority>
   </url>
@@ -343,7 +360,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/winscp/</loc>
-    <lastmod>2018-05-29T12:49:00-05:00</lastmod>
+    <lastmod>2018-06-01T05:31:41-05:00</lastmod>
     <priority>0</priority>
   </url>
   

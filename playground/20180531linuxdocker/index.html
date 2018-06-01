@@ -1,0 +1,568 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	<meta name="generator" content="Hugo 0.40.3" />
+	<title>Advanced Linux Skills for Using NVIDIA Docker &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Advanced Linux Skills for Using NVIDIA Docker</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>May 31, 2018</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>Jun 1, 2018</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/playground" title="Playground">Playground</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/technique" title="Technique">Technique</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/command" title="Command">Command</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/linux" title="linux">linux</a>
+                                                    
+                                                    <a class="ui label" href="/tags/docker" title="docker">docker</a>
+                                                    
+                                                    <a class="ui label" href="/tags/nvidia" title="NVIDIA">NVIDIA</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/playground/coding.jpg" alt="" /></span>
+                                
+                            </header>
+                            
+                                <h1 id="contents">Contents</h1>
+                                <p><nav id="TableOfContents">
+<ul>
+<li><a href="#instruction">Instruction</a>
+<ul>
+<li><a href="#what-is-docker">What is docker</a></li>
+<li><a href="#why-using-docker">Why using docker</a></li>
+<li><a href="#further-reading-materials">Further Reading Materials</a></li>
+</ul></li>
+<li><a href="#get-started">Get Started</a>
+<ul>
+<li><a href="#set-up-an-account">Set up an account</a></li>
+<li><a href="#commands">Commands</a>
+<ul>
+<li><a href="#login-with-docker">Login with docker</a></li>
+<li><a href="#get-full-authority-for-you-configuration-file">Get full authority for you configuration file</a></li>
+<li><a href="#pull-a-docker-image-from-ngc">Pull a docker image from NGC</a></li>
+<li><a href="#check-your-image-and-run-it">Check your image and run it</a></li>
+<li><a href="#save-a-docker-image-locally">Save a docker image locally</a></li>
+<li><a href="#terminate-remove-a-container">Terminate / Remove a container</a></li>
+<li><a href="#save-the-container-in-the-cloud">Save the container in the cloud</a></li>
+<li><a href="#use-the-gui-in-docker">Use the GUI in docker</a>
+<ul>
+<li><a href="#locally">Locally</a></li>
+<li><a href="#remote">Remote</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></p>
+                            
+                            
+
+<h1 id="instruction">Instruction</h1>
+
+<div style="text-align:center">
+    <span class="image main"><img src="logo.svg" style="max-width:60%; width:350px;display:inline;" /></span>
+</div>
+
+<p>This is an instruction for those who want to know and make use of NVIDIA docker. In this section we would introduce what is docker and why we choose docker. If you have already know these, you could skip this section and get to the <a href="#get-started">next one</a>.</p>
+
+<h2 id="what-is-docker">What is docker</h2>
+
+<p>Before we talk about docker, to be specific, we need to introduce you some concepts:</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>Docker</strong></td>
+<td>A tool for managing <strong>containers</strong>.</td>
+</tr>
+
+<tr>
+<td><strong>Container</strong></td>
+<td>An isolated user-space instances. You could work with it just like with a virtual machine (VM). Different <strong>containers</strong> would not influence each other. They would not influence the base operating system (OS), either.</td>
+</tr>
+
+<tr>
+<td><strong>Container image</strong></td>
+<td>The image of the <strong>Container</strong>. This is a file that stores the content of the <strong>container</strong>. Note that a <strong>container</strong> is constructed by loading its corresponding <strong>image</strong>, but the <strong>image</strong> is not the <strong>container</strong>.</td>
+</tr>
+
+<tr>
+<td><strong>Commit</strong></td>
+<td>The realization of version controlling. When you <strong>commit</strong>, you would save your <em>changes</em> as a new <strong>container image</strong> locally. The newly saved <strong>image</strong> would has a version and it only store the changes based on previous version. When you load an <strong>image</strong>, the previous versions would be loaded before this assigned <strong>image</strong> get loaded.</td>
+</tr>
+
+<tr>
+<td><strong>Cloud</strong></td>
+<td>A remote space that stores several <strong>images</strong>.</td>
+</tr>
+
+<tr>
+<td><strong>Pull</strong></td>
+<td>Download an <strong>image</strong> from the <strong>cloud</strong>.</td>
+</tr>
+
+<tr>
+<td><strong>Push</strong></td>
+<td>Upload your local <strong>image</strong> to the <strong>cloud</strong>.</td>
+</tr>
+
+<tr>
+<td><strong>Mount</strong></td>
+<td>Provide an external space which is outside the <strong>container</strong>. It is just like plug an USB into a computer.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="why-using-docker">Why using docker</h2>
+
+<p>To get known of the working theory of docker, you could compare it with a VM. But they are slightly different for some reasons.</p>
+
+<table>
+<thead>
+<tr>
+<th>Structure of a container</th>
+<th>Structure of a VM</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="str-container.png" alt="" title="Structure of a Container" /></td>
+<td><img src="str-vm.png" alt="" title="Structure of a VM" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Here we show the structures of a container and that of a VM respectively. VMs allows users to run several OSes on one computer, each VM could be viewed as an isolated space with virtual hard disk and other virtual devices. Changing on one VM would not influence another VM. However, each VM requires an OS, and because their devices are virtual, the performance of these VMs could not reach the efficiency of a real machine. The container would not face such a problem. Because although containers are isolated to each other, which is like VMs&rsquo; behavior, they share the same OS and get optimized for fully elaborating the efficiency of the device. Compared to using VM to run multiple tasks, if you use containers, you would benefit from these advantages:</p>
+
+<ul>
+<li><strong>Do not need to install OSes</strong>, which would save the disk space;</li>
+<li><strong>Benefit from the fully optimized environment</strong>, which would not reduce the efficiency of your device;</li>
+<li><strong>Easy to control the version</strong>, which could help you avoid mistaking operations and get back to the previous versions.</li>
+<li><strong>Sharing environment with others</strong>, which allows multiple users on the same computer share their software and modifications.</li>
+</ul>
+
+<h2 id="further-reading-materials">Further Reading Materials</h2>
+
+<p>Here we have two documents. The first one is from <em>DGX User Guide</em>, and the second one is from <em>NVIDIA GPU Cloud (NGC) User Guide</em>. They are written with a lot of details. If you have some specific problems, maybe you could refer to these materials and get the solutions.</p>
+
+<p><a href="https://docs.nvidia.com/deeplearning/dgx/index.html" class="button icon fa-file-text-o">DGX Docker Docs</a></p>
+
+<p><a href="https://docs.nvidia.com/deeplearning/dgx/index.html" class="button icon fa-file-text-o">NGC Docs</a></p>
+
+<p>OK, now let&rsquo;s start with our dockers!</p>
+
+<h1 id="get-started">Get Started</h1>
+
+<p>First, you need a NVIDIA cloud account. There are two versions of this account:</p>
+
+<ul>
+    <li><b>Free</b>: offers all available container images, but only allows downloading (pull).
+        <ul style="padding: 1em 0 1em 0">
+            <p><a href="https://ngc.nvidia.com/" class="button icon fa-cloud">NGC Sign in</a></p>
+        </ul>
+    </li> 
+    <li><b>Commercial</b>: only provided to customers who receive the invitation. It allows users upload (push) their own images.
+        <ul style="padding: 1em 0 1em 0">
+            <p><a href="https://compute.nvidia.com/" class="button icon fa-cloud">NVIDIA DGX Sign in</a></p>
+        </ul>
+    </li> 
+</ul>
+
+<p>Here we will only show how to use free account. But we will still discuss about <strong>pushing</strong> your images to cloud later.</p>
+
+<h2 id="set-up-an-account">Set up an account</h2>
+
+<p>You may check the official document to learn how to create an account on NGC. Or you could also read instructions here.</p>
+
+<ol>
+<li><p>From your browser, go to <a href="https://ngc.nvidia.com">https://ngc.nvidia.com</a>. Click Sign Up to start the sign-up process.</p>
+
+<p><img src="https://docs.nvidia.com/ngc/ngc-getting-started-guide/graphics/signon1.png" /></p></li>
+
+<li><p>Fill in all the information on the NVIDIA GPU Cloud Sign Up form, then click Sign Up. You could choose <em>student</em> as your role and <em>higher education/research</em> as your industry.</p>
+
+<p><img src="https://docs.nvidia.com/ngc/ngc-getting-started-guide/graphics/sign-on-full-new.png" /></p></li>
+
+<li><p>You will receive a welcome email with instructions on setting up your account access. Follow the instructions and verify your account.</p>
+
+<p><img src="https://docs.nvidia.com/ngc/ngc-getting-started-guide/graphics/signon-welcome-email.png" /></p></li>
+
+<li><p>Go to <a href="https://ngc.nvidia.com">https://ngc.nvidia.com</a> again, now you could login. After logging in, the website opens to the NGC Registry page.</p>
+
+<p><img src="https://docs.nvidia.com/ngc/ngc-getting-started-guide/graphics/ngc-registry-page.png" /></p></li>
+
+<li><p>Click <em>Get API Key</em> button in the right of the page, and you would see such a page. You could already see your username here. In fact, all users share the same username.</p>
+
+<p><img src="setup-genkey.png" alt="" title="Get API Key Page" /></p></li>
+
+<li><p>Click <em>Generate API Key</em> button, and you would see your key, i.e. the password. Remember to save the key somewhere (for example, in your email box), otherwise you may lose your previous work especially when you have a commercial key.</p></li>
+</ol>
+
+<h2 id="commands">Commands</h2>
+
+<h3 id="login-with-docker">Login with docker</h3>
+
+<p>Open your Bash (Linux shell), and type</p>
+
+<pre><code class="language-Bash">$ cd ~
+$ sudo nvidia-docker login
+</code></pre>
+
+<p>Then you would be required to provide the username and password. The user name must be <code>$oauthtoken</code>, and the key is specified for your account (free or commercial). After typing the correct information, you would see the information that you have succeeded to log in. In fact, you would not need to log in from now on, unless you want to change your account.</p>
+
+<h3 id="get-full-authority-for-you-configuration-file">Get full authority for you configuration file</h3>
+
+<p>If you have used docker, you may have your configuration file in your user folder. However, maybe you have no authority if you do not deal with this problem. Now lets use these commands to get the full authority.</p>
+
+<pre><code class="language-Bash">$ cd ~
+$ sudo chmod 777 .docker
+$ sudo chmod 777 .docker/*.*
+</code></pre>
+
+<p>After that, if you are in the user group <code>nvidia-docker</code> and <code>docker</code>, you would not need to add <code>sudo</code> prefix before your commands when using docker.</p>
+
+<h3 id="pull-a-docker-image-from-ngc">Pull a docker image from NGC</h3>
+
+<p>You could check your <em>Registry</em> on NGC and choose a docker image as you like. For example, if we are interested in <em>caffe</em>, we may use such command to get the newest container:</p>
+
+<pre><code class="language-Bash">$ nvidia-docker pull nvcr.io/nvidia/caffe:18.05-py2
+</code></pre>
+
+<p>Waiting for a few minutes, the image would be downloaded (if failed, try to add <code>sudo</code> before this command).</p>
+
+<h3 id="check-your-image-and-run-it">Check your image and run it</h3>
+
+<p>We could use this command to check your available images</p>
+
+<pre><code class="language-Bash">$ nvidia-docker images
+</code></pre>
+
+<p>Each image has a unique ID which is important and we would discuss about it later. Take <em>caffe</em> as an example, if we had downloaded <code>caffe:18.05-py2</code>, and we may use this command to run it:</p>
+
+<pre><code class="language-Bash">$ nvidia-docker run --rm -it -v local_dir:container_dir nvcr.io/nvidia/caffe:18.05-py2
+</code></pre>
+
+<p>Let&rsquo;s discuss about what do these options means:</p>
+
+<ul>
+<li><code>--rm</code>: Clear the container from the memory after exiting;</li>
+<li><code>-it</code>: Make the response of the container displayed on the current screen;</li>
+<li><code>-v local_dir:container_dir</code>: Map the local directory to that in the container. This is what we call \&rdquo;<em>mount</em>\&ldquo;. We could use more than one <em>mount</em> option;</li>
+<li><code>nvcr.io/nvidia/caffe:18.05-py2</code>: The name of the container image.</li>
+</ul>
+
+<p>We may see the some returned information once we get into the docker space successfully.</p>
+
+<h3 id="save-a-docker-image-locally">Save a docker image locally</h3>
+
+<p>We use <code>commit</code> command to save the docker. Note that once the docker is running, any modification would be recorded in the container. But if we <code>exit</code> from the container without saving it, we would lose these works. To save the container image, we need to preserve the running docker and open another session. Then we use this command outside the container:</p>
+
+<pre><code class="language-Bash">$ nvidia-docker ps -a
+</code></pre>
+
+<p>This command is used to show the current running docker sessions. We need to use this command to identify the container ID of the running session. This ID would be different from the original image with which we start. By remembering the ID, we could save the image by</p>
+
+<pre><code class="language-Bash">$ nvidia-docker commit container_ID new_container_image:tag
+</code></pre>
+
+<p>The second parameter is the ID which we get from the previous command. The last parameter is the name of the new image. The part after the <code>:</code> symbol is the tag which is usually used to record the version number.</p>
+
+<h3 id="terminate-remove-a-container">Terminate / Remove a container</h3>
+
+<p>Sometimes we may need to terminate a docker manually. For example, if we forget to add <code>-it</code> option to <code>run</code> command. In this case we need to find the running sessions. Use such a command to find the ID of the running container.</p>
+
+<pre><code class="language-Bash">$ nvidia-docker ps -a
+</code></pre>
+
+<p>Then use this command to terminate it</p>
+
+<pre><code class="language-Bash">$ nvidia-docker kill container_ID
+</code></pre>
+
+<p>Also we could use this command to remove a container image. Note that this command would not be undone, so you need to confirm that you are not making mistakes before using this command:</p>
+
+<pre><code class="language-Bash">$ nvidia-docker rmi container_ID
+</code></pre>
+
+<h3 id="save-the-container-in-the-cloud">Save the container in the cloud</h3>
+
+<p>Use this command to save your own image. Generally this image should be what you have committed before.</p>
+
+<pre><code class="language-Bash">$ nvidia-docker push nvcr.io/folder_name/image_name:tag
+</code></pre>
+
+<p>The name begins with <code>nvcr.io</code> and you could use your own name as you like. Since your profile is defined by your key, you do not need to worry about providing further information.</p>
+
+<h3 id="use-the-gui-in-docker">Use the GUI in docker</h3>
+
+<p>We know that we could not use GUI in docker without specific configurations. These settings are different when we use docker locally or use docker via a remote access.</p>
+
+<h4 id="locally">Locally</h4>
+
+<p>When we use the computer directly, we need to use commands like these:</p>
+
+<pre><code class="language-Bash">$ xhost +
+$ nvidia-docker run --rm -it -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v local_dir:container_dir nvcr.io/nvidia/caffe:18.05-py2
+</code></pre>
+
+<p>The first command is <code>xhost +</code> which enables your login session as the X11 server. It has to be run before we run the docker. Then the second command has two options required for running GUI:</p>
+
+<ul>
+<li><code>-e DISPLAY</code>: Use the environmental parameter <code>$DISPLAY</code> from the host device, which means return the GUI to the current screen;</li>
+<li><code>-v /tmp/.X11-unix:/tmp/.X11-unix</code>: Map (mount) the X11 program into the container so that it could returns the X11 windows;</li>
+</ul>
+
+<h4 id="remote">Remote</h4>
+
+<p>Similar to what we do in local case, we just need a small modification for the commands.</p>
+
+<p>First, use <code>ipconfig</code> (on Linux should be <code>ifconfig</code>) to check our IP address from the client side.</p>
+
+<p>Then, use these commands:</p>
+
+<pre><code class="language-Bash">$ xhost +
+$ nvidia-docker run --rm -it -e DISPLAY=xx.xx.xx.xx:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v local_dir:container_dir nvcr.io/nvidia/caffe:18.05-py2
+</code></pre>
+
+<p>where <code>xx.xx.xx.xx</code> is the IP address of the client. <code>:0</code> is the port number which corresponds to the settings of X11. Then we should get into the container successfully and be able to test the GUI.</p>
+
+<p>In fact, I have prepared an image named <code>matlab-caffe:0.90</code> for you all. It is equipped with matlab, firefox, gedit, gvim and xpdf. You could run it and check the performance of GUI by yourself. I have an example for you:</p>
+
+<pre><code class="language-Bash">$ xhost +
+$ nvidia-docker run --rm -it -e DISPLAY=172.25.xx.xx:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v ~:/homelocal matlab-caffe:0.90
+$ firefox &amp;
+$ matlab &amp;
+</code></pre>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmgi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-119875813-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+        extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js"]
+    }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>
