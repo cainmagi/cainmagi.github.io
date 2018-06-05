@@ -360,7 +360,7 @@ $ sudo chmod 777 .docker/*.*
 <ul>
 <li><code>--rm</code>: Clear the container from the memory after exiting;</li>
 <li><code>-it</code>: Make the response of the container displayed on the current screen;</li>
-<li><code>-v local_dir:container_dir</code>: Map the local directory to that in the container. This is what we call \&rdquo;<em>mount</em>\&ldquo;. We could use more than one <em>mount</em> option;</li>
+<li><code>-v local_dir:container_dir</code>: Map the local directory to that in the container. This is what we call &ldquo;<em>mount</em>&rdquo;. We could use more than one <em>mount</em> option;</li>
 <li><code>nvcr.io/nvidia/caffe:18.05-py2</code>: The name of the container image.</li>
 </ul>
 
@@ -401,10 +401,10 @@ $ sudo chmod 777 .docker/*.*
 
 <p>Use this command to save your own image. Generally this image should be what you have committed before.</p>
 
-<pre><code class="language-Bash">$ nvidia-docker push nvcr.io/folder_name/image_name:tag
+<pre><code class="language-Bash">$ nvidia-docker push nvcr.io/project_name/image_name:tag
 </code></pre>
 
-<p>The name begins with <code>nvcr.io</code> and you could use your own name as you like. Since your profile is defined by your key, you do not need to worry about providing further information.</p>
+<p>The name begins with <code>nvcr.io</code> and you could use your own name as you like. Since your profile is defined by your key, you do not need to worry about providing further information. Note that all images that could be pushed to the cloud need to has a prefix like <code>nvcr.io/project_name/</code> where the project name is given by your account. It should be in the lower case.</p>
 
 <h3 id="use-the-gui-in-docker">Use the GUI in docker</h3>
 

@@ -92,7 +92,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>May 31, 2018</td>
+                                            <td>Jun 4, 2018</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -142,7 +142,17 @@
 </ul></li>
 <li><a href="#results-1">Results</a></li>
 </ul></li>
-<li><a href="#semi-supervised-learning">Semi-supervised Learning</a></li>
+<li><a href="#semi-supervised-learning">Semi-supervised learning</a>
+<ul>
+<li><a href="#theory-2">Theory</a>
+<ul>
+<li><a href="#previous-work-differentiable-interpolation">Previous work: Differentiable interpolation</a></li>
+<li><a href="#previous-work-unsupervised-learning">Previous work: unsupervised learning</a></li>
+<li><a href="#this-work-semi-supervised-learning">This work: semi-supervised learning</a></li>
+</ul></li>
+<li><a href="#results-2">Results</a></li>
+</ul></li>
+<li><a href="#slices">Slices</a></li>
 </ul>
 </nav></p>
                             
@@ -530,7 +540,7 @@ An exchangeable model $p(\mathbb{X})$ need to satisfy the exchangeable distribut
 <div class="box">
     <ol>
         <li>Solve the equation $\det(\mathbf{y}\mathbf{y}^T - \lambda \mathbf{I})=0$. We should have $C$ solutions. These solutions are eigenvalue which could be used to construct the diagonal eigenvalue matrix $\boldsymbol{\Lambda}$.</li>
-        <li>Solve the equation $\det((\mathbf{y}\mathbf{y}^T - \lambda \mathbf{I})\mathbf{q}) = 0$ for each $\lambda$. The corresponding solution, i.e. the vector $\mathbf{q}$ is the eigenvector. Since we have $C$ eigenvalue, here we also have $C$ eigenvectors. Use them to construct the eigenvector matrix $\mathbf{Q}_0$.</li>
+        <li>Solve the equation $\mathbf{y}\mathbf{y}^T - \lambda \mathbf{I})\mathbf{q} = \mathbf{0}$ for each $\lambda$. The corresponding solution, i.e. the vector $\mathbf{q}$ is the eigenvector. Since we have $C$ eigenvalues, here we also have $C$ eigenvectors. Use them to construct the eigenvector matrix $\mathbf{Q}_0$.</li>
         <li>We could make $\mathbf{Q}_0$ orthogonal. Solve $k$ from $k \mathbf{I} = \mathbf{Q}_0\mathbf{Q}_0^T$, then we could adjust the matrix by letting $\mathbf{Q} = \frac{1}{k}\mathbf{Q}_0$. Note that as an orthogonal matrix, $\mathbf{Q}^{-1} = \mathbf{Q}^T$.</li>
     </ol>
 </div>
@@ -610,11 +620,274 @@ An exchangeable model $p(\mathbb{X})$ need to satisfy the exchangeable distribut
 </tbody>
 </table>
 
-<h1 id="semi-supervised-learning">Semi-supervised Learning</h1>
+<h1 id="semi-supervised-learning">Semi-supervised learning</h1>
 
 <p>This is a previous work. Check here to see the article <em>Semi-Supervised Learning for Optical Flow with Generative Adversarial Networks</em>:</p>
 
 <p><a href="https://papers.nips.cc/paper/6639-semi-supervised-learning-for-optical-flow-with-generative-adversarial-networks.html" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<h2 id="theory-2">Theory</h2>
+
+<p>This paper is mainly based on two works. The first one gives a back propagation policy for affine transformation; and the second one proposes the unsupervised learning strategy. This paper improve the effectiveness by introducing the <em>Generative Adversarial Network (GAN)</em> and involving the supervised learning.</p>
+
+<h3 id="previous-work-differentiable-interpolation">Previous work: Differentiable interpolation</h3>
+
+<p>In this previous work, the author proposes a differentiable interpolation method so that we could perform back propagation on the parameters of this transform. To know the detail, check here to see <em>Spatial Transformer Networks</em>:</p>
+
+<p id="ref-diffintp"><a href="https://arxiv.org/abs/1506.02025" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Affine_transformation" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Affine_transformation"><b>Affine transformation</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>Denote $(x_{ij},~y_{ij})$ as a coordinate of a pixel of image $\mathbf{I}$, then we could attach every pixel with a linear affine transformation $\mathbf{W}_{ij}$. The transformed coordinate of this pixel is defined as $(\hat{x}_{ij},~\hat{y}_{ij})$, then the transformation could be formulated as:</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+    \left(
+    \begin{matrix}
+        \hat{x}_{ij} \\ \hat{y}_{ij}
+    \end{matrix}
+    \right) &= 
+    \mathbf{W}_{ij} \left(
+    \begin{matrix}
+        x_{ij} \\ y_{ij}
+    \end{matrix}
+    \right)
+    = \left[
+    \begin{matrix}
+        u_{ij} & 0 \\ 0 & v_{ij}
+    \end{matrix}
+    \right] \left(
+    \begin{matrix}
+        x_{ij} \\ y_{ij}
+    \end{matrix}
+    \right) = \left(
+    \begin{matrix}
+        x_{ij} + u_{ij} \\ y_{ij} + v_{ij}
+    \end{matrix}
+    \right)
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>If we have known a image $\mathbf{I}(t)$, its next frame $\mathbf{I}(t+1)$ and the linear transformation between two frames, i.e. $\hat{\mathbf{I}}(t+1) = \mathcal{W}(\mathbf{I}(t))$. Then we could inverse the transformation and use $(\mathbf{I}(t+1),~\mathcal{W})$ to deduce $\mathbf{I}_{\mathrm{warp}}(t)$, which could be formulated as</p>
+
+<div class="overflow">
+\begin{align} \label{fml:sec3:biinterp}
+    \mathbf{I}_{\mathrm{warp}}(x_{ij},~y_{ij},~t) = \sum_{h=1}^{H}\sum_{w=1}^{W} \mathbf{I}(h,~w,~t+1) \mathrm{M}(1 - |\hat{x}_{ij}-w|) \mathrm{M}(1 - |\hat{y}_{ij}-h|),
+\end{align}
+</div>
+
+<p>where we define $\mathrm{M}(\cdot)$ as $\max (0,~\cdot)$. If $(u_{ij},~v_{ij})$ are integers, every interpolated pixel is just from another pixel. We could use the following figure to illustrate it:</p>
+
+<table>
+<thead>
+<tr>
+<th>Differentiable bilinear interpolation</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="semilern-img-intp.svg" alt="" title="Differentiable Bilinear Interpolation" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>In this figure, we use blue blocks to represent the interpolated pixels and arrows to represent the linear transformation. In the right side, we use yellow blocks to represent the source pixels that are used to deduce the previous frame. There are 4 pixels in this examples, from the image we could know that every pixel in the prediction is taken from another pixel in the source, while a pixel in the source could be used to predict more than one pixel.</p>
+
+<p>Although the author call $\eqref{fml:sec3:biinterp}$ as &ldquo;<em>bilinear interpolation</em>&rdquo;, in fact it looks like nearest interpolation more. Only when $(u,~v)$ are not integers could the transformation be called &ldquo;bilinear&rdquo;. It would be easy to calculate $\frac{\partial \mathbf{I}_{\mathrm{warp}}(x_{ij},~y_{ij},~t)}{\partial u_{ij}}$. Here we would not talk about it. If you are interested the formulated result, you could check the <a href="#ref-diffintp">reference</a>.</p>
+
+<h3 id="previous-work-unsupervised-learning">Previous work: unsupervised learning</h3>
+
+<p>This is another previous work. Check here to see the article <em>Back to Basics: Unsupervised Learning of Optical Flow via Brightness Constancy and Motion Smoothness</em>:</p>
+
+<p><a href="https://arxiv.org/abs/1608.05842" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<p>In this application, the transformation parameters discussed above are called &ldquo;<em>optical flow</em>&rdquo;, which means for a frame $\mathbf{I}(t)$, we have a flow map $(\mathbf{u},~\mathbf{v})$ in both of the horizontal and vertical directions. Each pixel of the frame $\mathbf{I}$ has two flow mapping parameters $(u,~v)$. The author uses <em>FlowNet Simple</em> to predict the flow map $(\mathbf{u},~\mathbf{v})$.</p>
+
+<table>
+<thead>
+<tr>
+<th>FlowNet Simple structure</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="semilern-flownet.jpg" alt="" title="FlowNet Simple Structure" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The network accepts the input of two neighbor frames, compresses the image and up-samples feature maps by multiple stages. The features from each stage only have two channels, i.e. the $(\mathbf{u},~\mathbf{v})$. Which means they share the same physical meanings and the up-sampling layers could be viewed as interpolation layers. All features are used to calculate the unsupervised learning loss, which could be formulated as:</p>
+
+<div class="overflow">
+\begin{align} 
+    \mathcal{L}_{\mathrm{total}} = \sum_{l} \mathcal{L} \left( D_l^{C1},~D_l^{C2},~\mathbf{I}(t),~\mathbf{I}(t+1) \right),
+\end{align}
+</div>
+
+<p>where we use $D_l^{Cn}$ to represent the $n^{\textrm{th}}$ channel of the $l^{\textrm{th}}$ layer of the up-sampling features (decoder output). The inputs are two neighbor frames $(\mathbf{I}(t),~\mathbf{I}(t+1))$ and the unsupervised loss function $\mathcal{L}$ for each layer is the same function which could be formulated as</p>
+
+<div class="overflow">
+\begin{align} 
+    \mathcal{L} ( \mathbf{u},~\mathbf{v},~\mathbf{I}(t),~\mathbf{I}(t+1) ) = \ell_{p} ( \mathbf{u},~\mathbf{v},~\mathbf{I}(t),~\mathbf{I}(t+1) ) + \lambda \ell_{s} ( \mathbf{u},~\mathbf{v} ).
+\end{align}
+</div>
+
+<p>$\ell_{p}$ is the photometric loss which could be also viewed as &ldquo;<em>warp loss</em>&rdquo;, because the loss is produced by the error between the frame $\mathbf{I}(t)$ and its predicted frame $\mathbf{I}_{\mathrm{warp}}(t)$.</p>
+
+<div class="overflow">
+\begin{align} \label{fml:sec3:lossphoto}
+    \ell_{p} = \sum_{xy} \rho_D (\mathbf{I}(t) - \mathbf{I}_{\mathrm{warp}}(t)).
+\end{align}
+</div>
+
+<p>And the $\ell_{s}$ is the smoothness loss, which is calculated by the directional gradient of the predicted flow maps:</p>
+
+<div class="overflow">
+\begin{align} 
+    \ell_{s} = \sum_{xy} \left[ \rho_S \left( \frac{\partial \mathbf{u}}{\partial x} \right) + \rho_S \left( \frac{\partial \mathbf{u}}{\partial y} \right) + \rho_S \left( \frac{\partial \mathbf{v}}{\partial x} \right) + \rho_S \left( \frac{\partial \mathbf{v}}{\partial y} \right) \right].
+\end{align}
+</div>
+
+<p>The $\rho_D$ and $\rho_S$ are penalty functions. Both of them are generalized Charbonnier function while the parameters of the function may be different between the two cases. The general form could be formulated as</p>
+
+<div class="overflow">
+\begin{align} 
+    \rho (x,\varepsilon,~\alpha) = (x^2+\varepsilon^2)^{\alpha}.
+\end{align}
+</div>
+
+<h3 id="this-work-semi-supervised-learning">This work: semi-supervised learning</h3>
+
+<p>This work is based on using GAN. As we know, the GAN is composed of a generator network and a discriminator network. In this work, the generator is an auto-encoder which accepts two neighbor frames and outputs the predicted optical flow map. The discriminator is used to identify the warp error of the predicted flow. The network structure is like this:</p>
+
+<table>
+<thead>
+<tr>
+<th>Network structure</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="semilern-netstr.svg" alt="" title="Semi-supervised Learning Network Structure" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The core theory of the semi-supervised learning is that we use labeled data to train the discriminator $D$ and both labeled and unlabeled data to train the generator $G$. Therefore, the discriminator part is supervised learning while the generator part is unsupervised learning. Since we only use generator to produce the results that we need in application, this method could be reasonable.</p>
+
+<p>The whole optimization could be defined as</p>
+
+<div class="overflow">
+\begin{align} 
+    \min_G \max_D \mathcal{L}_{s}(G) + \lambda \mathcal{L}_{a} (G,~D).
+\end{align}
+</div>
+
+<p>The first part is the supervised learning loss, and the second part is the adversarial loss of the GAN network. Therefore, we train the discriminator and generator alternatively by using different targets.</p>
+
+<p>First, we discuss the loss for optimizing the discriminator. Denote the input frames as $\mathbf{I}_t$ and $\mathbf{I}_{t+1}$, the predicted flow (two channels) of the generator could be defined as $\mathbf{g} = G(\mathbf{I}_t,~\mathbf{I}_{t+1})$. The ground truth of the flow of the frame $\mathbf{I}_t$ is $\mathbf{g}_0$, then we could define the warp loss map as</p>
+
+<div class="overflow">
+\begin{align} 
+    \mathbf{y} = \mathbf{I}_t - \mathcal{W}(\mathbf{I}_{t+1},~\mathbf{g}_0). \\[5pt]
+    \hat{\mathbf{y}} = \mathbf{I}_t - \mathcal{W}(\mathbf{I}_{t+1},~\mathbf{g}). \\[5pt]
+\end{align}
+</div>
+
+<p>The loss map is also a picture. We use $\mathcal{W}$ to define the affine transformation, thus $\mathbf{y}$ represents the warp loss calculated by ground truth flow and $\hat{\mathbf{y}}$ is the warp loss calculated by predicted flow. This definition is similar to what we have done in $\eqref{fml:sec3:lossphoto}$. Then the discriminator loss could be:</p>
+
+<div class="overflow">
+\begin{align} 
+    \mathcal{L}^D_a (\mathbf{I}_t,~\mathbf{I}_{t+1},~\mathbf{g}_0) = - \log D(\hat{\mathbf{y}}) - \log (1-D(\mathbf{y})).
+\end{align}
+</div>
+
+<p>Then let&rsquo;s discuss the generator loss. It is a combination of the supervised learning and unsupervised learning. For supervised learning, we need to calculate the error between predicted map and the ground truth, i.e.</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned} 
+        \mathcal{L}^G_s &= \lVert \mathbf{g} - \mathbf{g}_0 \rVert_F \\
+        &= \lVert G(\mathbf{I}_t,~\mathbf{I}_{t+1}) - \mathbf{g}_0 \rVert_F.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>And the adversarial loss is only related to generated flow, which means</p>
+
+<div class="overflow">
+\begin{align} 
+    \mathcal{L}^G_a = - \log D(\hat{\mathbf{y}}).
+\end{align}
+</div>
+
+<p>Then when we feed the labeled data to the network, we have the ground truth and use such loss:</p>
+
+<div class="overflow">
+\begin{align} 
+    \mathcal{L}^G_{\mathrm{sup}} = \mathcal{L}^G_s + \lambda \mathcal{L}^G_a.
+\end{align}
+</div>
+
+<p>When we feed the unlabeled data to the network, we only have the input. So we use such loss:</p>
+
+<div class="overflow">
+\begin{align} 
+    \mathcal{L}^G_{\mathrm{unsup}} = \lambda \mathcal{L}^G_a.
+\end{align}
+</div>
+
+<h2 id="results-2">Results</h2>
+
+<p>First we show the numerical results of comparing the proposed method to other methods. The results show that the semi-supervised learning could achieve better performance than both supervised learning and unsupervised learning.</p>
+
+<table>
+<thead>
+<tr>
+<th>Numerical comparison to other methods</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="semilern-performance1.svg" alt="" title="Numerical Comparison to Other Methods" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Then we show the illustrated results with comparison to other methods.</p>
+
+<table>
+<thead>
+<tr>
+<th>Illustrated comparison to other methods</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="semilern-performance2.jpg" alt="" title="Illustrated Comparison to Other Methods" /></td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="slices">Slices</h1>
+
+<p>View the slices here:</p>
+
+<p><a href="Week2-3.pdf" class="button icon fa-file-pdf-o">Slices</a></p>
 
                         </div>
                     </section>
