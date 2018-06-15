@@ -12,10 +12,12 @@
 	<!-- Stylesheets -->
 	
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
-    <link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
 	
 	
 
@@ -92,7 +94,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>Jun 1, 2018</td>
+                                            <td>Jun 14, 2018</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -130,6 +132,7 @@
                                 <span class="image main"><img src="/img/playground/coding.jpg" alt="" /></span>
                                 
                             </header>
+                            <hr/>
                             
                                 <h1 id="contents">Contents</h1>
                                 <p><nav id="TableOfContents">
@@ -166,6 +169,7 @@
 </ul>
 </nav></p>
                             
+                            <hr/>
                             
 
 <h1 id="instruction">Instruction</h1>
@@ -555,6 +559,23 @@ startxwin &amp;
 </code></pre></li>
 
 <li><p><strong>Change my password</strong>: Type <code>passwd</code>, and you could change your password. It requires you to enter the current password, new password and retyped new password.</p></li>
+
+<li><p><strong>Check the processes</strong>: Type <code>ps</code> to see the running processes, to see the details, we recommend to use</p>
+
+<pre><code class="language-Bash">$ ps aux | less
+</code></pre>
+
+<p>And you would see all processes run by all users. If you want to search for a keyword to check whether the relevant processes are running, we could use</p>
+
+<pre><code class="language-Bash">$ ps aux | less | grep key
+</code></pre></li>
+
+<li><p><strong>Kill a process</strong>: Type <code>kill</code> and we could kill a running process. The basic usage is</p>
+
+<pre><code class="language-Bash">$ kill -9 PID
+</code></pre>
+
+<p>We use <code>-9</code> option to force the process to be killed. Note that if we need to kill a specific process, we need to know its PID which could be referred by using <code>ps</code> command. If you want to kill a process that is owned by other users, just add <code>sudo</code> before the command.</p></li>
 </ol>
 
 <h2 id="installation-and-upgrade">Installation and Upgrade</h2>
@@ -766,15 +787,18 @@ export PATH
     <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
     <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
     <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
     <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
     <script src="https://cainmagi.github.io/js/skel.min.js"></script>
     <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
 
     
 
     <!-- Main JS -->
     <script src="https://cainmagi.github.io/js/main.js"></script>
     <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
     
     <script src="https://cainmagi.github.io/js/title.js"></script>
     
@@ -798,17 +822,18 @@ ga('send', 'pageview');
     <script type="text/javascript" async
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-        extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js"]
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
     }
-  }
   });
+
   MathJax.Hub.Queue(function() {
     
     
@@ -820,8 +845,8 @@ ga('send', 'pageview');
   });
 
   MathJax.Hub.Config({
-  
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
 

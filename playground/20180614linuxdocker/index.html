@@ -1,0 +1,778 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	<meta name="generator" content="Hugo 0.40.3" />
+	<title>Advanced Linux Skills for Using NVIDIA Docker II: with VNC &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Advanced Linux Skills for Using NVIDIA Docker II: with VNC</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>Jun 14, 2018</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>Jun 15, 2018</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/playground" title="Playground">Playground</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/technique" title="Technique">Technique</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/command" title="Command">Command</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/linux" title="linux">linux</a>
+                                                    
+                                                    <a class="ui label" href="/tags/docker" title="docker">docker</a>
+                                                    
+                                                    <a class="ui label" href="/tags/putty" title="putty">putty</a>
+                                                    
+                                                    <a class="ui label" href="/tags/remote-access" title="remote-access">remote-access</a>
+                                                    
+                                                    <a class="ui label" href="/tags/remote-gui" title="remote-GUI">remote-GUI</a>
+                                                    
+                                                    <a class="ui label" href="/tags/nvidia" title="NVIDIA">NVIDIA</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/playground/coding.jpg" alt="" /></span>
+                                
+                            </header>
+                            <hr/>
+                            
+                                <h1 id="contents">Contents</h1>
+                                <p><nav id="TableOfContents">
+<ul>
+<li><a href="#instruction">Instruction</a></li>
+<li><a href="#get-started">Get started</a>
+<ul>
+<li><a href="#part-1-initialization">Part 1: initialization</a></li>
+<li><a href="#part-2-get-the-online-service">Part 2: Get the online service</a></li>
+<li><a href="#part-3-log-out-and-save-securely">Part 3: Log out and save securely</a></li>
+</ul></li>
+<li><a href="#build-your-own-desktop-image">Build your own desktop image</a>
+<ul>
+<li><a href="#write-the-dockerfile">Write the dockerfile</a></li>
+<li><a href="#how-about-a-different-desktop">How about a different desktop</a></li>
+<li><a href="#set-the-novnc-program">Set the noVNC program</a></li>
+</ul></li>
+</ul>
+</nav></p>
+                            
+                            <hr/>
+                            
+
+<h1 id="instruction">Instruction</h1>
+
+<p>Before reading this article, please make sure that you have understood how to use docker (or read the prior article). Here is the prior instruction that gives you a whole imagination about docker. Some techniques (like how to save/read images or how to log in NVIDIA cloud) would not be introduced here particularly. We strongly recommend you to read this article after understanding the prior one.</p>
+
+<p><a href="../20180531linuxdocker" class="button icon fa-file-text-o">Prior Instructions</a></p>
+
+<p>In this article we would make you know how to get access to the prepared remote desktop on that DGX server. I have prepared the basic image that contains the desktop with some applications. But if you want to build your own one, you could check the last section, which would gives you an example of building the basic image with a Xfce4 desktop. The basic image include these software:</p>
+
+<ul>
+<li>gcc-6.3.0 (preferred), gcc-7.4.0 and gcc-5.5.0</li>
+<li>ffmpeg, opencv-2.4 and some other libs</li>
+<li>Matlab-R2018a with MatCaffe</li>
+<li>Python-2.7.0 with PyCaffe</li>
+<li>Visual Studio Code and Codeblocks</li>
+<li>Firefox and Chromium</li>
+<li>GVim, GEdit and Notepadqq</li>
+<li>GIMP-2.10.2</li>
+<li>Chinese (Simplified and Traditional) input methods</li>
+</ul>
+
+<p>Note that this instruction is for those who use Windows and putty as the client. However, the client application is not a key point. If you know your workspace, you could understand how to perform the same operations with your machine easily. You need to prepare such applications before we begin our tutorial:</p>
+
+<ul>
+<li>A terminal that could use SSH with multiple sessions (like putty);</li>
+<li>A web browser.</li>
+</ul>
+
+<p>To be specific, here you do not need to make preparations for GUI services, like using X11 client. Because we would not run applications via the remote terminal.</p>
+
+<h1 id="get-started">Get started</h1>
+
+<p>We would like to divide the operations into several parts: (1) Initialization from the terminal (2) Working with web services (3) Logout and saving the image securely.</p>
+
+<h2 id="part-1-initialization">Part 1: initialization</h2>
+
+<p>As shown in the following screenshots, first, open the SSH terminal and log in successfully <strong>(Step 1)</strong>. Then, duplicate the session (this is why we need a client that support multiple sessions)  <strong>(Step 2)</strong>. Now we would have two sessions in the meantime. In the following part, we would call them <span style="color:#FCC">Session 1</span> and <span style="color:#CFC">Session 2</span>.</p>
+
+<table>
+<thead>
+<tr>
+<th>1. Open session</th>
+<th>2. Duplicate session</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="session1-login.png" alt="" title="Open session" /></td>
+<td><img src="session1-dup.png" alt="" title="Duplicate session" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Then you could use the following command to find what images could be used and run your image <strong>(Step 3)</strong>.</p>
+
+<pre><code class="language-Bash">$ nvidia-docker images
+$ nvidia-docker run -it --rm -v ~:/homelocal xubuntu:1.5
+</code></pre>
+
+<p>You have to remember that what do these commands mean. Check <a href="../20180531linuxdocker/#check-your-image-and-run-it">here</a> for a reference. To be specific, now we run a image with a name of &ldquo;<em>xubuntu</em>&rdquo; and a tag of &ldquo;1.5&rdquo;. This image is a prepared desktop that enables us to use web services to get access to it. If you succeed, you will see you username has been changed to &ldquo;<em>root</em>&rdquo; and the device name has been changed to the container ID, like this screenshot.</p>
+
+<table>
+<thead>
+<tr>
+<th>3. <span style="color:#FCC">Session 1</span>: Get into the container</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="session1-enter.png" alt="" title="Get into the container" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>In fact, you could see some simple instructions that I have written when you get into the image. But you may prefer to follow this tutorial in the following steps.</p>
+
+<p>You need to pay attention to the host IP as long as the used port returned on the screen. The port number is followed by the container ID. In this example, it is &ldquo;1&rdquo;. Note that once you open the container, the VNC service has been launched, the service would be mapped out from the assigned port.</p>
+
+<p>Now we use</p>
+
+<pre><code class="language-Bash">$ vncpasswd
+</code></pre>
+
+<p>to change the password for web service <strong>(Step 4)</strong>. This password is different from what you use to log in the machine. And it is only a simple one. When you change the password, you are not required to enter the predefined one, and you should not enter a too long password (otherwise it would be cropped). We recommend you to use a 8-length password here.</p>
+
+<table>
+<thead>
+<tr>
+<th>4. <span style="color:#FCC">Session 1</span>: Change the password</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="session1-chpasswd.png" alt="" title="Change the password" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Now we turn to the other session. You need to use a command <code>noVNC</code> <strong>outside</strong> the container so that we could launch the web service which is different from VNC service. It accepts the service mapped out from the VNC port and provide the web interactions by an output port. So the command should be like this:</p>
+
+<pre><code class="language-Bash">$ noVNC IP=172.17.0.3:5901 PORT=6080
+</code></pre>
+
+<p>The <code>IP</code> option is an IP address followed by a port number, which is required in general cases. The IP address is that of the container, i.e. the host IP we have remembered before. The following port number <code>5901</code> is defined by the VNC server. It would take the <code>590X</code> ports to provide VNC services. In this example, because the used port is &ldquo;:1&rdquo; inside the container, here we use <code>5901</code>.</p>
+
+<p>The <code>PORT</code> option means the output port number. It is different from the port used by VNC server. If we view the <code>5901</code> port as an input, this one should be an output. noVNC is a program that provide the web service of VNC. It takes the <code>608X</code> ports. The default port number is <code>6080</code> if we do not assgin the <code>PORT</code> option. And now we could have a try by entering this command  <strong>(Step 5)</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>5. <span style="color:#CFC">Session 2</span>: Fail to open noVNC</th>
+<th>6. <span style="color:#CFC">Session 2</span>: Success to open noVNC</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="session2-fail.png" alt="" title="Fail to open noVNC" /></td>
+<td><img src="session2-novnc.png" alt="" title="Success to open noVNC" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Oooops! We get a failure message. Because the output port <code>6080</code> has been taken by another user now. In this case, we could try to use another port number, like <code>6081</code>. Then we would find that in step 6 the service has been opened successfully  <strong>(Step 6)</strong>.</p>
+
+<p>Note that the <code>noVNC</code> command is a script which is written by me. This customized script may simplify the usage of the original noVNC. But you need to pay attention that if succeed, we could see two URLs. The first one is provided by me, and the second one is provided by the original program. The original program prefer to use the machine name to replace the IP address, which is not preferable for us because we have no records of the remote machine name in our host files. So we need to use the first URL which use the plain IP address in the following parts.</p>
+
+<p>Now we could confirm that both the VNC (run in the container) and noVNC (run outside the container) have been running. We should not shut down either one of the two sessions when we use the services, otherwise our works would be interrupted.</p>
+
+<h2 id="part-2-get-the-online-service">Part 2: Get the online service</h2>
+
+<p>Now we open a web browser and use the URL returned from noVNC. In this example we use chrome and such an URL:</p>
+
+<pre><code class="language-html">http://xxx.xxx.xxx.xxx:6081/vnc.html?host=xxx.xxx.xxx.xxx&amp;port=6081
+</code></pre>
+
+<p>And we could see the noVNC web client after connecting successfully <strong>(Step 7)</strong>.</p>
+
+<table>
+<thead>
+<tr>
+<th>7. Open the web client</th>
+<th>8. Input the password</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="vnc-connect.png" alt="" title="Open the web client" /></td>
+<td><img src="vnc-passwd.png" alt="" title="Input the password" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Clicking the &ldquo;connect&rdquo; button, and we would be required to enter the password that we set before <strong>(Step 8)</strong>. If you could get to step 7 but could not get to step 8, you may make mistakes before. For example, you may use a wrong container IP address or VNC port number.</p>
+
+<p>After entering the right password, you could see a terminal has been shown on the screen. You could verify that it is running inside the container by checking the username. We could use <code>xrandr</code> to see and change the resolution according to our client screen. Then we use</p>
+
+<pre><code class="language-Bash">$ starxfce4 &amp; 
+</code></pre>
+
+<p>to launch the desktop <strong>(Step 9)</strong>.</p>
+
+<table>
+<thead>
+<tr>
+<th>9. Lauch the desktop</th>
+<th>10. Open the full screen mode</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="vnc-xrandr.png" alt="" title="Lauch the desktop" /></td>
+<td><img src="vnc-fullscr.png" alt="" title="Open the full screen mode" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>You would be able to interact with the remote desktop now. You may prefer to enter the full screen mode of the browser by clicking the button on the slide bar <strong>(Step 10)</strong>. VNC service is powerful, if two different user get access to the same output port of noVNC, they would disturb each other. But you could run multiple VNC server sessions in the same docker to avoid this problem. Here we would not discuss about this trick.</p>
+
+<p>Now we could begin our works. Before that, I need to emphasize that we should not shut down the first terminal where we type <code>starxfce4</code> during our works, because the desktop process is running on it. To avoid the mistaking operations, I recommend you to move it (and the VNC configuration window) to Workspace 4 <strong>(Step 11)</strong>. In the following screenshot, you could see 4 workspaces, you could view each of them as a desktop. This feature is provided by <em>Xfce4</em> desktop software that we use.</p>
+
+<table>
+<thead>
+<tr>
+<th>11. Move main terminal to the Workspace 4</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="vnc-movespace.png" alt="" title="Workspace of the desktop" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>We could open a software, like chromium to test the interaction. You would find that you could use the desktop just like using your own computer easily. But I have to warn that you are running the desktop in root mode (because the default mode inside the container is root). In root mode, some software refuse to provide services and some software need specific options to run. Like chromium-browser need such an option to launch:</p>
+
+<pre><code class="language-Bash">$ chromium-browser --no-sandbox
+</code></pre>
+
+<p>You could launch it by clicking the icon at the bottom of the screen, because I have added the option to the launch option of that icon. If you find some software could not be run, you may need to check it in the terminal and find whether it needs some options to run in root mode.</p>
+
+<h2 id="part-3-log-out-and-save-securely">Part 3: Log out and save securely</h2>
+
+<p>Assuming that we have finished our works, we may want to save the container so that we could save our changes to the desktop (for example, we may change the desktop icons or add some software). To be specific, if we just use the data outside the container, we may not need to save the session. In this case you could exit as you wish and do not need to follow the following steps.</p>
+
+<p>First, you need to log out from the desktop. Just click the button on the northeast corner of the screen, and choose the log out item <strong>(Step 12)</strong>. Then you need to check the &ldquo;save session&rdquo; option. After that, you could click &ldquo;Log out&rdquo; button <strong>(Step 13)</strong>. Note that although you have logged out, the first terminal is still running. But it does not matter. We could shut down the browser directly.</p>
+
+<table>
+<thead>
+<tr>
+<th>12. Log out from the desktop</th>
+<th>13. Log out options</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="vnc-logout.png" alt="" title="Log out from the desktop" /></td>
+<td><img src="vnc-logout2.png" alt="" title="Log out options" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Let us get back to <span style="color:#CFC">session 2</span>. The following steps are required if you want to log out securely. First, use <code>Ctrl+C</code> to terminate <em>noVNC</em> service in <span style="color:#CFC">session 2</span> <strong>(Step 14)</strong>.</p>
+
+<p>Then, we switch to <span style="color:#FCC">session 1</span>. use such command to terminate VNC server <strong>(Step 15)</strong></p>
+
+<pre><code class="language-Bash">$ vnc4server -kill :1
+</code></pre>
+
+<p><code>:1</code> means we kill the server which uses the port 1. This option depends on the used port that is shown when we enter the container. If we run multiple VNC sessions, we may need to kill for more than once so that we could maintain that all VNC servers are killed.</p>
+
+<table>
+<thead>
+<tr>
+<th>14. <span style="color:#CFC">Session 2</span>: Kill noVNC</th>
+<th>15. <span style="color:#FCC">Session 1</span>: Kill VNC server</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="session2-intr.png" alt="" title="Kill noVNC" /></td>
+<td><img src="session1-kill.png" alt="" title="Kill VNC server" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Do not exit any session now! We need to keep the <span style="color:#FCC">session 1</span> running and switch to <span style="color:#CFC">session 2</span>. And we use</p>
+
+<pre><code class="language-Bash">$ nvidia-docker ps -a
+</code></pre>
+
+<p>to see the containers that are running and their IDs <strong>(Step 16)</strong>. Find our own one and use</p>
+
+<pre><code class="language-Bash">$ nvidia-docker commit container_ID image_name:tag
+</code></pre>
+
+<p>to save the current container as a new image <strong>(Step 17)</strong>. This part could be referred <a href="../20180531linuxdocker/#save-a-docker-image-locally">here</a>.</p>
+
+<table>
+<thead>
+<tr>
+<th>16. <span style="color:#CFC">Session 2</span>: Check containers</th>
+<th>17. <span style="color:#CFC">Session 2</span>: Save the image</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="session2-save.png" alt="" title="Check containers" /></td>
+<td><img src="session2-save2.png" alt="" title="Save the image" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The last step is, exit from the container. After this step, congratulations! You have make all works done. You could use <code>nvidia-docker images</code> again to check whether your saving takes effect. After that, you could shut down all sessions.</p>
+
+<table>
+<thead>
+<tr>
+<th>18. <span style="color:#FCC">Session 1</span>: Exit from the container</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="session1-exit.png" alt="" title="Exit from the container" /></td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="build-your-own-desktop-image">Build your own desktop image</h1>
+
+<p>In this part, we will discuss about how to build your own docker images. This technique is based on dockerfile which is arranged by plain linux commands wrapped by docker instructions.</p>
+
+<h2 id="write-the-dockerfile">Write the dockerfile</h2>
+
+<p>We have the docker instructions documents in both English and Chinese. You could check here for a reference.</p>
+
+<div class="row">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <p><a href="https://docs.docker.com/engine/reference/builder" class="button icon fa-file-text-o">Official Documents</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <p><a href="https://philipzheng.gitbooks.io/docker_practice/content/dockerfile/instructions.html" class="button icon fa-file-text-o">Chinese Translation</a></p>
+    </div>
+</div>
+
+<p>Although the documents have a detail introduction to each instruction, we would like to introduce them simply here:</p>
+
+<table>
+<thead>
+<tr>
+<th>Instruction</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>ADD</code></td>
+<td>Copy new files, directories or remote file URLs and adds them to the filesystem of the image at the path.</td>
+</tr>
+
+<tr>
+<td><code>COPY</code></td>
+<td>Copy the files stored in local disk and adds them to the filesystem of the image at the path.</td>
+</tr>
+
+<tr>
+<td><code>ENV</code></td>
+<td>Set the environmental variables.</td>
+</tr>
+
+<tr>
+<td><code>EXPOSE</code></td>
+<td>Set the output port number of the docker for some services.</td>
+</tr>
+
+<tr>
+<td><code>FROM</code></td>
+<td><em>Only could be used for once.</em> Set the baseline docker image.</td>
+</tr>
+
+<tr>
+<td><code>LABEL</code></td>
+<td>Set metadata of the built image.</td>
+</tr>
+
+<tr>
+<td><code>STOPSIGNAL</code></td>
+<td>Set the system call signal that will be sent to the container to exit.</td>
+</tr>
+
+<tr>
+<td><code>USER</code></td>
+<td>Set the current user. If not set, it would be root.</td>
+</tr>
+
+<tr>
+<td><code>VOLUME</code></td>
+<td>Set an external mount directory.</td>
+</tr>
+
+<tr>
+<td><code>WORKDIR</code></td>
+<td>Set the current dir when entering the container.</td>
+</tr>
+
+<tr>
+<td><code>ARG</code></td>
+<td>Set the environmental variables that would be only used during building the image.</td>
+</tr>
+
+<tr>
+<td><code>ENTRYPOINT</code></td>
+<td>Set a script that would be executed when entering the container.</td>
+</tr>
+
+<tr>
+<td><code>CMD</code></td>
+<td>Set the arguments of the entrypoint script.</td>
+</tr>
+</tbody>
+</table>
+
+<p>After that, you could download this example with which we build the basic image <code>xubuntu:1.0</code>.</p>
+
+<p><a href="https://github.com/cainmagi/Dockerfiles/tree/xubuntu" class="button icon fa-download">XUbuntu</a></p>
+
+<p>This example composes of 3 files</p>
+
+<pre><code class="language-Bash">xubuntu
+|---Dockerfile
+|---docker-entrypoint
+`---locale.gen
+</code></pre>
+
+<p>The first one is the docker file, it pulls the NVIDIA image <code>cuda:9.0-cudnn7-devel-ubuntu16.04</code> and add a series of libraries and applications. The second file is the entrypoint script. And the last one is the file for localization. When building the image, the second and the third file would be copied in the destination folder of the container so that they would play their roles.</p>
+
+<p>After downloading this branch, assuming that the folder path of the branch is <code>./xubuntu</code>, then you need to use this command in your <code>.</code> folder to build the image.</p>
+
+<pre><code class="language-Bash">$ nvidia-docker build -t xubuntu:1.0 xubuntu
+</code></pre>
+
+<p>It may take a while until the building process finishes.</p>
+
+<h2 id="how-about-a-different-desktop">How about a different desktop</h2>
+
+<p>In the example we use the <em>Xfce4</em> as our desktop. Maybe you would like to use another one. Here we could gives you some choices:</p>
+
+<table>
+<thead>
+<tr>
+<th>Desktop</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>KDE</strong></td>
+<td><img src="https://4bds6hergc-flywheel.netdna-ssl.com/wp-content/uploads/2016/04/Desktop-Environment-KDE-Plasma-820x520.jpg" /> <br /> <pre style="margin-bottom:0"><code class="language-Bash">$ apt-get install kubuntu-desktop</code></pre></td>
+</tr>
+
+<tr>
+<td><strong>MATE</strong></td>
+<td><img src="https://4bds6hergc-flywheel.netdna-ssl.com/wp-content/uploads/2016/04/Desktop-Environment-MATE-1024x576.jpg" /> <br /> <pre style="margin-bottom:0"><code class="language-Bash">$ apt-add-repository ppa:ubuntu-mate-dev/xenial-mate <br/>$ apt-get update <br/>$ apt-get install mate </code></pre></td>
+</tr>
+
+<tr>
+<td><strong>GNOME</strong></td>
+<td><img src="https://4bds6hergc-flywheel.netdna-ssl.com/wp-content/uploads/2016/04/Desktop-Environment-GNOME.jpg" /> <br /> <pre style="margin-bottom:0"><code class="language-Bash">$ apt-get install gnome-shell <br/>$ apt-get install ubuntu-gnome-desktop </code></pre></td>
+</tr>
+
+<tr>
+<td><strong>Cinnamon</strong></td>
+<td><img src="https://4bds6hergc-flywheel.netdna-ssl.com/wp-content/uploads/2016/04/Desktop-Environment-Cinnamon.jpg" /> <br /> <pre style="margin-bottom:0"><code class="language-Bash">$ apt-get install cinnamon-desktop-environment </code></pre></td>
+</tr>
+
+<tr>
+<td><strong>Budgie</strong></td>
+<td><img src="https://4bds6hergc-flywheel.netdna-ssl.com/wp-content/uploads/2016/05/Ubuntu-budgie-desktop.jpeg" /> <br /> <pre style="margin-bottom:0"><code class="language-Bash">$ add-apt-repository ppa:budgie-remix/ppa<br/>$ apt-get update <br/>$ apt install budgie-desktop-environment </code></pre></td>
+</tr>
+
+<tr>
+<td><strong>LXDE</strong></td>
+<td><img src="https://4bds6hergc-flywheel.netdna-ssl.com/wp-content/uploads/2016/04/Desktop-Environment-LXDE.jpg" /> <br /> <pre style="margin-bottom:0"><code class="language-Bash">$ apt-get install lubuntu-desktop </code></pre></td>
+</tr>
+
+<tr>
+<td><strong>XFCE</strong></td>
+<td><img src="https://4bds6hergc-flywheel.netdna-ssl.com/wp-content/uploads/2016/04/Desktop-Environment-Xfce-on-Manjaro.jpg" /> <br /> <pre style="margin-bottom:0"><code class="language-Bash">$ apt-get install xubuntu-desktop </code></pre></td>
+</tr>
+</tbody>
+</table>
+
+<p>You could read this article to get more details. After that, you could use your preferred desktop instead of <em>Xfce4</em>.</p>
+
+<p><a href="https://itsfoss.com/best-linux-desktop-environments/" class="button icon fa-download">Reference</a></p>
+
+<h2 id="set-the-novnc-program">Set the noVNC program</h2>
+
+<p>After building the image successfully, you need to install the noVNC service on your device. Check here for the <code>noVNC</code> wrapped by a simple script.</p>
+
+<p><a href="https://github.com/cainmagi/Dockerfiles" class="button icon fa-download">noVNC</a></p>
+
+<p>Note that the script <code>noVNC</code> is designed for our DGX machine. You need to change some instruction texts in this file so that it could show your machine IP and name correctly.</p>
+
+<p>To make use of this service, just copy this branch to your <code>/usr/local/bin/</code> like</p>
+
+<pre><code class="language-Bash">/usr/local/bin/
+|---noVNC
+`---noVNCbin
+    |---utils
+    |   |---launch.sh
+    |   `---...
+    `---...
+</code></pre>
+
+<p>And you could use such simple command on your Bash:</p>
+
+<pre><code class="language-Bash">$ noVNC IP=172.17.0.2:5901 PORT=6080
+</code></pre>
+
+<p>where <code>5901</code> is the entry (input) port and <code>6080</code> is the service (output) port.</p>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmgi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-119875813-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>

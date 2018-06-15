@@ -6,10 +6,21 @@
     <description>Recent content in Research on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 May 2018 02:10:27 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jun 2018 00:49:31 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/tags/research/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Special Notes on Jun. 05, 2018</title>
+      <link>https://cainmagi.github.io/notes/note20180605special/</link>
+      <pubDate>Tue, 05 Jun 2018 00:49:31 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20180605special/</guid>
+      <description>Introduction The baseline of this work is existing asynchronous SGD algorithms including Hogwild, SVRG and SAGA. The author summarize the work as
+ General composite optimization problem:
+\begin{equation} \begin{aligned} \arg \min\limits_{\mathbf{x} \in \mathbb{R}^p} &amp; f(\mathbf{x}) + h(\mathbf{x}),\\[5pt] \mathrm{s.t.}~&amp;f(\mathbf{x}) := \frac{1}{n} \sum_{i=1}^n f_i(\mathbf{x}), \end{aligned} \end{equation}  where each $f_i$ is convex with L-Lipschitz gradient (i.e. L-smooth), and the averaging function is $\mu$-strongly convex. $h$ is convex but potentially non-smooth, and it could be decomposed block coordinate-wise as</description>
+    </item>
     
     <item>
       <title>Notes on May 26, 2018</title>

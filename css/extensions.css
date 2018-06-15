@@ -1,3 +1,4 @@
+/** WikiCard Settings */
 div .wiki{
     clear: right;
     width: 25%;
@@ -19,7 +20,7 @@ div .wiki:hover{
 }
 
 div .overflow {
-    padding-top: 0;
+    padding-top: 0em;
     padding-bottom: 1em;
     margin-top: 0;
     margin-bottom: 0;
@@ -30,7 +31,9 @@ div .overflow .check{
     padding-bottom: 0;
     margin-top: 0;
     margin-bottom: 0;
-    overflow: auto;
+    overflow: -moz-scrollbars-vertical;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 @media screen and (max-width: 600px) {
@@ -40,6 +43,8 @@ div .overflow .check{
         margin-left:auto;
     }
 }
+
+/** YouTube Player */
 
 .youtube.container {
     position: relative;
@@ -60,6 +65,8 @@ div .overflow .check{
     right: 0;
     bottom: 0;
 }
+
+/** Image arrangements */
 
 @media screen and (min-width: 600px) {
     img {
@@ -82,4 +89,109 @@ div .overflow .check{
 
 .nolimits{
     max-height: none;
+}
+
+blockquote p{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/** popup settings */
+.tooltipster-sidetip .tooltipster-content{
+    line-height:24pt;
+    font-size: 15pt;
+}
+
+@media screen and (max-width: 1680px) {
+    .tooltipster-sidetip .tooltipster-content{
+        line-height:20pt;
+        font-size: 12pt;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .tooltipster-sidetip .tooltipster-content{
+        line-height: 18pt;
+        font-size: 11pt;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .tooltipster-sidetip .tooltipster-content{
+        line-height:14pt;
+        font-size: 9pt;
+    }
+}
+
+/** Select Style */
+.dropdown {
+    vertical-align: top;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    min-width: 5em;
+    -moz-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: inset 0 0 0 2px #ffffff;
+    color: #ffffff;
+}
+
+@media screen and (min-width: 600px) {
+    .dropdown{
+        display: none;
+    }
+}
+
+.dropdown:hover {
+    box-shadow: inset 0 0 0 2px #9bf1ff;
+    color: #9bf1ff;
+}
+  
+.dropdown:after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 45%;
+    right: 20px;
+    border: 0.5em dashed;
+    border-color: #888888 transparent;
+    pointer-events: none;
+    border-top-style: solid;
+    border-bottom: none;
+}
+  
+.dropdown-select {
+    position: relative;
+    margin: 0;
+    height: 2.2em;
+    line-height: 2em;
+    -webkit-appearance: none;
+}
+
+.dropdown-select > option {
+    background: #2A2F4A;
+    cursor: pointer;
+}
+  
+/* Fix for IE 8 putting the arrows behind the select element. */ 
+.lt-ie9 .dropdown {
+    z-index: 1;
+}  
+.lt-ie9 .dropdown-select {
+    z-index: -1;
+} 
+.lt-ie9 .dropdown-select:focus {
+    z-index: 3;
+}
+  
+/* Dirty fix for Firefox adding padding where it shouldn't. */
+@-moz-document url-prefix() {
+    select .dropdown-select {
+      padding-left: 6px;
+    }
 }

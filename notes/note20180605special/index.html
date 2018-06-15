@@ -1,0 +1,1311 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	<meta name="generator" content="Hugo 0.40.3" />
+	<title>Special Notes on Jun. 05, 2018 &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Special Notes on Jun. 05, 2018</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>Jun 5, 2018</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>Jun 14, 2018</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/notes" title="Notes">Notes</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/papers" title="Papers">Papers</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/research" title="research">research</a>
+                                                    
+                                                    <a class="ui label" href="/tags/deep-learning" title="deep-learning">deep-learning</a>
+                                                    
+                                                    <a class="ui label" href="/tags/nips" title="NIPS">NIPS</a>
+                                                    
+                                                    <a class="ui label" href="/tags/sparsity" title="sparsity">sparsity</a>
+                                                    
+                                                    <a class="ui label" href="/tags/optimization" title="optimization">optimization</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/notes/default.jpg" alt="" /></span>
+                                
+                            </header>
+                            <hr/>
+                            
+                                <h1 id="contents">Contents</h1>
+                                <p><nav id="TableOfContents">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#lemma-derivation">Lemma derivation</a>
+<ul>
+<li><a href="#basic-definition">Basic definition</a></li>
+<li><a href="#basic-properties">Basic properties</a>
+<ul>
+<li><a href="#lemma-1">Lemma 1</a></li>
+<li><a href="#lemma-2">Lemma 2</a>
+<ul>
+<li><a href="#upper-bound-of-bregman-divergence">Upper bound of <em>Bregman</em> divergence</a></li>
+<li><a href="#lower-bound-of-bregman-divergence">Lower bound of <em>Bregman</em> divergence</a></li>
+</ul></li>
+<li><a href="#lemma-3">Lemma 3</a></li>
+<li><a href="#lemma-4">Lemma 4</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#sparse-saga-discussion">Sparse-SAGA discussion</a>
+<ul>
+<li><a href="#primal-saga">Primal SAGA</a></li>
+<li><a href="#sparse-saga">Sparse SAGA</a>
+<ul>
+<li><a href="#lemma-5">Lemma 5</a></li>
+<li><a href="#lemma-6">Lemma 6</a></li>
+<li><a href="#discussion-about-sparsity">Discussion about sparsity</a>
+<ul>
+<li><a href="#sparsity">Sparsity</a></li>
+<li><a href="#sparse-inner-product">Sparse inner product</a></li>
+<li><a href="#sparse-norm">Sparse norm</a></li>
+</ul></li>
+<li><a href="#lemma-7">Lemma 7</a></li>
+<li><a href="#lemma-8">Lemma 8</a></li>
+<li><a href="#lemma-9">Lemma 9</a></li>
+<li><a href="#theorem-1-convergence">Theorem 1 (convergence)</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></p>
+                            
+                            <hr/>
+                            
+
+<h1 id="introduction">Introduction</h1>
+
+<p>The baseline of this work is existing asynchronous SGD algorithms including Hogwild, SVRG and SAGA. The author summarize the work as</p>
+
+<blockquote>
+    <p><b>General composite optimization problem</b>:</p>
+    <div class="overflow">
+    \begin{equation}
+        \begin{aligned}
+            \arg \min\limits_{\mathbf{x} \in \mathbb{R}^p} & f(\mathbf{x}) + h(\mathbf{x}),\\[5pt]
+            \mathrm{s.t.}~&f(\mathbf{x}) := \frac{1}{n} \sum_{i=1}^n f_i(\mathbf{x}),
+        \end{aligned}
+    \end{equation}
+    </div>
+    <p>where each $f_i$ is convex with <i>L-Lipschitz</i> gradient (i.e. L-smooth), and the averaging function is $\mu$-strongly convex. $h$ is convex but potentially non-smooth, and it could be decomposed block coordinate-wise as</p>
+    <div class="overflow">
+    \begin{align}
+        h(\mathbf{x}) = \sum_{B \in \mathbb{B}}^n h_B([\mathbf{x}]_{B}),
+    \end{align}
+    </div>
+    <p>where we use $[\mathbf{x}]_{B}$ to represent a block part of the whole input parameters.</p>
+    <div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Lipschitz_continuity" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Lipschitz_continuity"><b>Lipschitz continuity</b></a> in Wikipedia.</p>
+    </div>
+</div>
+    <div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Convex_function#Strongly_convex_functions" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Convex_function#Strongly_convex_functions"><b>Strongly convex</b></a> in Wikipedia.</p>
+    </div>
+</div>
+    <blockquote>
+        <p>Here we need to introduce some concepts:</p>
+        <div class="overflow">
+        <ul>
+            <li><b>L-smooth</b>: For a function $f$, its gradient at any point would not excess a real constant, which means: $\forall~x,~y,~\exists~L,$ $\lVert \nabla f(x) - \nabla f(y) \rVert \leqslant L \lVert x - y \rVert.$</li> 
+            <li><b>$\mu$-strongly convex</b>: For a differentiable function $f$, its ascending rate has a quadric lower bound, which means: $\forall~x,~y,$ $f(y) - f(x) \geqslant \nabla f(x)^T(y-x) + \frac{\mu}{2} \lVert y - x \rVert^2_2.$</li> 
+        </ul>
+        </div>
+    </blockquote>
+</blockquote>
+
+<p>The author propose a Sparse Proximal SAGA algorithm based on the original SAGA. Furthermore, a lock-free asynchronous parallel version named PROXASAGA has been proposed.</p>
+
+<p>Considering the article is long, we would introduce it in two notes. This is the first note. To learn more about this article, we could refer to &ldquo;<em>Breaking the Nonsmooth Barrier: A Scalable Parallel Method for Composite Optimization</em>&ldquo;:</p>
+
+<p><a href="https://arxiv.org/abs/1707.06468" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<p>Some basic theories are introduced in this book, &ldquo;<em>Introductory Lectures on Convex Programming, Volume I: Basic course</em>&ldquo;:</p>
+
+<p><a href="https://www.springer.com/us/book/9781402075537" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<p>Some baseline algorithms, like SAGA, are introduced here, &ldquo;<em>Optimization Methods for Large-Scale Machine Learning</em>&ldquo;:</p>
+
+<p><a href="https://arxiv.org/abs/1606.04838" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<h1 id="lemma-derivation">Lemma derivation</h1>
+
+<p>In this part we introduce some proofs of lemmas that are discussed in Appendix A of the paper where the detaill proofs are not given. Some of this part may be very tricky <span class='popsym' pref='pop-lem-int'> .</p>
+
+<div class='poptext' id='pop-lem-int' >
+    <p>We would like to introduce this book which may be helpful for us to understand some proofs and basic theories: "<i>Introductory lectures on convex optimization</i>".</p>
+</div>
+
+<h2 id="basic-definition">Basic definition</h2>
+
+<p>The symbols we use in the following parts are introduced here:</p>
+
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$\mathbb{R}^p$</td>
+<td>A $p$ dimensional real space.</td>
+</tr>
+
+<tr>
+<td>$\mathbf{x},~\mathbf{y}$</td>
+<td>Input vectors which may be decomposed as a series of parts. Note that $\mathbf{x},~\mathbf{y} \in \mathbb{R}^p$.</td>
+</tr>
+
+<tr>
+<td>$B$</td>
+<td>A block, i.e. a part of indices of a input vector.</td>
+</tr>
+
+<tr>
+<td>$T$</td>
+<td>A set of blocks, i.e. $T := \{B_1,~B_2,~B_3,\ldots\}$.</td>
+</tr>
+
+<tr>
+<td>$[x]_B,~[x]_T$</td>
+<td>A part of the original vector, which is determined by a block $B$ or multiple blocks $T$.</td>
+</tr>
+
+<tr>
+<td>$f(\mathbf{x})$</td>
+<td>A function which only has one output value, but it accepts vectors as input.</td>
+</tr>
+
+<tr>
+<td>$\nabla f(\mathbf{x})$</td>
+<td>The first-order gradient of $f$ at $\mathbf{x}$. Note that this is a vector since $\mathbf{x}$ is a vector. We could also rewrite it as $\left. \frac{\partial f(\mathbf{z})}{\partial \mathbf{z}} \right|_{\mathbf{z}=\mathbf{x}}$ or $f&rsquo;(\mathbf{x})$.</td>
+</tr>
+
+<tr>
+<td>$\mathbf{x}^T \mathbf{y}$</td>
+<td>The elemental wise product, or the inner product between two vectors. Somewhere it is represented as $\langle \mathbf{x},~\mathbf{y} \rangle$.</td>
+</tr>
+
+<tr>
+<td>$\delta(\mathrm{cond})$</td>
+<td>A characteristic function which comes from the <em>Dirac</em> delta function, i.e. $\delta(\mathrm{cond}) = 1$ when $\mathrm{cond}$ is fulfilled otherwise it would be $0$.</td>
+</tr>
+
+<tr>
+<td>$\mathrm{prox}_f(\mathbf{x})$</td>
+<td>The proximal operator over a function $f$. This operator is defined as $\arg \min\limits_{\mathbf{z}} f(\mathbf{z}) + \frac{1}{2} \lVert \mathbf{x} - \mathbf{z} \rVert^2$.</td>
+</tr>
+
+<tr>
+<td>$\mathrm{B}_f(\mathbf{x},~\mathbf{y})$</td>
+<td>The <em>Bregman divergence</em> associated with a convex function $f$ for points $\mathbf{x},~\mathbf{y}$. It is defined as $f(\mathbf{x}) - f(\mathbf{y}) - \nabla f(\mathbf{y})^T (\mathbf{x} - \mathbf{y})$.</td>
+</tr>
+
+<tr>
+<td>$\mathbb{E}$</td>
+<td>The expectation operator.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="basic-properties">Basic properties</h2>
+
+<h3 id="lemma-1">Lemma 1</h3>
+
+<blockquote>
+    <p><b>$\mu$-strongly convex inequality</b>:</p>
+    <p>If $f$ is a $\mu$-strongly function, then we have</p>
+    <div class="overflow">
+    \begin{align}
+        (\nabla f(\mathbf{y}) - \nabla f(\mathbf{x}))^T(\mathbf{y} - \mathbf{x}) \geqslant \frac{\mu}{2} \lVert \mathbf{y} - \mathbf{x} \rVert^2 + \mathrm{B}_f(\mathbf{x},~\mathbf{y}).
+    \end{align}
+    </div>
+</blockquote>
+
+<p><strong><em>proof</em></strong>:</p>
+
+<p>According to the definition, we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        f(\mathbf{y}) - f(\mathbf{x}) &\geqslant \nabla f(\mathbf{x})^T(\mathbf{y}-\mathbf{x}) + \frac{\mu}{2} \lVert \mathbf{y} - \mathbf{x} \rVert^2_2. \\[5pt]
+        f(\mathbf{y}) - f(\mathbf{x}) + \nabla f(\mathbf{y})^T (\mathbf{x} - \mathbf{y}) &\geqslant -(\nabla f(\mathbf{y}) - \nabla f(\mathbf{x}))^T(\mathbf{y}-\mathbf{x}) + \frac{\mu}{2} \lVert \mathbf{y} - \mathbf{x} \rVert^2_2. \\[5pt]
+        -\mathrm{B}_f(\mathbf{x},~\mathbf{y}) &\geqslant -(\nabla f(\mathbf{y}) - \nabla f(\mathbf{x}))^T(\mathbf{y}-\mathbf{x}) + \frac{\mu}{2} \lVert \mathbf{y} - \mathbf{x} \rVert^2_2. \\[5pt]
+        (\nabla f(\mathbf{y}) - \nabla f(\mathbf{x}))^T(\mathbf{y}-\mathbf{x}) &\geqslant \mathrm{B}_f(\mathbf{x},~\mathbf{y}) + \frac{\mu}{2} \lVert \mathbf{y} - \mathbf{x} \rVert^2_2.
+    \end{aligned}
+\end{equation}
+</div>
+
+<h3 id="lemma-2">Lemma 2</h3>
+
+<blockquote>
+    <p><b>Norm boundary of L-smooth gradient</b>:</p>
+    <p>Consider we have a group of functions $f_i$ which is a convex and has L-smooth gradient, then we have</p>
+    <div class="overflow">
+    \begin{align}
+        \frac{1}{n} \sum_{i=1}^n \lVert \nabla f_i(\mathbf{x}) - \nabla f_i(\mathbf{y}) \rVert^2 \leqslant 2L \mathrm{B}_f(\mathbf{x},~\mathbf{y}),
+    \end{align}
+    </div>
+    <p>where $f(\mathbf{x})=\frac{1}{n}\sum\limits^n_{i=1} f_i(\mathbf{x})$.</p>
+</blockquote>
+
+<p><strong><em>proof</em></strong>:</p>
+
+<p>This proof could be equivalent to consider each $f_i$, i.e. we only need to prove that</p>
+
+<div class="overflow">
+\begin{align} \label{fml:lem:bflbound}
+    \lVert \nabla f_i(\mathbf{x}) - \nabla f_i(\mathbf{y}) \rVert^2 \leqslant 2L \left( f_i(\mathbf{x}) - f_i(\mathbf{y}) - \nabla f_i(\mathbf{y})^T (\mathbf{x} - \mathbf{y}) \right).
+\end{align}
+</div>
+
+<p>To prove this lemma, we need a lot of works to do. In fact, this lemma requires us to derive the lower bound of $\mathrm{B}_{f_i}$, however, to get the lower bound, we need to to get the upper bound firstly.</p>
+
+<h4 id="upper-bound-of-bregman-divergence">Upper bound of <em>Bregman</em> divergence</h4>
+
+<p>According to the definition, we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        f(\mathbf{y}) &= f(\mathbf{x}) + \int_0^1 ( \nabla f(\mathbf{x} + \tau (\mathbf{y} - \mathbf{x})) )^T (\mathbf{y} - \mathbf{x}) \mathrm{d} \tau \\[5pt]
+        &= f(\mathbf{x}) + \nabla f(\mathbf{x})^T (\mathbf{y} - \mathbf{x}) + \int_0^1 ( \nabla f(\mathbf{x} + \tau (\mathbf{y} - \mathbf{x})) - \nabla f(\mathbf{x}) )^T (\mathbf{y} - \mathbf{x}) \mathrm{d} \tau.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Considering the definition of the convex function, we would know that $f(\mathbf{y}) - f(\mathbf{x}) \geqslant \nabla f(\mathbf{x})^T (\mathbf{y} - \mathbf{x})$ always holds. Thus we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        f(\mathbf{y}) & - f(\mathbf{x}) - \nabla f(\mathbf{x})^T (\mathbf{y} - \mathbf{x}) \\[5pt]
+        &= \left| f(\mathbf{y}) - f(\mathbf{x}) - \nabla f(\mathbf{x})^T (\mathbf{y} - \mathbf{x}) \right| \\[5pt]
+        &= \left| \int_0^1 ( \nabla f(\mathbf{x} + \tau (\mathbf{y} - \mathbf{x})) - \nabla f(\mathbf{x}) )^T (\mathbf{y} - \mathbf{x}) \mathrm{d} \tau \right| \\[5pt]
+        &\leqslant \int_0^1 \left| ( \nabla f(\mathbf{x} + \tau (\mathbf{y} - \mathbf{x})) - \nabla f(\mathbf{x}) )^T (\mathbf{y} - \mathbf{x}) \right| \mathrm{d} \tau \\[5pt]
+        &\leqslant \int_0^1 \left\lVert \nabla f(\mathbf{x} + \tau (\mathbf{y} - \mathbf{x})) - \nabla f(\mathbf{x}) \right\rVert \cdot \left\lVert \mathbf{y} - \mathbf{x} \right\rVert \mathrm{d} \tau \\[5pt]
+        &\leqslant \int_0^1 L \left\lVert \tau (\mathbf{y} - \mathbf{x}) \right\rVert \cdot \left\lVert \mathbf{y} - \mathbf{x} \right\rVert \mathrm{d} \tau = \frac{1}{2} L \left\lVert \mathbf{y} - \mathbf{x} \right\rVert^2.
+    \end{aligned}
+\end{equation}
+</div>
+
+<h4 id="lower-bound-of-bregman-divergence">Lower bound of <em>Bregman</em> divergence</h4>
+
+<p>$\forall~\mathbf{x},~\mathbf{y}$, we could define a convex function that</p>
+
+<div class="overflow">
+\begin{align}
+    \phi (\mathbf{y}) = f(\mathbf{y}) - \nabla f(\mathbf{x})^T \mathbf{y}.
+\end{align}
+</div>
+
+<p>Note that for $\phi(\mathbf{y})$, although we could choose an arbitrary $\mathbf{x}$, $\mathbf{x}$ is a fixed point. To prove that this function is convex, we could calculate the gradient that</p>
+
+<div class="overflow">
+\begin{align}
+    \nabla \phi (\mathbf{y}) = \nabla f(\mathbf{y}) - \nabla f(\mathbf{x}).
+\end{align}
+</div>
+
+<p>Hence we know that because $f$ is convex and $\mathbf{x}$ is fixed, this gradient is just a real value shifted gradient of $f$, which means $\phi$ has the same monotonicity with $f$. And only when $\mathbf{y} = \mathbf{x}$, we could have $\nabla \phi (\mathbf{x}) = 0$, i.e. $\mathbf{x}$ is the optimal point of $\phi$.</p>
+
+<p>Therefore, $\forall~\mathbf{x},~\mathbf{y}$, defining $\mathbf{a} := \frac{1}{L} \nabla \phi(\mathbf{y})$, then we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \phi( \mathbf{x} ) &\leqslant \phi \left( \mathbf{y} - \mathbf{a} \right) \\[5pt]
+        &= f \left( \mathbf{y} - \mathbf{a} \right) - f(\mathbf{y}) + f(\mathbf{y}) - \nabla f(\mathbf{x})^T \mathbf{y} + \nabla f(\mathbf{x})^T \mathbf{a} \\[5pt]
+        &= f \left( \mathbf{y} - \mathbf{a} \right) - f(\mathbf{y}) + \nabla f(\mathbf{y})^T \mathbf{a} - \nabla f(\mathbf{y})^T \mathbf{a} + \nabla f(\mathbf{x})^T \mathbf{a} + \phi(\mathbf{y}) \\[5pt]
+        &\leqslant \frac{1}{2} L \left\lVert \mathbf{a} \right\rVert^2 - (\nabla f(\mathbf{y}) - \nabla f(\mathbf{x}))^T \mathbf{a} + \phi(\mathbf{y}) \\[5pt]
+        &= \phi(\mathbf{y}) + \frac{1}{2} L \left\lVert \mathbf{a} \right\rVert^2 - \nabla \phi (\mathbf{y})^T \mathbf{a} \\[5pt]
+        &= \phi(\mathbf{y}) + \frac{1}{2} L \left\lVert \mathbf{a} \right\rVert^2 - L \mathbf{a}^T \mathbf{a} = \phi(\mathbf{y}) - \frac{1}{2} L \left\lVert \mathbf{a} \right\rVert^2.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Thus we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \phi(\mathbf{y}) - \phi(\mathbf{x}) &= f(\mathbf{y}) - f(\mathbf{x}) - \nabla f(\mathbf{x})^T (\mathbf{y} - \mathbf{x}) \\[5pt]
+        &\geqslant \frac{1}{2} L \left\lVert \mathbf{a} \right\rVert^2 = \frac{1}{2L} \left\lVert \nabla f(\mathbf{y}) - \nabla f(\mathbf{x}) \right\rVert^2.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Since we use arbitrary $\mathbf{x}$ and $\mathbf{y}$ here, we could exchange them and use $f_i$ to replace the $f$ in the above equation, then we could get $\eqref{fml:lem:bflbound}$, which gives the lower bound of $\mathrm{B}_f$.</p>
+
+<h3 id="lemma-3">Lemma 3</h3>
+
+<blockquote>
+    <p><b>Characterization of the proximal operator</b>:</p>
+    <p>The proximal operator has a characterization of such a form:</p>
+    <div class="overflow">
+    \begin{align}
+        \mathbf{z} = \mathrm{prox}_{\gamma h}(\mathbf{x}) \Longleftrightarrow \frac{1}{\gamma} (\mathbf{x} - \mathbf{z}) = \nabla h(\mathbf{z}) \in \partial h(\mathbf{z}).
+    \end{align}
+    </div>
+</blockquote>
+
+<p><strong><em>proof</em></strong>:</p>
+
+<p>According to the definition of proximal operator, to get the optimal point, we need to calculate the first-order gradient</p>
+
+<div class="overflow">
+\begin{align}
+    \frac{\partial}{\partial \mathbf{z}} \left( \gamma h(\mathbf{z}) + \frac{1}{2} \lVert \mathbf{x} - \mathbf{z} \rVert^2 \right) = \gamma \nabla h(z) - (\mathbf{x} - \mathbf{z}) = 0.
+\end{align}
+</div>
+
+<p>Thus we have</p>
+
+<div class="overflow">
+\begin{align}
+    \frac{1}{\gamma}(\mathbf{x} - \mathbf{z}) = \nabla h(\mathbf{z}) \in \partial h(\mathbf{z}).
+\end{align}
+</div>
+
+<h3 id="lemma-4">Lemma 4</h3>
+
+<blockquote>
+    <p><b>Firm non-expansiveness</b>:</p>
+    <p>For a convex function $f$ and arbitrary $\mathbf{x}_1,~\mathbf{x}_2$, defining $\mathbf{z}_1 := \mathrm{prox}_f(\mathbf{x}_1)$ and $\mathbf{z}_2 := \mathrm{prox}_f(\mathbf{x}_2)$, then we have that:</p>
+    <div class="overflow">
+    \begin{align}
+        (\mathbf{z}_1 - \mathbf{z}_2)^T (\mathbf{x}_1 - \mathbf{x}_2) \geqslant \lVert \mathbf{z}_1 - \mathbf{z}_2 \rVert^2.
+    \end{align}
+    </div>
+</blockquote>
+
+<p><strong><em>proof</em></strong>:</p>
+
+<p>Similar to what we have done in <a href="#lemma-1">Lemma 1</a>, we have that</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        ( \nabla & f(\mathbf{z}_1) - \nabla f(\mathbf{z}_2) )^T ( \mathbf{z}_1 - \mathbf{z}_2 ) \\[5pt]
+        &=  -\nabla f(\mathbf{z}_2)^T ( \mathbf{z}_1 - \mathbf{z}_2 ) - \nabla f(\mathbf{z}_2)^T ( \mathbf{z}_2 - \mathbf{z}_1 ) \\[5pt]
+        &= \left( f(\mathbf{z}_1) - f(\mathbf{z}_2) - \nabla f(\mathbf{z}_2)^T ( \mathbf{z}_1 - \mathbf{z}_2 ) \right) + \left( f(\mathbf{z}_2) - f(\mathbf{z}_1) - \nabla f(\mathbf{z}_1)^T ( \mathbf{z}_2 - \mathbf{z}_1 ) \right) \geqslant 0.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>According to <a href="#lemma-3">Lemma 3</a>, we replace $\nabla f(\mathbf{z})$ by $(\mathbf{x}-\mathbf{z})$ (here $\gamma=1$), so we could get</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        ( \mathbf{x}_1-\mathbf{z}_1 - \mathbf{x}_2-\mathbf{z}_2 )^T ( \mathbf{z}_1 - \mathbf{z}_2 )
+        &\geqslant 0. \\[5pt]
+        ( \mathbf{x}_1 - \mathbf{x}_2 )^T ( \mathbf{z}_1 - \mathbf{z}_2 )
+        &\geqslant ( \mathbf{x}_1 - \mathbf{x}_2 )^T ( \mathbf{z}_1 - \mathbf{z}_2 ). \\[5pt]
+        ( \mathbf{x}_1 - \mathbf{x}_2 )^T ( \mathbf{z}_1 - \mathbf{z}_2 ) &\geqslant \lVert \mathbf{z}_1 - \mathbf{z}_2 \rVert^2.
+    \end{aligned}
+\end{equation}
+</div>
+
+<h1 id="sparse-saga-discussion">Sparse-SAGA discussion</h1>
+
+<p>In this part we discuss about the first one of the proved algorithms, Sparse-SAGA. It is based on the primal SAGA and make use of the sparsity of the input data. To have a better understanding of the proposed one, we would like to introduce the primal <strong>stochastic average gradient algorithm (SAGA)</strong> first, then we would discuss about Sparse-SAGA.</p>
+
+<h2 id="primal-saga">Primal SAGA</h2>
+
+<p>Before the discussion, we would like to introduce a concept, the empirical risk $R_n$.</p>
+
+<div class="overflow">
+\begin{align} \label{fml:sag:prim}
+    R_n(\mathbf{w}) = \frac{1}{n} \sum_{i=1}^n f_i(\mathbf{w}).
+\end{align}
+</div>
+
+<p>The optimization could be described as $\arg \min_{\mathbf{w}} R_n$. Thus we know that this is the simplest description of the general machine learning problem. Because here we could view $\mathbf{w}$ as the weights (i.e. the parameters) of the model and $f_i$ as the loss function calculated by using the $i^{\mathrm{th}}$ sample. Then we could know that some classical methods could be formulated as</p>
+
+<table>
+<thead>
+    <tr>
+        <th style="max-width:75pt">Method</th><th>$\mathbf{w}_{k+1}$</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td style="max-width:75pt">global gradient (GG)</td><td>$\mathbf{w}_k - \alpha_k \nabla R_n (\mathbf{w})$</td>
+    </tr>
+    <tr>
+        <td style="max-width:75pt">stochastic gradient (SG)</td><td>$\mathbf{w}_k - \alpha_k \nabla f_{i_k} (\mathbf{w})$</td>
+    </tr>
+    <tr>
+        <td style="max-width:75pt">stochastic batch gradient (SBG)</td><td>$\mathbf{w}_k - \frac{\alpha_k}{n_b} \sum_{b=1}^{n_b} \nabla f_{i_{kb}} (\mathbf{w})$</td>
+    </tr>
+</tbody>
+</table>
+
+<p>Here we use $i_k$ and $i_{kb}$ to represent the randomly chosen function indices. We know that GG would not introduce the random variables, SG chooses one function for every step, and SBG choose several functions for every step. All methods could be viewed as using the unbiased estimation of $\nabla R_n$ to update $\mathbf{w}$. So they could reach the equivalent performance theoretically.</p>
+
+<p>Therefore, we would like to introduce SAGA, which is also based on unbiased estimation of $\nabla R_n$. The algorithm could be described as below</p>
+
+<table>
+<thead>
+<tr>
+<th>The primal SAGA algorithm</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="saga-primal.svg" alt="" title="The Primal SAGA Algorithm" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The SAGA improves the performance of SBG by these approaches:</p>
+
+<ol>
+<li><p>SBG has to read all chosen samples, i.e. the $f_i$ for every step, while SAGA only reads one sample for a step, because it store the batch in the memory instead of reading data from the disk.</p></li>
+
+<li><p>It use an unbiased estimation which removes the average of the gradient sum $\nabla R_n$ in every step, thus it could reduce the local effect of SG.</p></li>
+</ol>
+
+<p>Now we would show that $g_k$ is an unbiased estimation of $\nabla R_n$. Since $j$ is randomly chosen and dependent on $k$,</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E}_{k}(g_k) &= \mathbb{E}_{j,k}(\nabla f_j (\mathbf{w}_k)) - \mathbb{E}_{j}(\nabla f_j (\mathbf{w}_{[j]})) + \mathbb{E}\left( \frac{1}{n} \sum\limits_{i=1}^n \nabla f_i (\mathbf{w}_{[i]}) \right) \\[5pt]
+        &= \mathbb{E}_{j}(\nabla f_j (\mathbf{w})) - \mathbb{E}_{j}(\nabla f_j (\mathbf{w})) + \frac{1}{n} \sum\limits_{i=1}^n \nabla f_i (\mathbf{w}) \\[5pt]
+        &= \frac{1}{n} \sum\limits_{i=1}^n \nabla f_i (\mathbf{w}) = \nabla R_n (\mathbf{w}).
+    \end{aligned}
+\end{equation}
+</div>
+
+<h2 id="sparse-saga">Sparse SAGA</h2>
+
+<p>Now we introduce the proposed sparse SAGA. Different from the primal problem, here we need to solve the problem discussed in <a href="#introduction">Introduction</a>, i.e.</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \arg \min\limits_{\mathbf{x} \in \mathbb{R}^p} & f(\mathbf{x}) + h(\mathbf{x}), \\[5pt]
+        \mathrm{s.t.}~&f(\mathbf{x}) := \frac{1}{n} \sum_{i=1}^n f_i(\mathbf{x}), \\[5pt]
+        &h(\mathbf{x}) := \sum_{B \in \mathbb{B}}^n h_B([\mathbf{x}]_{B}).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Note that every $f_i$ is L-smooth, the averaging function $f$ is $\mu$-strongly convex. $h$ is convex, block separable but potentially non-smooth. If we omit $h$, this problem would degenerate to the SAGA problem discussed in $\eqref{fml:sag:prim}$.</p>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Support_%28mathematics%29" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Support_%28mathematics%29"><b>Support (mathematics)</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>In the following part we need to introduce a concept, &ldquo;<em>support</em>&rdquo;. It means the subset of all non-zero elements of a set. When we discuss the support of a gradient vector $\nabla f$, we are talking about the non-zero part (which is sparse) of the gradient vector.</p>
+
+<p>To find a highly efficient method, we need to define such concepts:</p>
+
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$f_i$</td>
+<td>Sample function, each function represent the risk function calculated by one sample.</td>
+</tr>
+
+<tr>
+<td>$h$</td>
+<td>Regularization function which is performed over the parameters of the model $\mathbf{x}$.</td>
+</tr>
+
+<tr>
+<td>$T_i$</td>
+<td>The support of $\nabla f_i$ in the domain of $B$, i.e. $\{ B:\mathrm{supp}(\nabla f_i) \cup B \neq \varnothing,~ B \in \mathbb{B} \}.$</td>
+</tr>
+
+<tr>
+<td>$n_B$</td>
+<td>The number of blocks which have gradient, $n_B := \sum_i \delta(B \in T_i).$ Note that we assume that $n_B &gt; 0$, otherwise the block would not influence the problem.</td>
+</tr>
+
+<tr>
+<td>$n$</td>
+<td>The total number of samples (indices), for example, we have $n$ sample functions $f_i$.</td>
+</tr>
+
+<tr>
+<td>$d_B$</td>
+<td>Density of distribution of valid $B$, $d_B := \frac{n}{n_B}.$</td>
+</tr>
+
+<tr>
+<td>$\varphi_i$</td>
+<td>Re-weighted regularization function according to sample $i$. $\varphi_i(\mathbf{x}) := \sum_{B \in T_i} d_B h_B (\mathbf{x}).$</td>
+</tr>
+
+<tr>
+<td>$\mathbf{D}_i$</td>
+<td>Re-weighted matrix for a gradient vector, $[\mathbf{D}_i]_{B,B} := d_B \delta(B \in T_i) \mathbf{I}.$ Note that here we use $[\cdot]_{B,B}$ to represent a part of a matrix. Here both of the row and column indices of $\mathbf{D}_i$ is selected by $B$.</td>
+</tr>
+
+<tr>
+<td>$\mathbf{g}_i (\mathbf{x}) $</td>
+<td>The <em>gradient mapping</em> which is defined as $\mathbf{g}_i := \frac{1}{\gamma} \left( \mathbf{x} - \mathrm{prox}_{\gamma \varphi_i}( \mathbf{x} - \gamma \mathbf{v}_i ) \right).$</td>
+</tr>
+</tbody>
+</table>
+
+<p>The algorithm could be described as follow</p>
+
+<div class='box overflow' style="padding-top:10px; margin-bottom:2em">
+<p style='margin:0 0 0 0'><b>Sparse-SAGA (SPS)</b>:</p>
+<hr style='margin:5px 0 5px 0' />
+<ol>
+    <li>Use the initialized parameter $\mathbf{x}_1$ to initialize the stored gradient vector $\nabla f_j (\mathbf{x}_{[j]}) := \nabla f_j (\mathbf{x}_1)$ for each $j$. This step is the same as what we do in SAGA.</li>
+    <li>Enter the loop by step $k=1,2,\ldots$
+        <ol>
+            <li>Select a random $i$ among all samples.</li>
+            <li>Get the unbiased estimator: $\mathbf{v}_i = \nabla f_i (\mathbf{x}_k) - \nabla f_i (\mathbf{x}_{[i]}) + \mathbf{D}_i \frac{1}{n} \sum_j \nabla f_j (\mathbf{x}_{[j]})$.</li>
+            <li>Update the parameter with a rate of $\gamma$: $\mathbf{x}_{k+1} = \mathrm{prox}_{\gamma \varphi_i} (\mathbf{x}_k - \gamma \mathbf{v}_i)$.</li>
+            <li>Update the stored vector by current parameter: $\nabla f_i (\mathbf{x}_{[i]}) = \nabla f_i (\mathbf{x}_k)$.</li>
+        </ol>
+    </li>
+</ol>
+</div>
+
+<p>We could know that SPS improves the performance of SAGA by these approaches:</p>
+
+<ol>
+<li>Assuming that $\mathbf{x}$ is sparse, which means most of the parameters are invariant, then this algorithm always chooses those parameters with non-zero gradients to update.</li>
+<li>The sparsity of $\mathbf{x}$ is guaranteed by the regularization term $h(\mathbf{x})$, thus we need to optimize the regularization term for every step when we update the parameters.</li>
+<li>We use a more highly efficient method to optimize $h$, i.e. we only choose the part with non-zero gradient to optimize $h$.</li>
+</ol>
+
+<h3 id="lemma-5">Lemma 5</h3>
+
+<p>Now we would like to prove the used estimators are unbiased.</p>
+
+<blockquote>
+    <p><b>Unbiased Estimators</b>:</p>
+    <p>$\mathbb{E} (\mathbf{D}_i) = \mathbf{I}$ and $\mathbb{E} (\varphi_i) = h$:</p>
+</blockquote>
+
+<p><strong><em>proof</em></strong>:</p>
+
+<p>$\mathbf{D}_i$ is a diagonal matrix which is block separable, thus</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E}_i \left( [\mathbf{D}_i]_{B,B} \right) &= \frac{1}{n} \sum\limits_{i=1}^n [\mathbf{D}_i]_{B,B} = \frac{1}{n} \sum\limits_{i=1}^n \frac{n}{n_B} \delta(B \in T_i) \mathbf{I} \\[5pt]
+        &= \frac{1}{n_B} \left[ \sum\limits_{i=1}^n \delta(B \in T_i) \right] \mathbf{I} = \mathbf{I}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Because the expectation of each part of $\mathbf{D}_i$ is identical matrix, the whole matrix should be also identical, i.e. $\mathbb{E} (\mathbf{D}_i) = \mathbf{I}$. Then we would know that according to similar theory in SAGA, the $\mathbf{v}_i$ is the unbiased estimation of the risk function $\nabla f(\mathbf{x})$.</p>
+
+<p>Also, we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E}_i \left( \varphi_i([\mathbf{x}]_B) \right) &= \frac{1}{n} \sum\limits_{i=1}^n \varphi_i([\mathbf{x}]_B) = \frac{1}{n} \sum\limits_{i=1}^n \frac{n}{n_B} \delta(B \in T_i) h_B([\mathbf{x}]_B) \\[5pt]
+        &= \frac{1}{n_B} \left[ \sum\limits_{i=1}^n \delta(B \in T_i) \right] h_B([\mathbf{x}]_B) = h_B([\mathbf{x}]_B).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Thus</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E}_i \left( \varphi_i(\mathbf{x}) \right) &= \mathbb{E}_i \left( \sum_B \varphi_i([\mathbf{x}]_B) \right) \\[5pt]
+        &= \sum_B \mathbb{E}_i \left( \varphi_i([\mathbf{x}]_B) \right) = \sum_B h_B([\mathbf{x}]_B) = h(\mathbf{x}).
+    \end{aligned}
+\end{equation}
+</div>
+
+<h3 id="lemma-6">Lemma 6</h3>
+
+<blockquote>
+    <p><b>The converged condition</b>:</p>
+    <p>The optimal (OPT) solution $\mathbf{x}^{\ast}$ is reached when and only when the following condition is verified:</p>
+    <div class="overflow">
+    \begin{align}
+        \mathbf{x}^{\ast} = \mathrm{prox}_{\gamma \varphi} (\mathbf{x}^{\ast} - \gamma \mathbf{D} \nabla f(\mathbf{x}^{\ast})),
+    \end{align}
+    </div>
+    <p>where we use $\varphi$ and $\mathbf{D}$ to represent global sum symbols of the corresponding concepts. For example, $\mathbf{D} = \sum_{i=1}^n \mathbf{D}_i.$</p>
+</blockquote>
+
+<p><strong><em>proof</em></strong>:</p>
+
+<p>First, according to the definition, when $i \neq j$, $\mathbf{D}_i \nabla f_j(\mathbf{x}) = 0$ since $\mathbf{D}_i$ does not cover the support of $\nabla f_j$, then</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbf{D} \nabla f(\mathbf{x}^{\ast}) = \sum_{i=1}^n \mathbf{D}_i \sum_{i=1}^n \nabla f_i(\mathbf{x}^{\ast}) =  \sum_{i=1}^n \mathbf{D}_i \nabla f_i(\mathbf{x}^{\ast}).
+\end{align}
+</div>
+
+<p>We know that the problem is minimizing $f(\mathbf{x}) + h(\mathbf{x})$, thus the optimal condition is $ - \nabla f(\mathbf{x}^{\ast}) = \nabla h(\mathbf{x}^{\ast})$.</p>
+
+<p>Then we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        - \nabla f(\mathbf{x}^{\ast}) = \nabla h(\mathbf{x}^{\ast}) &\Longleftrightarrow - \mathbf{D} \nabla f(\mathbf{x}^{\ast}) = \mathbf{D} \nabla h(\mathbf{x}^{\ast}) \\[5pt]
+        &\Longleftrightarrow - \mathbf{D} \nabla f(\mathbf{x}^{\ast}) = \nabla \varphi(\mathbf{x}^{\ast}) \\[5pt]
+        &\Longleftrightarrow \frac{1}{\gamma} \left( \mathbf{x}^{\ast} - \mathbf{D} \nabla f(\mathbf{x}^{\ast}) - \mathbf{x}^{\ast} \right) = \nabla \varphi(\mathbf{x}^{\ast}) \\[5pt]
+        &\Longleftrightarrow \mathbf{x}^{\ast} = \mathrm{prox}_{\gamma \varphi} (\mathbf{x}^{\ast} - \gamma \mathbf{D} \nabla f(\mathbf{x}^{\ast})).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>The last step is approached by applying <a href="#lemma-3">Lemma 3</a>.</p>
+
+<h3 id="discussion-about-sparsity">Discussion about sparsity</h3>
+
+<p>Before talking about the following part, we need to formulate the property of the sparsity, first, defining these symbols:</p>
+
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$\mathbf{x}_{(i)}$</td>
+<td>A local part of the vector, i.e. $\mathbf{x}_{(i)} := \sum_{B \in T_i} [\mathbf{x}]_B.$</td>
+</tr>
+
+<tr>
+<td>$(\mathbf{x}^T\mathbf{y})_{(i)}$</td>
+<td>The inner product from a local part, i.e. $(\mathbf{x}^T\mathbf{y})_{(i)} := \sum_{B \in T_i} ([\mathbf{x}]_B^T [\mathbf{y}]_B).$</td>
+</tr>
+
+<tr>
+<td>$\lVert \mathbf{x} \rVert_{(i)}$</td>
+<td>The norm from a local part, i.e. $\lVert \mathbf{x} \rVert_{(i)} := (\mathbf{x}^T\mathbf{x})_{(i)}.$</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="sparsity">Sparsity</h4>
+
+<p>A vector is sparse means that we could use the local part to replace the whole part, i.e. $\mathbf{a} = \mathbf{a}_{(i)}$.</p>
+
+<p>An example is, the <em>gradient mapping</em> $\mathbf{g}_i(\mathbf{x})$ is sparse. To prove this, we need to specify two facts:</p>
+
+<ol>
+<li>The unbiased estimator $\mathbf{v}_i$ has two parts. The first part, i.e. $\nabla f_i (\mathbf{x}_k) - \nabla f_i (\mathbf{x}_{[i]})$ is only related to $f_i$; The second part, i.e. $\mathbf{D}_i \frac{1}{n} \sum_j \nabla f_j (\mathbf{x}_{[j]})$ is constrained by the diagonal matrix $\mathbf{D}_i$. Therefore, $\forall~B \notin T_i$, $[\mathbf{v}_i]_B = \mathbf{0}$.</li>
+<li>The local part of the proximal operator over $\gamma \varphi_i$ has two case. When $B \in T_i$, we have $[\mathrm{prox}_{\gamma \varphi_i}(\mathbf{x})]_B = [\mathrm{prox}_{\gamma d_B h_B}(\mathbf{x})]_B$; When $B \notin T_i$, $[\mathrm{prox}_{\gamma \varphi_i}(\mathbf{x})]_B = [\mathbf{x}]_B$. This property is due to the definition of $\varphi_i$.</li>
+</ol>
+
+<p>Hence, we know that</p>
+
+<div class="overflow">
+\begin{equation}
+    [\mathbf{g}_i(\mathbf{x})]_B = \left\{
+    \begin{aligned}
+        &\frac{1}{\gamma} \left( [\mathbf{x}]_B - \mathrm{prox}_{\gamma \varphi_i}( [\mathbf{x}]_B - \gamma [\mathbf{v}_i]_B ) \right), & B \in T_i, \\[5pt]
+        &\frac{1}{\gamma} \left( [\mathbf{x}]_B - [\mathbf{x}]_B + \gamma [\mathbf{v}_i]_B \right) = \mathbf{0}, & B \notin T_i.
+    \end{aligned}
+    \right.
+\end{equation}
+</div>
+
+<h4 id="sparse-inner-product">Sparse inner product</h4>
+
+<p>Considering the inner product of two block separable vectors. If one element of the inner product is sparse over set $T_i$, the inner product from the whole inputs is equivalent to that from the local parts. Assuming that $\mathbf{a}$ is sparse over $T_i$, and $\mathbf{b}$ could be arbitrary, then</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbf{a}^T \mathbf{b} &= \sum_{B \in T_i} ([\mathbf{a}]_B^T [\mathbf{b}]_B) + \sum_{B \notin T_i} ([\mathbf{a}]_B^T [\mathbf{b}]_B) \\[5pt]
+        &= \sum_{B \in T_i} ([\mathbf{a}]_B^T [\mathbf{b}]_B) + \sum_{B \notin T_i} (\mathbf{0}^T [\mathbf{b}]_B) = \sum_{B \in T_i} ([\mathbf{a}]_B^T [\mathbf{b}]_B) \\[5pt]
+        &= (\mathbf{a}^T \mathbf{b})_{(i)}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<h4 id="sparse-norm">Sparse norm</h4>
+
+<p>Similar to what we derive in the case of inner product. If a vector $\mathbf{a}$ is sparse over $T_i$, its norm is equivalent to that from a local part, i.e.</p>
+
+<div class="overflow">
+\begin{align}
+    \lVert \mathbf{a} \rVert = \mathbf{a}^T \mathbf{a} = (\mathbf{a}^T \mathbf{a})_{(i)} = \lVert \mathbf{a} \rVert_{(i)}.
+\end{align}
+</div>
+
+<h3 id="lemma-7">Lemma 7</h3>
+
+<blockquote>
+    <p><b>Gradient mapping inequality</b>:</p>
+    <p>Denoting $\mathbf{x}^{\ast}$ as the solution, the gradient mapping with an arbitrary input vector $\mathbf{x}$ has such an inequality:</p>
+    <div class="overflow">
+    \begin{align}
+        \mathbf{g}_i^T(\mathbf{x} - \mathbf{x}^{\ast}) \geqslant -\frac{\gamma}{2} (\beta - 2) \lVert \mathbf{g}_i \rVert^2 - \frac{\gamma}{2\beta} \lVert \mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) \rVert^2 + \left(  \mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) \right)^T\left( \mathbf{x} - \mathbf{x}^{\ast} \right).
+    \end{align}
+    </div>
+</blockquote>
+
+<p><strong><em>proof</em></strong>:</p>
+
+<p>Denote $\mathbf{x}^+ := \mathrm{prox}_{\gamma \varphi_i}(\mathbf{x} - \gamma \mathbf{v}_i)$ as the updated $\mathbf{x}$ of the next step. And from <a href="#lemma-6">Lemma 6</a> we know that $\mathbf{x}^{\ast} = \mathrm{prox}_{\gamma \varphi_i}(\mathbf{x}^{\ast} - \gamma \mathbf{D} \nabla f(\mathbf{x}^{\ast})).$ According to <a href="lemma-3">Lemma 3</a>, we have</p>
+
+<div class="overflow">
+\begin{align}
+    \lVert \mathbf{x}^+ - \mathbf{x}^{\ast} \rVert^2_{(i)} - \left[ (\mathbf{x}^+ - \mathbf{x}^{\ast})^T (\mathbf{x} - \gamma \mathbf{v}_i - \mathbf{x}^{\ast} + \gamma \mathbf{D} \nabla f(\mathbf{x}^{\ast})) \right]_{(i)} \leqslant 0.
+\end{align}
+</div>
+
+<p>According to the sparsity of $\mathbf{g}_i$, we could derive that</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        (\gamma \mathbf{g}_i)^T (\mathbf{x} - \mathbf{x}^{\ast}) &= \left[ (\gamma \mathbf{g}_i)^T (\mathbf{x} - \mathbf{x}^{\ast}) \right]_{(i)} = \left[ (\mathbf{x} - \mathbf{x}^+)^T (\mathbf{x} - \mathbf{x}^{\ast}) \right]_{(i)} \\[5pt]
+        &= \left[ (\mathbf{x} - \mathbf{x}^+ + \mathbf{x}^{\ast} - \mathbf{x}^{\ast})^T (\mathbf{x} - \mathbf{x}^{\ast}) \right]_{(i)} \\[5pt]
+        &= \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2_{(i)} - \left[ (\mathbf{x}^+ - \mathbf{x}^{\ast})^T (\mathbf{x} - \mathbf{x}^{\ast}) \right]_{(i)} \\[5pt]
+        &\geqslant \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2_{(i)} - \left[ (\mathbf{x}^+ - \mathbf{x}^{\ast})^T (2\mathbf{x} - \gamma \mathbf{v}_i - 2\mathbf{x}^{\ast} + \gamma \mathbf{D} \nabla f(\mathbf{x}^{\ast}) ) \right]_{(i)} + \lVert \mathbf{x}^+ - \mathbf{x}^{\ast} \rVert^2_{(i)} \\[5pt]
+        &= \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2_{(i)} - 2\left[ (\mathbf{x}^+ - \mathbf{x}^{\ast})^T (\mathbf{x} - \mathbf{x}^{\ast}) \right]_{(i)} + \lVert \mathbf{x}^+ - \mathbf{x}^{\ast} \rVert^2_{(i)} + \left[ (\mathbf{x}^+ - \mathbf{x}^{\ast})^T (\gamma \mathbf{v}_i - \gamma \mathbf{D} \nabla f(\mathbf{x}^{\ast}) ) \right]_{(i)} \\[5pt]
+        &= \lVert \mathbf{x} - \mathbf{x}^+ \rVert^2_{(i)} + \left[ (\mathbf{x}^+ - \mathbf{x} + \mathbf{x} - \mathbf{x}^{\ast})^T (\gamma \mathbf{v}_i - \gamma \mathbf{D} \nabla f(\mathbf{x}^{\ast}) ) \right]_{(i)} \\[5pt]
+        &= \lVert \mathbf{x} - \mathbf{x}^+ \rVert^2_{(i)} - \left[ (\mathbf{x} - \mathbf{x}^+)^T (\gamma \mathbf{v}_i - \gamma \mathbf{D} \nabla f(\mathbf{x}^{\ast}) ) \right]_{(i)} + \gamma \left[ (\mathbf{x} - \mathbf{x}^{\ast})^T (\mathbf{v}_i - \mathbf{D} \nabla f(\mathbf{x}^{\ast}) ) \right]_{(i)}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Here we apply a theorem that</p>
+
+<blockquote>
+    <p><b><i>Young</i>'s inequality</b>:</p>
+    <p>For arbitrary $\beta > 0$ and two vectors $\mathbf{a},~\mathbf{b}$, we have</p>
+    <div class="overflow">
+    \begin{align}
+        2 \mathbf{a}^T \mathbf{b} \leqslant \frac{\lVert \mathbf{a} \rVert^2}{\beta} + \beta \lVert \mathbf{b} \rVert^2.
+    \end{align}
+    </div>
+</blockquote>
+
+<p>Then</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        (\gamma \mathbf{g}_i)^T (\mathbf{x} - \mathbf{x}^{\ast}) &\geqslant \lVert \mathbf{x} - \mathbf{x}^+ \rVert^2_{(i)} - \frac{\beta}{2} \lVert \mathbf{x} - \mathbf{x}^+ \rVert^2_{(i)} - \frac{\gamma^2}{2\beta} \lVert \mathbf{v}_i - \mathbf{D} \nabla f(\mathbf{x}^{\ast}) \rVert^2_{(i)} + \gamma \left[ (\mathbf{x} - \mathbf{x}^{\ast})^T (\mathbf{v}_i - \mathbf{D} \nabla f(\mathbf{x}^{\ast}) ) \right]_{(i)} \\[5pt]
+        &= \left( 1- \frac{\beta}{2} \right) \lVert \mathbf{x} - \mathbf{x}^+ \rVert^2_{(i)} - \frac{\gamma^2}{2\beta} \lVert \mathbf{v}_i - \mathbf{D} \nabla f(\mathbf{x}^{\ast}) \rVert^2_{(i)} + \gamma \left[ (\mathbf{x} - \mathbf{x}^{\ast})^T (\mathbf{v}_i - \mathbf{D} \nabla f(\mathbf{x}^{\ast}) ) \right]_{(i)} \\[5pt]
+        &= \left( 1- \frac{\beta}{2} \right) \lVert \gamma \mathbf{g}_i \rVert^2_{(i)} - \frac{\gamma^2}{2\beta} \lVert \mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) \rVert^2 + \gamma \left[ (\mathbf{x} - \mathbf{x}^{\ast})^T (\mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) ) \right] \\[5pt]
+        &= \gamma^2 \left( 1- \frac{\beta}{2} \right) \lVert \mathbf{g}_i \rVert^2 - \frac{\gamma^2}{2\beta} \lVert \mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) \rVert^2 + \gamma \left[ (\mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) )^T (\mathbf{x} - \mathbf{x}^{\ast}) \right].
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>By dividing $\gamma$ on both sides, we could prove this issue. Note that we claim the equality beween $\lVert \mathbf{v}_i - \mathbf{D} \nabla f(\mathbf{x}^{\ast}) \rVert^2_{(i)}$ and $\lVert \mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) \rVert^2$. If we want to prove the equality, we need to expand the local part norm over $T_i$, which would not be discussed here <span class='popsym' title="Indeed I suspect that whether this equality is true. But the author has not given more explanation and I could not derive the equality by myself."> .</p>
+
+<h3 id="lemma-8">Lemma 8</h3>
+
+<p>Here we introduced a symbol $\boldsymbol{\alpha}$, which would be an abbreviation of what we discuss in the algorithm.</p>
+
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$\mathbf{x},~\mathbf{x}^+$</td>
+<td>An arbitrary parameter $\mathbf{x}$ and its updated version.</td>
+</tr>
+
+<tr>
+<td>$\boldsymbol{\alpha}_i,~\boldsymbol{\alpha}_i^+$</td>
+<td>The abbreviation of $\nabla f_i (\mathbf{x}_i).$ The $\boldsymbol{\alpha}_i^+$ is the updated $\boldsymbol{\alpha}_i$.</td>
+</tr>
+
+<tr>
+<td>$\bar{\boldsymbol{\alpha}}$</td>
+<td>The average value of $\boldsymbol{\alpha}_i$ over all $i$.</td>
+</tr>
+
+<tr>
+<td>$\lVert \mathbf{x} \rVert^2_{\mathbf{D}}$</td>
+<td>An associated distance ($\langle \mathbf{x},~\mathbf{D}\mathbf{x} \rangle$ or $\mathbf{x}^T\mathbf{D}\mathbf{x}$) which is defined by a semi-definite matrix $\mathbf{D}$.</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+    <p><b>Upper bound of the gradient estimator variance</b>:</p>
+    <p>We still use $\mathbf{x}^{\ast}$ to represent the optimal parameters. Then for any parameter $\mathbf{x}$, we have:</p>
+    <div class="overflow">
+    \begin{align}
+        \mathbb{E} \lVert \mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) \rVert^2 \leqslant 4L \mathrm{B}_f (\mathbf{x},~\mathbf{x}^{\ast}) + 2 \mathbb{E} \lVert \boldsymbol{\alpha}_i - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2.
+    \end{align}
+    </div>
+</blockquote>
+
+<p><strong><em>proof</em></strong>:</p>
+
+<p>Considering the inequality that $\lVert \mathbf{a} + \mathbf{b} \rVert^2 \leqslant 2\lVert \mathbf{a} \rVert^2 + 2\lVert \mathbf{b} \rVert^2$, then we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E} \lVert \mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) \rVert^2 &= \mathbb{E}_i \lVert \nabla f_i(\mathbf{x}) - \nabla f_i(\mathbf{x}^{\ast}) + \nabla f_i(\mathbf{x}^{\ast}) - \boldsymbol{\alpha}_i + \mathbf{D}_i \bar{\boldsymbol{\alpha}} - \mathbf{D} \nabla f(\mathbf{x}^{\ast}) \rVert^2_{(i)} \\[5pt]
+        &\leqslant 2 \left( \mathbb{E}_i \lVert \nabla f_i(\mathbf{x}) - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2_{(i)} + \mathbb{E}_i \lVert \nabla f_i(\mathbf{x}^{\ast}) - \boldsymbol{\alpha}_i + \mathbf{D} \bar{\boldsymbol{\alpha}} - \mathbf{D} \nabla f(\mathbf{x}^{\ast}) \rVert^2_{(i)} \right) \\[5pt]
+        &= 2 \left( \mathbb{E}_i \lVert \nabla f_i(\mathbf{x}) - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2 + \mathbb{E}_i \lVert \nabla f_i(\mathbf{x}^{\ast}) - \boldsymbol{\alpha}_i \rVert^2 + \mathbb{E}_i \lVert \mathbf{D} \bar{\boldsymbol{\alpha}} - \mathbf{D} \nabla f(\mathbf{x}^{\ast}) \rVert^2_{(i)} \right. \\[5pt]
+        &\qquad - \left. 2 \mathbb{E}_i \left[ \left( \nabla f_i(\mathbf{x}^{\ast}) - \boldsymbol{\alpha}_i \right)^T \left( \mathbf{D} \nabla f(\mathbf{x}^{\ast}) - \mathbf{D} \bar{\boldsymbol{\alpha}} \right) \right]_{(i)} \right),
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>where <span class='popsym' title="I am not sure whether the following to derivations are true. If it is, I think they are incredible."></p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E}_i &\left[ \left( \nabla f_i(\mathbf{x}^{\ast}) - \boldsymbol{\alpha}_i \right)^T \left( \mathbf{D} \nabla f(\mathbf{x}^{\ast}) - \mathbf{D} \bar{\boldsymbol{\alpha}} \right) \right]_{(i)} \\[5pt]
+        &= \mathbb{E}_i \left[ \left( \nabla f_i(\mathbf{x}^{\ast}) - \boldsymbol{\alpha}_i \right)^T \left( \mathbf{D} \nabla f(\mathbf{x}^{\ast}) - \mathbf{D} \bar{\boldsymbol{\alpha}} \right) \right] \\[5pt]
+        &= \left[ \left( \nabla f(\mathbf{x}^{\ast}) - \bar{\boldsymbol{\alpha}} \right)^T \left( \mathbf{D} \nabla f(\mathbf{x}^{\ast}) - \mathbf{D} \bar{\boldsymbol{\alpha}} \right) \right] = \left\lVert \nabla f(\mathbf{x}^{\ast}) - \bar{\boldsymbol{\alpha}} \right\rVert^2_{\mathbf{D}},
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>and</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E}_i &\lVert \mathbf{D} \bar{\boldsymbol{\alpha}} - \mathbf{D} \nabla f(\mathbf{x}^{\ast}) \rVert^2_{(i)} \\[5pt]
+        &= \mathbb{E}_i \left[ \left( \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) - \mathbf{D}_i \bar{\boldsymbol{\alpha}} \right)^T \left( \mathbf{D} \nabla f(\mathbf{x}^{\ast}) - \mathbf{D} \bar{\boldsymbol{\alpha}} \right) \right] \\[5pt]
+        &= \left[ \left( \nabla f(\mathbf{x}^{\ast}) - \bar{\boldsymbol{\alpha}} \right)^T \left( \mathbf{D} \nabla f(\mathbf{x}^{\ast}) - \mathbf{D} \bar{\boldsymbol{\alpha}} \right) \right] = \left\lVert \nabla f(\mathbf{x}^{\ast}) - \bar{\boldsymbol{\alpha}} \right\rVert^2_{\mathbf{D}},
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>By introducing <a href="#lemma-2">Lemma 2</a>, we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E} &\lVert \mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) \rVert^2  \\[5pt]
+        &\leqslant 2 \left( \mathbb{E}_i \lVert \nabla f_i(\mathbf{x}) - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2 + \mathbb{E}_i \lVert \nabla f_i(\mathbf{x}^{\ast}) - \boldsymbol{\alpha}_i \rVert^2 - \left\lVert \nabla f(\mathbf{x}^{\ast}) - \bar{\boldsymbol{\alpha}} \right\rVert^2_{\mathbf{D}} \right). \\[5pt]
+        &\leqslant 2 \left( \mathbb{E}_i \lVert \nabla f_i(\mathbf{x}) - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2+ \mathbb{E}_i \lVert \nabla f_i(\mathbf{x}^{\ast}) - \boldsymbol{\alpha}_i \rVert^2 \right) \\[5pt]
+        &\leqslant 4L\mathrm{B}_f(\mathbf{x},~\mathbf{x}^{\ast})+ 2\mathbb{E}_i \lVert \nabla f_i(\mathbf{x}^{\ast}) - \boldsymbol{\alpha}_i \rVert^2.
+    \end{aligned}
+\end{equation}
+</div>
+
+<h3 id="lemma-9">Lemma 9</h3>
+
+<blockquote>
+    <p><b><i>Lyapunov</i> inequality</b>:</p>
+    <p>Denote $\mathcal{L}$ as a function with a parameter $c$, </p>
+    <div class="overflow">
+    \begin{align}
+        \mathcal{L}(\mathbf{x},~\boldsymbol{\alpha}) := \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 + \frac{c}{n} \sum_{i=1}^n \lVert \boldsymbol{\alpha}_i - \nabla f_i (\mathbf{x}^{\ast}) \rVert^2.
+    \end{align}
+    </div>
+    Then we have such an equality that:
+    <div class="overflow">
+    \begin{equation}
+        \begin{aligned}
+            \mathbb{E}\left[\mathcal{L}(\mathbf{x}^+,~\boldsymbol{\alpha}^+)\right] - \mathcal{L}(\mathbf{x},~\boldsymbol{\alpha}) \leqslant & -\gamma \mu \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 + \left(4L\gamma^2 - 2\gamma + 2L\frac{c}{n}\right)\mathrm{B}_f(\mathbf{x},~\mathbf{x}^{\ast}) \\[5pt]
+            &+ \left( 2\gamma^2 - \frac{c}{n} \right) \mathbb{E} \lVert \boldsymbol{\alpha}_i - \nabla f_i (\mathbf{x}^{\ast}) \rVert^2.
+        \end{aligned}
+    \end{equation}
+    </div>
+</blockquote>
+
+<p><strong><em>proof</em></strong>:</p>
+
+<p>By applying <a href="#lemma-7">Lemma 7</a> with $\beta=1$, we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \lVert \mathbf{x}^+ - \mathbf{x}^{\ast} \rVert^2 &= \lVert \mathbf{x}^+ - \gamma \mathbf{g}_i - \mathbf{x}^{\ast} \rVert^2 \\[5pt]
+        &= \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 - 2\gamma \mathbf{g}_i^T(\mathbf{x} - \mathbf{x}^{\ast}) + \lVert \gamma \mathbf{g}_i \rVert^2 \\[5pt]
+        &\leqslant \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 + \gamma^2 \lVert \mathbf{g}_i \rVert^2 + \gamma^2 (1 - 2) \lVert \mathbf{g}_i \rVert^2 + \frac{\gamma^2}{1} \lVert \mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) \rVert^2 - 2 \gamma \left(  \mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) \right)^T\left( \mathbf{x} - \mathbf{x}^{\ast} \right) \\[5pt]
+        &= \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 + \gamma^2 \lVert \mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) \rVert^2 - 2 \gamma \left(  \mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) \right)^T\left( \mathbf{x} - \mathbf{x}^{\ast} \right).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>By applying <a href="#lemma-5">Lemma 5</a>, we could replace the unbiased estimator. Then we use the <a href="#lemma-1">Lemma 1</a> to acquire the Bregman divergence.</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E} \lVert \mathbf{x}^+ - \mathbf{x}^{\ast} \rVert^2 &\leqslant \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 + \gamma^2 \mathbb{E} \lVert \mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) \rVert^2 - 2 \gamma \mathbb{E} \left[ \left( \nabla f(\mathbf{x}) - \nabla f(\mathbf{x}^{\ast}) \right)^T\left( \mathbf{x} - \mathbf{x}^{\ast} \right) \right] \\[5pt]
+        &\leqslant (1-\gamma \mu) \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 + \gamma^2 \mathbb{E} \lVert \mathbf{v}_i - \mathbf{D}_i \nabla f(\mathbf{x}^{\ast}) \rVert^2 - 2 \gamma \mathrm{B}_f (\mathbf{x},~\mathbf{x}^{\ast}).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Then we use <a href="#lemma-8">Lemma 8</a> to convert the second term</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E} \lVert \mathbf{x}^+ - \mathbf{x}^{\ast} \rVert^2 &\leqslant (1-\gamma \mu) \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 - 2 \gamma \mathrm{B}_f (\mathbf{x},~\mathbf{x}^{\ast}) + 4L \gamma^2 \mathrm{B}_f (\mathbf{x},~\mathbf{x}^{\ast}) + 2 \gamma^2 \mathbb{E} \lVert \boldsymbol{\alpha}_i - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2 \\[5pt]
+        &= (1-\gamma \mu) \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 + \left( 4L \gamma^2 - 2 \gamma \right) \mathrm{B}_f (\mathbf{x},~\mathbf{x}^{\ast}) + 2 \gamma^2 \mathbb{E} \lVert \boldsymbol{\alpha}_i - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Consider the last term, $\alpha_i^+$ is a collection of $\alpha_i$ with only one of it replaced by $\nabla f_i(\mathbf{x})$. Thus we could use the averaging policy and <a href="#lemma-2">Lemma 2</a> to estimate the expectation:</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E} \lVert \boldsymbol{\alpha}_i - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2 &= \mathbb{E} \left[ \frac{1}{n} \sum_{i=1}^n \lVert \boldsymbol{\alpha}_i - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2 \right] \\[5pt]
+        &= \left(1 - \frac{1}{n}\right) \mathbb{E} \lVert \boldsymbol{\alpha}_i - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2 + \frac{1}{n} \mathbb{E} \lVert \nabla f_i(\mathbf{x}) - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2 \\[5pt]
+        &\leqslant \left(1 - \frac{1}{n}\right) \mathbb{E} \lVert \boldsymbol{\alpha}_i - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2 + \frac{2}{n} L \mathrm{B}_f (\mathbf{x},~\mathbf{x}^{\ast}).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Then we could integrate the results</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E} \lVert \mathbf{x}^+ - \mathbf{x}^{\ast} \rVert^2 &\leqslant (1-\gamma \mu) \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 + \left( 4L \gamma^2 - 2 \gamma \right) \mathrm{B}_f (\mathbf{x},~\mathbf{x}^{\ast}) + 2 \gamma^2 \mathbb{E} \lVert \boldsymbol{\alpha}_i - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2 \\[5pt]
+        &\qquad + c \left[ \left(1 - \frac{1}{n}\right) \mathbb{E} \lVert \boldsymbol{\alpha}_i - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2 + \frac{2}{n} L \mathrm{B}_f (\mathbf{x},~\mathbf{x}^{\ast}) \right] \\[5pt]
+        &= (1-\gamma \mu) \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 + \left( 4L \gamma^2 - 2 \gamma + 2L\frac{c}{n} \right) \mathrm{B}_f (\mathbf{x},~\mathbf{x}^{\ast}) \\[5pt]
+        &\qquad + \left(2 \gamma^2 - \frac{c}{n} + c \right) \mathbb{E} \lVert \boldsymbol{\alpha}_i - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2\\[5pt]
+        &= \mathcal{L}(\mathbf{x},~\boldsymbol{\alpha}) - \gamma \mu \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 + \left( 4L \gamma^2 - 2 \gamma + 2L\frac{c}{n} \right) \mathrm{B}_f (\mathbf{x},~\mathbf{x}^{\ast}) \\[5pt]
+        &\qquad + \left(2 \gamma^2 - \frac{c}{n} \right) \mathbb{E} \lVert \boldsymbol{\alpha}_i - \nabla f_i(\mathbf{x}^{\ast}) \rVert^2.
+    \end{aligned}
+\end{equation}
+</div>
+
+<h3 id="theorem-1-convergence">Theorem 1 (convergence)</h3>
+
+<blockquote>
+    <p><b>Convergence of SPS</b>:</p>
+    <p>For any $a \leqslant 1$, let $\gamma = \frac{a}{5L}$. Denote $\kappa$ as $\frac{L}{\mu}$, then we could define a rate factor $\rho = \frac{1}{5} \min \{ \frac{1}{n},~a\frac{1}{\kappa} \}$ with which the SPS converges geometrically in expectation, i.e.</p>
+    <div class="overflow">
+    \begin{equation}
+        \begin{aligned}
+            \mathbb{E} &\lVert \mathbf{x}_t - \mathbf{x}^{\ast} \rVert^2 \leqslant (1-\rho)^t C_0, \\[5pt]
+            \mathrm{s.t.}~& C_0 := \lVert \mathbf{x}_0 - \mathbf{x}^{\ast} \rVert^2 + \frac{1}{5L^2} \sum_{i=1}^n \lVert \nabla f_i (\mathbf{x}_0) - \nabla f_i (\mathbf{x}^{\ast}) \rVert^2,
+        \end{aligned}
+    \end{equation}
+    </div>
+    <p>where we use $\mathbf{x}_t$ to represent the parameter iterated by $t$ steps.</p>
+</blockquote>
+
+<p><strong><em>proof</em></strong>:</p>
+
+<p>Denote $\bar{H}$ as $\frac{1}{n} \sum_i \lVert \boldsymbol{\alpha}_i - \nabla f_i (\mathbf{x}^{\ast}) \rVert^2$, then we could rewrite <a href="#lemma-9">Lemma 9</a> and expand the $\mathcal{L}_t$ term as</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E}\left[\mathcal{L}_{t+1}\right] - (1-\rho)\mathcal{L}_t & \leqslant \rho \mathcal{L}_t -\gamma \mu \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 + \left(4L\gamma^2 - 2\gamma + 2L\frac{c}{n}\right)\mathrm{B}_f(\mathbf{x},~\mathbf{x}^{\ast}) + \left( 2\gamma^2 - \frac{c}{n} \right) \bar{H} \\[5pt]
+        &= (\rho - \gamma \mu) \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 + \left(4L\gamma^2 - 2\gamma + 2L\frac{c}{n}\right)\mathrm{B}_f(\mathbf{x},~\mathbf{x}^{\ast}) + \left( 2\gamma^2 - c \left(\rho- \frac{1}{n}\right) \right) \bar{H}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Then we set the constraint that $\rho \leqslant \frac{1}{3n}$ <span class='popsym' title="A problem is, why we choose 1/3n? Why would not choosing 1/2n? That is because of the setting of the gamma.">, thus we could rewrite the last term as</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbb{E}\left[\mathcal{L}_{t+1}\right] - (1-\rho)\mathcal{L}_t \leqslant (\rho - \gamma \mu) \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 + \left( 4L\gamma^2 - 2\gamma + 2L\frac{c}{n} \right) \mathrm{B}_f(\mathbf{x},~\mathbf{x}^{\ast}) + \left( 2\gamma^2 - \frac{2c}{3n}\right) \bar{H}.
+\end{align}
+</div>
+
+<p>The next step is, choosing $\frac{c}{n} = 3 \gamma^2$ so that the last term could be removed,</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbb{E}\left[\mathcal{L}_{t+1}\right] - (1-\rho)\mathcal{L}_t \leqslant (\rho - \gamma \mu) \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2 + \left(10L\gamma^2 - 2\gamma\right)\mathrm{B}_f(\mathbf{x},~\mathbf{x}^{\ast}).
+\end{align}
+</div>
+
+<p>Since we have known that $\gamma = \frac{a}{5L}$, then we know that $10L\gamma^2 - 2\gamma \leqslant 0$ could be verified. That is because of the boundaries of $\rho$ and $c$ that we have set before. Thus, we could remove the second term.</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbb{E}\left[\mathcal{L}_{t+1}\right] - (1-\rho)\mathcal{L}_t \leqslant (\rho - \frac{a \mu}{5 L}) \lVert \mathbf{x} - \mathbf{x}^{\ast} \rVert^2.
+\end{align}
+</div>
+
+<p>Thus we know, when $\rho \leqslant \frac{a}{5\kappa}$, we could verify that $\mathbb{E}\left[\mathcal{L}_{t+1}\right] \leqslant (1-\rho)\mathcal{L}_t$.</p>
+
+<p>The inequality above is not relevant to the step $t$, thus we could use the mathematical induction to verify that:</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E}\left[\mathcal{L}_{t}\right] &\leqslant (1-\varrho)^{t} \mathcal{L}_0, \\[5pt]
+        \mathrm{s.t.}~& \varrho = \frac{1}{5} \min \{ \frac{1}{n},~a\frac{1}{\kappa} \} \leqslant \min \{ \frac{1}{3n},~\frac{a}{5\kappa} \}, \\[5pt]
+        & \mathcal{L}_0 = \lVert \mathbf{x}_0 - \mathbf{x}^{\ast} \rVert^2 + \frac{1}{5L^2} \sum_{i=1}^n \lVert \boldsymbol{\alpha}_i^0 - \nabla f_i (\mathbf{x}^{\ast}) \rVert^2, \\[5pt]
+        &\boldsymbol{\alpha}_i^0 = \nabla f_i (\mathbf{x}_0).
+    \end{aligned}
+\end{equation}
+</div>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmgi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-119875813-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>

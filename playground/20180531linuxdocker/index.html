@@ -12,10 +12,12 @@
 	<!-- Stylesheets -->
 	
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
-    <link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
 	
 	
 
@@ -124,6 +126,7 @@
                                 <span class="image main"><img src="/img/playground/coding.jpg" alt="" /></span>
                                 
                             </header>
+                            <hr/>
                             
                                 <h1 id="contents">Contents</h1>
                                 <p><nav id="TableOfContents">
@@ -134,7 +137,7 @@
 <li><a href="#why-using-docker">Why using docker</a></li>
 <li><a href="#further-reading-materials">Further Reading Materials</a></li>
 </ul></li>
-<li><a href="#get-started">Get Started</a>
+<li><a href="#get-started">Get started</a>
 <ul>
 <li><a href="#set-up-an-account">Set up an account</a></li>
 <li><a href="#commands">Commands</a>
@@ -156,6 +159,7 @@
 </ul>
 </nav></p>
                             
+                            <hr/>
                             
 
 <h1 id="instruction">Instruction</h1>
@@ -260,7 +264,7 @@
 
 <p>OK, now let&rsquo;s start with our dockers!</p>
 
-<h1 id="get-started">Get Started</h1>
+<h1 id="get-started">Get started</h1>
 
 <p>First, you need a NVIDIA cloud account. There are two versions of this account:</p>
 
@@ -509,15 +513,18 @@ $ matlab &amp;
     <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
     <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
     <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
     <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
     <script src="https://cainmagi.github.io/js/skel.min.js"></script>
     <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
 
     
 
     <!-- Main JS -->
     <script src="https://cainmagi.github.io/js/main.js"></script>
     <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
     
     <script src="https://cainmagi.github.io/js/title.js"></script>
     
@@ -541,17 +548,18 @@ ga('send', 'pageview');
     <script type="text/javascript" async
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-        extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js"]
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
     }
-  }
   });
+
   MathJax.Hub.Queue(function() {
     
     
@@ -563,8 +571,8 @@ ga('send', 'pageview');
   });
 
   MathJax.Hub.Config({
-  
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
 

@@ -6,10 +6,30 @@
     <description>Recent content in Linux on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 May 2018 23:43:48 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 14 Jun 2018 19:37:05 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Advanced Linux Skills for Using NVIDIA Docker: Questions and Answers</title>
+      <link>https://cainmagi.github.io/playground/20180614linuxdockerqna/</link>
+      <pubDate>Thu, 14 Jun 2018 19:37:05 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/playground/20180614linuxdockerqna/</guid>
+      <description>Instruction Here we collect some common errors caused by mistaking operations. Note that because of the limitation of the docker environment, some errors are unsolvable. When you meet such errors, it is better to delete the broken image and retrieve the backup version.
+In the following parts, the questions would be categorized by different classes. Please use CTRL+F or search for your problem by checking these classes. If you meet a problem that is not discussed here, it is welcome for you to propose it in the discussion board at the bottom of this page.</description>
+    </item>
+    
+    <item>
+      <title>Advanced Linux Skills for Using NVIDIA Docker II: with VNC</title>
+      <link>https://cainmagi.github.io/playground/20180614linuxdocker/</link>
+      <pubDate>Thu, 14 Jun 2018 19:36:49 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/playground/20180614linuxdocker/</guid>
+      <description>Instruction Before reading this article, please make sure that you have understood how to use docker (or read the prior article). Here is the prior instruction that gives you a whole imagination about docker. Some techniques (like how to save/read images or how to log in NVIDIA cloud) would not be introduced here particularly. We strongly recommend you to read this article after understanding the prior one.
+Prior Instructions</description>
+    </item>
     
     <item>
       <title>Advanced Linux Skills for Using NVIDIA Docker</title>

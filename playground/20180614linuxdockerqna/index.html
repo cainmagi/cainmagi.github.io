@@ -1,0 +1,556 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	<meta name="generator" content="Hugo 0.40.3" />
+	<title>Advanced Linux Skills for Using NVIDIA Docker: Questions and Answers &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Advanced Linux Skills for Using NVIDIA Docker: Questions and Answers</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>Jun 14, 2018</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>Jun 15, 2018</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/playground" title="Playground">Playground</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/technique" title="Technique">Technique</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/command" title="Command">Command</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/q-and-a" title="Q and A">Q and A</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/linux" title="linux">linux</a>
+                                                    
+                                                    <a class="ui label" href="/tags/docker" title="docker">docker</a>
+                                                    
+                                                    <a class="ui label" href="/tags/putty" title="putty">putty</a>
+                                                    
+                                                    <a class="ui label" href="/tags/remote-access" title="remote-access">remote-access</a>
+                                                    
+                                                    <a class="ui label" href="/tags/remote-gui" title="remote-GUI">remote-GUI</a>
+                                                    
+                                                    <a class="ui label" href="/tags/nvidia" title="NVIDIA">NVIDIA</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/playground/qna.jpg" alt="" /></span>
+                                
+                            </header>
+                            <hr/>
+                            
+                                <h1 id="contents">Contents</h1>
+                                <p><nav id="TableOfContents">
+<ul>
+<li><a href="#instruction">Instruction</a>
+<ul>
+<li><a href="#solvable-problems">Solvable problems</a>
+<ul>
+<li><a href="#docker">Docker</a>
+<ul>
+<li><a href="#q1-1-how-to-close-a-container-that-i-forget-to-close-it">Q1.1: How to close a container that I forget to close it?</a></li>
+<li><a href="#q1-2-how-to-kill-a-container-with-a-abnormal-execution-code">Q1.2: How to kill a container with a abnormal execution code?</a></li>
+<li><a href="#q1-3-why-cannot-i-open-gui-inside-the-docker">Q1.3: Why cannot I open GUI inside the docker?</a></li>
+<li><a href="#q1-4-is-it-possible-that-two-users-disturb-each-other-by-running-the-same-image">Q1.4: Is it possible that two users disturb each other by running the same image?</a></li>
+<li><a href="#q1-5-could-i-remove-an-image-which-is-depended-on-by-other-images">Q1.5: Could I remove an image which is depended on by other images?</a></li>
+<li><a href="#q1-6-why-cannot-i-enter-the-container-with-an-error-named-gpu-not-found">Q1.6: Why cannot I enter the container with an error named &ldquo;<em>GPU not found</em>&rdquo;?</a></li>
+<li><a href="#q1-7-why-cannot-i-run-docker-without-sudo">Q1.7: Why cannot I run docker without <code>sudo</code>?</a></li>
+</ul></li>
+<li><a href="#network-service">Network Service</a>
+<ul>
+<li><a href="#q2-1-why-cannot-i-open-novnc-with-an-error-about-websocket">Q2.1: Why cannot I open noVNC with an error about <em>websocket</em>?</a></li>
+<li><a href="#q2-2-how-to-release-some-occupied-ports-when-using-novnc-and-meeting-port-is-being-used">Q2.2: How to release some occupied ports when using noVNC and meeting <code>port is being used</code>?</a></li>
+<li><a href="#q2-2-why-cannot-i-log-in-the-server-even-though-i-could-open-novnc-page">Q2.2: Why cannot I log in the server even though I could open noVNC page?</a></li>
+<li><a href="#q2-3-why-my-remote-desktop-gets-shut-suddenly">Q2.3: Why my remote desktop gets shut suddenly?</a></li>
+</ul></li>
+<li><a href="#applications">Applications</a>
+<ul>
+<li><a href="#q3-1-why-cannot-i-open-an-application-on-the-desktop">Q3.1: Why cannot I open an application on the desktop?</a></li>
+<li><a href="#q3-2-why-cannot-i-open-the-chromium-with-an-error-about-gpu">Q3.2: Why cannot I open the chromium with an error about GPU?</a></li>
+<li><a href="#q3-3-which-application-is-suitable-for-processing-documents">Q3.3: Which application is suitable for processing documents?</a></li>
+<li><a href="#q3-4-why-cannot-i-use-mex-in-matlab">Q3.4: Why cannot I use <code>mex</code> in matlab?</a></li>
+<li><a href="#q3-5-is-it-necessary-for-us-to-save-the-image-for-every-time">Q3.5: Is it necessary for us to save the image for every time?</a></li>
+<li><a href="#q3-6-how-to-remove-a-repository-that-may-be-invalid">Q3.6: How to remove a repository that may be invalid?</a></li>
+<li><a href="#q3-7-why-my-pip-tool-could-not-be-used">Q3.7: Why my <code>pip</code> tool could not be used?</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#unsolvable-problems">Unsolvable problems</a>
+<ul>
+<li><a href="#packages-that-could-not-be-made">Packages that could not be &ldquo;made&rdquo;</a></li>
+<li><a href="#applications-1">Applications</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></p>
+                            
+                            <hr/>
+                            
+
+<h1 id="instruction">Instruction</h1>
+
+<p>Here we collect some common errors caused by mistaking operations. Note that because of the limitation of the docker environment, some errors are unsolvable. When you meet such errors, it is better to delete the broken image and retrieve the backup version.</p>
+
+<p>In the following parts, the questions would be categorized by different classes. Please use <code>CTRL+F</code> or search for your problem by checking these classes. If you meet a problem that is not discussed here, it is welcome for you to propose it in the discussion board at the bottom of this page. I would update this page once a new problem is detected.</p>
+
+<h2 id="solvable-problems">Solvable problems</h2>
+
+<h3 id="docker">Docker</h3>
+
+<h4 id="q1-1-how-to-close-a-container-that-i-forget-to-close-it">Q1.1: How to close a container that I forget to close it?</h4>
+
+<p><strong>A1.1</strong>: This case appears when you run the container without <code>--rm</code> option or exit the docker due to connection failed. You need to follow these instructions.</p>
+
+<ol>
+<li>Type <code>nvidia-docker ps -a</code> to check whether the container is still running.</li>
+<li>Type <code>nvidia-docker kill container_ID</code> to remove the container from the background.</li>
+</ol>
+
+<h4 id="q1-2-how-to-kill-a-container-with-a-abnormal-execution-code">Q1.2: How to kill a container with a abnormal execution code?</h4>
+
+<p><strong>A1.2</strong>: Some times <code>nvidia-docker kill</code> could not kill a container because it is exited due to a fatal error (with a non-zero execution code). In this case, you need to use such command to remove all exited containers:</p>
+
+<pre><code class="language-Bash">$ nvidia-docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs nvidia-docker rm
+</code></pre>
+
+<h4 id="q1-3-why-cannot-i-open-gui-inside-the-docker">Q1.3: Why cannot I open GUI inside the docker?</h4>
+
+<p><strong>A1.3</strong>: Maybe you forget to run <code>xhost +</code> before running your docker. And some options are also required. Please compare your command with this:</p>
+
+<pre><code class="language-Bash">$ xhost +
+$ nvidia-docker run --rm -it -e DISPLAY=xx.xx.xx.xx:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v local_dir:container_dir image_name:tag
+</code></pre>
+
+<p>(When you run docker locally, use <code>-e DISPLAY</code> instead.)</p>
+
+<h4 id="q1-4-is-it-possible-that-two-users-disturb-each-other-by-running-the-same-image">Q1.4: Is it possible that two users disturb each other by running the same image?</h4>
+
+<p><strong>A1.4</strong>: Not at all. The image is just like a storage of a VM. Although you run the same image, you are working with different containers, just like different VMs loading the same storage.</p>
+
+<h4 id="q1-5-could-i-remove-an-image-which-is-depended-on-by-other-images">Q1.5: Could I remove an image which is depended on by other images?</h4>
+
+<p><strong>A1.5</strong>: Yes, but you need to do that with the image name rather than image ID. For example</p>
+
+<pre><code class="language-Bash">$ nvidia-docker rmi image_name:tag
+</code></pre>
+
+<p>If this image is depended on by others, <code>rmi</code> would not delete the data but just remove the tag so that this image would not be accessible in the future. But other images could run without influenced.</p>
+
+<h4 id="q1-6-why-cannot-i-enter-the-container-with-an-error-named-gpu-not-found">Q1.6: Why cannot I enter the container with an error named &ldquo;<em>GPU not found</em>&rdquo;?</h4>
+
+<p><strong>A1.6</strong>: When this error happens, the remote server meets a fatal error. You need to wait until it get restarted. To check whether this error happens truly, use</p>
+
+<pre><code class="language-Bash">$ nvidia-smi
+</code></pre>
+
+<p>If you could not see anything, it means the error really happens.</p>
+
+<h4 id="q1-7-why-cannot-i-run-docker-without-sudo">Q1.7: Why cannot I run docker without <code>sudo</code>?</h4>
+
+<p><strong>A1.7</strong>: It may be caused by two reasons:</p>
+
+<ol>
+<li>You are not in the user group <em>docker</em>, please contact the manager to solve this problem.</li>
+<li>You have not deploy your docker config file. Check <a href="../20180531linuxdocker/#get-full-authority-for-you-configuration-file">here</a> to learn how to do that.</li>
+</ol>
+
+<h3 id="network-service">Network Service</h3>
+
+<h4 id="q2-1-why-cannot-i-open-novnc-with-an-error-about-websocket">Q2.1: Why cannot I open noVNC with an error about <em>websocket</em>?</h4>
+
+<p><strong>A2.1</strong>: This error is caused by your mistaking operations before. Maybe you close noVNC via a wrong way. you need to use</p>
+
+<pre><code class="language-Bash">$ ls -a
+</code></pre>
+
+<p>to see whether there are some temporary files about with a name like <code>x.xx.x-shared.sock</code> in your user folder <code>~</code>. If so, delete them by <code>rm</code>.</p>
+
+<p>Then you need to close all sessions and make a re-login. Then you may solve this problem.</p>
+
+<h4 id="q2-2-how-to-release-some-occupied-ports-when-using-novnc-and-meeting-port-is-being-used">Q2.2: How to release some occupied ports when using noVNC and meeting <code>port is being used</code>?</h4>
+
+<p><strong>A2.2</strong>: Some unknown wrong mistaking operations may cause the noVNC services remained in the background although we do not use them. In this case, you need to check whether these remained processes exist:</p>
+
+<pre><code class="language-Bash">$ ps aux | less | grep noVNC
+</code></pre>
+
+<p>And you would verify that these remained processes are occupying the ports. Remember their PID and use</p>
+
+<pre><code class="language-Bash">$ kill -9 PID
+</code></pre>
+
+<p>to kill them.</p>
+
+<p>Sometimes these processes are created by other users. You need to add <code>sudo</code> before the command to acquire the authority to kill them.</p>
+
+<h4 id="q2-2-why-cannot-i-log-in-the-server-even-though-i-could-open-novnc-page">Q2.2: Why cannot I log in the server even though I could open noVNC page?</h4>
+
+<p><strong>A2.2</strong>: This problem is caused by several reasons in different cases. We would list some common reasons:</p>
+
+<ol>
+<li>The host IP used in <em>noVNC</em> does not match your container&rsquo;s IP.</li>
+<li>The input port used in <em>noVNC</em> does not match your container&rsquo;s port, check <code>New container_ID:port</code> on the screen to know the right port.</li>
+<li>The password does not match your server, use <code>vncpasswd</code> inside the container to modify it.</li>
+
+<li><p>You have not closed your container securely before saving it in the last session. You need to follow the instructions to:</p>
+
+<ol>
+<li>Remove the X11 log files. They are usually in <code>/tmp/.X11-unix</code>.</li>
+<li>Kill all vncservers by <code>vncserver -kill :port</code>.</li>
+<li>Save the image again.</li>
+<li>Re-open in the container.
+<br /></li>
+</ol>
+
+<p>After that, you need to follow the <a href="../20180614linuxdocker/#part-3-log-out-and-save-securely">instructions</a> about secure saving strictly.</p></li>
+
+<li><p>You may mount your local X11 temporary folder which causes your default port changed. Remove <code>-v /tmp/.X11-unix:/tmp/.X11-unix</code> option when running the container.</p></li>
+</ol>
+
+<h4 id="q2-3-why-my-remote-desktop-gets-shut-suddenly">Q2.3: Why my remote desktop gets shut suddenly?</h4>
+
+<p><strong>A2.3</strong>: You may close the main terminal while running the desktop. Exit the container without saving it and re-enter it.</p>
+
+<h3 id="applications">Applications</h3>
+
+<h4 id="q3-1-why-cannot-i-open-an-application-on-the-desktop">Q3.1: Why cannot I open an application on the desktop?</h4>
+
+<p><strong>A3.1</strong>: This problem is caused by several reasons in different cases some of which could not be solved. Here are the possible reasons:</p>
+
+<ol>
+<li>Some dependent libraries are missing. Use <code>apt-get install -f</code> to fix it.</li>
+<li>The application does not allow you to run it in root mode. Maybe you have to add some options to run it. For example, using <code>chromium-browser --no-sandbox</code> to run the browser.</li>
+<li>One of the dependent library of the application collapse. For example, <em>Qt5Cursor</em> could not be run in the VNC desktop, <em>TexStudio</em> may call it, which causes the application collapse. This kind of problem is unsolvable generally, we may list the known unsolvable application errors here.</li>
+</ol>
+
+<h4 id="q3-2-why-cannot-i-open-the-chromium-with-an-error-about-gpu">Q3.2: Why cannot I open the chromium with an error about GPU?</h4>
+
+<p><strong>A3.2</strong>: Note that you should not login while using <em>chromium</em> in the container. Because when you reload the image, the container ID would change, which makes <em>chromium</em> prevent you from getting access to your previous account. To solve this problem, you need to delete all your user configuration files of <em>chromium</em> by</p>
+
+<pre><code class="language-Bash">$ rm -rf ~/.config/chromium
+</code></pre>
+
+<p>The same problem would occur when using <em>google-chrome</em>.</p>
+
+<h4 id="q3-3-which-application-is-suitable-for-processing-documents">Q3.3: Which application is suitable for processing documents?</h4>
+
+<p><strong>A3.3</strong>: We recommend you to install AcroRead, TeXLive, Kile and LibreOffice. To do that, follow these instructions:</p>
+
+<ol>
+<li><p>Install AcroRead:</p>
+
+<pre><code class="language-Bash">$ add-apt-repository &quot;deb http://archive.canonical.com/ precise partner&quot;
+$ apt-get update
+$ apt install adobereader-enu
+</code></pre></li>
+
+<li><p>Install TeXLive:</p>
+
+<pre><code class="language-bash">$ add-apt-repository ppa:jonathonf/texlive
+$ apt update &amp;&amp; apt install texlive-full
+</code></pre></li>
+
+<li><p>Install Kile:</p>
+
+<pre><code class="language-Bash">$ apt-get install kile
+</code></pre></li>
+
+<li><p>Install LibreOffice:</p>
+
+<pre><code class="language-Bash">$ apt-get install libreoffice
+</code></pre></li>
+</ol>
+
+<h4 id="q3-4-why-cannot-i-use-mex-in-matlab">Q3.4: Why cannot I use <code>mex</code> in matlab?</h4>
+
+<p><strong>A3.4</strong>: Note that Matlab-R2018a requires you to use gcc-6.3.x. If you overwrite the default gcc (which is gcc-6.3.0) you may not be able to use <code>mex</code>. I recommend you to get back to the previous backup image. But maybe you could try to reinstall gcc-6.3.0 by referring these documents:</p>
+
+<div class="row">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <p><a href="https://askubuntu.com/questions/864893/update-gcc-to-the-6-3-version" class="button icon fa-file-text-o">Reference 1</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <p><a href="https://askubuntu.com/questions/864893/update-gcc-to-the-6-3-version" class="button icon fa-file-text-o">Reference 2</a></p>
+    </div>
+</div>
+
+<h4 id="q3-5-is-it-necessary-for-us-to-save-the-image-for-every-time">Q3.5: Is it necessary for us to save the image for every time?</h4>
+
+<p><strong>A3.5</strong>: Not really. When you just work with data in the mount folder (If you use provided command, the mount folder is <code>/homelocal</code>), you could exit the container directly without saving it. You change upon the mount folder would be remained.</p>
+
+<h4 id="q3-6-how-to-remove-a-repository-that-may-be-invalid">Q3.6: How to remove a repository that may be invalid?</h4>
+
+<p><strong>A3.6</strong>: When you add an invalid repository in your <code>apt</code>, you may be not able to run <code>apt-get update</code> since you may meet with a <em>404 not found</em> error. To remove this invalid repository, you need to use this command:</p>
+
+<pre><code class="language-Bash">$ add-apt-repository ppa:repository-name -r
+</code></pre>
+
+<h4 id="q3-7-why-my-pip-tool-could-not-be-used">Q3.7: Why my <code>pip</code> tool could not be used?</h4>
+
+<p>Some times you may meet an error like this when you use <code>pip</code></p>
+
+<pre><code class="language-python">Traceback (most recent call last):
+  File &quot;/usr/local/bin/pip&quot;, line 7, in &lt;module&gt;
+    from pip._internal import main
+ImportError: No module named _internal
+</code></pre>
+
+<p>This problem is caused by the incompatibility between python and the newest pip. You need to use such commands to fix the <code>pip</code> for <code>python2</code></p>
+
+<pre><code class="language-bash">$ cd ~ &amp;&amp; curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+$ python2.7 get-pip.py --force-reinstall
+</code></pre>
+
+<p>And use these commands to fix the <code>pip</code> for <code>python3</code></p>
+
+<pre><code class="language-bash">$ apt-get remove python3-pip
+$ apt-get install python3-pip --reinstall
+</code></pre>
+
+<h2 id="unsolvable-problems">Unsolvable problems</h2>
+
+<div class='box'>
+<span style="color:#FCC"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Note that these problems are unsolvable yet. If you do not know how to tackle them, it is better to retrieve your backup images. If you have ideas about these problems, please tell us by the discussion board. We appreciate for your help!</span> 
+</div>
+
+<p>Here we collect some error reports that show the problems could not be solved when you use VNC server, because the VNC server disable RGB24 mode and some advanced graphic settings to accelerate the connection to the desktop, which makes some application collapsed.</p>
+
+<h3 id="packages-that-could-not-be-made">Packages that could not be &ldquo;made&rdquo;</h3>
+
+<ol>
+<li><strong>OpenCV-3.4.1 with CMake</strong>: Although the making process is successful, most of the test could not be passed when you check it with <code>make test -j32</code></li>
+<li><strong>MatCaffe with CMake</strong>: You would not be able to use <code>make</code> to build <em>caffe</em> if you install <em>opencv3</em> (because it could not be installed normally), and you could not use <code>cmake</code> to build <em>matlab-caffe</em>.</li>
+<li><strong>FFmpeg</strong>: Could not be linked with the non-free library <code>libaom</code>. If we do not enable it, <em>ffmpeg</em> could be built successfully.</li>
+</ol>
+
+<h3 id="applications-1">Applications</h3>
+
+<ol>
+<li><strong>TeXStudio</strong>: Returns an error code <code>qt_xcb_createCursorXRender: query_pict_formats failed</code>.</li>
+<li><strong>ParaView</strong>: Returns an error code <code>X Error: BadLength (poly request too large or internal Xlib length error) 16</code>.</li>
+<li><strong>VLC</strong>: Returns an error code <code>Unsupported screen format: depth: 16, red_mask: 3f, blue_mask: f800</code>.</li>
+</ol>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmgi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-119875813-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Q and A on Rosenkreutz Studio</title>
+    <link>https://cainmagi.github.io/categories/q-and-a/</link>
+    <description>Recent content in Q and A on Rosenkreutz Studio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 Jun 2018 19:37:05 -0500</lastBuildDate>
+    
+	<atom:link href="https://cainmagi.github.io/categories/q-and-a/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Advanced Linux Skills for Using NVIDIA Docker: Questions and Answers</title>
+      <link>https://cainmagi.github.io/playground/20180614linuxdockerqna/</link>
+      <pubDate>Thu, 14 Jun 2018 19:37:05 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/playground/20180614linuxdockerqna/</guid>
+      <description>Instruction Here we collect some common errors caused by mistaking operations. Note that because of the limitation of the docker environment, some errors are unsolvable. When you meet such errors, it is better to delete the broken image and retrieve the backup version.
+In the following parts, the questions would be categorized by different classes. Please use CTRL+F or search for your problem by checking these classes. If you meet a problem that is not discussed here, it is welcome for you to propose it in the discussion board at the bottom of this page.</description>
+    </item>
+    
+  </channel>
+</rss>
