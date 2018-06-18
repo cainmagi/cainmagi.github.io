@@ -82,9 +82,9 @@ Theory This article discusses about how to build a neural network with order-inv
       <pubDate>Fri, 25 May 2018 17:32:01 -0500</pubDate>
       
       <guid>https://cainmagi.github.io/notes/note20180518/</guid>
-      <description>Notes During this week (May 18, 2018) I have not build this site. So here is no note.
+      <description> Notes During this week (May 18, 2018) I have not build this site. So here is no note.
 Slices View the slices here:
-Slices</description>
+ </description>
     </item>
     
     <item>
@@ -100,10 +100,10 @@ Contents of the Book Now it contents:</description>
     
     <item>
       <title>Deep Learning for AGT</title>
-      <link>https://cainmagi.github.io/projects/python_agt201812/</link>
+      <link>https://cainmagi.github.io/projects/python_agt201804/</link>
       <pubDate>Fri, 25 May 2018 09:42:19 -0500</pubDate>
       
-      <guid>https://cainmagi.github.io/projects/python_agt201812/</guid>
+      <guid>https://cainmagi.github.io/projects/python_agt201804/</guid>
       <description>Introduction This project is for AGT (Advanced Geophysical Technology) and 2018 SEG (Society of Exploration Geophysicists) conference. We concentrate on the seismic raw data and use deep learning approaches to improve the performance in some special application.
 Beat Tone Network The first application is for improving the FWI of Beat Tone, see here to learn the background of this application:
 Reference
@@ -112,10 +112,10 @@ When the basic signal frequency increases, the effectiveness of the Beat Tone me
     
     <item>
       <title>Real-time Shaker Video Analysis for Shell Project</title>
-      <link>https://cainmagi.github.io/projects/python_shell201812/</link>
+      <link>https://cainmagi.github.io/projects/python_shell201712/</link>
       <pubDate>Fri, 25 May 2018 09:42:05 -0500</pubDate>
       
-      <guid>https://cainmagi.github.io/projects/python_shell201812/</guid>
+      <guid>https://cainmagi.github.io/projects/python_shell201712/</guid>
       <description>Introduction In this project, we aim to process video stream by utilizing deep learning tools (tensorflow). The data is from the camera deployed beside the real shaker on well-logging site. When the shaker is spare, the surface of it is clean. However, during the well-logging process, the cuttings flow would come and get captured by the camera.
 To build a complete system, we divde our work into two phases.</description>
     </item>

@@ -13,10 +13,10 @@
     
     <item>
       <title>Deep Learning for AGT</title>
-      <link>https://cainmagi.github.io/projects/python_agt201812/</link>
+      <link>https://cainmagi.github.io/projects/python_agt201804/</link>
       <pubDate>Fri, 25 May 2018 09:42:19 -0500</pubDate>
       
-      <guid>https://cainmagi.github.io/projects/python_agt201812/</guid>
+      <guid>https://cainmagi.github.io/projects/python_agt201804/</guid>
       <description>Introduction This project is for AGT (Advanced Geophysical Technology) and 2018 SEG (Society of Exploration Geophysicists) conference. We concentrate on the seismic raw data and use deep learning approaches to improve the performance in some special application.
 Beat Tone Network The first application is for improving the FWI of Beat Tone, see here to learn the background of this application:
 Reference

@@ -13,10 +13,10 @@
     
     <item>
       <title>Real-time Shaker Video Analysis for Shell Project</title>
-      <link>https://cainmagi.github.io/projects/python_shell201812/</link>
+      <link>https://cainmagi.github.io/projects/python_shell201712/</link>
       <pubDate>Fri, 25 May 2018 09:42:05 -0500</pubDate>
       
-      <guid>https://cainmagi.github.io/projects/python_shell201812/</guid>
+      <guid>https://cainmagi.github.io/projects/python_shell201712/</guid>
       <description>Introduction In this project, we aim to process video stream by utilizing deep learning tools (tensorflow). The data is from the camera deployed beside the real shaker on well-logging site. When the shaker is spare, the surface of it is clean. However, during the well-logging process, the cuttings flow would come and get captured by the camera.
 To build a complete system, we divde our work into two phases.</description>
     </item>
