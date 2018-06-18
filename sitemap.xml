@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://cainmagi.github.io/projects/python_fwm201806/</loc>
+    <lastmod>2018-06-18T16:34:59-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/playground/20180614linuxdockerqna/</loc>
     <lastmod>2018-06-15T15:21:16-05:00</lastmod>
   </url>
@@ -188,6 +193,12 @@
   </url>
   
   <url>
+    <loc>https://cainmagi.github.io/tags/inverse-problem/</loc>
+    <lastmod>2018-06-18T16:34:59-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/categories/latex/</loc>
     <lastmod>2018-05-28T14:19:00-05:00</lastmod>
     <priority>0</priority>
@@ -225,7 +236,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/numpy/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <lastmod>2018-06-18T16:34:59-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -255,7 +266,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/projects/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <lastmod>2018-06-18T16:34:59-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -266,20 +277,20 @@
   </url>
   
   <url>
-    <loc>https://cainmagi.github.io/categories/python/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <loc>https://cainmagi.github.io/tags/python/</loc>
+    <lastmod>2018-06-18T16:34:59-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://cainmagi.github.io/tags/python/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <loc>https://cainmagi.github.io/categories/python/</loc>
+    <lastmod>2018-06-18T16:34:59-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://cainmagi.github.io/tags/python-c-api/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <lastmod>2018-06-18T16:34:59-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -321,7 +332,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/</loc>
-    <lastmod>2018-06-15T15:21:16-05:00</lastmod>
+    <lastmod>2018-06-18T16:34:59-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -333,13 +344,13 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/seismic-processing/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <lastmod>2018-06-18T16:34:59-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://cainmagi.github.io/tags/signal-processing/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <lastmod>2018-06-18T16:34:59-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -362,13 +373,13 @@
   </url>
   
   <url>
-    <loc>https://cainmagi.github.io/categories/tensorflow/</loc>
+    <loc>https://cainmagi.github.io/tags/tensorflow/</loc>
     <lastmod>2018-05-27T01:47:00-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://cainmagi.github.io/tags/tensorflow/</loc>
+    <loc>https://cainmagi.github.io/categories/tensorflow/</loc>
     <lastmod>2018-05-27T01:47:00-05:00</lastmod>
     <priority>0</priority>
   </url>

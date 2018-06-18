@@ -6,10 +6,22 @@
     <description>Recent content in Python on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 May 2018 09:42:19 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 18 Jun 2018 12:55:34 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Forward Model : Curves 180602</title>
+      <link>https://cainmagi.github.io/projects/python_fwm201806/</link>
+      <pubDate>Mon, 18 Jun 2018 12:55:34 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/projects/python_fwm201806/</guid>
+      <description>C++ Migrated Project Introduction This is a python-c-api that wrapping the C++ forward model codes (which is supported by OpenMP) with Numpy-API. To get the C++ codes, visit the master branch:
+Master
+ Note that the project is still private now, thus you may do not have the authority to visit this page.  The function prototype could be described as
+float64_t *resp = curves(Layers, Rh, Rv, Zbed, Dip, TVD);  This function is used to simulate the response of the azimuthal resistivity LWD tool.</description>
+    </item>
     
     <item>
       <title>Deep Learning for AGT</title>

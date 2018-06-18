@@ -1,0 +1,657 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	<meta name="generator" content="Hugo 0.40.3" />
+	<title>Forward Model : Curves 180602 &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Forward Model : Curves 180602</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>Jun 18, 2018</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>Jun 18, 2018</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/projects" title="Projects">Projects</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/python" title="python">python</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/python" title="python">python</a>
+                                                    
+                                                    <a class="ui label" href="/tags/python-c-api" title="python-c-api">python-c-api</a>
+                                                    
+                                                    <a class="ui label" href="/tags/numpy" title="numpy">numpy</a>
+                                                    
+                                                    <a class="ui label" href="/tags/signal-processing" title="signal-processing">signal-processing</a>
+                                                    
+                                                    <a class="ui label" href="/tags/seismic-processing" title="seismic-processing">seismic-processing</a>
+                                                    
+                                                    <a class="ui label" href="/tags/inverse-problem" title="inverse-problem">inverse-problem</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/projects/python_fwm_201806_title.jpg" alt="" /></span>
+                                
+                            </header>
+                            <hr/>
+                            
+                                <h1 id="contents">Contents</h1>
+                                <p><nav id="TableOfContents">
+<ul>
+<li><a href="#c-migrated-project">C++ Migrated Project</a>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#building-environment">Building Environment</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul></li>
+<li><a href="#matlab-script">Matlab script</a>
+<ul>
+<li><a href="#introduction-1">Introduction</a></li>
+<li><a href="#results">Results</a></li>
+</ul></li>
+<li><a href="#numpy-test-for-the-forward-model">Numpy test for the forward model</a>
+<ul>
+<li><a href="#introduction-2">Introduction</a></li>
+<li><a href="#result">Result</a></li>
+<li><a href="#random-model-generator">Random model generator</a></li>
+</ul></li>
+<li><a href="#slices">Slices</a></li>
+</ul>
+</nav></p>
+                            
+                            <hr/>
+                            
+
+<h1 id="c-migrated-project">C++ Migrated Project</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>This is a python-c-api that wrapping the C++ forward model codes (which is supported by OpenMP) with Numpy-API. To get the C++ codes, visit the master branch:</p>
+
+<p><a href="https://github.com/cainmagi/fmodel-curve-180602/tree/master" class="button icon fa-github">Master</a></p>
+
+<div class='box'>
+<span style="color:#FCC"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Note that the project is still private now, thus you may do not have the authority to visit this page.</span> 
+</div>
+
+<p>The function prototype could be described as</p>
+
+<pre><code class="language-C++">float64_t *resp = curves(Layers, Rh, Rv, Zbed, Dip, TVD);
+</code></pre>
+
+<p>This function is used to simulate the response of the azimuthal resistivity LWD tool. Here is the parameter list</p>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Range</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>resp</code></td>
+<td>92-point simulated electromagnetic response (92 sensors).</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><code>Layers</code></td>
+<td>The number of layers.</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><code>Rh</code></td>
+<td>Resistivities of each layer.</td>
+<td>[0.1,1000] [*ohm * m*]</td>
+</tr>
+
+<tr>
+<td><code>Rv</code></td>
+<td>Usually the same as <code>Rh</code>.</td>
+<td>- [*ohm * m*]</td>
+</tr>
+
+<tr>
+<td><code>Zbed</code></td>
+<td>Position of the boundaries between each 2 layers.</td>
+<td><code>TVD</code>+[-100,100] [<em>feet</em>]</td>
+</tr>
+
+<tr>
+<td><code>Dip</code></td>
+<td>Dip Angle between the tool and the boundary. When 90 <em>deg</em>, the tool is perpendicular to the boundary.</td>
+<td>[0, 180] [<em>deg</em>]</td>
+</tr>
+
+<tr>
+<td><code>TVD</code></td>
+<td>True vertical depth of the logging tool.</td>
+<td>- [<em>feet</em>]</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="building-environment">Building Environment</h2>
+
+<p>Now we only provide the Windows building project. It requires:</p>
+
+<ul>
+<li>Windows 10 and VS 2017</li>
+<li>Python 3.6</li>
+<li>Numpy &gt;= 1.13</li>
+<li>C++11 with OpenMP</li>
+</ul>
+
+<p>Note that if you want to build by yourself, you need to change the include / library path in the project. Or you could download our compiled binary file in the release page.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>For example, if we have a 3-layer, 80-point geophysical model, which has 3 <code>Rh</code> value and <code>2</code> Zbed value for each point. Then the input should like this:</p>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Shape</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>numLayers</code></td>
+<td>=3</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><code>params</code></td>
+<td>The first 3 rows are <code>Rh</code> for each point, and the last 2 rows are <code>Zbed</code> for each point.</td>
+<td>5*80</td>
+</tr>
+
+<tr>
+<td><code>Dip</code></td>
+<td>=90</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><code>TVD</code></td>
+<td>0</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><code>withRv</code></td>
+<td>If not used, it would be <code>False</code>, and <code>Rv</code> would be set the same as <code>Rh</code></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+
+<p>The code is like this:</p>
+
+<pre><code class="language-python">import fwm180602 as fwm
+f = fwm.Curves()
+# Prepare for params ...
+resp = f.action(params, numLayers=3, Dip=90, TVD=0)
+</code></pre>
+
+<h1 id="matlab-script">Matlab script</h1>
+
+<h2 id="introduction-1">Introduction</h2>
+
+<p>The prototype of this project is a collection of matlab scripts, which relys on the forward model for simulating the geophysical response of a multi-layer underground model. To see these code, visit this branch:</p>
+
+<p><a href="https://github.com/cainmagi/fmodel-curve-180602/tree/matlab-test" class="button icon fa-code-fork">Matlab-test</a></p>
+
+<p>These codes contain 3 parts:</p>
+
+<ol>
+<li>Generating a 3-layer example model.</li>
+<li>Make the inversion of the model by Levenberg-Marquardt&rsquo;s algorithm.</li>
+<li>Plot the model (including the real one and the inversed one).</li>
+</ol>
+
+<p>The basic idea of this script is using the algorithm to optimize the mean-square loss function. We appreciate the prior work of Jiefu Chen (jiefu.chen@duke.edu) on August 20, 2010 and K. Madsen&rsquo;s book. This optimization could be described as below</p>
+
+<div class="overflow">
+\begin{align} \label{fml:sec2:final}
+    \mathbf{p} = \arg \min\limits_{\boldsymbol{\rho}} \lVert \mathcal{C}(\boldsymbol{\rho}) - \mathcal{C}(\mathbf{p}_0) \rVert^2.
+\end{align}
+</div>
+
+<p>where we use $\mathcal{C}$ to represent the forward model. $\mathbf{p}_0$ is the synthetic ground truth (which is unknown in practice). $\boldsymbol{\rho}$ is the target model of the inversion and $\mathbf{p}$ is the result. We could see that the inversion method is abstract. It concentrates more on how to make the optimization.</p>
+
+<p>Here we do not concentrate more details of the model but just show the results.</p>
+
+<h2 id="results">Results</h2>
+
+<p>The model is 3-layers, which means it has such main properties:</p>
+
+<ul>
+<li>The conductivity of each layer, thus we have 3 parameters.</li>
+<li>The position of the boundary between 2 layers, thus we have 2 parameters.</li>
+</ul>
+
+<p>The real model generated by <code>script_model_generator.m</code> is as below</p>
+
+<table>
+<thead>
+<tr>
+<th>Real model</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="model_real.png" alt="" title="Real model" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Thus we know the range of the underground stretch is (-20, 20) feets.  The conductivity of each layer is 10, 50 and 1 respectively.</p>
+
+<p>We use a forward model simulator to get the response of the tool along the green curve. The tool has 92 sensors so that we would get 92x80 data. The whole response is as below</p>
+
+<table>
+<thead>
+<tr>
+<th>Response from all sensors</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="model_resp.png" alt="" title="Response from all sensors" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The y-axis means the sensor. So each row is a response curve from a sensor. To see clearly, we would like to choose 6 sensors and plot their response curves as below</p>
+
+<table>
+<thead>
+<tr>
+<th>Response curves from 5 sensors</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="model_resp_curves.png" alt="" title="Response curves from 5 sensors" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Note that these curves are with a small white noise which is aimed at simulating the interference when using the logging tool.</p>
+
+<p>We could see that different sensors would get quite different response curves. The target of the inverse algorithm is just using these response to predict the original model.</p>
+
+<p>Here is the model inversed by the LMA. It is produced by the code <code>script_main.m</code></p>
+
+<table>
+<thead>
+<tr>
+<th>Inversed model</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="model_invs.png" alt="" title="Inversed model" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Due to the limitation of the algorithm and the noise, the result is slightly different from the real one. In this project, we will migrate the matlab codes to the python enviroment and try to use machine learning frame to solve it.</p>
+
+<h1 id="numpy-test-for-the-forward-model">Numpy test for the forward model</h1>
+
+<h2 id="introduction-2">Introduction</h2>
+
+<p>This is the testing for verifying the correctness of the migration for the project. To see the codes, visit this branch:</p>
+
+<p><a href="https://github.com/cainmagi/fmodel-curve-180602/tree/numpy-test" class="button icon fa-code-fork">Numpy-test</a></p>
+
+<p>We use the model and response produced by matlab as the ground truth. Then we use the migrated python-c-api to produce the response. By confirming that the produced response is the same as that of the matlab, we could make sure that the python-c-api has been implemented correctly.</p>
+
+<p>The matlab data is stored in <code>model.mat</code>, thus we use this code to generate the python database:</p>
+
+<pre><code class="language-Bash">python mat2npz.py -mf model.mat
+</code></pre>
+
+<p>Then we could see <code>model.npz</code> in the folder. We could use</p>
+
+<pre><code class="language-Bash">python test_fwd.py -m c
+</code></pre>
+
+<p>to see the comparison of the response from different platforms. And we could also use</p>
+
+<pre><code class="language-Bash">python test_fwd.py -m g
+</code></pre>
+
+<p>to see a randomly generated model and its response.</p>
+
+<h2 id="result">Result</h2>
+
+<p>We have migrated the script for displaying the model in python. The figure below is produced by python, thus we could verify that the underground model is the same as that in matlab.</p>
+
+<table>
+<thead>
+<tr>
+<th>Real model displayed in Python</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="comp_model_real.png" alt="" title="Real model displayed in Python" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Then we would like to compare the output response of python-c-api and matlab-c-api. The results are as below:</p>
+
+<table>
+<thead>
+<tr>
+<th>Compared forward model response</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="comp_model_resp.png" alt="" title="Compared forward model response" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The results are almost the same. The slight difference is caused by a small noise added to the response when we get it in matlab. To see the difference more clearly, we would still choose some samples to see the curves.</p>
+
+<table>
+<thead>
+<tr>
+<th>Compared forward model response (selective)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="comp_curves.svg" alt="" title="Compared forward model response (selective)" /></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="random-model-generator">Random model generator</h2>
+
+<p>We also write a script to produce a random geophysical model. We select the resistivities of each layer by uniform distribution. And we generate the upper boundaries and lower boundaries by using a composition of several trigonometric functions with different frequencies, different amplitudes and different phases. Here we show one of the result:</p>
+
+<table>
+<thead>
+<tr>
+<th>The generated random model</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="new_model_real.png" alt="" title="The generated random model" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>And its responsed from the forward model is</p>
+
+<table>
+<thead>
+<tr>
+<th>The response of generated random model</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="new_model_resp.png" alt="" title="The response of generated random model" /></td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="slices">Slices</h1>
+
+<div class="youtube container">
+    <iframe class="docs"
+        src="http://docs.google.com/gview?url=https%3a%2f%2fcainmagi.github.io%2fprojects%2fpython_fwm201806%2fWeek4.pdf&embedded=true"
+        frameborder="0">
+    </iframe>
+</div>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmgi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-119875813-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>
