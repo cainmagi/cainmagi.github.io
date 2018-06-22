@@ -94,7 +94,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>Jun 18, 2018</td>
+                                            <td>Jun 22, 2018</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -140,6 +140,7 @@
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#building-environment">Building Environment</a></li>
 <li><a href="#usage">Usage</a></li>
+<li><a href="#global-settings">Global settings</a></li>
 </ul></li>
 <li><a href="#matlab-script">Matlab script</a>
 <ul>
@@ -149,9 +150,12 @@
 <li><a href="#numpy-test-for-the-forward-model">Numpy test for the forward model</a>
 <ul>
 <li><a href="#introduction-2">Introduction</a></li>
+<li><a href="#advanced-tests">Advanced tests</a></li>
 <li><a href="#result">Result</a></li>
 <li><a href="#random-model-generator">Random model generator</a></li>
+<li><a href="#variable-tool-trace">Variable tool trace</a></li>
 </ul></li>
+<li><a href="#numpy-test-for-the-inversion">Numpy test for the inversion</a></li>
 <li><a href="#slices">Slices</a></li>
 </ul>
 </nav></p>
@@ -173,7 +177,7 @@
 
 <p>The function prototype could be described as</p>
 
-<pre><code class="language-C++">float64_t *resp = curves(Layers, Rh, Rv, Zbed, Dip, TVD);
+<pre><code class="language-C++">float64_t *resp = curves(numLayers, Rh, Rv, Zbed, Dip, TVD);
 </code></pre>
 
 <p>This function is used to simulate the response of the azimuthal resistivity LWD tool. Here is the parameter list</p>
@@ -195,7 +199,7 @@
 </tr>
 
 <tr>
-<td><code>Layers</code></td>
+<td><code>numLayers</code></td>
 <td>The number of layers.</td>
 <td>-</td>
 </tr>
@@ -203,13 +207,13 @@
 <tr>
 <td><code>Rh</code></td>
 <td>Resistivities of each layer.</td>
-<td>[0.1,1000] [*ohm * m*]</td>
+<td>[0.1,1000] [<i>ohm * m</i>]</td>
 </tr>
 
 <tr>
 <td><code>Rv</code></td>
 <td>Usually the same as <code>Rh</code>.</td>
-<td>- [*ohm * m*]</td>
+<td>- [<i>ohm * m</i>]</td>
 </tr>
 
 <tr>
@@ -247,6 +251,56 @@
 
 <h2 id="usage">Usage</h2>
 
+<p>Now we support 2 kinds of usages. The first one is the primal API, which means the inputs and outputs are the same as that of the C++ API:</p>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Shape</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>numLayers</code></td>
+<td>=3</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><code>Rh</code></td>
+<td>1D vector.</td>
+<td><code>numLayers</code></td>
+</tr>
+
+<tr>
+<td><code>ZBed</code></td>
+<td>1D vector.</td>
+<td><code>numLayers-1</code></td>
+</tr>
+
+<tr>
+<td><code>Dip</code></td>
+<td>=90</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><code>TVD</code></td>
+<td>=0</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td><code>Rv</code></td>
+<td>If not used, it would be the same as <code>Rh</code>.</td>
+<td><code>numLayers</code></td>
+</tr>
+</tbody>
+</table>
+
 <p>For example, if we have a 3-layer, 80-point geophysical model, which has 3 <code>Rh</code> value and <code>2</code> Zbed value for each point. Then the input should like this:</p>
 
 <table>
@@ -268,18 +322,18 @@
 <tr>
 <td><code>params</code></td>
 <td>The first 3 rows are <code>Rh</code> for each point, and the last 2 rows are <code>Zbed</code> for each point.</td>
-<td>5*80</td>
+<td><code>(2*numLayer-1)*80</code></td>
 </tr>
 
 <tr>
 <td><code>Dip</code></td>
-<td>=90</td>
+<td>=90 (could be 1D vector now.)</td>
 <td>-</td>
 </tr>
 
 <tr>
 <td><code>TVD</code></td>
-<td>0</td>
+<td>=0 (could be 1D vector now.)</td>
 <td>-</td>
 </tr>
 
@@ -296,7 +350,51 @@
 <pre><code class="language-python">import fwm180602 as fwm
 f = fwm.Curves()
 # Prepare for params ...
-resp = f.action(params, numLayers=3, Dip=90, TVD=0)
+resp = f.action(numLayers=3, Rh=np.array([10, 1, 10]), Zbed=np.array([-10, 10]), Dip=90, TVD=0) # Calculate for one point
+resp = f.batchAction(params, numLayers=3, Dip=90, TVD=np.linspace(-10, 10, 80)) # Calculate for many points
+</code></pre>
+
+<p>The newest version has support OpenMP, which means the programming has been already optimized for multi-processing. We have made a simple estimation of the aid of OpenMP, the results is like the following table. These experiments are performed with 80 points on a laptop with 2 i5 cores.</p>
+
+<table style='max-width:25em; margin-left:auto; margin-right:auto'>
+    <thead>
+        <tr><th>Time(s)</th><th>Primal API</th><th>Arranged API</th></tr>
+    </thead>
+    <tbody>
+        <tr><td><strong>with OpenMP</strong></td><td>3.6</td><td>3.6</td></tr>
+        <tr><td><strong>without OpenMP</strong></td><td>1.8</td><td>2.2</td></tr>
+    </tbody>
+</table>
+
+<h2 id="global-settings">Global settings</h2>
+
+<p>Use these function to set the global parameters:</p>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>dumpLevel</code></td>
+<td>The level of dumped log. When 0, it would be silent. When 1, it would returns the iteration information. (default: 0)</td>
+</tr>
+
+<tr>
+<td><code>openMP</code></td>
+<td>Set the preferable number of used threads. Note that this setting may not take effect when the system has a better choice. (default: core number)</td>
+</tr>
+</tbody>
+</table>
+
+<p>For example, we could use these codes to change the settings after importing</p>
+
+<pre><code class="language-python">import fwm180602 as fwm
+fwm.setGlobal(dumpLevel=1, openMP=8)
 </code></pre>
 
 <h1 id="matlab-script">Matlab script</h1>
@@ -435,6 +533,36 @@ resp = f.action(params, numLayers=3, Dip=90, TVD=0)
 
 <p>to see a randomly generated model and its response.</p>
 
+<h2 id="advanced-tests">Advanced tests</h2>
+
+<p>In the newest version, we improve the model by:</p>
+
+<ul>
+<li>Enable the OpenMP support correctly.</li>
+<li>Support the primal API, now we could use both <code>action</code> and <code>batchAction</code> to call the primal API and the arranged API respectively. The arranged API could make use of the computing resource more efficiently.</li>
+<li>Enable the <code>batchAction</code> to accept variable <code>Dip</code> and <code>TVD</code>. We have a test to show the improvement.</li>
+<li>Fix the memory leaking problem.</li>
+</ul>
+
+<p>To test the primal API version of the comparison scipt, use</p>
+
+<pre><code class="language-Bash">python test_fwd.py -m sc
+</code></pre>
+
+<p>the results would be totally the same as that in the mode of <code>-m c</code>. But we could verify that this version is slower.</p>
+
+<p>To test the variable tool trace, use</p>
+
+<pre><code class="language-Bash">python test_fwd.py -m vg
+</code></pre>
+
+<p>To check whether the memory leaking problem has beed fixed, use</p>
+
+<pre><code class="language-Bash">python test_fwd.py -m tm
+</code></pre>
+
+<p>This test is realized by just repeating the forward model calculation by 100 times.</p>
+
 <h2 id="result">Result</h2>
 
 <p>We have migrated the script for displaying the model in python. The figure below is produced by python, thus we could verify that the underground model is the same as that in matlab.</p>
@@ -518,6 +646,78 @@ resp = f.action(params, numLayers=3, Dip=90, TVD=0)
 </tr>
 </tbody>
 </table>
+
+<h2 id="variable-tool-trace">Variable tool trace</h2>
+
+<p>We assuming that the dip angle is about 60 degree compared to the <code>ZBed</code>. The logging tool is going down during the whole time. The produced model would be like this</p>
+
+<table>
+<thead>
+<tr>
+<th>The generated random model with Dip and TVD changing</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="new_model_ang.png" alt="" title="The generated random model with Dip and TVD changing" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The response is like this</p>
+
+<table>
+<thead>
+<tr>
+<th>The response of generated random model (with a different tool trace)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="new_model_ang_resp.png" alt="" title="The response of generated random model (with a different tool trace)" /></td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="numpy-test-for-the-inversion">Numpy test for the inversion</h1>
+
+<p>We have migrated the LMA from matlab to python, too. By using the newest forward model API, we could use multi-processing package in python to calculating the optimization for different points within different processes. Use this command to test it:</p>
+
+<pre><code class="language-Bash">python test_lma.py -m m
+</code></pre>
+
+<p>where when <code>--mode</code>(<code>-m</code>) is <code>m</code>, we use the multi-processing mode; when <code>--mode</code>(<code>-m</code>) is <code>s</code>, we use the single-processing mode. We have run the test on a laptop with 2 i5 cores. The consumed time is as below:</p>
+
+<table style='max-width:25em; margin-left:auto; margin-right:auto'>
+    <thead>
+        <tr><th>Single-processing</th><th>Multi-processing</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>640s</td><td>516s</td></tr>
+    </tbody>
+</table>
+
+<p>We could confirm that multi-processing could accelerate the computing, although the infrastructure of the forward model is supported by OpenMP. The results of the inversion is as below</p>
+
+<table>
+<thead>
+<tr>
+<th>Single-processing</th>
+<th>Multi-processing</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="model_invspy.png" alt="" title="The inversed model computed by single process" /></td>
+<td><img src="model_invspymp.png" alt="" title="The inversed model computed by multi processes" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Note that the results look better than that from matlab, because we use a different scheme to set the input parameter. In the matlab script, all <code>Rh</code> and <code>ZBed</code> are logarithmic during the inversion, however here we only let <code>Rh</code> to be logarithmic, which makes the <code>ZBed</code> more stable.</p>
 
 <h1 id="slices">Slices</h1>
 

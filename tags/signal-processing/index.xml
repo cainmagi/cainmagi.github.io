@@ -20,7 +20,7 @@
       <description>C++ Migrated Project Introduction This is a python-c-api that wrapping the C++ forward model codes (which is supported by OpenMP) with Numpy-API. To get the C++ codes, visit the master branch:
 Master
  Note that the project is still private now, thus you may do not have the authority to visit this page.  The function prototype could be described as
-float64_t *resp = curves(Layers, Rh, Rv, Zbed, Dip, TVD);  This function is used to simulate the response of the azimuthal resistivity LWD tool.</description>
+float64_t *resp = curves(numLayers, Rh, Rv, Zbed, Dip, TVD);  This function is used to simulate the response of the azimuthal resistivity LWD tool.</description>
     </item>
     
     <item>
