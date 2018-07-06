@@ -94,7 +94,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>Jun 22, 2018</td>
+                                            <td>Jul 6, 2018</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -139,7 +139,12 @@
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#building-environment">Building Environment</a></li>
-<li><a href="#usage">Usage</a></li>
+<li><a href="#usage">Usage</a>
+<ul>
+<li><a href="#basic-usage">Basic Usage</a></li>
+<li><a href="#generating-jacobian-matrix">Generating Jacobian matrix</a></li>
+<li><a href="#i-o-a-look-up-table">I/O a look-up table</a></li>
+</ul></li>
 <li><a href="#global-settings">Global settings</a></li>
 </ul></li>
 <li><a href="#matlab-script">Matlab script</a>
@@ -238,20 +243,31 @@
 
 <h2 id="building-environment">Building Environment</h2>
 
-<p>Now we only provide the Windows building project. It requires:</p>
+<p>Now we have provided the building project on both Linux and Windows. It requires:</p>
 
-<ul>
-<li>Windows 10 and VS 2017</li>
-<li>Python 3.6</li>
-<li>Numpy &gt;= 1.13</li>
-<li>C++11 with OpenMP</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Windows</th>
+<th>Linux</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><ul><li>Windows 10 and VS 2017</li><li>Python 3.6</li><li>Numpy &gt;= 1.13</li><li>C++11 with OpenMP</li></ul></td>
+<td><ul><li>Ubuntu 16.04 and g++8</li><li>Python 3.5</li><li>Numpy &gt;= 1.13</li><li>C++11 with OpenMP</li></ul></td>
+</tr>
+</tbody>
+</table>
 
 <p>Note that if you want to build by yourself, you need to change the include / library path in the project. Or you could download our compiled binary file in the release page.</p>
 
 <h2 id="usage">Usage</h2>
 
-<p>Now we support 2 kinds of usages. The first one is the primal API, which means the inputs and outputs are the same as that of the C++ API:</p>
+<h3 id="basic-usage">Basic Usage</h3>
+
+<p>Now we support 2 kinds of basic usages. The first one is the primal API, which means the inputs and outputs are the same as that of the C++ API:</p>
 
 <table>
 <thead>
@@ -283,13 +299,13 @@
 
 <tr>
 <td><code>Dip</code></td>
-<td>=90</td>
+<td>=90.0</td>
 <td>-</td>
 </tr>
 
 <tr>
 <td><code>TVD</code></td>
-<td>=0</td>
+<td>=0.0</td>
 <td>-</td>
 </tr>
 
@@ -327,13 +343,13 @@
 
 <tr>
 <td><code>Dip</code></td>
-<td>=90 (could be 1D vector now.)</td>
+<td>=90.0 (could be 1D vector now.)</td>
 <td>-</td>
 </tr>
 
 <tr>
 <td><code>TVD</code></td>
-<td>=0 (could be 1D vector now.)</td>
+<td>=0.0 (could be 1D vector now.)</td>
 <td>-</td>
 </tr>
 
@@ -365,6 +381,78 @@ resp = f.batchAction(params, numLayers=3, Dip=90, TVD=np.linspace(-10, 10, 80)) 
         <tr><td><strong>without OpenMP</strong></td><td>2.2</td><td>1.8</td></tr>
     </tbody>
 </table>
+
+<h3 id="generating-jacobian-matrix">Generating Jacobian matrix</h3>
+
+<p>We could use the API which is similar to <code>batchAction()</code> to get a Jacobian matrix for one sample. A Jacobian matrix could be defined like this:</p>
+
+<div class="overflow">
+\begin{equation}
+    \mathbf{J} = 
+    \begin{bmatrix}
+    \frac{\partial y_1}{\partial x_1} & \frac{\partial y_1}{\partial x_1} & \cdots & \frac{\partial y_1}{\partial x_{M}} \\
+    \frac{\partial y_2}{\partial x_1} & \ddots & \cdots & \frac{\partial y_2}{\partial x_{M}} \\
+    \vdots &   & \ddots & \vdots \\
+    \frac{\partial y_{N}}{\partial x_1} & \cdots & \frac{\partial y_{N}}{\partial x_{M - 1}} & \frac{\partial y_{N}}{\partial x_{M}}
+    \end{bmatrix}
+\end{equation}
+</div>
+
+<p>Thus we know, because we $\mathbf{y}$ is a function that could be defined as $\mathbf{y}:=\vec{y}(\mathbf{x})$, we could compute this matrix numerically by each column like this:</p>
+
+<div class="overflow">
+\begin{align} \label{fml:sec1:jacobianrow}
+    \mathbf{J}(:, i) = \frac{\vec{y}(\mathbf{x} + \varepsilon \mathbf{e}_i) - \vec{y}(\mathbf{x})}{\varepsilon},
+\end{align}
+</div>
+
+<p>where $\varepsilon$ is a small value and $\mathbf{e}_i$ is a base vector with the $i^{\mathrm{th}}$ value as 1 and other values as 0.</p>
+
+<p>The code is like this:</p>
+
+<pre><code class="language-python">import fwm180602 as fwm
+f = fwm.Curves()
+J = f.jacobian(params=np.array([-0.5, 0, 1, -20.0, 20.0], dtype=np.float32), numLayers=3, Dip=90.0, TVD=0.0) # Calculate J matrix for one sample
+</code></pre>
+
+<p>Different from <code>batchAction()</code>, here we only feed one sample (1-D array) to this function, and we could get the Jacobian matrix for this sample. Since the input dimension is 5 and the output dimension is 92, the shape of <code>J</code> should be <code>5*92</code>. Here we know that the result is the transposed Jacobian matrix actually for the convenience of using an API like what we do in Matlab. We would discuss related to this matrix later.</p>
+
+<p>Because this function is only based on one-sample computing, it may not make use of full resource of the CPU. In the future we may be able to improve it by introducing a function calculating the back propagation directly.</p>
+
+<h3 id="i-o-a-look-up-table">I/O a look-up table</h3>
+
+<p>We also provide a high-efficient method for I/O a look-up table. For some reasons, we do not assume that the value in the table would change with <code>Dip</code> and <code>TVD</code>. To generating a look-up table, we could use code like this:</p>
+
+<pre><code class="language-python">import fwm180602 as fwm
+fwm.setGlobal(dumpLevel=1)
+f = fwm.Curves()
+# Prepare for pRange and pNum ...
+f.scanSave(b's_table', pRange, pNum, 3, 90.0, 0.0)
+</code></pre>
+
+<p>In this case, we need to generate a 3 layer model, thus we have 5 parameters. So <code>pRange</code> should be a <code>5*2</code> matrix in which the first column represents the lower bound of the corresponding parameter and the second one represents the upper bound. <code>pNum</code> is a vector with a length of <code>5</code>. It defines the number of samples of each parameter. The function would produce two files <code>s_table.fwdp</code> and <code>s_table.fwdr</code> which records the parameter table and response table respectively.</p>
+
+<p>Another application is reading the look-up table. &ldquo;Reading&rdquo; means if we feed a group of geophysical parameters, we could get the corresponding responses, and if we feed a group of responses, we should get the parameters. This is why we call it a &ldquo;look-up table&rdquo;. Note that we have two files, if we call the function like this:</p>
+
+<pre><code class="language-python">import fwm180602 as fwm
+f = fwm.Curves()
+# Prepare for params ...
+t_res = f.scanRead(b's_table.fwdp', gmodel) # gmodel is a 3-layer model paremeter matrix which has a shape of 5xN
+print(t_res.shape) # t_res has a shape of 92xN
+</code></pre>
+
+<p>Then we would use the table to simulate the forward model, the efficiency of this function is O(M) where M is the number of parameters (in this example M=5). This process is very high efficient.</p>
+
+<p>If we call the function like this:</p>
+
+<pre><code class="language-python">import fwm180602 as fwm
+f = fwm.Curves()
+# Prepare for params ...
+t_model = f.scanRead(b's_table.fwdr', g_res) # g_res is a 3-layer model response matrix which has a shape of 92xN
+print(t_model.shape) # t_model has a shape of 5xN
+</code></pre>
+
+<p>This process is a simulation of the inversion. We feed a group of responses to this function and scan the table file <code>.fwdr</code> to get the best indicies of corresponding parameters in <code>.fwdp</code>. In this example, we would get a <code>5*N</code> matrix because each sample saved in <code>s_table.fwdp</code> has 5 parameters. If we have P samples for each parameter, the efficiency of this process should be O(P^M), which would be very time-consuming and space-consuming if we have many samples.</p>
 
 <h2 id="global-settings">Global settings</h2>
 
@@ -541,10 +629,11 @@ fwm.setGlobal(dumpLevel=1, openMP=8)
 <li>Enable the OpenMP support correctly.</li>
 <li>Support the primal API, now we could use both <code>action</code> and <code>batchAction</code> to call the primal API and the arranged API respectively. The arranged API could make use of the computing resource more efficiently.</li>
 <li>Enable the <code>batchAction</code> to accept variable <code>Dip</code> and <code>TVD</code>. We have a test to show the improvement.</li>
+<li>Support the numerical computation of Jacobian matrix.</li>
 <li>Fix the memory leaking problem.</li>
 </ul>
 
-<p>To test the primal API version of the comparison scipt, use</p>
+<p>To test the primal API version of the comparison script, use</p>
 
 <pre><code class="language-Bash">python test_fwd.py -m sc
 </code></pre>
@@ -554,6 +643,16 @@ fwm.setGlobal(dumpLevel=1, openMP=8)
 <p>To test the variable tool trace, use</p>
 
 <pre><code class="language-Bash">python test_fwd.py -m vg
+</code></pre>
+
+<p>To check the results of Jacobian matrices for the first 16 samples, use</p>
+
+<pre><code class="language-Bash">python test_fwd.py -m j
+</code></pre>
+
+<p>To compare the gradients computed by direct computation and Jacobian matrix respectively, use</p>
+
+<pre><code class="language-Bash">python test_fwd.py -m cj
 </code></pre>
 
 <p>To check whether the memory leaking problem has beed fixed, use</p>
@@ -611,6 +710,86 @@ fwm.setGlobal(dumpLevel=1, openMP=8)
 <td><img src="comp_curves.svg" alt="" title="Compared forward model response (selective)" /></td>
 </tr>
 </tbody>
+</table>
+
+<p>Note that if we calculate the results with the primal API and over all points separately, we could get such results:</p>
+
+<table>
+<thead>
+<tr>
+<th>The response of generated random model (primal API)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="comp_model_resp_prim.png" alt="" title="Compared forward model response (primal computing method)" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The result is totally the same as that of the arranged API.</p>
+
+<p>Here we show the Jacobian matrices from the first 16 samples. We use column to represent the output dimension and row to represent the input dimension. Since we have 5 inputs and 92 outputs for each sample, the result has a shape of $80 \times 92$.</p>
+
+<table>
+<thead>
+<tr>
+<th>Stacked Jacobian matrices for 16 samples</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="show_gradient.png" alt="" title="Stacked Jacobian matrices for 16 samples" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>According to the theory, if we has an input vector $\mathbf{x}$ and an output vector $\mathbf{y}$, and we use $f$ to map $\mathbf{y}$ into a single loss value, then we could know that</p>
+
+<div class="overflow">
+\begin{align} \label{fml:sec4:gradjacob}
+    \frac{\partial f}{\partial \mathbf{x}} = \frac{\partial f}{\partial \mathbf{y}} \mathbf{J},
+\end{align}
+</div>
+
+<p>where $\mathbf{x}$ and $\mathbf{y}$ are row vectors, $\mathbf{J}$ is the Jacobian matrix with a shape of $N \times M$ ($M,~N$ are the lengths of $\mathbf{x}$ and $\mathbf{y}$ respectively).</p>
+
+<p>Like what we have done in $\eqref{fml:sec1:jacobianrow}$, we could also compute the gradient directly,</p>
+
+<div class="overflow">
+\begin{align} \label{fml:sec4:gradirect}
+    \frac{\partial f}{\partial x_i} = \frac{f(\mathbf{x} + \varepsilon \mathbf{e}_i) - f(\mathbf{x})}{\varepsilon}.
+\end{align}
+</div>
+
+<p>Compared with $\eqref{fml:sec4:gradjacob}$, we have two ways to get the gradient. The results are like this:</p>
+
+<table>
+<thead>
+<tr>
+<th>Gradient computed by different methods</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="show_compgradient.png" alt="" title="Gradient computed by different methods" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>We use row to represent the axis of $\mathbf{x}$, and the column is used to represent different samples (80 samples). Note that although the results are almost the same, Jacobian method could reach a higher precision and a higher efficiency, the consumed time and precision are as below,</p>
+
+<table style='max-width:25em; margin-left:auto; margin-right:auto'>
+    <thead>
+        <tr><th></th><th>Direct computing</th><th>Jacobian method</th></tr>
+    </thead>
+    <tbody>
+        <tr><th>Consumed time</th><td>37.2943s</td><td>14.9083s</td></tr>
+        <tr><th>Precision</th><td>1e-4</td><td>1e-8</td></tr>
+    </tbody>
 </table>
 
 <h2 id="random-model-generator">Random model generator</h2>
@@ -698,6 +877,8 @@ fwm.setGlobal(dumpLevel=1, openMP=8)
         <tr><td>640s</td><td>516s</td></tr>
     </tbody>
 </table>
+
+<p>In fact, we have improved the optimization method during single-processing, i.e. we use the optimized result of the former sample as the initialized value of the next optimization. This trick is based on the assumption of the continuity of the geophysical features. By this improvement the time consumed on single thread has been reduced to 146s.</p>
 
 <p>We could confirm that multi-processing could accelerate the computing, although the infrastructure of the forward model is supported by OpenMP. The results of the inversion is as below</p>
 
