@@ -1,0 +1,985 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	<meta name="generator" content="Hugo 0.40.3" />
+	<title>Tensorflow Inspection for FWM Curves 180602 &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Tensorflow Inspection for FWM Curves 180602</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>Jul 6, 2018</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>Jul 13, 2018</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/projects" title="Projects">Projects</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/python" title="python">python</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/tensorflow" title="tensorflow">tensorflow</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/python" title="python">python</a>
+                                                    
+                                                    <a class="ui label" href="/tags/python-c-api" title="python-c-api">python-c-api</a>
+                                                    
+                                                    <a class="ui label" href="/tags/tensorflow" title="tensorflow">tensorflow</a>
+                                                    
+                                                    <a class="ui label" href="/tags/deep-learning" title="deep-learning">deep-learning</a>
+                                                    
+                                                    <a class="ui label" href="/tags/signal-processing" title="signal-processing">signal-processing</a>
+                                                    
+                                                    <a class="ui label" href="/tags/seismic-processing" title="seismic-processing">seismic-processing</a>
+                                                    
+                                                    <a class="ui label" href="/tags/inverse-problem" title="inverse-problem">inverse-problem</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/projects/python_tensor_fwm201806_title.jpg" alt="" /></span>
+                                
+                            </header>
+                            <hr/>
+                            
+                                <h1 id="contents">Contents</h1>
+                                <p><nav id="TableOfContents">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#baseline-methods">Baseline methods</a>
+<ul>
+<li><a href="#look-up-table-method">Look-up table method</a>
+<ul>
+<li><a href="#theory">Theory</a></li>
+<li><a href="#results">Results</a>
+<ul>
+<li><a href="#generate-the-table">Generate the table</a></li>
+<li><a href="#read-the-table">Read the table</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#pure-inversion-by-tensorflow">Pure inversion by tensorflow</a>
+<ul>
+<li><a href="#theory-1">Theory</a></li>
+<li><a href="#results-1">Results</a></li>
+</ul></li>
+<li><a href="#data-driven-neural-networks">Data-driven neural networks</a>
+<ul>
+<li><a href="#simulate-the-inversion">Simulate the inversion</a>
+<ul>
+<li><a href="#network-arrangement">Network arrangement</a></li>
+<li><a href="#train">Train</a></li>
+<li><a href="#test">Test</a></li>
+</ul></li>
+<li><a href="#simulate-the-forward-model">Simulate the forward model</a>
+<ul>
+<li><a href="#network-arrangement-1">Network arrangement</a></li>
+<li><a href="#train-1">Train</a></li>
+<li><a href="#test-1">Test</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></p>
+                            
+                            <hr/>
+                            
+
+<h1 id="introduction">Introduction</h1>
+
+<p>In this project, we combine a deep-learning architecture with a traditional electromagnetic (EM) forward model which is differentiable. Since the model is differentiable, we could enable the gradient back propagated from the model to the deep-learning network. The following figure could be used to describe this design.</p>
+
+<table>
+<thead>
+<tr>
+<th>The whole architecture of the project</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="main-str.svg" alt="" title="Main architecture of the project" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Suppose we have gotten a group of response samples (i.e. $\mathbf{y}$). In a traditional method, since we only have a formulated forward model $\mathcal{F}$, we need to use such an optimization to simulate the input of the model (i.e. $\mathbf{x}$). We call this process &ldquo;<em>inversion</em>&rdquo;.</p>
+
+<div class="overflow">
+\begin{align} \label{fml:intro:misfit}
+    \hat{\mathbf{x}} = \arg \min\limits_{\boldsymbol{\rho}} \lVert \mathcal{F}(\boldsymbol{\rho}) - \mathcal{F}(\mathbf{x}) \rVert^2,
+\end{align}
+</div>
+
+<p>where we define $\mathbf{y} := \mathcal{F}(\mathbf{x})$, thus $\hat{\mathbf{y}} := \mathcal{F}(\hat{\mathbf{x}})$.</p>
+
+<p>Note that here the $\mathbf{x}$ is actually unknown, and we only know the response of it, thus there must be a misfit between the simulated input $\hat{\mathbf{x}}$ and the real input $\mathbf{x}$. The optimization could be essentially defined as a process to minimize the misfit. This method has such shortcomings.</p>
+
+<ul>
+<li>Take a long period to get a converged result.</li>
+<li>Easy to converge on a local minimum due to the highly non-linearity of the model.</li>
+<li>Could not make use of the priori information, because the model is independent for each sample.</li>
+</ul>
+
+<p>To solve these problems, different methods are proposed. Some of them are aimed to improve the accuracy and some of them are aimed to accelerate the process. Our method is essentially using a forward deep learning network to replace the high-cost inversion algorithm. To make a comparison, we would also discuss about some baseline methods including the primal inversion, a look-up table method, a data-driven learning method and so on.</p>
+
+<h1 id="baseline-methods">Baseline methods</h1>
+
+<p>Here we would discuss about some baseline methods some of which have been used in practice. We would perform the test scope on a laptop to examine their efficiency and accuracy. The configuration of the test machine is as below:</p>
+
+<div class='box'>
+<ul>
+    <li><b>Processor</b>: Intel&reg; Core&trade; i5-5200U CPU @ 2.20GHz, 2.19GHz</li>
+    <li><b>RAM</b>: 4.00GB</li>
+    <li><b>OS</b>: Windows 10 x64</li>
+<ul>
+</div>
+
+<h2 id="look-up-table-method">Look-up table method</h2>
+
+<h3 id="theory">Theory</h3>
+
+<p>The idea of a look-up table could work because the forward EM model function is time-consuming. We generate a lot of samples that could exhaust the whole parameter space. Here we show an example in the figure below:</p>
+
+<table>
+<thead>
+<tr>
+<th>The structure of a look-up table</th>
+<th>The search method for simulating the forward model</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="l-table.svg" alt="" title="The structure of a look-up table" /></td>
+<td><img src="l-table-search.svg" alt="" title="The search method for simulating the forward model" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>In this example, we have 3 parameters (A, B and C), each parameter is in the range of [0, 20). Hence we generate 20 points for each parameter and we could get 8000 ($20^3$) samples. If we place the samples in an increasing order, the index of the sample would vary from <code>0x0000</code> to <code>0x1F3F</code> (suppose the data length of each sample to be 1).</p>
+
+<p>Then we would have 2 tables. The first table (table X) stores the samples that we generate in the parameter space, the second table (table Y) stores the returned responses of the forward model. Therefore, we know that if we want to generate these tables, we need to perform the forward model for 8000 times. However, once the look-up tables are prepared, it would be no need for us to run the forward model function, because we could search one table to get the index, and use the same index to get the sample in the other table.</p>
+
+<p>The right figure above shows that we even do not need to search table X if we want to simulate the forward model. Suppose that we have already know the parameters of a sample, and we want to get the response of this sample from table Y. We could use the value of the parameter to calculate the offset of this sample for each parameter and take the sum of these offsets. Then we could get the index of the sample. This is a trick of making advantage of the order of the stored samples. However, if we want to get the parameters when we have known the response, i.e. search table Y to get the sample in table X, we have to search the whole table Y by checking the sample with the smallest misfit as shown in $\eqref{fml:intro:misfit}$.</p>
+
+<p>Whether we search the table or not, we do not need to run the forward model after the table generated. Thus the look-up table could help us guess the result fast. Denote $M$ as the sample number of each parameter, and $N$ as the number of parameters. If we search the table, the complexity is $O(M^N)$; If not, the complexity would be only $O(N)$.</p>
+
+<h3 id="results">Results</h3>
+
+<h4 id="generate-the-table">Generate the table</h4>
+
+<p>First, we generate two groups of tables. The first group has 10000 (10K) samples, the sum size of stored data is 74MB. The second one has 2359296 (2M) samples, the sum size of stored data is 1.70GB. To generating data by yourself, use this command:</p>
+
+<pre><code class="language-bash">python dumpfile.py
+</code></pre>
+
+<p>This script commit the core process to the C++ code, thus it could reach a higher efficiency. Both of these two scripts need us to modify parameters in the script. To learn the details about how to use the API, check this document:</p>
+
+<p><a href="../python_fwm201806/#i-o-a-look-up-table" class="button icon fa-file-text-o">I/O a look up table</a></p>
+
+<p>Note that we also have a script which is written by purely python (except the part of forward model). This script is low-efficient, only could be used to produce a 3-layer model and used for a comparison. If you want to test it, call <code>dumpfile_3layers.py</code>. It is used totally the same as the highly efficient script.</p>
+
+<p>To accelerate the generating process, we make use of a more powerful computer with 8 cores. The consumed time of the whole generation for the 2M table is:</p>
+
+<table style='max-width:20em; margin-left:auto; margin-right:auto'>
+    <thead>
+        <tr><th>Python Code</th><th>C++ code</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>20.95h</td><td>4.18h</td></tr>
+    </tbody>
+</table>
+
+<h4 id="read-the-table">Read the table</h4>
+
+<p>Similarly, we also have 2 scripts for reading the table. Use a code like this to do that:</p>
+
+<pre><code class="language-bash">python readfile.py -m i -ap model.npz -dp s_table -l 0
+</code></pre>
+
+<p>Here are the usages for each option:</p>
+
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>-h</td>
+<td>Check the help of the script.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>-m</td>
+<td>The running mode of the script. (1) <code>f</code>: simulating the forward model. (2) <code>i</code>: simulating the inverse model.</td>
+<td>f</td>
+</tr>
+
+<tr>
+<td>-ap</td>
+<td>The path of the ground truth, it should contains two values named <code>modelReal</code> and <code>measData</code>.</td>
+<td>model.npz</td>
+</tr>
+
+<tr>
+<td>-bp</td>
+<td>The path of the database, it composes of 2 files with the postfix <code>.fwdp</code> and <code>.fwdr</code> respectively.</td>
+<td>s_table</td>
+</tr>
+
+<tr>
+<td>-l</td>
+<td>The dumpLevel of the C++ script. Note that when &gt;0 the script would be slowed down. (1) 0: silent mode. (2) 1: show progress (3) 2: show detail loss.</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>We also have a lowly efficient version of the script <code>readfile_3layers.py</code> with the same options. It is used to read the table produced by <code>dumpfile_3layers.py</code>. And this script is used for comparison, too.</p>
+
+<p>The results of the look-up table are shown as below:</p>
+
+<table>
+<thead>
+<tr>
+<th>The forward simulation by 10K table</th>
+<th>The forward simulation by 2M table</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="l-table-10K-fwd.png" alt="" title="The forward simulation by 10K table" /></td>
+<td><img src="l-table-2M-fwd.png" alt="" title="The forward simulation by 2M table" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>We use the row to represent the simulated signal of 92 sensors, and the column to represent the 80 samples. Each row in these figures represent a response curve over a period. To see the results clearly, we would like to show results of some sensors, i.e. some curves. The results are as below:</p>
+
+<table>
+<thead>
+<tr>
+<th>The forward simulation by 10K table</th>
+<th>The forward simulation by 2M table</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="l-table-10K-fwd-cur.svg" alt="" title="The forward simulation by 10K table" /></td>
+<td><img src="l-table-2M-fwd-cur.svg" alt="" title="The forward simulation by 2M table" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The results of the simulation for the inversion by the look-up table are shown in these figures:</p>
+
+<table>
+<thead>
+<tr>
+<th>Ground truth</th>
+<th>The inverse simulation by 10K table</th>
+<th>The inverse simulation by 2M table</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="ground-truth.png" alt="" title="The ground truth of parameters" /></td>
+<td><img src="l-table-10K-inv.png" alt="" title="The inverse simulation by 10K table" /></td>
+<td><img src="l-table-2M-inv.png" alt="" title="The inverse simulation by 2M table" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The consumed time of reading tables are recorded here. First, we compare the efficiency of different codes by testing with 10K table and 80 input samples:</p>
+
+<table style='max-width:25em; margin-left:auto; margin-right:auto'>
+    <thead>
+        <tr><th colspan='3'>Test code efficiency with 10K table</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>　</td><th>C++ code</th><th>Python Code</th></tr>
+        <tr><th>Inversion</th><td>1.8048s</td><td>6.7010s</td></tr>
+        <tr><th>Forward model</th><td>0.0020s</td><td>0.6655s</td></tr>
+    </tbody>
+</table>
+
+<p>Then we perform tests with different tables. The consumed time is shown as below:</p>
+
+<table style='max-width:25em; margin-left:auto; margin-right:auto'>
+    <thead>
+        <tr><th colspan='3'>Test with different tables</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>　</td><th>10K table</th><th>2M table</th></tr>
+        <tr><th>Inversion</th><td>1.8048s</td><td>68.73418s</td></tr>
+        <tr><th>Forward model</th><td>0.0020s</td><td>0.01560s</td></tr>
+    </tbody>
+</table>
+
+<h2 id="pure-inversion-by-tensorflow">Pure inversion by tensorflow</h2>
+
+<h3 id="theory-1">Theory</h3>
+
+<p>In this part, we use <strong>tensorflow</strong> to simulate the whole process of purely deterministic gradient descent inversion. In another word, our target could be formulated as $\eqref{fml:intro:misfit}$ where the only variable is the input (geophysical parameters) of the physical forward model. The architecture could be shown in the following figure.</p>
+
+<table>
+<thead>
+<tr>
+<th>The whole architecture of the pure inversion</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="pureinv-str.svg" alt="" title="The whole architecture of the pure inversion" /></td>
+</tr>
+</tbody>
+</table>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Levenberg%e2%80%93Marquardt_algorithm" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Levenberg%e2%80%93Marquardt_algorithm"><b>Levenberg–Marquardt algorithm</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>In general, we use a <em>Hessian</em> optimization method (like the <em>Gauss–Newton</em> algorithm) to deal with a complex and highly non-linear model. If we do not use <em>Hessian</em> matrix, we would prefer an algorithm like <strong><em>Levenberg–Marquardt</em></strong> <strong>algorithm (LMA)</strong>. It only use Jacobian matrix and could solve the ill-posed problem somehow. However, here we need to use a machine learning frame, i.e. tensorflow to make the pure inversion, which makes us could not find available methods, because in a typical machine learning optimization, these methods requires high computational cost and could not give a stable solution. Thus we only have some simple and one-order methods like gradient-descent, adagrad, adelta and adam. An algorithm like above methods has been realized as an available optimizer offered by tensorflow. We could call and make use of it easily.</p>
+
+<p>To realize this architecture in tensorflow, the key is converting a numerical computing model (i.e. a numpy-API function) to a symbol computing operator (i.e. a tensor-API op). To define an op, we need to define its forward operation and back-propagating operation. Here two figures show how we wrap the original model so that tensorflow could pass tensors to it and get tensors from it.</p>
+
+<table>
+<thead>
+<tr>
+<th>Forward operator</th>
+<th>Back-propagating operator</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="pureinv-fwop.svg" alt="" title="Forward operator" /></td>
+<td><img src="pureinv-bpop.svg" alt="" title="Back-propagating operator" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>If we only define the forward op, we could use the forward model in tensorflow but we could not train it. Because in tensorflow, the gradients are computed totally analytically. To make our model trainable, we need to tell tensorflow how to back-propagate the gradient in this op. Since this model accept a multi-dimensional input and give a multi-dimensional output, the only thing we need to do is just calculating the Jacobian matrix $\mathbf{J}$. Assuming that the gradient $\frac{\partial f}{\partial \mathbf{y}}$ from the upper layer is known (actually it is known during the back-propagation). Then the back-propagated gradient in this op is:</p>
+
+<div class="overflow">
+\begin{align} \label{fml:pureinv:grad}
+    \frac{\partial f}{\partial \mathbf{x}} = \frac{\partial f}{\partial \mathbf{y}} \mathbf{J}.
+\end{align}
+</div>
+
+<p>The computation of Jacobian matrix has been defined as a C++ API with the support of openMP. You could check the project here:</p>
+
+<p><a href="../python_fwm201806/#generating-jacobian-matrix" class="button icon fa-file-text-o">Generating Jacobian matrix</a></p>
+
+<p>To improve the efficiency, in this project we use the batch computing version of the code.</p>
+
+<h3 id="results-1">Results</h3>
+
+<p>The result is shown in the following graph. The selected algorithm here is adam. We perform the inversion on my computer, it could be estimated that when we optimizing 80 samples, it takes about 11 seconds per step, thus the whole process requires 2.69 hours. We use the curve to show the MSE loss and give several snapshots of model during the whole optimization. The ground truth is shown in the northwest of the figure.</p>
+
+<table>
+<thead>
+<tr>
+<th>The result of the pure inversion</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="pureinv-res.svg" alt="" title="The result of the pure inversion" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>We could find that the process of convergence is very slow. To explain that, we would like to show the same data optimized by LMA. It only takes less than 300 steps and could converge to such a result.</p>
+
+<table>
+<thead>
+<tr>
+<th>Ground truth</th>
+<th>Result from LMA</th>
+<th>Result from tensorflow</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="pureinv-gt.png" alt="" title="Ground truth" /></td>
+<td><img src="pureinv-lma.png" alt="" title="Result from LMA" /></td>
+<td><img src="pureinv-tf.png" alt="" title="Result from tensorflow" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>From these results, we could know that the adam algorithm could not converge as well as what LMA does, because the gradient is not balanced in this case. If we check the Jacobian matrices produced by forward model, we would know the the gradient from the resistivity is far stronger than that from the boundary position (ZBed). Since adam could not adjust the learning rate according to the parameters, here we would find that the resistivity would converge before the boundary. Actually in the real case the resistivity converge in 100 steps but it takes 900 steps for the boundary to converge.</p>
+
+<p>Here we would check the consumed time by comparing different methods.</p>
+
+<table style='max-width:20em; margin-left:auto; margin-right:auto'>
+    <thead>
+        <tr><th>LMA</th><th>adam</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>7.20m</td><td>2.69h</td></tr>
+    </tbody>
+</table>
+
+<p>The reason why LMA could reach a better result with far higher efficiency is that the LMA could adjust the learning rate according to the current gradients for each parameter. For example, if we have a function $f(x_1, x_2)$ with $\frac{\partial f}{\partial x_1} \gg \frac{\partial f}{\partial x_2}$, then the learning rate of $x_2$ would be amplified so that the gradients for each parameter could be balanced. This technique could improve the efficiency of the convergence. In fact, if we let the adam optimize for another 1000 steps, it would reach a better result which is similar to that of the LMA.</p>
+
+<h2 id="data-driven-neural-networks">Data-driven neural networks</h2>
+
+<p>Another method is using a neural network to replace the model. Thus we have 3 ideas to make this replacement.</p>
+
+<ol>
+<li>Replace the primal forward model by a deep learning architecture, which means we still need to use this replaced model to make the inversion.</li>
+<li>Replace the inversion directly, i.e. training a network that plays a role as the inverse function of the primal forward model. Thus, we could replace the high computational cost inversion by a forward deep model.</li>
+<li>Use a GAN architecture. This technique could be used in the case of semi-supervised learning. We suppose that most of our samples have no ground truth, but we may still find a way to map the unlabeled data to the labeled space.<span class='popsym' title="This idea has not been implemented yet."></span></li>
+</ol>
+
+<h3 id="simulate-the-inversion">Simulate the inversion</h3>
+
+<p>Here we show the basic structure of this idea:</p>
+
+<table>
+<thead>
+<tr>
+<th>Simulating the inverted model</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="datann-inv.svg" alt="" title="Simulating the inverted model" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>We use the look-up table which is generated before as our train set. Although this set has a lot of samples, it is still very sparse compared to the distribution of the real data. The test set is a generated continuous model where most samples do not appear in the train set. The model here we use is just a deep learning one. It accepts the response as the input and predict the geophysical parameters. We try to make the model regressed to the real geophysical parameters in the train set.</p>
+
+<h4 id="network-arrangement">Network arrangement</h4>
+
+<p>Note that the deep learning network that we use could be an arbitrary network. In the simplest case, this network could be a 3-layer one:</p>
+
+<table>
+<thead>
+<tr>
+<th>3-layer network only composing of fully connected layers</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="datann-plain.svg" alt="" title="3-layer network only composing of fully connected layers" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>This model could accept N samples with a length of 92, then the input sample would be mapped to a hidden layer with 256 nodes. Finally, the hidden layer would be mapped to an output layer with 5 nodes. To balance the gradients, i.e. the scale between the resistivities (the first 3 parameters) and the boundary positions (the last 2 parameters), we use a re-biased layer and a scaling layer. This post-processing trick would be applied in the following other models. A re-biased layer could be formulated as:</p>
+
+<div class="overflow">
+\begin{align}
+    \mathrm{Rebiased}(\mathbf{x}) = \gamma \mathbf{x} + \beta,
+\end{align}
+</div>
+
+<p>where $\gamma$ and $\beta$ are trainable. And the scaling layer is just used for amplifying the values of resistivities, so that their gradients could match with those of the boundary positions.</p>
+
+<p>A more complex model is a convolutional one. This model is adapted from the VGG16 network. We use 9 convolutional layers and 1 fully connected layer. In practice we find that too many fully connected layers may cause the performance downgraded.</p>
+
+<table>
+<thead>
+<tr>
+<th>Convolutional network adapted from VGG16</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="datann-conv.svg" alt="" title="Convolutional network adapted from VGG16" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>To get a further step, we also try a residual model which is adapted from ResNet-50. The basic unit in this model is a residual block which contains 3 serial convolutional layers as a &ldquo;bottleneck&rdquo; structure. Since we have 20 residual blocks and 1 convolutional layer, it actually has 61 convolutional layers. This network is very deep compared the above two models.</p>
+
+<table>
+<thead>
+<tr>
+<th>Residual network adapted from ResNet-50</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="datann-res.svg" alt="" title="Residual network adapted from ResNet-50" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>For the convolutional networks, we could add an l2-regularization to each convolutional kernel so reduce the overfitting effect. Hence in the following part we would show the results in both the &ldquo;with l2&rdquo; case and the &ldquo;without l2&rdquo; case.</p>
+
+<h4 id="train">Train</h4>
+
+<p>We use adam optimizer with a learning rate of 1e-3 to train the networks for 80000 steps. Every step we select 64 samples randomly to build a batch and use this batch to update the network parameters. The training loss is shown as below:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Training loss</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>train</td>
+<td><img src="datann-invloss-train.svg" alt="" title="Training loss (train set)" /></td>
+</tr>
+
+<tr>
+<td>valid</td>
+<td><img src="datann-invloss-valid.svg" alt="" title="Training loss (valid set)" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>We use our test set for validation, however, the &ldquo;validation&rdquo; is only a inspection, i.e. we do not influence the training process according to the situation of the validation. Thus we know the validation loss reflects the current performance on our test set during the training process. From the results, we could learn that:</p>
+
+<ul>
+<li>The network could get converged about 30000 steps, which is reasonable because the total number of samples in the train set is 2M. Considering every step we choose 64 steps, we would know that the network would be saturate before we iterate all samples.</li>
+<li>The valid loss is lower than the train loss, this may be caused by the continuity of the test samples. When we train the network, the network could interpolate the missing part in the train set, which could take effect on continuous data rather than random samples.</li>
+<li>The deep networks could reach an apparently better performance than the 3-layer model. But the very deep model (residual one) do not have an obvious advantaged when compared to the shallower model (convolutional one).</li>
+<li>Adding L2 loss could help the network get converged faster, but it does not contribute an apparently better performance.</li>
+</ul>
+
+<h4 id="test">Test</h4>
+
+<p>The performance of the networks are shown in the following figures:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Without Noise</th>
+<th>$\sigma=0.1$</th>
+<th>$\sigma=0.5$</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Ground truth</td>
+<td><img src="pureinv-gt.png" alt="" title="Ground truth" /></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Plain</td>
+<td><img src="datann-inv/plain.png" alt="" /></td>
+<td><img src="datann-inv/plain-0p1.png" alt="" /></td>
+<td><img src="datann-inv/plain-0p5.png" alt="" /></td>
+</tr>
+
+<tr>
+<td>Conv</td>
+<td><img src="datann-inv/conv.png" alt="" /></td>
+<td><img src="datann-inv/conv-0p1.png" alt="" /></td>
+<td><img src="datann-inv/conv-0p5.png" alt="" /></td>
+</tr>
+
+<tr>
+<td>Conv (withl2)</td>
+<td><img src="datann-inv/convl2.png" alt="" /></td>
+<td><img src="datann-inv/convl2-0p1.png" alt="" /></td>
+<td><img src="datann-inv/convl2-0p5.png" alt="" /></td>
+</tr>
+
+<tr>
+<td>Residual</td>
+<td><img src="datann-inv/res.png" alt="" /></td>
+<td><img src="datann-inv/res-0p1.png" alt="" /></td>
+<td><img src="datann-inv/res-0p5.png" alt="" /></td>
+</tr>
+
+<tr>
+<td>Residual (withl2)</td>
+<td><img src="datann-inv/resl2.png" alt="" /></td>
+<td><img src="datann-inv/resl2-0p1.png" alt="" /></td>
+<td><img src="datann-inv/resl2-0p5.png" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The costs of these network are</p>
+
+<table style='max-width:30em; margin-left:auto; margin-right:auto'>
+    <thead>
+        <tr><th></th><th>Plain</th><th>Conv</th><th>Residual</th></tr>
+    </thead>
+    <tbody>
+        <tr><th>Time</th><td>0.01562s</td><td>0.28253s</td><td>1.64054s</td></tr>
+        <tr><th>Memory</th><td>295KB</td><td>20.8MB</td><td>92.0MB</td></tr>
+    </tbody>
+</table>
+
+<p>It shows that the residual network need a much heavier cost compared to the other 2 networks, but it could not give an obviously better performance compared to convolutional network. Maybe the 17-layer model has been capable to describe the inversion, which means a more complex model could not improve the efficiency.</p>
+
+<h3 id="simulate-the-forward-model">Simulate the forward model</h3>
+
+<p>Simulating the forward model is similar to what we have done just before. It only needs us exchange the input and output each other compared to the simulation for inversion:</p>
+
+<table>
+<thead>
+<tr>
+<th>Simulating the forward model</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="datann-fwd.svg" alt="" title="Simulating the forward model" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>We use the generated look-up table to train the forward simulating network, too. What we do here is exactly the same as simulating the inversion when considering the basic idea. An MSE loss is designed for the regression.</p>
+
+<h4 id="network-arrangement-1">Network arrangement</h4>
+
+<p>The network that we use here is almost the same as the network for simulating the inversion, thus we would like to skip this part and talk about the results.</p>
+
+<h4 id="train-1">Train</h4>
+
+<p>We use the totally same configuration to train the networks and we also train for 80000 steps. The training loss is shown as below:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Training loss</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>train</td>
+<td><img src="datann-fwdloss-train.svg" alt="" title="Training loss (train set)" /></td>
+</tr>
+
+<tr>
+<td>valid</td>
+<td><img src="datann-fwdloss-valid.svg" alt="" title="Training loss (valid set)" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The validation loss is produced by feeding the test set. From these results, we could find that:</p>
+
+<ul>
+<li>The performances between the convolutional network and residual network are almost the same.</li>
+<li>Adding L2 loss could help us reach an apparently better result.</li>
+</ul>
+
+<h4 id="test-1">Test</h4>
+
+<p>The performance of the networks are shown in the following figures. We would show the predicted response for all curves. And we would also only inspect some curves to give a clearer view.</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>All curves</th>
+<th>Selected curves</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Ground truth</td>
+<td><img src="datann-fwd-gt.png" alt="" title="Ground truth" /></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Plain</td>
+<td><img src="datann-fwd/plain.png" alt="" /></td>
+<td><img src="datann-fwd/plain-cuv.svg" alt="" /></td>
+</tr>
+
+<tr>
+<td>Conv</td>
+<td><img src="datann-fwd/conv.png" alt="" /></td>
+<td><img src="datann-fwd/conv-cuv.svg" alt="" /></td>
+</tr>
+
+<tr>
+<td>Conv (withl2)</td>
+<td><img src="datann-fwd/convl2.png" alt="" /></td>
+<td><img src="datann-fwd/convl2-cuv.svg" alt="" /></td>
+</tr>
+
+<tr>
+<td>Residual</td>
+<td><img src="datann-fwd/res.png" alt="" /></td>
+<td><img src="datann-fwd/res-cuv.svg" alt="" /></td>
+</tr>
+
+<tr>
+<td>Residual (withl2)</td>
+<td><img src="datann-fwd/resl2.png" alt="" /></td>
+<td><img src="datann-fwd/resl2-cuv.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The costs of these network are</p>
+
+<table style='max-width:30em; margin-left:auto; margin-right:auto'>
+    <thead>
+        <tr><th></th><th>Plain</th><th>Conv</th><th>Residual</th></tr>
+    </thead>
+    <tbody>
+        <tr><th>Time</th><td>0.03126s</td><td>0.35526s</td><td>1.75713s</td></tr>
+        <tr><th>Memory</th><td>298KB</td><td>21.4MB</td><td>92.6MB</td></tr>
+    </tbody>
+</table>
+
+<p>By comparing the performance and the cost, we could find that the same problem occurs here. The more complex model does not reach a better performance. Thus we think the convolutional network is a capable model for this application.</p>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmgi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-119875813-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>

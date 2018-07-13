@@ -94,7 +94,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>Jun 15, 2018</td>
+                                            <td>Jul 13, 2018</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -152,6 +152,7 @@
 <li><a href="#q1-5-could-i-remove-an-image-which-is-depended-on-by-other-images">Q1.5: Could I remove an image which is depended on by other images?</a></li>
 <li><a href="#q1-6-why-cannot-i-enter-the-container-with-an-error-named-gpu-not-found">Q1.6: Why cannot I enter the container with an error named &ldquo;<em>GPU not found</em>&rdquo;?</a></li>
 <li><a href="#q1-7-why-cannot-i-run-docker-without-sudo">Q1.7: Why cannot I run docker without <code>sudo</code>?</a></li>
+<li><a href="#q1-8-should-we-install-uninstall-apps-outside-docker">Q1.8: Should we install/uninstall apps outside docker?</a></li>
 </ul></li>
 <li><a href="#network-service">Network Service</a>
 <ul>
@@ -169,6 +170,7 @@
 <li><a href="#q3-5-is-it-necessary-for-us-to-save-the-image-for-every-time">Q3.5: Is it necessary for us to save the image for every time?</a></li>
 <li><a href="#q3-6-how-to-remove-a-repository-that-may-be-invalid">Q3.6: How to remove a repository that may be invalid?</a></li>
 <li><a href="#q3-7-why-my-pip-tool-could-not-be-used">Q3.7: Why my <code>pip</code> tool could not be used?</a></li>
+<li><a href="#q3-8-why-a-gui-is-displayed-abnormally">Q3.8: Why a GUI is displayed abnormally?</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#unsolvable-problems">Unsolvable problems</a>
@@ -249,6 +251,15 @@ $ nvidia-docker run --rm -it -e DISPLAY=xx.xx.xx.xx:0 -v /tmp/.X11-unix:/tmp/.X1
 <li>You are not in the user group <em>docker</em>, please contact the manager to solve this problem.</li>
 <li>You have not deploy your docker config file. Check <a href="../20180531linuxdocker/#get-full-authority-for-you-configuration-file">here</a> to learn how to do that.</li>
 </ol>
+
+<h4 id="q1-8-should-we-install-uninstall-apps-outside-docker">Q1.8: Should we install/uninstall apps outside docker?</h4>
+
+<p><strong>A1.8</strong>: Actually it is better not. Because the machine is a fully customized one designed by NVIDIA, the version of the driver, the OS configuration and some other settings need to keep as it is. But we could still use</p>
+
+<pre><code class="language-Bash">$ sudo apt-get update &amp;&amp; sudo apt-get upgrade
+</code></pre>
+
+<p>to upgrade your packages <strong>as long as</strong> you have not changed the repositories of your software manager.</p>
 
 <h3 id="network-service">Network Service</h3>
 
@@ -401,6 +412,13 @@ $ python2.7 get-pip.py --force-reinstall
 
 <pre><code class="language-bash">$ apt-get remove python3-pip
 $ apt-get install python3-pip --reinstall
+</code></pre>
+
+<h4 id="q3-8-why-a-gui-is-displayed-abnormally">Q3.8: Why a GUI is displayed abnormally?</h4>
+
+<p><strong>A3.8</strong>: Maybe this GUI requires 24bit depth mode. However, <code>vnc4server</code> use 16bits depth mode as default. To change this problem, you need to change your launch script and add the depth option to your <code>vnc4server</code> command like this:</p>
+
+<pre><code class="language-bash">$ vnc4server -depth 24 -geometry ...
 </code></pre>
 
 <h2 id="unsolvable-problems">Unsolvable problems</h2>

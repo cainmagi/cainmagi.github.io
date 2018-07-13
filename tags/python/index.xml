@@ -6,10 +6,20 @@
     <description>Recent content in Python on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Jun 2018 12:55:34 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 06 Jul 2018 13:52:21 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tensorflow Inspection for FWM Curves 180602</title>
+      <link>https://cainmagi.github.io/projects/python_tensorfwm201806/</link>
+      <pubDate>Fri, 06 Jul 2018 13:52:21 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/projects/python_tensorfwm201806/</guid>
+      <description>Introduction In this project, we combine a deep-learning architecture with a traditional electromagnetic (EM) forward model which is differentiable. Since the model is differentiable, we could enable the gradient back propagated from the model to the deep-learning network. The following figure could be used to describe this design.
+   The whole architecture of the project         Suppose we have gotten a group of response samples (i.</description>
+    </item>
     
     <item>
       <title>Forward Model : Curves 180602</title>
