@@ -342,7 +342,7 @@
            transform="matrix(0,1,1,0,44.6211,111.08)"><tspan
              id="tspan222"
              y="0"
-             x="0 8.6277294 14.975386 21.293751 24.472651 28.373823 34.291798 40.419918 43.198036 45.976547 52.324203">MSE ( alid)</tspan></text>
+             x="0 8.6277294 14.975386 21.293751 24.472651 28.373823 34.291798 40.419918 43.198036 45.976547 52.324203">MSE (valid)</tspan></text>
 </g><g
          id="g226"><g
            clip-path="url(#clipPath232)"
@@ -402,7 +402,7 @@
            transform="matrix(1,0,0,-1,568.995,210.448)"><tspan
              id="tspan268"
              y="0"
-             x="0 6.9824414 13.10039 19.438292 25.356239 28.535166 31.713701 35.615265 43.7938 46.572334 50.493019 56.830917 60.009842 65.580917 71.943405">Con . (with L2)</tspan></text>
+             x="0 6.9824414 13.10039 19.438292 25.356239 28.535166 31.713701 35.615265 43.7938 46.572334 50.493019 56.830917 60.009842 65.580917 71.943405">Conv. (with L2)</tspan></text>
 </g><path
          id="path272"
          style="fill:none;stroke:#2ca02c;stroke-width:10;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -414,7 +414,7 @@
            transform="matrix(1,0,0,-1,568.995,200.777)"><tspan
              id="tspan276"
              y="0"
-             x="0 6.9824414 13.10039 19.438292 25.356239 28.535166 31.713701 35.615265 43.7938 46.572334 50.493019 56.830917 62.949257 69.287155 73.20784 76.386765 81.95784 88.320335">Con . (without L2)</tspan></text>
+             x="0 6.9824414 13.10039 19.438292 25.356239 28.535166 31.713701 35.615265 43.7938 46.572334 50.493019 56.830917 62.949257 69.287155 73.20784 76.386765 81.95784 88.320335">Conv. (without L2)</tspan></text>
 </g><path
          id="path280"
          style="fill:none;stroke:#d62728;stroke-width:10;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
