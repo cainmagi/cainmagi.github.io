@@ -1,15 +1,15 @@
 $('h1:not(#main_title)').each(function() { 
     $(this).wrapInner('<a href=#contents />');
 })
-$('h2').each(function() { 
+$('h2:not(.cancel_link)').each(function() { 
     $(this).wrapInner('<a href=#contents />');
 })
-$('h3').each(function() { 
+$('h3:not(.cancel_link)').each(function() { 
     $(this).wrapInner('<a href=#contents />');
 })
-$('h4').each(function() { 
+$('h4:not(.cancel_link)').each(function() { 
     $(this).wrapInner('<a href=#contents />');
 })
-$('h5').each(function() { 
+$('h5:not(.cancel_link)').each(function() { 
     $(this).wrapInner('<a href=#contents />');
 })

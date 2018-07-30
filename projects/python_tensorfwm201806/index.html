@@ -94,7 +94,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>Jul 13, 2018</td>
+                                            <td>Jul 20, 2018</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -393,6 +393,8 @@
 </tbody>
 </table>
 
+<p>We could find that it seems that the 2M table improves the precision, but it returns a worse prediction when it comes to resistivity. That is because the 10K table has a resistivity of 48 (which is very close to the real value, i.e. 50), however in the 2M table we only have resistivity like 39 or 63.</p>
+
 <p>The consumed time of reading tables are recorded here. First, we compare the efficiency of different codes by testing with 10K table and 80 input samples:</p>
 
 <table style='max-width:25em; margin-left:auto; margin-right:auto'>
@@ -658,7 +660,7 @@
 <li>The network could get converged about 30000 steps, which is reasonable because the total number of samples in the train set is 2M. Considering every step we choose 64 steps, we would know that the network would be saturate before we iterate all samples.</li>
 <li>The valid loss is lower than the train loss, this may be caused by the continuity of the test samples. When we train the network, the network could interpolate the missing part in the train set, which could take effect on continuous data rather than random samples.</li>
 <li>The deep networks could reach an apparently better performance than the 3-layer model. But the very deep model (residual one) do not have an obvious advantaged when compared to the shallower model (convolutional one).</li>
-<li>Adding L2 loss could help the network get converged faster, but it does not contribute an apparently better performance.</li>
+<li>Neither could Adding L2 regularization help the network get converged faster, nor it does not contribute an apparently better performance. In another words, adding L2 regularization may be not a good choice.</li>
 </ul>
 
 <h4 id="test">Test</h4>
@@ -854,7 +856,7 @@
     </tbody>
 </table>
 
-<p>By comparing the performance and the cost, we could find that the same problem occurs here. The more complex model does not reach a better performance. Thus we think the convolutional network is a capable model for this application.</p>
+<p>By comparing the performance and the cost, we could find that the same problem occurs here. If we only check the MSE loss, we would find that the more complex model does not reach a better performance. Thus we think the convolutional network is a capable model for this application. However, in practice, it seems that a deeper network could reach a better result. This conclusion may be not reliable since the deviation during the training is could definitely not be omitted.</p>
 
                         </div>
                     </section>

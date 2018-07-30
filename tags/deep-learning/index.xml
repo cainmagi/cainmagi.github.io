@@ -6,10 +6,19 @@
     <description>Recent content in Deep Learning on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Jul 2018 13:52:21 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 20 Jul 2018 05:37:52 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Jun. 05, 2018</title>
+      <link>https://cainmagi.github.io/notes/note20180720/</link>
+      <pubDate>Fri, 20 Jul 2018 05:37:52 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20180720/</guid>
+      <description>Introduction Here we would like to discuss about the some papers using deep learning methods to enhance the performance of the traditional inverse problems. The application should be limited in analyzing the electromagnetic wave or acoustic signal. Some works just make the application of existing methods, some works propose fundamental theory and some works give us an inspiration of available architectures. According to the relevance, we would like to divide them into 3 groups.</description>
+    </item>
     
     <item>
       <title>Tensorflow Inspection for FWM Curves 180602</title>
