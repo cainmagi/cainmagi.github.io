@@ -94,7 +94,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>Jul 27, 2018</td>
+                                            <td>Aug 10, 2018</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -140,12 +140,15 @@
 <li><a href="#geoacoustic-model-inversion-with-artificial-neural-networks">Geoacoustic model inversion with artificial neural networks</a></li>
 <li><a href="#electromagnetic-nde-signal-inversion-by-function-approximation-neural-networks">Electromagnetic NDE signal inversion by function-approximation neural networks</a></li>
 <li><a href="#deep-learning-for-the-design-of-nano-photonic-structures">Deep Learning for the Design of Nano-photonic Structures</a></li>
+<li><a href="#comparison-of-detection-abilities-between-fluxgate-and-gmr-magnetometer-in-inverse-ect-of-deep-lying-cracks">Comparison of Detection Abilities Between Fluxgate and GMR Magnetometer in Inverse ECT of Deep Lying Cracks</a></li>
+<li><a href="#a-neural-network-approach-for-the-inversion-of-multi-scale-roughness-parameters-and-soil-moisture">A Neural Network Approach for the Inversion of Multi-Scale Roughness Parameters and Soil Moisture</a></li>
 </ul></li>
 <li><a href="#topic-relevant">Topic relevant</a>
 <ul>
 <li><a href="#scaling-cnns-for-high-resolution-volumetric-reconstruction-from-a-single-image">Scaling CNNs for High Resolution Volumetric Reconstruction from a Single Image</a></li>
 <li><a href="#tradeoffs-between-convergence-speed-and-reconstruction-accuracy-in-inverse-problems">Tradeoffs Between Convergence Speed and Reconstruction Accuracy in Inverse Problems</a></li>
 <li><a href="#onsager-corrected-deep-learning-for-sparse-linear-inverse-problems">Onsager-corrected deep learning for sparse linear inverse problems</a></li>
+<li><a href="#dagan-deep-de-aliasing-generative-adversarial-networks-for-fast-compressed-sensing-mri-reconstruction">DAGAN Deep De-Aliasing Generative Adversarial Networks for Fast Compressed Sensing MRI Reconstruction</a></li>
 </ul></li>
 <li><a href="#referable">Referable</a>
 <ul>
@@ -302,6 +305,58 @@
   </div>
 </div>
 
+<h3 id="comparison-of-detection-abilities-between-fluxgate-and-gmr-magnetometer-in-inverse-ect-of-deep-lying-cracks">Comparison of Detection Abilities Between Fluxgate and GMR Magnetometer in Inverse ECT of Deep Lying Cracks</h3>
+
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: Comparison of Detection Abilities Between Fluxgate and GMR Magnetometer in Inverse ECT of Deep Lying Cracks</li>
+        <li><b>Author</b>: Lukas Behun, Milan Smetana, and Klara Capova</li>
+        <li><b>Year</b>: 2018</li>
+        <li><b>Theory level</b>: application</li>
+        <li><b>Theory type</b>: network architecture: ANN</li>
+        <li><b>Used data</b>: The magnetic measurements</li>
+        <li><b>Predicted data</b>: The shape parameters of defect</li>
+        <li><b>Source</b>: ELEKTRO CONFERENCE PROCEEDINGS</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://ieeexplore.ieee.org/document/8398332/" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>In this work, the author use a coil to generate eddy currents on the surface of a sample. Such currents would stimulate a magnetic field, which would be captured by another coil. In practice, the receiver could be viewed as a magnetometer. By analyzing the response returned from the magnetometer, we could infer the parameters (width, length and depth) of the shape of the cracks on the surface.</p>
+        <p style="text-align:center"><img src="Behun2018.jpg"/></p>
+        <p>The collected data would be decomposed by Haar wavelet, then the changes of the gradient of electric scalar potential could be analyzed by the artificial neural network (ANN) which accepts the decomposed data and predict the results like segmentation. By checking the region that is tagged by "gradient change" we could find the shape of the cracks.</p>
+    </div>
+  </div>
+</div>
+
+<h3 id="a-neural-network-approach-for-the-inversion-of-multi-scale-roughness-parameters-and-soil-moisture">A Neural Network Approach for the Inversion of Multi-Scale Roughness Parameters and Soil Moisture</h3>
+
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: A Neural Network Approach for the Inversion of Multi-Scale Roughness Parameters and Soil Moisture</li>
+        <li><b>Author</b>: L.B. Farah, I.R. Farah, R. Bennaceur, Z. Belhadj, and M.R. Boussema</li>
+        <li><b>Year</b>: 2006</li>
+        <li><b>Theory level</b>: application</li>
+        <li><b>Theory type</b>: network architecture: ANN</li>
+        <li><b>Used data</b>: The radar backscattering coefficients</li>
+        <li><b>Predicted data</b>: The shape coefficients and conductivity</li>
+        <li><b>Source</b>: International Conference on Information & Communication Technologies</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://ieeexplore.ieee.org/document/1684404/" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>This work is an inspection on the surface of a material (actually is the soil). The author build a mathematical wavelet model and use a random process as the parameters of the model to describe the shape of the 2D interface. The parameters of the process, i.e. $\gamma,~\nu$ are used to describe the stationary part of the self autocorrelation that model. Apart from this, $\varepsilon$ represents the conductivity of the soil. Each of these parameters vary from different directions ($x$ and $y$ directions).</p>
+        <p>Then the radar backscattering coefficient is used to analyze this material. By using different incept angle, we could record different coefficients $\sigma(\theta)$ in two direction (horizontal and vertical). These values are feed into a 4-layer neural network so that it could predict the model parameters discussed before. The error rate of the prediction is about 8%.</p>
+        <p style="text-align:center"><img src="Farah2006.png"/></p>
+    </div>
+  </div>
+</div>
+
 <h2 id="topic-relevant">Topic relevant</h2>
 
 <h3 id="scaling-cnns-for-high-resolution-volumetric-reconstruction-from-a-single-image">Scaling CNNs for High Resolution Volumetric Reconstruction from a Single Image</h3>
@@ -348,7 +403,7 @@
         <ul>
         <li><b>External Reference</b>: check this link to learn theory about projected gradient algorithm (PGD). Note that PGD is difficult to be realized well in tensorflow due to the slow convergent rate.</li>
         </ul>
-        <p style="text-indent:2em"><a href="http://freemind.pluskid.org/machine-learning/projected-gradient-method-and-lasso/" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+        <p style="text-indent:2em"><a href="http://freemind.pluskid.org/machine-learning/projected-gradient-method-and-lasso/" class="button icon fa-file-text-o" style="text-indent:0em">Reference</a></p>
     </div>
     <div class="6u 12u(mobilep)" style="margin-bottom:2em">
         <h4 class="cancel_link">Learning abstract:</h4>
@@ -388,7 +443,7 @@
         <ul>
         <li><b>External Reference</b>: check this link to see the implementation of proximal Adgrad in tensorflow.</li>
         </ul>
-        <p style="text-indent:2em"><a href="https://www.tensorflow.org/api_docs/python/tf/train/ProximalAdagradOptimizer" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+        <p style="text-indent:2em"><a href="https://www.tensorflow.org/api_docs/python/tf/train/ProximalAdagradOptimizer" class="button icon fa-file-text-o" style="text-indent:0em">Reference</a></p>
         <ul>
         <li><b>External Reference</b>: check this link to see the theory of learning ISTA (LISTA).</li>
         </ul>
@@ -410,8 +465,54 @@
             \right.
         \end{equation}
         </div>
-        <p>Like what we do in LISTA, migrating to LAMP needs us to make some above parameters adjustable. Thus we define $\mathbf{A}_t = \beta_t \mathbf{A}$ and $\mathbf{B}_t = \mathbf{A}^H \mathbf{C}_t$. Then what could adjust is $\{\alpha_t, \beta_t, \mathbf{C}_t\}$, where $t$ is the step number of AMP but here is the layer number of the network. The following figure show the basic architecture of one layer of the network. The experiments show that the layer of the network could be much fewer than the step number of the primal inversion.</p>
+        <p>Like what we do in LISTA, migrating to LAMP needs us to make some above parameters adjustable. Thus we define $\mathbf{A}_t = \beta_t \mathbf{M}$ and $\mathbf{B}_t = \mathbf{M}^H \mathbf{C}_t$. Then what could adjust is $\{\alpha_t, \beta_t, \mathbf{C}_t\}$, where $t$ is the step number of AMP but here is the layer number of the network. The following figure show the basic architecture of one layer of the network. The experiments show that the layer of the network could be much fewer than the step number of the primal inversion.</p>
         <p><img src="Borgerding2016.png"/></p>
+    </div>
+  </div>
+</div>
+
+<h3 id="dagan-deep-de-aliasing-generative-adversarial-networks-for-fast-compressed-sensing-mri-reconstruction">DAGAN Deep De-Aliasing Generative Adversarial Networks for Fast Compressed Sensing MRI Reconstruction</h3>
+
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: DAGAN Deep De-Aliasing Generative Adversarial Networks for Fast Compressed Sensing MRI Reconstruction</li>
+        <li><b>Author</b>: Guang Yang, Simiao Yu, Hao Dong, Greg Slabaugh, Pier Luigi Dragotti, Xujiong Ye , Fangde Liu, Simon Arridge, Jennifer Keegan, Yike Guo, and David Firmin</li>
+        <li><b>Year</b>: 2018</li>
+        <li><b>Theory level</b>: application</li>
+        <li><b>Theory type</b>: network architecture: GAN</li>
+        <li><b>Used data</b>: compressed magnetic resonance imaging (CS-MRI) data</li>
+        <li><b>Predicted data</b>: original MRI data</li>
+        <li><b>Source</b>: IEEE Transactions on Medical Imaging</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://ieeexplore.ieee.org/document/8233175/" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+        <ul>
+        <li><b>External Reference</b>: check this link to see the theory about conditional GAN.</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://arxiv.org/abs/1411.1784" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+        <ul>
+        <li><b>External Reference</b>: check this link to see a similar theory applied in image super-resolution, which is a more famous work.</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://arxiv.org/abs/1609.04802" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>Denote the original image (reshaped as a vector with a length of $M$) as $\mathbf{x}$, its corresponding compressed image is $\mathbf{y}$ ($\mathbf{y}$ has a length of $N$ which fulfils $N \ll M$). Then when we only know $\mathbf{y}$, we could use a series of basis (as a matrix $\mathbf{F}_u$ with a size of $N \times M$) to recover $\mathbf{x}$ from $\mathbf{y}$ by</p>
+        <div class="overflow">
+        \begin{align}
+            \hat{\mathbf{x}} = \arg\min\limits_{\mathbf{z}} \lVert \mathbf{z} - \mathbf{F}_u\mathbf{z} \rVert^2_2 + \lambda f(\mathbf{z}),
+        \end{align}
+        </div>
+        <p>Where $f$ is a function about regularization. This is a conventional inversion method.</p>
+        <p>To replace this process, the authors propose a deep network to predict $\mathbf{x}$. First, we use the transposed basis to get a initialized prediction $\mathbf{x}_u$:</p>
+        <div class="overflow">
+        \begin{align}
+            \mathbf{x}_u = \mathbf{F}^H_u \mathbf{y}.
+        \end{align}
+        </div>
+        <p>Then we use a generic network to get a residual $G(\mathbf{x})_u$. The desired result would be formulated as $\hat{\mathbf{x}} = \mathbf{x}_u + G(\mathbf{x}_u)$. To make sure the prediction could be precise and in detail, we use a loss function with 4 parts to train the network: (1) pixel-wise MSE loss, (2) spectral-element-wise MSE loss, (3) a VGG-output loss that is used to estimate the difference between the prediction and the ground truth, (4) discriminative loss produced by GAN. In special, (4) involves a discriminator which is used to tell the difference between the ground truth $\mathbf{x}_t$ and the predicted result $\hat{\mathbf{x}}$. This idea comes from conditional GAN that need us to let the discriminator could not tell the difference when giving a pair of ground truth and the prediction.</p>
+        <p><img src="Yang2018.svg"/></p>
     </div>
   </div>
 </div>
@@ -461,7 +562,7 @@
         <ul>
         <li><b>External Reference</b>: check this link to learn implementation about restricted Boltzmann machine (RBM).</li>
         </ul>
-        <p style="text-indent:2em"><a href="http://lyy1994.github.io/machine-learning/2017/04/17/RBM-tensorflow-implementation.html" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+        <p style="text-indent:2em"><a href="http://lyy1994.github.io/machine-learning/2017/04/17/RBM-tensorflow-implementation.html" class="button icon fa-file-text-o" style="text-indent:0em">Reference</a></p>
     </div>
     <div class="6u 12u(mobilep)" style="margin-bottom:2em">
         <h4 class="cancel_link">Learning abstract:</h4>
