@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	<meta name="generator" content="Hugo 0.46" />
+	<title>Report for peroidically hibernation of Nvidia DGX 230 on Aug. 11, 2018 &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Report for peroidically hibernation of Nvidia DGX 230 on Aug. 11, 2018</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>Aug 11, 2018</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>Aug 11, 2018</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/playground" title="Playground">Playground</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/technique" title="Technique">Technique</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/bug" title="Bug">Bug</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/linux" title="linux">linux</a>
+                                                    
+                                                    <a class="ui label" href="/tags/docker" title="docker">docker</a>
+                                                    
+                                                    <a class="ui label" href="/tags/compiler" title="compiler">compiler</a>
+                                                    
+                                                    <a class="ui label" href="/tags/nvidia" title="NVIDIA">NVIDIA</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/playground/bugs.jpg" alt="" /></span>
+                                
+                            </header>
+                            
+                            <hr/>
+                            <h1 id="contents">Contents</h1>
+                            <p><nav id="TableOfContents">
+<ul>
+<li><a href="#problem-statement">Problem statement</a></li>
+<li><a href="#problem-records">Problem records</a>
+<ul>
+<li><a href="#screenshots">Screenshots</a></li>
+<li><a href="#problem-reports">Problem reports</a></li>
+</ul></li>
+</ul>
+</nav></p>
+                            
+                            <hr/>
+                            
+
+<h1 id="problem-statement">Problem statement</h1>
+
+<ul>
+<li><strong>What is it?</strong>: We assume that this problem is caused by the hibernation of the graphics cards.</li>
+<li><strong>How does it happen?</strong>: This problem occurs periodically. Every week it would occur for about once. It is not due to some special applications, because even when there is no burden on GPU, it still happens.</li>
+<li><strong>What does it cause?</strong>: Here are some phenomenons when the problem appears:
+
+<ul>
+<li><strong>Cannot turn on the screen</strong>: The screen of DGX would be kept off. Whatever we do (like move the mouse or type something with the keyboard), the screen would not be turned on. However, we could still get access to the device by remote accessing (like using Putty).</li>
+<li><strong>Cannot use nvida apps</strong>: Like <code>nvidia-smi</code>, <code>nvidia-docker run</code>. It would return an error like <code>GPU is lost</code>. However, some commands are still accessible, like <code>nvidia-docker images</code>.</li>
+<li><strong>Cannot exit from the container</strong>: If we are running a container by docker when the problem occurs, we could still use the container normally (except some processes that need GPU). But if we type <code>exit</code> inside the container, the terminal would be freezed.</li>
+<li><strong>Process on GPU would be freezed</strong>: If we are running any process that needs the GPU when the problem occurs, that process would be freezed. We could not terminate it by <code>terminate</code> or <code>kill</code>.</li>
+<li><strong>A core would be fully occupied</strong> (not verified): It seems that when this problem occurs, one CPU core (among 40 logical cores) would be fully occupied. But we could not find which application is occupying it.</li>
+</ul></li>
+<li><strong>How to solve it?</strong>: Now every time it happens, we need to restart the machine and everything would be recoverd. But after about one week, it happens again.</li>
+<li><strong>Why we need to solve it?</strong>: Many of our programs need to be runned for a long time (several days), we could not take the risk of restarting our testing program due to the hibernation.</li>
+</ul>
+
+<h1 id="problem-records">Problem records</h1>
+
+<h2 id="screenshots">Screenshots</h2>
+
+<p>This problem could be detected by running <code>nvidia-smi</code>. For example, if we are running <code>watch nvidia-smi</code>, we could find this problem if the returned message is changed like this:</p>
+
+<table>
+<thead>
+<tr>
+<th>nvidia-smi tells us that GPU is lost</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="GPU-lost.png" alt="" title="nvidia-smi tells us that GPU is lost" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Here we show a screenshot when the problem occurs. This screen shot is captured inside the container, i.e. a VNC remote desktop provided by the container. We are running a testing program that only uses CPU, so we could see that the CPU is occupied and that program keeps running normally. However we could not get access to the GPU now.</p>
+
+<table>
+<thead>
+<tr>
+<th>A whole screenshot when the problem happens</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="GPU-lost-screen.png" alt="" title="A whole screenshot when the problem happens" /></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="problem-reports">Problem reports</h2>
+
+<p>Run this command outside the docker (by remote accessing, we have mentioned that although we could not turn on the screen, we could still get access to the Bash by remote accessing), then we would get a full record of the hardware:</p>
+
+<pre><code class="language-Bash">nvidia-bug-report.sh
+</code></pre>
+
+<p>To help us detect what happens and what makes it different when the problem occurs, we run the command for twice. One is during the hibernation and the other is in the normal state (where the GPU is working correctly). The comparison of two reports is shown as follows:</p>
+
+<div class="youtube container" style="background-color:white">
+  <iframe style="overflow: hidden; height: 100%; width: 100%; position: absolute;" type="text/html" src="./nvidia-bug-report-compared.html" ></iframe>
+</div>
+
+<p>The left side is the report of a normal state, the right one is the report when the problem happens. You could download the comparison of the reports by this link:</p>
+
+<p><a href="./nvidia-bug-report-compared.html" class="button icon fa-download" download>Comparison Report</a></p>
+
+<p>Or you can use the following links to download the original <code>txt</code> reports directly:</p>
+
+<div class="row">
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <p><a href="./nvidia-bug-report-broken.log" class="button icon fa-download" download>bug-report-broken</a></p>
+  </div>
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <p><a href="./nvidia-bug-report-normal.log" class="button icon fa-download" download>bug-report-normal</a></p>
+  </div>
+</div>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmgi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119875813-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>

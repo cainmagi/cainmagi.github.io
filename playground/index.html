@@ -100,6 +100,23 @@
                 <section id="two" class="spotlights">
                     
                     <section>
+                        <a href="/playground/20180811nvidiabugs/" class="image">
+							<img src="/img/playground/bugs.jpg" alt="" data-position="center center" class="nolimits" />
+						</a>
+                        <div class="content">
+                            <div class="inner">
+                                <header class="major">
+                                    <h3>Report for peroidically hibernation of Nvidia DGX 230 on Aug. 11, 2018</h3>
+                                </header>
+                                <p>A fatal errors occurs when using Nvidia DGX 230. It seems that every week the graphics cards would hibernate and return a message that &#34;GPU is lost&#34;.</p>
+                                <ul class="actions">
+                                    <li><a href="/playground/20180811nvidiabugs/" class="button">Learn more</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section>
                         <a href="/playground/20180614linuxdockerqna/" class="image">
 							<img src="/img/playground/qna.jpg" alt="" data-position="center center" class="nolimits" />
 						</a>
@@ -183,23 +200,6 @@
                             </div>
                         </div>
                     </section>
-                    
-                    <section>
-                        <a href="/playground/20180524ichs/" class="image">
-							<img src="/img/playground/20180524ichs_title.jpg" alt="" data-position="center center" class="nolimits" />
-						</a>
-                        <div class="content">
-                            <div class="inner">
-                                <header class="major">
-                                    <h3>Instructions for creating a Hugo site</h3>
-                                </header>
-                                <p>[Chinese] 关于利用Hugo建站的资料和补全</p>
-                                <ul class="actions">
-                                    <li><a href="/playground/20180524ichs/" class="button">Learn more</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
                      
                     <!-- Pagination -->
 
@@ -217,6 +217,65 @@
 <!-- $upper_limit = $paginator.TotalPages - $adjacent_links -->
 
 
+
+<div class="inner" style="text-align: center; padding: 1em;">
+<ul class="pagination" id="paginator">
+    
+    <li>
+        <a href="/playground/" aria-label="First" class="button small">First</a>
+    </li>
+    
+    <li>
+        
+        <span class="button small disabled">Prev</a>
+        
+    </li>
+    <li><span style="padding-left:10px"></span></li>
+    
+    
+    
+        
+    
+    
+    <li>
+        <a class="page active" href="/playground/">1</a>
+    </li>
+    
+    
+    
+    
+        
+    
+    
+    <li>
+        <a class="page " href="/playground/page/2/">2</a>
+    </li>
+    
+    
+    <li><span style="padding-right:10px"></span></li>
+    <li>
+        <div class="dropdown">
+        <select class="dropdown-select" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"> 
+            
+                <option value="/playground//#paginator" selected="selected">1</option> 
+            
+                <option value="/playground/page/2//#paginator" >2</option> 
+            
+        </select>
+    </div>
+    </li>
+    <li>
+        
+        <a href="/playground/page/2/" aria-label="Next" class="button small ">Next</a>
+        
+    </li>
+    
+    <li>
+        <a href="/playground/page/2/" aria-label="Last" class="button small">Last</a>
+    </li>
+    
+</ul>
+</div>
 
 <!-- end pagination partial //-->
                 </section>
