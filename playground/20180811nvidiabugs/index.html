@@ -137,7 +137,8 @@
 <li><a href="#problem-records">Problem records</a>
 <ul>
 <li><a href="#screenshots">Screenshots</a></li>
-<li><a href="#problem-reports">Problem reports</a></li>
+<li><a href="#nvidia-bug-reports">Nvidia bug reports</a></li>
+<li><a href="#nvidia-healthy-report">Nvidia healthy report</a></li>
 </ul></li>
 </ul>
 </nav></p>
@@ -199,11 +200,11 @@
 </tbody>
 </table>
 
-<h2 id="problem-reports">Problem reports</h2>
+<h2 id="nvidia-bug-reports">Nvidia bug reports</h2>
 
 <p>Run this command outside the docker (by remote accessing, we have mentioned that although we could not turn on the screen, we could still get access to the Bash by remote accessing), then we would get a full record of the hardware:</p>
 
-<pre><code class="language-Bash">nvidia-bug-report.sh
+<pre><code class="language-Bash">$ sudo nvidia-bug-report.sh
 </code></pre>
 
 <p>To help us detect what happens and what makes it different when the problem occurs, we run the command for twice. One is during the hibernation and the other is in the normal state (where the GPU is working correctly). The comparison of two reports is shown as follows:</p>
@@ -226,6 +227,66 @@
     <p><a href="./nvidia-bug-report-normal.log" class="button icon fa-download" download>bug-report-normal</a></p>
   </div>
 </div>
+
+<h2 id="nvidia-healthy-report">Nvidia healthy report</h2>
+
+<p>Follow the instructions here:</p>
+
+<p><a href="https://docs.nvidia.com/dgx/dgx-station-user-guide/index.html#collecting-troubleshooting-information" class="button icon fa-file-text-o" download>Instructions</a></p>
+
+<p>We use this command to collect the system status firstly:</p>
+
+<pre><code class="language-Bash">$ sudo nvsysinfo 
+</code></pre>
+
+<p>This command would dump a file with a name like <code>/tmp/nvsysinfo-timestamp.random-number.out</code>. No more information is given.</p>
+
+<p>Then, call this command,</p>
+
+<pre><code class="language-Bash">$ sudo nvhealth &amp;&gt; nvhealth.log
+</code></pre>
+
+<p>This command would also dump a file with a name like <code>/tmp/nvhealth-log.random-string.jsonl</code>. And the printed information would be dumpled into <code>nvhealth.log</code>.</p>
+
+<p>We have run these commands in both bug state and normal state respectively. The comparison of the <code>nvhealth.log</code> is shown as follows:</p>
+
+<div class="youtube container" style="background-color:white">
+  <iframe style="overflow: hidden; height: 100%; width: 100%; position: absolute;" type="text/html" src="./compare-healthy-report.html" ></iframe>
+</div>
+
+<p>You can only download the comparison report here:</p>
+
+<p><a href="./compare-healthy-report.html" class="button icon fa-download" download>Comparison Report</a></p>
+
+<p>We have collected all dumped files in a zipped file. The file name table is as follows:</p>
+
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>System information</th>
+<th>Healthy report</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>with-bug</td>
+<td>nvsysinfo-201808141356.4n835u.out</td>
+<td>nvhealth-log.kE3XdxPBlo.jsonl</td>
+</tr>
+
+<tr>
+<td>normal</td>
+<td>nvsysinfo-201808141425.Gn7yxn.out</td>
+<td>nvhealth-log.q4DASkL1aD.jsonl</td>
+</tr>
+</tbody>
+</table>
+
+<p>You could download the zipped file here:</p>
+
+<p><a href="./nvidia-healthy-report.zip" class="button icon fa-download" download>Zipped logs</a></p>
 
                         </div>
                     </section>
