@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://cainmagi.github.io/playground/20180811nvidiabugs/</loc>
+    <lastmod>2018-08-11T17:29:51+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/notes/note20180720/</loc>
     <lastmod>2018-08-10T22:06:31-05:00</lastmod>
   </url>
@@ -137,13 +142,26 @@
   </url>
   
   <url>
+    <loc>https://cainmagi.github.io/categories/bug/</loc>
+    <lastmod>2018-08-11T17:29:51+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/categories/</loc>
+    <lastmod>2018-08-11T17:29:51+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://cainmagi.github.io/categories/command/</loc>
     <lastmod>2018-07-13T09:52:18-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/compiler/</loc>
+    <lastmod>2018-08-11T17:29:51+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -173,7 +191,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/docker/</loc>
-    <lastmod>2018-07-13T09:52:18-05:00</lastmod>
+    <lastmod>2018-08-11T17:29:51+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -227,7 +245,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/linux/</loc>
-    <lastmod>2018-07-13T09:52:18-05:00</lastmod>
+    <lastmod>2018-08-11T17:29:51+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -263,7 +281,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/nvidia/</loc>
-    <lastmod>2018-07-13T09:52:18-05:00</lastmod>
+    <lastmod>2018-08-11T17:29:51+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -281,7 +299,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/playground/</loc>
-    <lastmod>2018-07-13T09:52:18-05:00</lastmod>
+    <lastmod>2018-08-11T17:29:51+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -389,7 +407,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/technique/</loc>
-    <lastmod>2018-07-13T09:52:18-05:00</lastmod>
+    <lastmod>2018-08-11T17:29:51+00:00</lastmod>
     <priority>0</priority>
   </url>
   

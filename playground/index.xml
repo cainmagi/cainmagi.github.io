@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Report for peroidically hibernation of Nvidia DGX 230 on Aug. 11, 2018</title>
+      <link>https://cainmagi.github.io/playground/20180811nvidiabugs/</link>
+      <pubDate>Sat, 11 Aug 2018 17:29:51 +0000</pubDate>
+      
+      <guid>https://cainmagi.github.io/playground/20180811nvidiabugs/</guid>
+      <description>Problem statement  What is it?: We assume that this problem is caused by the hibernation of the graphics cards. How does it happen?: This problem occurs periodically. Every week it would occur for about once. It is not due to some special applications, because even when there is no burden on GPU, it still happens. What does it cause?: Here are some phenomenons when the problem appears:  Cannot turn on the screen: The screen of DGX would be kept off.</description>
+    </item>
+    
+    <item>
       <title>Advanced Linux Skills for Using NVIDIA Docker: Questions and Answers</title>
       <link>https://cainmagi.github.io/playground/20180614linuxdockerqna/</link>
       <pubDate>Thu, 14 Jun 2018 19:37:05 -0500</pubDate>
