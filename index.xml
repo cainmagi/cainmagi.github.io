@@ -6,18 +6,20 @@
     <description>Recent content on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 11 Aug 2018 17:29:51 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Aug 2018 01:45:25 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Report for peroidically hibernation of Nvidia DGX 230 on Aug. 11, 2018</title>
-      <link>https://cainmagi.github.io/playground/20180811nvidiabugs/</link>
-      <pubDate>Sat, 11 Aug 2018 17:29:51 +0000</pubDate>
+      <title>Special Notes on Aug. 13, 2018</title>
+      <link>https://cainmagi.github.io/notes/note20180813special/</link>
+      <pubDate>Mon, 13 Aug 2018 01:45:25 -0500</pubDate>
       
-      <guid>https://cainmagi.github.io/playground/20180811nvidiabugs/</guid>
-      <description>Problem statement  What is it?: We assume that this problem is caused by the hibernation of the graphics cards. How does it happen?: This problem occurs periodically. Every week it would occur for about once. It is not due to some special applications, because even when there is no burden on GPU, it still happens. What does it cause?: Here are some phenomenons when the problem appears:  Cannot turn on the screen: The screen of DGX would be kept off.</description>
+      <guid>https://cainmagi.github.io/notes/note20180813special/</guid>
+      <description>Introduction In this note, we would like to discuss about an interesting idea: how to implement the conventional optimization methods in deep-learning architecture? Actually we have introduced this idea in note20180720. Here let us give a brief about this idea.
+A brief about inversion First, we need to learn how the traditional inversion works. This process could be generally described as such a process:
+   The workflow of a traditional inversion         Suppose we have a known data $\mathbf{y}_0$, a forward model function $\mathcal{F}$ could transform a model $\mathbf{x}$ into data $\mathbf{y}$.</description>
     </item>
     
     <item>

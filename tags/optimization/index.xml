@@ -6,10 +6,21 @@
     <description>Recent content in Optimization on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Jun 2018 00:49:31 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 13 Aug 2018 01:45:25 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/tags/optimization/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Special Notes on Aug. 13, 2018</title>
+      <link>https://cainmagi.github.io/notes/note20180813special/</link>
+      <pubDate>Mon, 13 Aug 2018 01:45:25 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20180813special/</guid>
+      <description>Introduction In this note, we would like to discuss about an interesting idea: how to implement the conventional optimization methods in deep-learning architecture? Actually we have introduced this idea in note20180720. Here let us give a brief about this idea.
+A brief about inversion First, we need to learn how the traditional inversion works. This process could be generally described as such a process:
+   The workflow of a traditional inversion         Suppose we have a known data $\mathbf{y}_0$, a forward model function $\mathcal{F}$ could transform a model $\mathbf{x}$ into data $\mathbf{y}$.</description>
+    </item>
     
     <item>
       <title>Special Notes on Jun. 05, 2018</title>

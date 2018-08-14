@@ -1,0 +1,605 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	<meta name="generator" content="Hugo 0.46" />
+	<title>Special Notes on Aug. 13, 2018 &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Special Notes on Aug. 13, 2018</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>Aug 13, 2018</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>Aug 14, 2018</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/notes" title="Notes">Notes</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/papers" title="Papers">Papers</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/research" title="research">research</a>
+                                                    
+                                                    <a class="ui label" href="/tags/deep-learning" title="deep-learning">deep-learning</a>
+                                                    
+                                                    <a class="ui label" href="/tags/inverse-problem" title="inverse-problem">inverse-problem</a>
+                                                    
+                                                    <a class="ui label" href="/tags/optimization" title="optimization">optimization</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/notes/special.jpg" alt="" /></span>
+                                
+                            </header>
+                            
+                            <hr/>
+                            <h1 id="contents">Contents</h1>
+                            <p><nav id="TableOfContents">
+<ul>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#a-brief-about-inversion">A brief about inversion</a></li>
+<li><a href="#a-deep-learning-view-of-inversion">A deep learning view of inversion</a></li>
+</ul></li>
+<li><a href="#reference-and-background">Reference and background</a>
+<ul>
+<li><a href="#proximal-gradient-method">Proximal gradient method</a></li>
+<li><a href="#sparse-linear-inverse-problem">Sparse linear inverse problem</a></li>
+</ul></li>
+<li><a href="#proposed-methods">Proposed methods</a>
+<ul>
+<li><a href="#ista">ISTA</a></li>
+<li><a href="#lista">LISTA</a></li>
+<li><a href="#amp">AMP</a></li>
+<li><a href="#lamp">LAMP</a></li>
+</ul></li>
+</ul>
+</nav></p>
+                            
+                            <hr/>
+                            
+
+<h1 id="introduction">Introduction</h1>
+
+<p>In this note, we would like to discuss about an interesting idea: how to implement the conventional optimization methods in deep-learning architecture? Actually we have introduced this idea in <a href="../note20180720/#onsager-corrected-deep-learning-for-sparse-linear-inverse-problems" title="Onsager-corrected deep learning for sparse linear inverse problems">note20180720</a>. Here let us give a brief about this idea.</p>
+
+<h2 id="a-brief-about-inversion">A brief about inversion</h2>
+
+<p>First, we need to learn how the traditional inversion works. This process could be generally described as such a process:</p>
+
+<table>
+<thead>
+<tr>
+<th><span id='fig:pure-inversion'>The workflow of a traditional inversion</span></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="traditional-inversion.svg" alt="" title="The workflow of a traditional inversion" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Suppose we have a known data $\mathbf{y}_0$, a forward model function $\mathcal{F}$ could transform a model $\mathbf{x}$ into data $\mathbf{y}$. To find the model parameter $\hat{\mathbf{x}}$ that corresponds with $\mathbf{y}_0$, we need to make the inversion. Generally a inversion could be divided into two steps:</p>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant#Jacobian_matrix" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant#Jacobian_matrix"><b>Jacobian matrix</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<ol>
+<li><strong>Forward feeding</strong>: giving a model $\mathbf{x}$, feed it into the function $\mathcal{F}$ so that we could get a prediction $\mathbf{y}$.</li>
+<li><strong>Back propagation</strong>: giving a misfit function $\mathcal{L}$ (as the loss function), calculate $\left.\frac{\partial \mathcal{L}}{\partial \mathbf{y}}\right|_{\mathbf{y}_0}$. Then we could use this gradient to calculate the back-propagated gradient $\frac{\partial \mathcal{L}}{\partial \mathbf{x}} = \mathbf{J}\frac{\partial \mathcal{L}}{\partial \mathbf{y}}$, where we call $\mathbf{J}(\mathcal{F},~\mathbf{x})$ the <em>Jacobian</em> matrix. The back-propagated gradient would be re-balanced by a specific optimizer, which means the eventual gradient $\nabla \mathbf{x}$ would be defined as a function like $\nabla \mathbf{x} = \mathcal{G} \left(\frac{\partial \mathcal{L}}{\partial \mathbf{x}} \right)$.</li>
+</ol>
+
+<p>The two steps would compose a loop. Every loop could be viewed as an &ldquo;iteration&rdquo;. When we begin the inversion, we use a initial guess $\mathbf{x}_0$. At the end of the $t^{\mathbf{th}}$ iteration, we would update the model parameter like $\mathbf{x}_{t} = \mathbf{x}_{t-1} + \alpha_t \nabla \mathbf{x}_{t-1}$, where we call $\alpha_t$ as the learning rate in the $t^{\mathbf{th}}$ iteration. After $n$ iterations, we may get converged model paramters $\hat{\mathbf{x}} \approx \mathbf{x}_n$. The whole process of the inversion could be viewed as:</p>
+
+<div class="overflow">
+\begin{align} \label{fml:pure-inversion}
+    \hat{\mathbf{x}} = \arg\min\limits_{\mathbf{z}} \mathcal{L}(\mathbf{z},~\mathbf{y}_0).
+\end{align}
+</div>
+
+<h2 id="a-deep-learning-view-of-inversion">A deep learning view of inversion</h2>
+
+<p>The <a href="#fig:pure-inversion">figure</a> in the above section shows the workflow of the inversion. If we view different iterations as different functions respectively, we may get a view like this:</p>
+
+<table>
+<thead>
+<tr>
+<th>Migrate inversion into deep network</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="inv-migration.svg" alt="" title="Migrate inversion into deep network" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Let us concentrate on the upper part of this figure firstly. In every step we accept a model $\mathbf{x}_t$, the ground truth $\mathbf{y}_0$ and the known forward model $\mathcal{F}$ and feed them into optimizer $\mathcal{G}$. Then we could calculate a gradient $\nabla \mathbf{x}_t$ and use it to update $\mathbf{x}_t$. The $t^{\mathbf{th}}$ step of the optimizer function depends on the prediction of the last optimizer $\mathbf{x}_{t-1}$. So this method is deterministic and could not be adjusted by prior experiment, which means the result $\mathbf{x}_n$ only depends on the initial guess $\mathbf{x}_0$. Once the initial guess is given, the prediction would not be changed.</p>
+
+<p>The lower part of the above figure shows the abstract of the idea of &ldquo;trainable inversion&rdquo;. If we view $\mathcal{G}(\cdot)$ as a function, it could be replaced by another function $P_t(\cdot,~\boldsymbol{\Theta}_t)$, where $\boldsymbol{\Theta}$ is a collection of trainable parameters. Then we could use an initial guess predictor $P_0$ to give an initial prediction $\mathbf{x}_0$, and feed it into a series of trainable functions $P_t$. Each trainable function could be viewed as a surrogate of one step of the optimization in the primal inversion. In a deep learning view, we call this surrogates as &ldquo;layers&rdquo;, thus the whole process of the prediction could be viewed as a deep network.</p>
+
+<p>In the following parts of this note, we would discuss how to design those surrogates, i.e. the trainable network layers. Because the inversion methods are different from each other, and the problems that need to be solved also vary in different cases. To migrate a traditional inversion method into deep network, we need to design the basic structure of the layer according to those varying factors.</p>
+
+<h1 id="reference-and-background">Reference and background</h1>
+
+<h2 id="proximal-gradient-method">Proximal gradient method</h2>
+
+<p>In this note, we are talking about the <strong><em>sparse linear inverse problem</em></strong>. To understand this problem, we need to learn the <strong><em>proximal gradient method</em></strong>. Check these slices to get acknowledged with it quickly:</p>
+
+<p><a href="http://www.cs.cmu.edu/~pradeepr/convexopt/Lecture_Slides/prox-grad_2.pdf" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<p>The proximal gradient method is generally used to solve such a problem:</p>
+
+<div class="overflow">
+\begin{align} \label{fml:abstract-proximal}
+    \hat{\mathbf{x}} = \arg\min\limits_{\mathbf{z}} f(\mathbf{z}) + h(\mathbf{z}),
+\end{align}
+</div>
+
+<p>where $f$ is differentiable while $h$ is possibly non-differentiable. At first both $f$ and $h$ need to be convex, while in these years it has been popularized in non-convex problem. For example, here are two articles where both $f$ and $h$ could be non-convex.</p>
+
+<div class="row">
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <p><i>Accelerated Proximal Gradient Methods for Nonconvex Programming</i></p>
+    <p><a href="https://papers.nips.cc/paper/5728-accelerated-proximal-gradient-methods-for-nonconvex-programming" class="button icon fa-file-pdf-o">Reference</a></p>
+  </div>
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <p><i>Inexact Proximal Gradient Methods for Non-Convex and Non-Smooth Optimization</i></p>
+    <p><a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/17246" class="button icon fa-file-pdf-o">Reference</a></p>
+  </div>
+</div>
+
+<p>In sparse linear inverse problem, both $f$ and $h$ are convex. Thus we would suppose this condition is satisfied in the following parts. Maybe in the future I would write another note for the non-convex case which is extremely important in machine learning.</p>
+
+<p>At first, the proximal gradient method is proposed for solve the quadratic approximation. Since $h$ may be non-non-differentiable, the quadratic problem is only related to $f$. We have known that if $f$ could be approximated by first-order gradient, it would has a residual term which is second-order. Thus we could rewrite $\eqref{fml:abstract-proximal}$ as</p>
+
+<div class="overflow">
+\begin{align}
+    \hat{\mathbf{x}} = \arg\min\limits_{\mathbf{z}} f(\mathbf{x}) + \nabla f^T(\mathbf{x}) (\mathbf{z} - \mathbf{x}) + \frac{1}{2 \alpha} \lVert \mathbf{z} - \mathbf{x} \rVert^2_2 + h(\mathbf{z}),
+\end{align}
+</div>
+
+<p>where we use $\alpha$ to represent learning rate. First we could remove $f(\mathbf{x})$ term. To explain why $\alpha$ appears here, we need to rewrite the above equation as:</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \hat{\mathbf{x}} &= \arg\min\limits_{\mathbf{z}} \nabla f^T(\mathbf{x}) (\mathbf{z} - \mathbf{x}) + \frac{1}{2 \alpha} \lVert \mathbf{z} - \mathbf{x} \rVert^2_2 + h(\mathbf{z}), \\[5pt]
+        &\approx \arg\min\limits_{\mathbf{z}} \frac{1}{2 \alpha} \left( \lVert \mathbf{z} - \mathbf{x} \rVert^2_2 + 2 \alpha \nabla f^T(\mathbf{x}) (\mathbf{z} - \mathbf{x}) + \alpha^2 \lVert \nabla f(x) \rVert^2_2 \right) + h(\mathbf{z}), \\[5pt]
+        &= \arg\min\limits_{\mathbf{z}} \frac{1}{2 \alpha} \lVert \mathbf{z} - \mathbf{x} + \alpha \nabla f(x) \rVert^2_2 + h(\mathbf{z}), \\[5pt]
+        &= \arg\min\limits_{\mathbf{z}} \frac{1}{2 \alpha} \lVert \mathbf{z} - (\mathbf{x} - \alpha \nabla f(x)) \rVert^2_2 + h(\mathbf{z}).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Because $\mathbf{x} - \alpha \nabla f(x)$ indicates the plain gradient descent method, $\alpha$ should be the learning rate. Therefore, we define the proximal operator as:</p>
+
+<div class="overflow">
+\begin{align}
+    \mathrm{prox}_{h}(\mathbf{x}) = \arg\min\limits_{\mathbf{z}} h(\mathbf{z}) + \frac{1}{2} \lVert \mathbf{z} - \mathbf{x} \rVert^2_2.
+\end{align}
+</div>
+
+<p>The reason why we do not use $\alpha$ here is because we could use $\alpha h$ to replace $h$. Note that this function has analytic solution in some cases. For example, if we define $h$ as L<sub>1</sub> norm, then this problem would be specified as a solution for a sparsely regularized problem:</p>
+
+<div class="overflow">
+\begin{align} \label{fml:l1-proximal}
+    \hat{\mathbf{x}} = \arg\min\limits_{\mathbf{z}} f(\mathbf{z}) + \lambda |\mathbf{z}|.
+\end{align}
+</div>
+
+<p>The corresponding proximal gradient problem is</p>
+
+<div class="overflow">
+\begin{align}
+    \mathrm{prox}_{\alpha \lambda |\cdot|}(\mathbf{x}) = \arg\min\limits_{\mathbf{z}} \frac{1}{2} \lVert \mathbf{z} - \mathbf{x} \rVert^2_2 + \alpha \lambda |\mathbf{z}|.
+\end{align}
+</div>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Subderivative" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Subderivative"><b>Subderivative</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>To solve it, let its first-order gradient become zero. Since $h$ is non-non-differentiable, we use its subgradient to solve this problem. For the $j^{\mathrm{th}}$ element $z_j$, we know that.</p>
+
+<div class="overflow">
+\begin{equation}
+    \alpha \lambda \mathrm{sgn}(z_j) = x_j - z_j = \left\{
+    \begin{array}{l    l}
+    - \alpha \lambda, & z_j < 0 \\[5pt]
+    [-\alpha \lambda,~\alpha \lambda], & z_j = 0 \\[5pt]
+    \alpha \lambda, & z_j > 0
+    \end{array}
+    \right.
+\end{equation}
+</div>
+
+<p>The above equation could be rewritten as</p>
+
+<div class="overflow">
+\begin{equation}
+    z_j = \mathrm{sgn}(x_j)\max( |x_j|-\alpha\lambda ,~ 0) = \left\{
+    \begin{array}{l    l}
+    x_j + \alpha \lambda, & x_j < -\alpha \lambda \\[5pt]
+    0, & x_j \in [-\alpha \lambda,~\alpha \lambda] \\[5pt]
+    x_j - \alpha \lambda, & x_j > \alpha \lambda
+    \end{array}
+    \right.
+\end{equation}
+</div>
+
+<p>We call this method &ldquo;soft thresholding&rdquo;. In practice, we calculate $\mathrm{prox}_{\alpha\lambda|\cdot|}(\mathbf{x} - \alpha \nabla f(\mathbf{x}))$ iteratively to solve $\eqref{fml:l1-proximal}$. As described before, this proximal problem has analytical solution.</p>
+
+<h2 id="sparse-linear-inverse-problem">Sparse linear inverse problem</h2>
+
+<p>Suppose we have a vector $\mathbf{s}$ which could be constructed by a series of sparse orthogonal basis $\boldsymbol{\Psi}$, which means $\mathbf{s} = \boldsymbol{\Psi}\mathbf{x}$. Then defining a linear operator $\boldsymbol{\Phi}$, we could use $\mathbf{s}$ to construct a measurement $\mathbf{y}$, i.e.</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbf{y} = \boldsymbol{\Phi}\mathbf{s} + \mathbf{n},
+\end{align}
+</div>
+
+<p>where $\mathbf{n}$ is a noise vector. So we could rewrite this forward function if we define $\mathbf{A} = \boldsymbol{\Phi}\boldsymbol{\Psi}$,</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbf{y} = \mathbf{A}\mathbf{x} + \mathbf{n}.
+\end{align}
+</div>
+
+<p>If we only know $\mathbf{y}$ and $\mathbf{A}$, to get $\mathbf{x}$, we could solve such a convex problem,</p>
+
+<div class="overflow">
+\begin{align} \label{fml:splinear}
+    \hat{\mathbf{x}} = \arg\min\limits_{\mathbf{x}} \frac{1}{2} \lVert \mathbf{y} - \mathbf{A}\mathbf{x} \rVert^2_2 + \lambda |\mathbf{x}|.
+\end{align}
+</div>
+
+<p>We call it &ldquo;<strong><em>sparse linear inverse problem</em></strong>&rdquo;. In the following parts, we would discuss some methods including primal inversions and their learning versions for solving this problem. The articles on which this note inspect are:</p>
+
+<div class="row">
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <p><i>Learning Fast Approximations of Sparse Coding</i></p>
+    <p><a href="http://yann.lecun.com/exdb/publis/pdf/gregor-icml-10.pdf" class="button icon fa-file-pdf-o">Reference</a></p>
+  </div>
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <p><i>Onsager-corrected deep learning for sparse linear inverse problems</i></p>
+    <p><a href="https://ieeexplore.ieee.org/document/7905837/" class="button icon fa-file-pdf-o">Reference</a></p>
+  </div>
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <p><i>Technical implementation of proximal gradient method in Tensorflow</i></p>
+    <p><a href="https://www.tensorflow.org/api_docs/python/tf/train/ProximalAdagradOptimizer" class="button icon fa-file-pdf-o">Reference</a></p>
+  </div>
+</div>
+
+<h1 id="proposed-methods">Proposed methods</h1>
+
+<h2 id="ista">ISTA</h2>
+
+<p>The iterative soft thresholding algorithm (ISTA) is the simplest solution to problem $\eqref{fml:splinear}$, because it is just the plain solution of the proximal problem. Like what we have done, here we could derive the updating step for ISTA:</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbf{v}_t &= \mathbf{y} - \mathbf{A} \mathbf{x}_t. \\[5pt]
+    \mathbf{x}_{t+1} &= \mathrm{prox}_{\alpha\lambda|\cdot|}( \mathbf{x}_t + \alpha \mathbf{A}^T \mathbf{v}_t ).
+\end{align}
+</div>
+
+<p>In fact, the gradient of $\frac{1}{2} \lVert \mathbf{y} - \mathbf{A}\mathbf{x}_t \rVert^2_2$ is $-\mathbf{A}^T \mathbf{v}_t$. Thus ISTA could be viewed as convex gradient descent method with L<sub>1</sub> regularization. Apparently this method does not have a good performance because gradient descent method has a very low convergent rate.</p>
+
+<h2 id="lista">LISTA</h2>
+
+<p>The learning ISTA (LISTA) is adapted from the primal ISTA method. Here we suppose $\lambda$ is pre-defined, however $\mathbf{A}$ and $\alpha$ are unknown and trainable. Thus we could rewrite the primal optimization as:</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbf{x}_{t+1} &= \mathrm{prox}_{\alpha_t\lambda|\cdot|}( \mathbf{x}_t + \alpha_t \mathbf{B}_t \mathbf{v}_t ). \\[5pt]
+    \mathbf{v}_{t+1} &= \mathbf{y} - \mathbf{A}_t \mathbf{x}_{t+1}.
+\end{align}
+</div>
+
+<p>Then we could define a surrogate function $P_t$ which accepts $\{\mathbf{x}_t,~\mathbf{v}_t,~\mathbf{y}\}$ as the input parameters, outputs $\{\mathbf{x}_{t+1},~\mathbf{v}_{t+1}\}$. The trainable parameters include $\{\mathbf{A}_t,~\mathbf{B}_t,~\alpha_t\}$. Thus we know that $P_t$ is a surrogate for one step in ISTA, and it could also be viewed as a layer in deep network. The basic unit (i.e. one layer) of LISTA could be figured as</p>
+
+<table>
+<thead>
+<tr>
+<th>The layer structure of LISTA</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="flow-lista.svg" alt="" title="The layer structure of LISTA" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>To be specific, we need to define $\mathbf{x}_0$ and $\mathbf{v}_0$. LeCun suggests that we could use $\mathbf{v}_0 = \mathbf{y}$ and $\mathbf{x}_0 = \mathrm{prox}_{\alpha_t\lambda|\cdot|}( \alpha_t \mathbf{B}_0 \mathbf{y} )$. However, other predictions could be capable, too.</p>
+
+<h2 id="amp">AMP</h2>
+
+<p>Quantiles analysis shows that in the first iterations, ISTA has a heavy tailed input error, which makes it converges slowly especially in the first iterations. To solve this problem, an improvement, i.e. the approximate message passing (AMP) algorithm is proposed. AMP makes use of onsager corrections and its denoising threshold for proximal operator is prescribed. This method could be formulated as follows</p>
+
+<div class="overflow">
+\begin{align}
+    b_t &= \frac{\lVert \mathbf{x}_t \rVert_0}{M}. \\[5pt]
+    \mathbf{v}_t &= \mathbf{y} - \mathbf{A} \mathbf{x}_t + b_t \mathbf{v}_{t-1}. \\[5pt]
+    \lambda_t &= \frac{\alpha \lVert \mathbf{v}_t \rVert_2}{\sqrt{M}}. \\[5pt]
+    \mathbf{x}_{t+1} &= \mathrm{prox}_{\lambda_t|\cdot|}( \mathbf{x}_t + \mathbf{A}^T \mathbf{v}_t ).
+\end{align}
+</div>
+
+<p>The $b_t \mathbf{v}_{t-1}$ term which is like a momentum technique is what we call &ldquo;onsager correction&rdquo;. We define $\mathbf{v}_{-1}=\mathbf{0}$. The algorithm accepts an initial guess for $\mathbf{x}_0$ then $\mathbf{x}$ could be optimized by several iterations. In particular, $M^{-1}$ is the entries of variance of the large i.i.d. (sub)Gaussian random matrix $\mathbf{A}$. In practice, $M$ could be pre-computed.</p>
+
+<h2 id="lamp">LAMP</h2>
+
+<p>LAMP follows the same structure like what we have introduced in LISTA. The surrogate function $P_t$ also accepts $\{\mathbf{x}_t,~\mathbf{v}_t,~\mathbf{y}\}$ as the input parameters, and outputs $\{\mathbf{x}_{t+1},~\mathbf{v}_{t+1}\}$. The trainable parameters include $\{\mathbf{A}_t,~\mathbf{B}_t,~\alpha_t\}$. The LAMP could be formulated as</p>
+
+<div class="overflow">
+\begin{align}
+    \lambda_{t} &= \frac{\alpha_{t} \lVert \mathbf{v}_t \rVert_2}{\sqrt{M}}. \\[5pt]
+    \mathbf{x}_{t+1} &= \mathrm{prox}_{\lambda_t|\cdot|}( \mathbf{x}_t + \mathbf{B}_t \mathbf{v}_t ). \\[5pt]
+    b_{t+1} &= \frac{\lVert \mathbf{x}_{t+1} \rVert_0}{M}. \\[5pt]
+    \mathbf{v}_{t+1} &= \mathbf{y} - \mathbf{A}_t \mathbf{x}_{t+1} + b_{t+1} \mathbf{v}_{t}.
+\end{align}
+</div>
+
+<p>It is interesting that we do not need to define a $\mathbf{v}_{-1}$ here, because $\mathbf{v}$ is calculated later than $\mathbf{x}$. The only thing we need to do is providing the initial guess for $\mathbf{x}_0$ and its corresponding $\mathbf{v}_0$, as what we have done in LISTA. We suggest that the initial guess could be predicted by another deep network.</p>
+
+<p>In the following figure we show the basic unit of the LAMP structure.</p>
+
+<table>
+<thead>
+<tr>
+<th>The layer structure of LAMP</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="flow-lamp.svg" alt="" title="The layer structure of LAMP" /></td>
+</tr>
+</tbody>
+</table>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmgi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119875813-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>
