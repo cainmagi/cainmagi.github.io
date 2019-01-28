@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Theory on Rosenkreutz Studio</title>
-    <link>https://cainmagi.github.io/categories/theory/</link>
-    <description>Recent content in Theory on Rosenkreutz Studio</description>
+    <title>Segmentation on Rosenkreutz Studio</title>
+    <link>https://cainmagi.github.io/tags/segmentation/</link>
+    <description>Recent content in Segmentation on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 19 Nov 2018 17:25:43 -0600</lastBuildDate>
     
-	<atom:link href="https://cainmagi.github.io/categories/theory/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cainmagi.github.io/tags/segmentation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,16 +20,6 @@
       <description>Theory of Lovasz extension The Lovasz extension is proposed to form an interpolating function for a sub-modular set function. In this article, we are discussing about the theory and the results from this paper: &amp;ldquo;The Lovász-Softmax loss: A tractable surrogate for the optimization of the intersection-over-union measure in neural networks&amp;rdquo;,
 Reference
 To get more details, we have the further reading material about Lovasz-hinge optimization: &amp;ldquo;The Lovász Hinge: A Novel Convex Surrogate for Submodular Losses&amp;ldquo;</description>
-    </item>
-    
-    <item>
-      <title>Special Notes on Aug. 24, 2018</title>
-      <link>https://cainmagi.github.io/notes/note20180824special/</link>
-      <pubDate>Fri, 24 Aug 2018 03:45:41 -0500</pubDate>
-      
-      <guid>https://cainmagi.github.io/notes/note20180824special/</guid>
-      <description>Introduction   Check here to see Levenberg–Marquardt algorithm in Wikipedia.
-  Check this link and we could review the theory of Levenberg–Marquardt algorithm (LMA), which is used as an improvement compared to the plain first-order gradient descent method. In this short discussion, we would like to talk about how and why we could derive such a method. Then we would know that when we could use this method and when we could not.</description>
     </item>
     
   </channel>

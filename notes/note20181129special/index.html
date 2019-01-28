@@ -1,0 +1,1757 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	<meta name="generator" content="Hugo 0.53" />
+	<title>Special Notes on Nov. 19, 2018 &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Special Notes on Nov. 19, 2018</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>Nov 19, 2018</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>Jan 28, 2019</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/notes" title="Notes">Notes</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/theory" title="Theory">Theory</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/python" title="python">python</a>
+                                                    
+                                                    <a class="ui label" href="/tags/segmentation" title="segmentation">segmentation</a>
+                                                    
+                                                    <a class="ui label" href="/tags/loss-function" title="loss-function">loss-function</a>
+                                                    
+                                                    <a class="ui label" href="/tags/optimization" title="optimization">optimization</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/notes/special.jpg" alt="" /></span>
+                                
+                            </header>
+                            
+                            <hr/>
+                            <h1 id="contents">Contents</h1>
+                            <p><nav id="TableOfContents">
+<ul>
+<li><a href="#theory-of-lovasz-extension">Theory of Lovasz extension</a>
+<ul>
+<li><a href="#problem-statement">Problem statement</a>
+<ul>
+<li><a href="#jaccard-index">Jaccard index</a></li>
+<li><a href="#the-requirements-of-the-interpolation">The requirements of the interpolation</a></li>
+</ul></li>
+<li><a href="#sub-modular-set-function">Sub-modular set function</a>
+<ul>
+<li><a href="#proof-of-the-sub-modularity-of-complementary-jaccard-index-function">Proof of the sub-modularity of complementary Jaccard index function</a></li>
+</ul></li>
+<li><a href="#proof-of-lovasz-extension">Proof of Lovasz extension</a>
+<ul>
+<li><a href="#definition">Definition</a></li>
+<li><a href="#proof-for-requirement-1">Proof for requirement 1</a></li>
+<li><a href="#proof-for-requirement-2">Proof for requirement 2</a></li>
+</ul></li>
+<li><a href="#improved-algorithm-for-jaccard-index">Improved algorithm for Jaccard index</a></li>
+</ul></li>
+<li><a href="#examples">Examples</a>
+<ul>
+<li><a href="#example-of-deriving-a-lovasz-extension-with-the-plain-theory">Example of deriving a Lovasz extension with the plain theory</a></li>
+<li><a href="#example-of-deriving-a-lovasz-extension-with-the-improved-algorithm">Example of deriving a Lovasz extension with the improved algorithm</a></li>
+<li><a href="#misfit-function">Misfit function</a></li>
+</ul></li>
+<li><a href="#testing-results">Testing results</a>
+<ul>
+<li><a href="#check-the-validity-of-interpolation">Check the validity of interpolation</a></li>
+<li><a href="#handle-specific-cases">Handle specific cases</a></li>
+<li><a href="#reproduce-the-results-from-the-paper">Reproduce the results from the paper</a>
+<ul>
+<li><a href="#lovasz-softmax-loss">Lovasz-softmax loss</a></li>
+<li><a href="#lovasz-hinge-loss">Lovasz-hinge loss</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#source-codes">Source codes</a></li>
+</ul>
+</nav></p>
+                            
+                            <hr/>
+                            
+
+<h1 id="theory-of-lovasz-extension">Theory of Lovasz extension</h1>
+
+<p>The Lovasz extension is proposed to form an interpolating function for a sub-modular set function. In this article, we are discussing about the theory and the results from this paper: &ldquo;<em>The Lovász-Softmax loss: A tractable surrogate for the optimization of the intersection-over-union measure in neural networks</em>&rdquo;,</p>
+
+<p><a href="https://arxiv.org/abs/1705.08790" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<p>To get more details, we have the further reading material about Lovasz-hinge optimization: &ldquo;<em>The Lovász Hinge: A Novel Convex Surrogate for Submodular Losses</em>&ldquo;</p>
+
+<p><a href="https://arxiv.org/abs/1512.07797" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<p>In application, we usually use binarized prediction to evaluate the efficiency or accuracy. Therefore, in general, our training loss function (usually to be the cross-entropy) is different from the evaluation. By applying such method, we could make the binary function transformed into an interpolated version, so that we could optimize the binary function directly.</p>
+
+<p>To show how the interpolation works, we use a specific binary function as the example. Denote that $f(\mathbf{b}(x))$ accepts a prediction value $x \in (-2,~2)$, where $\mathbf{b}(x)$ outputs a binary vector like $[0,~1,~0]$. Then we could define that $f$ outputs the sum of $\mathbf{b}$, and $f$ is a binary function because its direct input is a binary vector.</p>
+
+<p>If we calculate $\frac{\partial f}{\partial x}$, we would find that only in countable points there is the gradient (theoretically the gradient is impulse function), which means in most cases, the gradient of $f$ is 0. So such a binary function could not be optimized. However, if we interpolate the function by some specific methods, we could get a smooth line. Since the interpolated function is derivable at any point, we could optimize over the interpolated function.</p>
+
+<div class="row">
+  <div class="6u 12u(mobilep)" style="margin-bottom:0em">
+    <table>
+      <thead>
+        <tr>
+          <th>Compare the binary function and its interpolation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="ex-interp1.svg"/></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="6u 12u(mobilep)" style="margin-bottom:0em">
+    <table>
+      <thead>
+        <tr>
+          <th>Compare the gradient from the binary function and its interpolation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="ex-interp2.svg"/></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<p>Here Lovasz extension is exactly such a tool that helps us interpolate a set function (whose input is binary) as a derivable function.</p>
+
+<h2 id="problem-statement">Problem statement</h2>
+
+<h3 id="jaccard-index">Jaccard index</h3>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Jaccard_index" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Jaccard_index"><b>Jaccard index</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>In this topic, we are discussing how to interpolate the Jaccard index function properly. The <strong>Jaccard index</strong> (also called <strong>intersection over union (IoU)</strong>) is a set function. Denote Jaccard index as $J(\hat{\mathbf{y}},~\mathbf{y}^{\ast})$, where both $\hat{\mathbf{y}}$ and $\mathbf{y}^{\ast}$ are vectors with a length of $p$. Furthermore, $\hat{\mathbf{y}} \in \{0,~1\}^p$ is the prediction and $\mathbf{y}^{\ast} \in \{0,~1\}^p$ is the ground truth. Then we could define $J$ as</p>
+
+<div class="overflow">
+\begin{align}
+    J_c (\hat{\mathbf{y}},~\mathbf{y}^{\ast}) = \frac{\left| \{ \hat{\mathbf{y}}=c \} \cap \{ \mathbf{y}^{\ast}=c \} \right|}{\left| \{ \hat{\mathbf{y}}=c \} \cup \{ \mathbf{y}^{\ast}=c \} \right|},
+\end{align}
+</div>
+
+<p>where $c$ represents a specific class in multi-class segmentation problem.</p>
+
+<p>Note that if we define the mismatch as $\mathbf{M}_c = \{ \hat{\mathbf{y}}=c ,~ \mathbf{y}^{\ast} \neq c \} \cup \{ \hat{\mathbf{y}} \neq c ,~ \mathbf{y}^{\ast}=c \}$. Then the Jaccard index could also be represented as</p>
+
+<div class="overflow">
+\begin{align} \label{fml:compjac}
+    \Delta_c (\hat{\mathbf{y}},~\mathbf{y}^{\ast}) = 1 - J_c = \frac{| \mathbf{M}_c |}{\left| \{ \mathbf{y}^{\ast}=c \} \cup \mathbf{M}_c \right|},
+\end{align}
+</div>
+
+<p>We use the following example to show how we define Jaccard index which means the intersection area size divided by union area size.</p>
+
+<table>
+<thead>
+<tr>
+<th>The example of definition of Jaccard index</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./ex-iou.svg" alt="" title="The example of the definition of IoU" /></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="the-requirements-of-the-interpolation">The requirements of the interpolation</h3>
+
+<p>To develop a derivable interpolation for Jaccard index, the designed function need to fulfil such conditions:</p>
+
+<ul>
+<li>In the whole data space, there is only countable points where the interpolation is not derivable.</li>
+<li>If we input binary vector to the interpolation, the result should be the same of that from the original set function.</li>
+</ul>
+
+<p>In the following parts, we would show how to calculate Lovasz extension, and how Lovasz extension fulfil these requirements.</p>
+
+<h2 id="sub-modular-set-function">Sub-modular set function</h2>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Submodular_set_function" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Submodular_set_function"><b>sub-modular set function</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>Here we define the sub-modular set function. Although there are multiple definitions to confirm whether a set function is sub-modular, here we only take one definition.</p>
+
+<blockquote>
+<p><strong>Definition 1</strong>: sub-modular set function <br/>
+For a set function $\Delta:~ \{0,~1\}^p \rightarrow \mathbb{R}$, if it is sub-modular, then for any two input set $\mathbf{a}$ and $\mathbf{b}$, it has
+<div class="overflow">
+\begin{align} \label{fml:submodu1}
+    \Delta (\mathbf{a}) + \Delta (\mathbf{b}) \geqslant \Delta (\mathbf{a} \cup \mathbf{b}) + \Delta (\mathbf{a} \cap \mathbf{b}).
+\end{align}
+</div></p>
+</blockquote>
+
+<p>To understand what is sub-modular function, we could view the function value as the efficacy. A function is sub-modular means with the expansion of the input set, the increment of the gained efficacy declines.</p>
+
+<h3 id="proof-of-the-sub-modularity-of-complementary-jaccard-index-function">Proof of the sub-modularity of complementary Jaccard index function</h3>
+
+<p>Here we would prove that the complementary Jaccard index function which is defined by $\eqref{fml:compjac}$ is a sub modular function.</p>
+
+<p>According to the definition in <a href="#sub-modular-set-function">Wikipedia</a>, we could find a equivalent definition for $\eqref{fml:submodu1}$:</p>
+
+<blockquote>
+<p><strong>Definition 2</strong>: sub-modular set function (Alternative) <br/>
+For every $X, Y \subseteq \Omega$ with  $X \subseteq Y$ and every $\{ x\in \Omega \setminus Y\}$ we have that
+<div class="overflow">
+\begin{align} \label{fml:submodu2}
+    \Delta(X\cup {x})-\Delta(X) \geqslant \Delta(Y\cup {x})-\Delta(Y).
+\end{align}
+</div></p>
+</blockquote>
+
+<p>This definition could be illustrated in the figure below. We use $X$ to represent $\{\hat{\mathbf{y}}_X=c\}$, $Y$ to represent $\{\hat{\mathbf{y}}_Y=c\}$. Then we could infer that $X$ and $Y$ are two different predictions, and $X$ is a smaller set compared to $Y$. And we also show a set representing the ground truth (label), $\{\mathbf{y}^{\ast}=c\}$.</p>
+
+<table>
+<thead>
+<tr>
+<th>The alternative definition for submodular set function</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./venn-subm1.svg" alt="" title="The alternative definition for submodular set function" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>We could find that there are two cases for the position of the new element $x$. While $X$ is smaller than $Y$, $x$ should be outside both $X$ and $Y$. In the first case, $x$ is inside the set $\{\mathbf{y}^{\ast}=c\}$. So according to the defintion, $\mathbf{M}_c(X \cup x) = \mathbf{M}_c(X)$ (also for $Y$). Since $\mathbf{M}_c$ does not change, we could get the equality in $\eqref{fml:submodu2}$.</p>
+
+<p>In the other case, $x$ is outside $\{\mathbf{y}^{\ast}=c\}$, which means adding a new element $x$ would expand $\mathbf{M}_c$, and $\mathbf{M}_c(X \cup x) = \mathbf{M}_c(X) + 1$ (also for $Y$). Then we could get the function:</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    f(X) = \Delta(X\cup \{x\})-\Delta(X) &= \frac{|\mathbf{M}_c(X)| + 1}{|\{\mathbf{y}^{\ast}=c\} \cup \mathbf{M}_c(X)| + 1} - \frac{|\mathbf{M}_c(X)|}{|\{\mathbf{y}^{\ast}=c\} \cup \mathbf{M}_c(X)|} \\
+    &= \frac{|\{\mathbf{y}^{\ast}=c\} \cap \overline{\mathbf{M}_c(X)}|}{|\{\mathbf{y}^{\ast}=c\} \cup \mathbf{M}_c(X)|^2 + |\{\mathbf{y}^{\ast}=c\} \cup \mathbf{M}_c(X)|}.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Because $\{\mathbf{y}^{\ast}=c\}$ is fixed, when $\mathbf{M}_c(X)$ expands, the complementary set $\overline{\mathbf{M}_c(X)}$ would reduce. Then we find that in the above equation, the numerator declines and denominator increases. Both of the changes would make $f(X)$ declines with the expansion of $X$. Thus we know $f(X) \geqslant f(Y)$, which means $\Delta(X\cup {x})-\Delta(X) \geqslant \Delta(Y\cup {x})-\Delta(Y)$.</p>
+
+<h2 id="proof-of-lovasz-extension">Proof of Lovasz extension</h2>
+
+<h3 id="definition">Definition</h3>
+
+<p>For a specific class $c$, denote that we have $p$ samples in the whole set, then we could use $\mathbf{y} \in \mathbb{R}^p$ and $\mathbf{y}^{\ast} \in \{0,~1\}^p$ to represent the prediction and the ground truth respectively. Therefore, we could find that we use $\{0,~1\}$ to show whether a sample belongs to this class.</p>
+
+<p>Denote the misfit function as $\mathbf{m}(\mathbf{y}, \mathbf{y}^{\ast}) \in \mathbb{R}^P$. This function should fulfil that for any element $i$,</p>
+
+<div class="overflow">
+\begin{equation}
+    m_i = \left\{
+    \begin{aligned}
+        &0, &(y_i = y_i^{\ast}). \\
+        &1, &(y_i + y_i^{\ast} = 1).
+    \end{aligned}
+    \right.
+\end{equation}
+</div>
+
+<p>Then we could calculate the misfit $\mathbf{m}$ for each element. Sort the misfit in descending order, we would get a resorted list of the original set, i.e. there is a set $\{\pi_1,~\pi_2,~\ldots,~\pi_p\}$ that ensures $m_{\pi_1} \geqslant m_{\pi_2} \geqslant \ldots \geqslant m_{\pi_p}$.</p>
+
+<p>Denote the gradient function as $g$, and let the complementary Jaccard index function $\Delta_c(\mathbf{0}) = 0$, then we have</p>
+
+<div class="overflow">
+\begin{align} \label{fml:gradientlovasz}
+    g_{\pi_i}(\mathbf{m}) = \Delta_c (\{\pi_1,~\pi_2,~\ldots,~\pi_i\}) - \Delta_c (\{\pi_1,~\pi_2,~\ldots,~\pi_{i-1}\}).
+\end{align}
+</div>
+
+<p>Therefore we have</p>
+
+<blockquote>
+<p><strong>Definition 3</strong>: Lovasz extension <br/>
+Define the Lovasz extension for $\Delta_c : \{0,~1\}^p \rightarrow \mathbb{R}$ is $\bar{\Delta}_c : \mathbb{R}^p \rightarrow \mathbb{R}$, then we have
+<div class="overflow">
+\begin{align} \label{fml:lovasz}
+    \bar{\Delta}_c = \sum_{i=1}^p m_{\pi_i} g_{\pi_i}.
+\end{align}
+</div></p>
+</blockquote>
+
+<h3 id="proof-for-requirement-1">Proof for requirement 1</h3>
+
+<p>Then let us check why this extension is the interpolation for the original set function. First, let us check <a href="#the-requirements-of-the-interpolation">the first requirement</a>. For any index $i$, we could find a $\pi_j$ that has $i = \pi_j$. Then we could find that</p>
+
+<div class="overflow">
+\begin{align}
+    \frac{ \partial \bar{\Delta}_c }{ \partial y_i } = \frac{ \partial \bar{\Delta}_c }{ \partial y_{\pi_j} } = \frac{ \partial m_{\pi_j} g_{\pi_j} }{ \partial y_{\pi_j} } = m_{\pi_j} \frac{ \partial g_{\pi_j} }{ \partial y_{\pi_j} } + g_{\pi_j} \frac{ \partial m_{\pi_j} }{ \partial y_{\pi_j} }.
+\end{align}
+</div>
+
+<p>Apparently, according to $\eqref{fml:gradientlovasz}$, $g_{\pi_j}$ is a linear combination of two set function. Because each set function has no gradient, $\frac{ \partial g_{\pi_j} }{ \partial y_{\pi_j} } = 0$. Then we know that</p>
+
+<div class="overflow">
+\begin{align}
+    \frac{ \partial \bar{\Delta}_c }{ \partial y_i } = g_{\pi_j} \frac{ \partial m_{\pi_j} }{ \partial y_{\pi_j} }.
+\end{align}
+</div>
+
+<p>First, $g_{\pi_j}$ is a real value function, and $m_{\pi_j}$ is a pre-defined misfit function, which is derivable at any point, so we could find that $\bar{\Delta}_c$ is derivable at any point except some countable points. Note that at those countable points, $g_{\pi_j}$ changes, so $\frac{ \partial g_{\pi_j} }{ \partial y_{\pi_j} } \rightarrow \infty$. Although in some cases $\bar{\Delta}_c$ is not derivable, these cases are countable, so the requirement 1 is still fulfilled.</p>
+
+<h3 id="proof-for-requirement-2">Proof for requirement 2</h3>
+
+<p>Now let us check the second requirement. Because $\{m_{\pi_i} | m_{\pi_i} \in \{0,~1\}\}$ is sorted in the descending order, we could know that $\exists l$, for any $i \leqslant l$, we have $m_{\pi_i} = 1$. For any $i &gt; l$, we have $m_{\pi_i} = 0$. Therefore, $\eqref{fml:lovasz}$ could be rewrited as
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \bar{\Delta}_c &amp;= \sum_{i=1}^l g_{\pi_i} + \sum_{i=l+1}^p 0 \cdot g_{\pi_i} = \sum_{i=1}^l \Delta_c ({\pi_1,~\pi_2,~\ldots,~\pi_i}) - \Delta_c ({\pi_1,~\pi_2,~\ldots,~\pi_{i-1}}) \\<br />
+    &amp;= \Delta_c ({\pi_1,~\pi_2,~\ldots,~\pi_l}) - \Delta_c(\mathbf{0}) = \Delta_c ({\pi_1,~\pi_2,~\ldots,~\pi_l}).
+  \end{aligned}
+\end{equation}
+</div></p>
+
+<p>For any $i &gt; l$, since $m_{\pi_i}=0$, which means $y_i = y^{\ast}_i$, we could know that for any set $X$, $\mathbf{M}_c (X \cup \pi_i) = \mathbf{M}_c (X)$. Because both $\mathbf{M}_c$ and $\{\mathbf{y}^{\ast}=c\}$ does not change, there would be $\Delta_c (X \cup \pi_i) = \Delta_c (X)$. Hence we have</p>
+
+<div class="overflow">
+\begin{align} \label{fml:rq2prof}
+  \Delta_c = \Delta_c (\{\pi_1,~\pi_2,~\ldots,~\pi_p\}) = \Delta_c (\{\pi_1,~\pi_2,~\ldots,~\pi_{p-1}\}) = \cdots = \Delta_c (\{\pi_1,~\pi_2,~\ldots,~\pi_l\}) = \bar{\Delta}_c.
+\end{align}
+</div>
+
+<p>The left side of this equation is the original set function, and the right side of this equation is the Lovasz extension. Because they equal to each other, we could verify that the requirement 2 is fulfilled.</p>
+
+<h2 id="improved-algorithm-for-jaccard-index">Improved algorithm for Jaccard index</h2>
+
+<p>The equation $\eqref{fml:lovasz}$ is enough for us to calculate the interpolation for the set function. But in many cases, this method is still not practicable. To be specific, when $i &gt; l$ in $\eqref{fml:rq2prof}$, we could find that the Lovasz extension would not be influenced by the samples which match the labels. In other words, there would be some cases that Lovasz extension does not have any gradient, which makes the loss function unable to be optimized.</p>
+
+<p>Here we show the improved algorithm for solving this problem.</p>
+
+<table>
+<thead>
+<tr>
+<th>Improved algorithm for calculating Lovasz extension gradient</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./alg-lovasz.svg" alt="" title="Improved algorithm for calculating Lovasz extension gradient" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>There are two ideas lying in this algorithm:</p>
+
+<ol>
+<li><p>The values of errors $\mathbf{m}$ are not used to calculate the gradient, but they could exert their influence to the gradient (cumulative sums) by adjusting the order of the foreground pixels.</p></li>
+
+<li><p>For any $i$, if the cumulative sum for $\delta_{\pi_i}$ does not increase, then the cumulative sum for $1 - \delta_{\pi_i}$ would increase. So for each $i$, the value in the gradient vector would change.</p></li>
+</ol>
+
+<p>Apparently, because in this algorithm, we do not change the calculation for $\eqref{fml:lovasz}$, <a href="#the-requirements-of-the-interpolation">the first requirement</a> is still fulfilled. However, since we change the method for calculating the gradient, we need to prove that <a href="#the-requirements-of-the-interpolation">the second requirement</a> still holds.</p>
+
+<p>Inspecting on the algorithm, we could find that in Step 5, we are calculating the equivalent $\Delta_c$. After this step, we are calculating the gradient for $\bar{\Delta}_c$ like what we do in $\eqref{fml:gradientlovasz}$. Denote the matrix $\mathbf{S}$ as</p>
+
+<div class="overflow">
+\begin{equation}
+  \mathbf{S} =
+  \begin{bmatrix}
+    1&0&0&...&0&0 \\
+    1&1&0&...&0&0 \\
+    1&1&1&..&0&0  \\
+    \vdots&\vdots&\vdots&\vdots&\vdots&\vdots \\
+    1&1&1&...&1&0 \\
+    1&1&1&...&1&1
+  \end{bmatrix}
+\end{equation}
+</div>
+
+<p>Then we can define the cumulative sum for a vector $\mathbf{x}$ as $\mathbf{Sx}$. According to the algorithm, we could rewrite the equivalent $\Delta_c$ as</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \Delta_{c\mathrm{Alg}} &= 1 - \frac{\mathbf{intersection}}{\mathbf{union}} = 1 - \frac{\sum(\boldsymbol{\delta}) - \mathbf{S} \boldsymbol{\delta}}{\sum(\boldsymbol{\delta}) + \mathbf{S} (1-\boldsymbol{\delta})} \\
+    &= \frac{\mathbf{S} (1-\boldsymbol{\delta}) + \mathbf{S} \boldsymbol{\delta}}{\sum(\boldsymbol{\delta}) + \mathbf{S} (1 - \boldsymbol{\delta})} = \frac{\mathbf{S} \boldsymbol{1}}{\sum(\boldsymbol{\delta}) + \mathbf{S} (1 - \boldsymbol{\delta})}.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>To prove the <a href="#proof-for-requirement-2">requirement 2</a>, we could still assume that the predicted value is 0 or 1. Then we could compare this rewritten version to $\eqref{fml:compjac}$ in two cases. Recall the definition in <a href="#proof-for-requirement-2">requirement 2</a>, we divide the sorted vector $\boldsymbol{\delta}_{\boldsymbol{\pi}}$ into two parts:</p>
+
+<ul>
+<li><p>$i \leqslant l$, which means for each $i$, $m_i = 1$. In this case, every time $i$ increases, because $m_i = 1$, $|\mathbf{M}_c|$ increases by 1, and the cumulative sum $\mathbf{S} \boldsymbol{1}$ would also increase by 1. So we have $|\mathbf{M}_c|=\mathbf{S} \boldsymbol{1}$. For the denominator, because $m_i = 1$ always holds, only when $\delta_{\pi_i} = 0$, which means the label shows 0, both $\mathbf{S} (1 - \boldsymbol{\delta})$ and $\left| \{ \mathbf{y}^{\ast}=c \} \cup \mathbf{M}_c \right|$ increases. Therefore, $\sum(\boldsymbol{\delta}) + \mathbf{S} (1 - \boldsymbol{\delta}) = \left| \{ \mathbf{y}^{\ast}=c \} \cup \mathbf{M}_c \right|$. Thus $\Delta_c = \Delta_{c\mathrm{Alg}}$.</p></li>
+
+<li><p>$i &gt; l$, which means for each $i$, $m_i = 0$, since $\mathbf{M}_c$ does not change, $\Delta_c$ would also be unchanged, which means the gradient would be 0 according to such calculation. However, for $\Delta_{c\mathrm{Alg}}$, the numerator would keep increasing for each $i$. And for the denominator, $\mathbf{S} (1 - \boldsymbol{\delta})$ would also increase when $\delta_{\pi_i}=0$. Note that because the denominator is always larger than numerator, $\Delta_{c\mathrm{Alg}}$ would keep increasing for each $i$, which ensures that $\Delta_c$ is still submodular.</p></li>
+</ul>
+
+<p>Then, we would find that when $m_i = 1$, $\Delta_c = \Delta_{c\mathrm{Alg}}$, which means the gradients are also the same. When $m_i = 0$, although $\Delta_c \neq \Delta_{c\mathrm{Alg}}$, $\bar{\Delta}_c$ does not be influenced, because we can formulate the Lovasz extension for both methods (direct calculating and using algorithm):</p>
+
+<div class="overflow">
+\begin{align}
+    \bar{\Delta}_c = \sum_{i=1}^p m_{\pi_i} g_{\pi_i} = \sum_{i=1}^l g_{\pi_i}.
+\end{align}
+</div>
+
+<h1 id="examples">Examples</h1>
+
+<p>Denote that labels $\boldsymbol{\delta} = \{ \mathbf{y}^{\ast}=c \}$ and logits $\mathbf{p} = \{ \hat{\mathbf{y}}=c \}$, then we give such an example:</p>
+
+<div class="overflow">
+  <table style="width:700px">
+    <tbody>
+      <tr>
+        <th>$\boldsymbol{\delta}$</th>
+        <td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td>
+      </tr>
+      <tr>
+        <th>$\mathbf{p}$</th>
+        <td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="example-of-deriving-a-lovasz-extension-with-the-plain-theory">Example of deriving a Lovasz extension with the plain theory</h2>
+
+<p>Because the predicted value $p_i \in \{0,~1\}$, there is $\mathbf{M}_c=\mathbf{m}$, then we have:</p>
+
+<div class="overflow">
+  <table style="width:700px">
+    <tbody>
+      <tr>
+        <th>$\boldsymbol{\delta}$</th>
+        <td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td>
+      </tr>
+      <tr>
+        <th>$\mathbf{p}$</th>
+        <td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td>
+      </tr>
+      <tr>
+        <th>$\mathbf{M}_c$</th>
+        <td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td>
+      </tr>
+      <tr>
+        <th>$\pi_i$</th>
+        <td>6</td><td>1</td><td>7</td><td>2</td><td>8</td><td>3</td><td>9</td><td>10</td><td>11</td><td>4</td><td>5</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>The last row of the table shows the index of sorted vectors. In the following table, each time $i$ increases, a new element $\pi_i$ would be added to $\mathbf{M}_c$. Note that $\boldsymbol{\delta}$ does not change with $i$:</p>
+
+<div class="overflow">
+  <table style="width:700px">
+    <tbody>
+      <tr>
+        <th>$\pi_i$</th>
+        <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
+      </tr>
+      <tr>
+        <th>$|\mathbf{M}_c|$</th>
+        <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td><td>5</td>
+      </tr>
+      <tr>
+        <th>$|\boldsymbol{\delta} \cup \mathbf{M}_c|$</th>
+        <td>7</td><td>7</td><td>8</td><td>8</td><td>9</td><td>9</td><td>9</td><td>9</td><td>9</td><td>9</td><td>9</td>
+      </tr>
+      <tr>
+        <th>$\Delta_c$</th>
+        <td>1/7</td><td>2/7</td><td>3/8</td><td>4/8</td><td>5/9</td><td>5/9</td><td>5/9</td><td>5/9</td><td>5/9</td><td>5/9</td><td>5/9</td>
+      </tr>
+      <tr>
+        <th>$\mathbf{m}$</th>
+        <td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+      </tr>
+      <tr>
+        <th>$\bar{\Delta}_c$</th>
+        <td>1/7</td><td>2/7</td><td>3/8</td><td>4/8</td><td>5/9</td><td>5/9</td><td>5/9</td><td>5/9</td><td>5/9</td><td>5/9</td><td>5/9</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="example-of-deriving-a-lovasz-extension-with-the-improved-algorithm">Example of deriving a Lovasz extension with the improved algorithm</h2>
+
+<p>First, calculate the order of sorted vectors:</p>
+
+<div class="overflow">
+  <table style="width:700px">
+    <tbody>
+      <tr>
+        <th>$\boldsymbol{\delta}$</th>
+        <td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td>
+      </tr>
+      <tr>
+        <th>$1-\boldsymbol{\delta}$</th>
+        <td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td>
+      </tr>
+      <tr>
+        <th>$\mathbf{p}$</th>
+        <td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td>
+      </tr>
+      <tr>
+        <th>$\mathbf{m}$</th>
+        <td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td>
+      </tr>
+      <tr>
+        <th>$\pi_i$</th>
+        <td>6</td><td>1</td><td>7</td><td>2</td><td>8</td><td>3</td><td>9</td><td>10</td><td>11</td><td>4</td><td>5</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>When using algorithm, the numerator would increases for each $\pi_i$ and the denominator would increase when $\delta_{\pi_i}=0$. Because $\sum (\boldsymbol{\delta})=6$, we have</p>
+
+<div class="overflow">
+  <table style="width:700px">
+    <tbody>
+      <tr>
+        <th>$\pi_i$</th>
+        <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
+      </tr>
+      <tr>
+        <th>$1-\boldsymbol{\delta}$</th>
+        <td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td>
+      </tr>
+      <tr>
+        <th>$\mathbf{S} \boldsymbol{1}$</th>
+        <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
+      </tr>
+      <tr>
+        <th>$\sum(\boldsymbol{\delta}) + \mathbf{S} (1 - \boldsymbol{\delta})$</th>
+        <td>7</td><td>7</td><td>8</td><td>8</td><td>9</td><td>9</td><td>10</td><td>10</td><td>11</td><td>11</td><td>11</td>
+      </tr>
+      <tr>
+        <th>$\Delta_{c\mathrm{Alg}}$</th>
+        <td>1/7</td><td>2/7</td><td>3/8</td><td>4/8</td><td>5/9</td><td>6/9</td><td>7/10</td><td>8/10</td><td>9/11</td><td>10/11</td><td>11/11</td>
+      </tr>
+      <tr>
+        <th>$\mathbf{m}$</th>
+        <td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+      </tr>
+      <tr>
+        <th>$\bar{\Delta}_c$</th>
+        <td>1/7</td><td>2/7</td><td>3/8</td><td>4/8</td><td>5/9</td><td>5/9</td><td>5/9</td><td>5/9</td><td>5/9</td><td>5/9</td><td>5/9</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="misfit-function">Misfit function</h2>
+
+<p>In the above discussion, we need to calculate misfit (error) vector $\mathbf{m}$. The element of misfit need to satisfy such a condition: $m_i \in [0,~1]$. We could use different functions to calculate the misfit as long as the function could fulfil the above condition. Denoting $\hat{\mathbf{y}}$ as the logits and $\mathbf{y}^{\ast}$ as the labels, here we introduce some misfit functions:</p>
+
+<ul>
+<li><p>Linear/L1: $\mathbf{m} = \left| \hat{\mathbf{y}} - \mathbf{y}^{\ast} \right|$.</p></li>
+
+<li><p>Trigonometric: $\mathbf{m} =1 - \cos \left(\frac{\pi}{2} \left( \hat{\mathbf{y}} - \mathbf{y}^{\ast} \right) \right)$.</p></li>
+
+<li><p>Square/L2: $\mathbf{m} = \left( \hat{\mathbf{y}} - \mathbf{y}^{\ast} \right)^2$.</p></li>
+
+<li><p>Approximate cross entropy: $\mathbf{m} =- \mathbf{y}^{\ast} \times \log_{10}(0.1 + \hat{\mathbf{y}}) - (1 - \mathbf{y}^{\ast}) \times \log_{10}(1.1 - \hat{\mathbf{y}})$.</p></li>
+</ul>
+
+<p>Note that the last function has small derivation, which does not influence the optimization.</p>
+
+<h1 id="testing-results">Testing results</h1>
+
+<h2 id="check-the-validity-of-interpolation">Check the validity of interpolation</h2>
+
+<p>In this example, we set the labels and logits as:</p>
+
+<div class="overflow">
+  <table style="width:500px">
+    <tbody>
+      <tr>
+        <th>labels</th>
+        <td>y<sup>*</sup></td><td>0</td><td>1</td><td>1</td><td>0</td>
+      </tr>
+      <tr>
+        <th>logits</th>
+        <td>y</td><td>0</td><td>1</td><td>0</td><td>1</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>which means we vary the label and logit of the first sample and record the value of the Jaccard index. The function $J(y,~y^{\ast})$ is plotted in the figure below:</p>
+
+<div class="plotlycanvas">
+  <div class="plotlytitle">The orginal Jaccard index function.</div>
+  <div id="lovasz-test-00101-non"></div>
+</div>
+
+<p>In this figure, we use y and y<sup>*</sup> as the variable parameter and the value of the function as the z axis.</p>
+
+<p>Using different functions to calculate the misfit, we may get different features for the interpolation. For example, if we use linear function to calculate the misfit, we would get:</p>
+
+<div class="plotlycanvas", style="width:80%; max-width:900px">
+  <div class="plotlytitle", style="width:900px">Comparison between $J_{\mathrm{algorithm}}$ and $J_{\mathrm{theory}}$ with respect to $L_1$ misfit.</div>
+  <div id="lovasz-test-00101-abs", style="width:900px"></div>
+</div>
+
+<p>In the above figure, we compare the results from the algorithm and the direct computing. We would find that although both methods could fulfil the two <a href="#the-requirements-of-the-interpolation">requirements</a>, we could get gradient every where if we use the algorithm version. However, if we compute the interpolation by the theory directly, in some cases the gradient would vanish.</p>
+
+<div class="plotlycanvas", style="width:80%; max-width:900px">
+  <div class="plotlytitle", style="width:900px">Comparison between $J_{\mathrm{algorithm}}$ and $J_{\mathrm{theory}}$ with respect to cross-entropy misfit.</div>
+  <div id="lovasz-test-00101-ent", style="width:900px"></div>
+</div>
+
+<p>This figure shows the results when we use the cross entropy as the misfit. Since the cross entropy function makes the optimization for small value more important, it would be more capable in practical problems.</p>
+
+<h2 id="handle-specific-cases">Handle specific cases</h2>
+
+<p>In these examples, we fix the labels and vary the logits to examine the interpolation with the cross entropy misfit. Denote that the parameters are y<sub>1</sub> and y<sub>2</sub>, then we have</p>
+
+<div class="overflow">
+  <table style="width:500px">
+    <tbody>
+      <tr>
+        <th>labels</th>
+        <td>1</td><td>1</td>
+      </tr>
+      <tr>
+        <th>logits</th>
+        <td>y<sub>1</sub></td><td>y<sub>2</sub></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>The result is</p>
+
+<div class="plotlycanvas", style="width:80%; max-width:900px">
+  <div class="plotlytitle", style="width:900px">Comparison between the interpolated Jaccard index and original one when groud truth is $\{1,~1\}$.</div>
+  <div id="lovasz-comp-11-ent", style="width:900px"></div>
+</div>
+
+<p>In the second example, we use different labels, and we have</p>
+
+<div class="overflow">
+  <table style="width:500px">
+    <tbody>
+      <tr>
+        <th>labels</th>
+        <td>0</td><td>0</td>
+      </tr>
+      <tr>
+        <th>logits</th>
+        <td>y<sub>1</sub></td><td>y<sub>2</sub></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>The result is</p>
+
+<div class="plotlycanvas">
+  <div class="plotlytitle">The interpolated Jaccard index when groud truth is $\{0,~0\}$.</div>
+  <div id="lovasz-comp-00-ent"></div>
+</div>
+
+<h2 id="reproduce-the-results-from-the-paper">Reproduce the results from the paper</h2>
+
+<p>In the following parts, we are trying to reproduce the results in the original paper. And we have succeeded in realizing the Lovasz-softmax and Lovasz-hinge loss functions with the configuration in the paper. To learn more about the two examples, check the paper to see the configurations.</p>
+
+<h3 id="lovasz-softmax-loss">Lovasz-softmax loss</h3>
+
+<div class="row">
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <div class="plotlycanvas">
+      <div class="plotlytitle">Lovasz-softmax loss when $y^{\ast}=\{0,0\}$.</div>
+      <div id="lovasz-softmax-00"></div>
+    </div>
+  </div>
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <div class="plotlycanvas">
+      <div class="plotlytitle">Lovasz-softmax loss when $y^{\ast}=\{0,1\}$.</div>
+      <div id="lovasz-softmax-01"></div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <div class="plotlycanvas">
+      <div class="plotlytitle">Lovasz-softmax loss when $y^{\ast}=\{1,0\}$.</div>
+      <div id="lovasz-softmax-10"></div>
+    </div>
+  </div>
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <div class="plotlycanvas">
+      <div class="plotlytitle">Lovasz-softmax loss when $y^{\ast}=\{1,1\}$.</div>
+      <div id="lovasz-softmax-11"></div>
+    </div>
+  </div>
+</div>
+
+<h3 id="lovasz-hinge-loss">Lovasz-hinge loss</h3>
+
+<div class="row">
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <div class="plotlycanvas">
+      <div class="plotlytitle">Lovasz-hinge loss when $y^{\ast}=\{-1,-1\}$.</div>
+      <div id="lovasz-hinge-nn"></div>
+    </div>
+  </div>
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <div class="plotlycanvas">
+      <div class="plotlytitle">Lovasz-hinge loss when $y^{\ast}=\{-1,1\}$.</div>
+      <div id="lovasz-hinge-np"></div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <div class="plotlycanvas">
+      <div class="plotlytitle">Lovasz-hinge loss when $y^{\ast}=\{1,-1\}$.</div>
+      <div id="lovasz-hinge-pn"></div>
+    </div>
+  </div>
+  <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+    <div class="plotlycanvas">
+      <div class="plotlytitle">Lovasz-hinge loss when $y^{\ast}=\{1,1\}$.</div>
+      <div id="lovasz-hinge-pp"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+Plotly.d3.csv('./lovasz-softmax-00.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+  
+var z_data=[ ]
+var x_data=[ ]
+var y_data=[ ]
+for(i=0;i<50;i++)
+{
+  z_data.push(unpack(rows,i));
+}
+for(i=50;i<100;i++)
+{
+  x_data.push(unpack(rows,i));
+}
+for(i=100;i<150;i++)
+{
+  y_data.push(unpack(rows,i));
+}
+var data = [{
+  x: x_data,
+  y: y_data,
+  z: z_data,
+  type: 'surface',
+  colorscale: 'Viridis'
+        }];
+  
+var layout = {
+  autosize: true,
+  scene: {
+    xaxis:{title: 'd1'},
+    yaxis:{title: 'd2'},
+    zaxis:{title: 'L(d1, d2)'}
+  },
+  margin: {
+    l: 45,
+    r: 30,
+    b: 45,
+    t: 30,
+  }
+};
+Plotly.newPlot('lovasz-softmax-00', data, layout);
+});
+Plotly.d3.csv('./lovasz-softmax-01.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+  
+var z_data=[ ]
+var x_data=[ ]
+var y_data=[ ]
+for(i=0;i<50;i++)
+{
+  z_data.push(unpack(rows,i));
+}
+for(i=50;i<100;i++)
+{
+  x_data.push(unpack(rows,i));
+}
+for(i=100;i<150;i++)
+{
+  y_data.push(unpack(rows,i));
+}
+var data = [{
+  x: x_data,
+  y: y_data,
+  z: z_data,
+  type: 'surface',
+  colorscale: 'Viridis'
+        }];
+  
+var layout = {
+  autosize: true,
+  scene: {
+    xaxis:{title: 'd1'},
+    yaxis:{title: 'd2'},
+    zaxis:{title: 'L(d1, d2)'}
+  },
+  margin: {
+    l: 45,
+    r: 30,
+    b: 45,
+    t: 30,
+  }
+};
+Plotly.newPlot('lovasz-softmax-01', data, layout);
+});
+Plotly.d3.csv('./lovasz-softmax-10.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+  
+var z_data=[ ]
+var x_data=[ ]
+var y_data=[ ]
+for(i=0;i<50;i++)
+{
+  z_data.push(unpack(rows,i));
+}
+for(i=50;i<100;i++)
+{
+  x_data.push(unpack(rows,i));
+}
+for(i=100;i<150;i++)
+{
+  y_data.push(unpack(rows,i));
+}
+var data = [{
+  x: x_data,
+  y: y_data,
+  z: z_data,
+  type: 'surface',
+  colorscale: 'Viridis'
+        }];
+  
+var layout = {
+  autosize: true,
+  scene: {
+    xaxis:{title: 'd1'},
+    yaxis:{title: 'd2'},
+    zaxis:{title: 'L(d1, d2)'}
+  },
+  margin: {
+    l: 45,
+    r: 30,
+    b: 45,
+    t: 30,
+  }
+};
+Plotly.newPlot('lovasz-softmax-10', data, layout);
+});
+Plotly.d3.csv('./lovasz-softmax-11.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+  
+var z_data=[ ]
+var x_data=[ ]
+var y_data=[ ]
+for(i=0;i<50;i++)
+{
+  z_data.push(unpack(rows,i));
+}
+for(i=50;i<100;i++)
+{
+  x_data.push(unpack(rows,i));
+}
+for(i=100;i<150;i++)
+{
+  y_data.push(unpack(rows,i));
+}
+var data = [{
+  x: x_data,
+  y: y_data,
+  z: z_data,
+  type: 'surface',
+  colorscale: 'Viridis'
+        }];
+  
+var layout = {
+  autosize: true,
+  scene: {
+    xaxis:{title: 'd1'},
+    yaxis:{title: 'd2'},
+    zaxis:{title: 'L(d1, d2)'}
+  },
+  margin: {
+    l: 45,
+    r: 30,
+    b: 45,
+    t: 30,
+  }
+};
+Plotly.newPlot('lovasz-softmax-11', data, layout);
+});
+
+Plotly.d3.csv('./lovasz-hinge-nn.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+  
+var z_data=[ ]
+var x_data=[ ]
+var y_data=[ ]
+for(i=0;i<50;i++)
+{
+  z_data.push(unpack(rows,i));
+}
+for(i=50;i<100;i++)
+{
+  x_data.push(unpack(rows,i));
+}
+for(i=100;i<150;i++)
+{
+  y_data.push(unpack(rows,i));
+}
+var data = [{
+  x: x_data,
+  y: y_data,
+  z: z_data,
+  type: 'surface',
+  colorscale: 'Viridis'
+        }];
+  
+var layout = {
+  autosize: true,
+  scene: {
+    xaxis:{title: 'd1'},
+    yaxis:{title: 'd2'},
+    zaxis:{title: 'L(d1, d2)'},
+    camera:{
+      eye:{
+        x:-1.25,
+        y:-1.25,
+        z:1.25
+      }
+    }
+  },
+  margin: {
+    l: 45,
+    r: 30,
+    b: 45,
+    t: 30,
+  }
+};
+Plotly.newPlot('lovasz-hinge-nn', data, layout);
+});
+Plotly.d3.csv('./lovasz-hinge-np.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+  
+var z_data=[ ]
+var x_data=[ ]
+var y_data=[ ]
+for(i=0;i<50;i++)
+{
+  z_data.push(unpack(rows,i));
+}
+for(i=50;i<100;i++)
+{
+  x_data.push(unpack(rows,i));
+}
+for(i=100;i<150;i++)
+{
+  y_data.push(unpack(rows,i));
+}
+var data = [{
+  x: x_data,
+  y: y_data,
+  z: z_data,
+  type: 'surface',
+  colorscale: 'Viridis'
+        }];
+  
+var layout = {
+  autosize: true,
+  scene: {
+    xaxis:{title: 'd1'},
+    yaxis:{title: 'd2'},
+    zaxis:{title: 'L(d1, d2)'},
+    camera:{
+      eye:{
+        x:-1.25,
+        y:-1.25,
+        z:1.25
+      }
+    }
+  },
+  margin: {
+    l: 45,
+    r: 30,
+    b: 45,
+    t: 30,
+  }
+};
+Plotly.newPlot('lovasz-hinge-np', data, layout);
+});
+Plotly.d3.csv('./lovasz-hinge-pn.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+  
+var z_data=[ ]
+var x_data=[ ]
+var y_data=[ ]
+for(i=0;i<50;i++)
+{
+  z_data.push(unpack(rows,i));
+}
+for(i=50;i<100;i++)
+{
+  x_data.push(unpack(rows,i));
+}
+for(i=100;i<150;i++)
+{
+  y_data.push(unpack(rows,i));
+}
+var data = [{
+  x: x_data,
+  y: y_data,
+  z: z_data,
+  type: 'surface',
+  colorscale: 'Viridis'
+        }];
+  
+var layout = {
+  autosize: true,
+  scene: {
+    xaxis:{title: 'd1'},
+    yaxis:{title: 'd2'},
+    zaxis:{title: 'L(d1, d2)'},
+    camera:{
+      eye:{
+        x:-1.25,
+        y:-1.25,
+        z:1.25
+      }
+    }
+  },
+  margin: {
+    l: 45,
+    r: 30,
+    b: 45,
+    t: 30,
+  }
+};
+Plotly.newPlot('lovasz-hinge-pn', data, layout);
+});
+Plotly.d3.csv('./lovasz-hinge-pp.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+  
+var z_data=[ ]
+var x_data=[ ]
+var y_data=[ ]
+for(i=0;i<50;i++)
+{
+  z_data.push(unpack(rows,i));
+}
+for(i=50;i<100;i++)
+{
+  x_data.push(unpack(rows,i));
+}
+for(i=100;i<150;i++)
+{
+  y_data.push(unpack(rows,i));
+}
+var data = [{
+  x: x_data,
+  y: y_data,
+  z: z_data,
+  type: 'surface',
+  colorscale: 'Viridis'
+        }];
+  
+var layout = {
+  autosize: true,
+  scene: {
+    xaxis:{title: 'd1'},
+    yaxis:{title: 'd2'},
+    zaxis:{title: 'L(d1, d2)'},
+    camera:{
+      eye:{
+        x:-1.25,
+        y:-1.25,
+        z:1.25
+      }
+    }
+  },
+  margin: {
+    l: 45,
+    r: 30,
+    b: 45,
+    t: 30,
+  }
+};
+Plotly.newPlot('lovasz-hinge-pp', data, layout);
+});
+
+Plotly.d3.csv('./lovasz-test-00101-non.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+  
+var z_data=[ ]
+var x_data=[ ]
+var y_data=[ ]
+for(i=0;i<50;i++)
+{
+  z_data.push(unpack(rows,i));
+}
+for(i=50;i<100;i++)
+{
+  x_data.push(unpack(rows,i));
+}
+for(i=100;i<150;i++)
+{
+  y_data.push(unpack(rows,i));
+}
+var data = [{
+  x: x_data,
+  y: y_data,
+  z: z_data,
+  type: 'surface',
+  colorscale: 'Viridis'
+        }];
+  
+var layout = {
+  autosize: true,
+  scene: {
+    xaxis:{title: 'y'},
+    yaxis:{title: 'y*'},
+    zaxis:{title: 'J (original)'},
+    camera:{
+      eye:{
+        x:-1.25,
+        y:-1.25,
+        z:1.5
+      }
+    },
+    aspectmode: 'manual',
+    aspectratio: {
+      x: 1,
+      y: 1,
+      z: 1
+    }
+  },
+  margin: {
+    l: 45,
+    r: 30,
+    b: 45,
+    t: 30,
+  }
+};
+Plotly.newPlot('lovasz-test-00101-non', data, layout);
+});
+Plotly.d3.csv('./lovasz-test-00101-abs.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+  
+var z1_data=[ ]
+var z2_data=[ ]
+var x_data=[ ]
+var y_data=[ ]
+for(i=0;i<50;i++)
+{
+  z1_data.push(unpack(rows,i));
+}
+for(i=50;i<100;i++)
+{
+  z2_data.push(unpack(rows,i));
+}
+for(i=100;i<150;i++)
+{
+  x_data.push(unpack(rows,i));
+}
+for(i=150;i<200;i++)
+{
+  y_data.push(unpack(rows,i));
+}
+var data1 = {
+  x: x_data,
+  y: y_data,
+  z: z1_data,
+  type: 'surface',
+  colorscale: 'Viridis',
+  scene: "scene1"
+};
+var data2 = {
+  x: x_data,
+  y: y_data,
+  z: z2_data,
+  type: 'surface',
+  colorscale: 'Viridis',
+  scene: "scene2"
+};
+  
+var layout = {
+  autosize: true,
+  scene1: {
+    xaxis:{title: 'y'},
+    yaxis:{title: 'y*'},
+    zaxis:{title: 'J (algorithm)'},
+    domain: {
+        x: [0.0,  0.46],
+        y: [0.0, 1.0]
+    },
+    aspectmode: 'manual',
+    aspectratio: {
+      x: 1,
+      y: 1,
+      z: 1
+    },
+    camera:{
+      eye:{
+        x:-1.25,
+        y:-1.25,
+        z:1.5
+      }
+    }
+  },
+  scene2: {
+    xaxis:{title: 'y'},
+    yaxis:{title: 'y*'},
+    zaxis:{title: 'J (theory)'},
+    domain: {
+        x: [0.54,  1.0],
+        y: [0.0, 1.0]
+    },
+    aspectmode: 'manual',
+    aspectratio: {
+      x: 1,
+      y: 1,
+      z: 1
+    },
+    camera:{
+      eye:{
+        x:-1.25,
+        y:-1.25,
+        z:1.5
+      }
+    }
+  },
+  margin: {
+    l: 45,
+    r: 30,
+    b: 45,
+    t: 30,
+  }
+};
+Plotly.newPlot('lovasz-test-00101-abs', [data1, data2], layout);
+});
+Plotly.d3.csv('./lovasz-test-00101-ent.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+  
+var z1_data=[ ]
+var z2_data=[ ]
+var x_data=[ ]
+var y_data=[ ]
+for(i=0;i<50;i++)
+{
+  z1_data.push(unpack(rows,i));
+}
+for(i=50;i<100;i++)
+{
+  z2_data.push(unpack(rows,i));
+}
+for(i=100;i<150;i++)
+{
+  x_data.push(unpack(rows,i));
+}
+for(i=150;i<200;i++)
+{
+  y_data.push(unpack(rows,i));
+}
+var data1 = {
+  x: x_data,
+  y: y_data,
+  z: z1_data,
+  type: 'surface',
+  colorscale: 'Viridis',
+  scene: "scene1"
+};
+var data2 = {
+  x: x_data,
+  y: y_data,
+  z: z2_data,
+  type: 'surface',
+  colorscale: 'Viridis',
+  scene: "scene2"
+};
+  
+var layout = {
+  autosize: true,
+  scene1: {
+    xaxis:{title: 'y'},
+    yaxis:{title: 'y*'},
+    zaxis:{title: 'J (algorithm)'},
+    domain: {
+        x: [0.0,  0.46],
+        y: [0.0, 1.0]
+    },
+    aspectmode: 'manual',
+    aspectratio: {
+      x: 1,
+      y: 1,
+      z: 1
+    },
+    camera:{
+      eye:{
+        x:-1.25,
+        y:-1.25,
+        z:1.5
+      }
+    }
+  },
+  scene2: {
+    xaxis:{title: 'y'},
+    yaxis:{title: 'y*'},
+    zaxis:{title: 'J (theory)'},
+    domain: {
+        x: [0.54,  1.0],
+        y: [0.0, 1.0]
+    },
+    aspectmode: 'manual',
+    aspectratio: {
+      x: 1,
+      y: 1,
+      z: 1
+    },
+    camera:{
+      eye:{
+        x:-1.25,
+        y:-1.25,
+        z:1.5
+      }
+    }
+  },
+  margin: {
+    l: 45,
+    r: 30,
+    b: 45,
+    t: 30,
+  }
+};
+Plotly.newPlot('lovasz-test-00101-ent', [data1, data2], layout);
+});
+
+Plotly.d3.csv('./lovasz-comp-00-ent.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+  
+var z_data=[ ]
+var x_data=[ ]
+var y_data=[ ]
+for(i=0;i<50;i++)
+{
+  z_data.push(unpack(rows,i));
+}
+for(i=50;i<100;i++)
+{
+  x_data.push(unpack(rows,i));
+}
+for(i=100;i<150;i++)
+{
+  y_data.push(unpack(rows,i));
+}
+var data = [{
+  x: x_data,
+  y: y_data,
+  z: z_data,
+  type: 'surface',
+  colorscale: 'Viridis'
+        }];
+  
+var layout = {
+  autosize: true,
+  scene: {
+    xaxis:{title: 'y1'},
+    yaxis:{title: 'y2'},
+    zaxis:{title: 'J (original)'},
+    aspectmode: 'manual',
+    aspectratio: {
+      x: 1,
+      y: 1,
+      z: 1
+    }
+  },
+  margin: {
+    l: 45,
+    r: 30,
+    b: 45,
+    t: 30,
+  }
+};
+Plotly.newPlot('lovasz-comp-00-ent', data, layout);
+});
+Plotly.d3.csv('./lovasz-comp-11-ent.csv', function(err, rows){
+function unpack(rows, key) {
+  return rows.map(function(row) { return row[key]; });
+}
+  
+var z1_data=[ ]
+var z2_data=[ ]
+var x_data=[ ]
+var y_data=[ ]
+for(i=0;i<50;i++)
+{
+  z1_data.push(unpack(rows,i));
+}
+for(i=50;i<100;i++)
+{
+  z2_data.push(unpack(rows,i));
+}
+for(i=100;i<150;i++)
+{
+  x_data.push(unpack(rows,i));
+}
+for(i=150;i<200;i++)
+{
+  y_data.push(unpack(rows,i));
+}
+var data1 = {
+  x: x_data,
+  y: y_data,
+  z: z1_data,
+  type: 'surface',
+  colorscale: 'Viridis',
+  scene: "scene1"
+};
+var data2 = {
+  x: x_data,
+  y: y_data,
+  z: z2_data,
+  type: 'surface',
+  colorscale: 'Viridis',
+  scene: "scene2"
+};
+  
+var layout = {
+  autosize: true,
+  scene1: {
+    xaxis:{title: 'y1'},
+    yaxis:{title: 'y2'},
+    zaxis:{title: 'J'},
+    domain: {
+        x: [0.0,  0.46],
+        y: [0.0, 1.0]
+    },
+    aspectmode: 'manual',
+    aspectratio: {
+      x: 1,
+      y: 1,
+      z: 1
+    },
+    camera:{
+      eye:{
+        x:-1.25,
+        y:-1.25,
+        z:1.25
+      }
+    }
+  },
+  scene2: {
+    xaxis:{title: 'y1'},
+    yaxis:{title: 'y2'},
+    zaxis:{title: 'J'},
+    domain: {
+        x: [0.54,  1.0],
+        y: [0.0, 1.0]
+    },
+    aspectmode: 'manual',
+    aspectratio: {
+      x: 1,
+      y: 1,
+      z: 1
+    },
+    camera:{
+      eye:{
+        x:-1.25,
+        y:-1.25,
+        z:1.25
+      }
+    }
+  },
+  margin: {
+    l: 45,
+    r: 30,
+    b: 45,
+    t: 30,
+  }
+};
+Plotly.newPlot('lovasz-comp-11-ent', [data1, data2], layout);
+});
+</script>
+
+<h1 id="source-codes">Source codes</h1>
+
+<p>The source code of this inspection has been uploaded to Github, to learn more about the codes, please check the following link:</p>
+
+<p><a href="https://github.com/cainmagi/Literature-inspections/tree/Lovasz012819/" class="button icon fa-github">Github</a></p>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmagi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119875813-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>
