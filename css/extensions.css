@@ -44,6 +44,82 @@ div .overflow .check{
     }
 }
 
+/** Plotly */
+.plotlycanvas {
+    position: relative;
+    margin: auto auto 1em auto;
+    width: 80%;
+    min-height: 100pt;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 0%;
+    -webkit-box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 1px 1px 20px 0px rgba(0, 0, 0, 1);
+    box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 1);
+}
+.plotlycanvas .plotlytitle{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 110%;
+    line-height: 1.6;
+    padding: 10px 10px 10px 10px;
+    background-color: #ffffff0e;
+    color: #FFF;
+}
+.plotlycanvas:hover{
+    -moz-transition: background-color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+    background-color: #695acd79
+}
+.plotlycanvas:hover .plotlytitle{
+    -moz-transition: inherit;
+    -webkit-transition: inherit;
+    -ms-transition: inherit;
+    transition: inherit;
+    background-color: #6a5acd
+}
+.plotlycanvas .js-plotly-plot{
+    min-width: 0;
+    height:100%;
+    margin: auto;
+}
+
+.plotlycanvas{
+    max-width: 550px;
+}
+.plotlycanvas .plotlytitle{
+    width: 550px;
+}
+.plotlycanvas .js-plotly-plot{
+    width: 550px;
+}
+@media screen and (max-width: 1680px) {
+    .plotlycanvas{
+        max-width: 460px;
+    }
+    .plotlycanvas .plotlytitle{
+        width: 460px;
+    }
+    .plotlycanvas .js-plotly-plot{
+        width: 460px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .plotlycanvas{
+        max-width: 400px;
+    }
+    .plotlycanvas .plotlytitle{
+        width: 400px;
+    }
+    .plotlycanvas .js-plotly-plot{
+        width: 400px;
+    }
+}
+
 /** YouTube Player */
 
 .youtube.container {

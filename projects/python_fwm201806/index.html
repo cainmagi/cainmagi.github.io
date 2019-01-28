@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
 	<meta name="author" content="Yuchen Jin">
-	<meta name="generator" content="Hugo 0.46" />
+	<meta name="generator" content="Hugo 0.53" />
 	<title>Forward Model : Curves 180602 &middot; Rosenkreutz Studio</title>
 	<!-- Stylesheets -->
 	
@@ -25,6 +25,7 @@
 
 	<!-- Custom Fonts -->
 	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 	
 	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
@@ -452,7 +453,7 @@ t_model = f.scanRead(b's_table.fwdr', g_res) # g_res is a 3-layer model response
 print(t_model.shape) # t_model has a shape of 5xN
 </code></pre>
 
-<p>This process is a simulation of the inversion. We feed a group of responses to this function and scan the table file <code>.fwdr</code> to get the best indicies of corresponding parameters in <code>.fwdp</code>. In this example, we would get a <code>5*N</code> matrix because each sample saved in <code>s_table.fwdp</code> has 5 parameters. If we have P samples for each parameter, the efficiency of this process should be O(P^M), which would be very time-consuming and space-consuming if we have many samples.</p>
+<p>This process is a simulation of the inversion. We feed a group of responses to this function and scan the table file <code>.fwdr</code> to get the best indices of corresponding parameters in <code>.fwdp</code>. In this example, we would get a <code>5*N</code> matrix because each sample saved in <code>s_table.fwdp</code> has 5 parameters. If we have P samples for each parameter, the efficiency of this process should be O(P^M), which would be very time-consuming and space-consuming if we have many samples.</p>
 
 <h2 id="global-settings">Global settings</h2>
 
@@ -498,7 +499,7 @@ fwm.setGlobal(dumpLevel=1, openMP=8)
 <ol>
 <li>Generating a 3-layer example model.</li>
 <li>Make the inversion of the model by Levenberg-Marquardt&rsquo;s algorithm.</li>
-<li>Plot the model (including the real one and the inversed one).</li>
+<li>Plot the model (including the real one and the inverted one).</li>
 </ol>
 
 <p>The basic idea of this script is using the algorithm to optimize the mean-square loss function. We appreciate the prior work of Jiefu Chen (jiefu.chen@duke.edu) on August 20, 2010 and K. Madsen&rsquo;s book. This optimization could be described as below</p>
@@ -538,7 +539,7 @@ fwm.setGlobal(dumpLevel=1, openMP=8)
 </tbody>
 </table>
 
-<p>Thus we know the range of the underground stretch is (-20, 20) feets.  The conductivity of each layer is 10, 50 and 1 respectively.</p>
+<p>Thus we know the range of the underground stretch is (-20, 20) feet.  The conductivity of each layer is 10, 50 and 1 respectively.</p>
 
 <p>We use a forward model simulator to get the response of the tool along the green curve. The tool has 92 sensors so that we would get 92x80 data. The whole response is as below</p>
 
@@ -576,12 +577,12 @@ fwm.setGlobal(dumpLevel=1, openMP=8)
 
 <p>We could see that different sensors would get quite different response curves. The target of the inverse algorithm is just using these response to predict the original model.</p>
 
-<p>Here is the model inversed by the LMA. It is produced by the code <code>script_main.m</code></p>
+<p>Here is the model inverted by the LMA. It is produced by the code <code>script_main.m</code></p>
 
 <table>
 <thead>
 <tr>
-<th>Inversed model</th>
+<th>Inverted model</th>
 </tr>
 </thead>
 
@@ -592,7 +593,7 @@ fwm.setGlobal(dumpLevel=1, openMP=8)
 </tbody>
 </table>
 
-<p>Due to the limitation of the algorithm and the noise, the result is slightly different from the real one. In this project, we will migrate the matlab codes to the python enviroment and try to use machine learning frame to solve it.</p>
+<p>Due to the limitation of the algorithm and the noise, the result is slightly different from the real one. In this project, we will migrate the matlab codes to the python environment and try to use machine learning frame to solve it.</p>
 
 <h1 id="numpy-test-for-the-forward-model">Numpy test for the forward model</h1>
 
@@ -950,7 +951,7 @@ fwm.setGlobal(dumpLevel=1, openMP=8)
                 
                     <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
                 
-                    <li><a href="https://steamcommunity.com/id/cainmgi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                    <li><a href="https://steamcommunity.com/id/cainmagi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
                 
                     <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
                 
@@ -990,7 +991,7 @@ fwm.setGlobal(dumpLevel=1, openMP=8)
     
 
     
-<script>
+<script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;

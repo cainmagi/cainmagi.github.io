@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
 	<meta name="author" content="Yuchen Jin">
-	<meta name="generator" content="Hugo 0.46" />
+	<meta name="generator" content="Hugo 0.53" />
 	<title>Special Notes on Aug. 13, 2018 &middot; Rosenkreutz Studio</title>
 	<!-- Stylesheets -->
 	
@@ -25,6 +25,7 @@
 
 	<!-- Custom Fonts -->
 	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 	
 	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
@@ -94,7 +95,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>Aug 14, 2018</td>
+                                            <td>Aug 24, 2018</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -148,6 +149,7 @@
 <li><a href="#amp">AMP</a></li>
 <li><a href="#lamp">LAMP</a></li>
 </ul></li>
+<li><a href="#results">Results</a></li>
 </ul>
 </nav></p>
                             
@@ -472,6 +474,42 @@
 </tbody>
 </table>
 
+<h1 id="results">Results</h1>
+
+<p>At the beginning of the article, the author compares the performances of ISTA, FISTA (Faster ISTA) and AMP. The results are shown in this figure:</p>
+
+<table>
+<thead>
+<tr>
+<th>Comparison of primal inversions</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="res-primalopt.svg" alt="" title="The comparison of the performances of primal optimization methods" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>We could learn that the primal ISTA requires more than $3 \times 10^{3}$ steps to converge. While AMP only needs about 30 steps. Analytically AMP is a more advanced method.</p>
+
+<p>However, if we introduce the network structure, both the LISTA and LAMP could converge in 20 layers. Which means the learning structure requires fewer &ldquo;steps&rdquo; when it comes to the convergence. Feeding the i.i.d. Gaussian basis $\mathbf{A}$, the LAMP could reach a lower loss value in fewer steps.</p>
+
+<table>
+<thead>
+<tr>
+<th>Comparison of learning optimizations</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="res-learning.svg" alt="" title="The comparison of learning optimizations" /></td>
+</tr>
+</tbody>
+</table>
+
                         </div>
                     </section>
             <!-- Disqus Inject -->
@@ -511,7 +549,7 @@
                 
                     <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
                 
-                    <li><a href="https://steamcommunity.com/id/cainmgi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                    <li><a href="https://steamcommunity.com/id/cainmagi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
                 
                     <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
                 
@@ -551,7 +589,7 @@
     
 
     
-<script>
+<script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;

@@ -3,8 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://cainmagi.github.io/notes/note20180813special/</loc>
+    <loc>https://cainmagi.github.io/notes/note20180824special/</loc>
     <lastmod>2018-08-14T10:36:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/notes/note20180813special/</loc>
+    <lastmod>2018-08-24T03:45:41-05:00</lastmod>
   </url>
   
   <url>
@@ -114,12 +119,18 @@
   
   <url>
     <loc>https://cainmagi.github.io/about/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <lastmod>2019-01-28T17:34:32-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://cainmagi.github.io/tags/about/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <lastmod>2019-01-28T17:34:32-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/algorithm/</loc>
+    <lastmod>2018-08-14T10:36:23-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -167,7 +178,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/cv/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <lastmod>2019-01-28T17:34:32-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -227,7 +238,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/infomation/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <lastmod>2019-01-28T17:34:32-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -251,7 +262,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/main/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <lastmod>2019-01-28T17:34:32-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -293,7 +304,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/papers/</loc>
-    <lastmod>2018-08-14T10:36:23-05:00</lastmod>
+    <lastmod>2018-08-24T03:45:41-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -359,13 +370,13 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/research/</loc>
-    <lastmod>2018-08-14T10:36:23-05:00</lastmod>
+    <lastmod>2018-08-24T03:45:41-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://cainmagi.github.io/tags/resume/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <lastmod>2019-01-28T17:34:32-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -401,7 +412,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/</loc>
-    <lastmod>2018-05-27T01:47:00-05:00</lastmod>
+    <lastmod>2019-01-28T17:34:32-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -420,6 +431,12 @@
   <url>
     <loc>https://cainmagi.github.io/categories/tensorflow/</loc>
     <lastmod>2018-07-20T05:15:38-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/categories/theory/</loc>
+    <lastmod>2018-08-14T10:36:23-05:00</lastmod>
     <priority>0</priority>
   </url>
   

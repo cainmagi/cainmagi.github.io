@@ -6,10 +6,20 @@
     <description>Recent content in Deep Learning on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Aug 2018 01:45:25 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 24 Aug 2018 03:45:41 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Special Notes on Aug. 24, 2018</title>
+      <link>https://cainmagi.github.io/notes/note20180824special/</link>
+      <pubDate>Fri, 24 Aug 2018 03:45:41 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20180824special/</guid>
+      <description>Introduction   Check here to see Levenberg–Marquardt algorithm in Wikipedia.
+  Check this link and we could review the theory of Levenberg–Marquardt algorithm (LMA), which is used as an improvement compared to the plain first-order gradient descent method. In this short discussion, we would like to talk about how and why we could derive such a method. Then we would know that when we could use this method and when we could not.</description>
+    </item>
     
     <item>
       <title>Special Notes on Aug. 13, 2018</title>
