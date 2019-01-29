@@ -95,7 +95,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>Aug 14, 2018</td>
+                                            <td>Jan 29, 2019</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -137,6 +137,11 @@
 <li><a href="#derivation-for-vector-valued-function">Derivation for vector-valued function</a></li>
 <li><a href="#jacobian-matrix">Jacobian matrix</a></li>
 <li><a href="#hessian-matrix">Hessian matrix</a></li>
+</ul></li>
+<li><a href="#derive-lma-from-a-second-order-expansion-view">Derive LMA from a second-order expansion view</a>
+<ul>
+<li><a href="#general-form">General form</a></li>
+<li><a href="#lma-for-least-square-problem">LMA for least square problem</a></li>
 </ul></li>
 </ul>
 </nav></p>
@@ -193,7 +198,7 @@
 <p>After learning the above definitions, now we may want to define the derivative of $\mathbf{f}(\mathbf{x})$. Since it has multiple inputs and multiple outputs, the meaning of its derivative may not be very apparent. Generally we call such a derivative, or gradient, as &ldquo;<em>Jacobian matrix</em>&rdquo;. It has $N$ rows and $M$ columns and could be formulated as</p>
 
 <div class="overflow">
-\begin{equation}
+\begin{align}
     \mathbf{J} = 
     \begin{bmatrix}
     \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_{M}} \\
@@ -201,7 +206,7 @@
     \vdots &   & \ddots & \vdots \\
     \frac{\partial f_{N}}{\partial x_1} & \cdots & \frac{\partial f_{N}}{\partial x_{M - 1}} & \frac{\partial f_{N}}{\partial x_{M}}
     \end{bmatrix}
-\end{equation}
+\end{align}
 </div>
 
 <p>To understand why Jacobian matrix could be defined as the derivative, we need to suppose that we have a function composition $z = g(\mathbf{y}) = g(\mathbf{f}(\mathbf{x}))$. If we have already gotten the derivative over $\mathbf{y}$, i.e. we have known $\frac{\partial g}{\partial \mathbf{y}}$. Then we could derive $\frac{\partial g}{\partial \mathbf{x}}$ by</p>
@@ -216,14 +221,158 @@
 
 <h2 id="hessian-matrix">Hessian matrix</h2>
 
-<div class="box" style="color:#FB8; padding-bottom:40px">
+<div class="box wiki">
     <div style="float: left;"> 
-      <p><i class="fa fa-exclamation-triangle" aria-hidden="true" style="font-size: 50px"></i></p>
+        <a href="https://en.wikipedia.org/wiki/Newton%27s_method_in_optimization" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
     </div>
-    <div style="margin-left: 60px; font-style:normal;">
-      <p>This article is still being produced. Please wait for several days to see the full edtion.</p>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Newton%27s_method_in_optimization"><b>Newton&#39;s method in optimization</b></a> in Wikipedia.</p>
     </div>
-  </div>
+</div>
+
+<p>In some cases, the second-order derivative could help us to get a better or faster convergence. For example, the Newton&rsquo;s method shows the most plain idea for utilizing the second-order term in optimization. Compare to the gradient descent method (which is first-order method), it could get rid of the influence from the local gradient and take a shorter route by making use of the curvature.</p>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Newton_algorithm"><b>Gauss-Newton algorithm</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>Furthermore, the Gauss-Newton algorithm is a practical version of the Newton&rsquo;s method. By approximating the Hessian matrix (second-order derivative) as $\mathbf{J}^T\mathbf{J}$, it supposes to a good approximation for the second order term (in least square problem).</p>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Hessian_matrix" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Hessian_matrix"><b>Hessian matrix</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>First, suppose that there is a single valued function which accepts a vector $f(\mathbf{x})$. Then its corresponding Hessian matrix is</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbf{H}(f) = 
+    \begin{bmatrix}
+    \frac{\partial f}{\partial x_1^2} & \frac{\partial f}{\partial x_1 \partial x_2} & \cdots & \frac{\partial f}{\partial x_1 \partial x_{M}} \\
+    \frac{\partial f}{\partial x_2 \partial x_1} & \ddots & \cdots & \frac{\partial f}{\partial x_2 \partial x_{M}} \\
+    \vdots &   & \ddots & \vdots \\
+    \frac{\partial f}{\partial x_M \partial x_1} & \cdots & \frac{\partial f}{\partial x_M \partial x_{M - 1}} & \frac{\partial f}{\partial x_M \partial x_{M}}
+    \end{bmatrix}.
+\end{align}
+</div>
+
+<p>Frankly, in the case of function vector, which means we have $\mathbf{y} = \mathbf{f}(\mathbf{x})$. In this case, the Hessian matrix would become a 3D one, which means</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbf{H}(\mathbf{f}) = 
+    \begin{bmatrix}
+        \mathbf{H}(f_1) & \mathbf{H}(f_2) & \mathbf{H}(f_3) & \cdots & \mathbf{H}(f_N)
+    \end{bmatrix}^T,
+\end{align}
+</div>
+
+<p>where we denote that $\mathbf{f}(\mathbf{x}) = \begin{bmatrix} f_1(\mathbf{x}) &amp; f_2(\mathbf{x}) &amp; \cdots &amp; f_N(\mathbf{x}) \end{bmatrix}^T$. The element of the above 3D matrix is a 2D matrix.</p>
+
+<h1 id="derive-lma-from-a-second-order-expansion-view">Derive LMA from a second-order expansion view</h1>
+
+<p>In this part, we would derive the LMA from a second-order expansion view. In fact, LMA could be regarded as a semi-second-order gradient approach, because when calculating the derivative, we use the second-order expansion for the least square problem while the inner function, i.e. the forward function is only expanded in the first-order.</p>
+
+<h2 id="general-form">General form</h2>
+
+<p>Considering a function composition $g(\mathbf{f}(\mathbf{x}))$, where we denote the inner function vector as $\mathbf{z} = \mathbf{f}(\mathbf{x})$. Then we could calculate the incremental of the single valued function by</p>
+
+<div class="overflow">
+\begin{align}
+    g(\mathbf{z} + \Delta \mathbf{z}) - g(\mathbf{z}) \approx \nabla g^T(\mathbf{z}) \Delta \mathbf{z} + \frac{1}{2} \Delta \mathbf{z}^T \mathbf{H}(g) \Delta \mathbf{z},
+\end{align}
+</div>
+
+<p>which indicates that we expand the function $g$ in second order. Note that we use Hessian matrix $\mathbf{H}(g)$ to represent the second order derivative. Then we could represent the incremental $\Delta \mathbf{z}$ by</p>
+
+<div class="overflow">
+\begin{align}
+    \Delta \mathbf{z} = \frac{\partial \mathbf{f}}{\partial \mathbf{x}} \Delta \mathbf{x} = \mathbf{J}(\mathbf{f}) \Delta \mathbf{x}.
+\end{align}
+</div>
+
+<p>Note that we have used the Jacobian matrix $\mathbf{J}(\mathbf{f})$ to represent the derivative of function vector $\mathbf{f}$ over $\mathbf{x}$. Actually, we could expand $\mathbf{f}(\mathbf{x}+\Delta \mathbf{x})$ to the second order. But here we only use the first order term to represent the derivative. So the expansion for the inner function vector $\mathbf{f}$ is still remained in the first order.</p>
+
+<h2 id="lma-for-least-square-problem">LMA for least square problem</h2>
+
+<p>Considering the least square problem:</p>
+
+<div class="overflow">
+\begin{align} \label{fml:intro:misfit}
+    \hat{\mathbf{x}} = \arg \min\limits_{\mathbf{x}} \lVert \mathbf{y} - \mathbf{f}(\mathbf{x}) \rVert^2,
+\end{align}
+</div>
+
+<p>where $\mathbf{y}$ is constant (usually viewed as &ldquo;observation&rdquo;), and $\mathbf{x}$ is what we need to optimize.</p>
+
+<p>So the least square problem could be described as finding a stationary point of a function composition, i.e.</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        g(\mathbf{z}) &= \lVert \mathbf{y} - \mathbf{z} \rVert^2, \\
+        \mathbf{z} &= \mathbf{f}(\mathbf{x}), \\
+        \nabla g^T(\mathbf{z}) &= - 2 (\mathbf{y} - \mathbf{z})^T, \\
+        \mathbf{H}(g) &= 2 \mathbf{I}, \\
+        \mathbf{J}(\mathbf{f}) &:= \mathbf{J},
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>where we denote the Jacobian matrix of the inner function vector $\mathbf{f}$ as $\mathbf{J}$ for the convenience.</p>
+
+<p>Then we could rewrite the incremental as</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        g(\mathbf{z} + \Delta \mathbf{z}) - g(\mathbf{z}) &\approx - 2 (\mathbf{y} - \mathbf{z})^T \Delta \mathbf{z} + \Delta \mathbf{z}^T \Delta \mathbf{z}, \\
+        g(\mathbf{x} + \Delta \mathbf{x}) - g(\mathbf{x}) &\approx - 2 (\mathbf{y} - \mathbf{f}(\mathbf{x}))^T \mathbf{J} \Delta \mathbf{x} + \Delta \mathbf{x}^T \mathbf{J}^T \mathbf{J} \Delta \mathbf{x}, \\
+        \frac{g(\mathbf{x} + \Delta \mathbf{x}) - g(\mathbf{x})}{ \Delta \mathbf{x} } &\approx \Delta \mathbf{x}^T \mathbf{J}^T \mathbf{J} - 2 (\mathbf{y} - \mathbf{f}(\mathbf{x}))^T \mathbf{J} = 0.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Set the derivative to 0, therefore we could get</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbf{J}^T \mathbf{J} \Delta \mathbf{x} &= 2 \mathbf{J}^T (\mathbf{y} - \mathbf{f}(\mathbf{x})), \\
+        \Delta \mathbf{x} &= 2 \left( \mathbf{J}^T \mathbf{J} \right)^{-1} \mathbf{J}^T (\mathbf{y} - \mathbf{f}(\mathbf{x})).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Jacobian matrix is not a square matrix in most time. However, the symmetric matrix $\mathbf{J}^T \mathbf{J}$ is a square one. So we could calculate its inverse. This result also explains that why we use $\mathbf{J}^T\mathbf{J}$ as the approximation of Hessian matrix. To be frank, this technique could only be used in the problems like least square.</p>
+
+<p>To prevent the cases where the inverse problem is underdetermined, we could add a &ldquo;damped vector&rdquo; which is derived from the pure first order gradient,</p>
+
+<div class="overflow">
+\begin{align}
+    \Delta \mathbf{x} &= 2 \left( \mathbf{J}^T \mathbf{J} + \lambda \mathbf{I} \right)^{-1} \mathbf{J}^T (\mathbf{y} - \mathbf{f}(\mathbf{x})).
+\end{align}
+</div>
+
+<p>Furthermore, there is an adaption that ensure the damped vector is scalable:</p>
+
+<div class="overflow">
+\begin{align}
+    \Delta \mathbf{x} &= 2 \left( \mathbf{J}^T \mathbf{J} + \lambda \left( \mathbf{J}^T \mathbf{J} \right) \right)^{-1} \mathbf{J}^T (\mathbf{y} - \mathbf{f}(\mathbf{x})).
+\end{align}
+</div>
+
+<p>This solution is exactly what we call &ldquo;LMA&rdquo;.</p>
 
                         </div>
                     </section>
