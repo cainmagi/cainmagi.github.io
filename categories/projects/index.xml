@@ -6,10 +6,20 @@
     <description>Recent content in Projects on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Jul 2018 13:52:21 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 05 Feb 2019 17:26:37 -0600</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/categories/projects/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Latex Templates</title>
+      <link>https://cainmagi.github.io/projects/latex_templates/</link>
+      <pubDate>Tue, 05 Feb 2019 17:26:37 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/projects/latex_templates/</guid>
+      <description>Introduction This project contains all $\LaTeX$ templates designed by myself. Now it only contains some Beamer templates. In the future, I would upload more templates if necessary.
+All of these templates are tested on $\TeX\mathrm{Live}$ and Windows. Some reports show that these templates may not compatible with MikTex, MacTex and some other platforms. If you want to use these templates in those environment, you may have to solve the incompatible problems by yourself.</description>
+    </item>
     
     <item>
       <title>Tensorflow Inspection for FWM Curves 180602</title>

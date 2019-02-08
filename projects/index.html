@@ -102,6 +102,23 @@
                 <section id="two" class="spotlights">
                     
                     <section>
+                        <a href="/projects/latex_templates/" class="image">
+							<img src="/img/projects/latex_templates.jpg" alt="" data-position="center center" class="nolimits" />
+						</a>
+                        <div class="content">
+                            <div class="inner">
+                                <header class="major">
+                                    <h3>Latex Templates</h3>
+                                </header>
+                                <p>A collection of LaTex templates designed by myself. Now this page includes Beamer templates.</p>
+                                <ul class="actions">
+                                    <li><a href="/projects/latex_templates/" class="button">Learn more</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section>
                         <a href="/projects/python_tensorfwm201806/" class="image">
 							<img src="/img/projects/python_tensor_fwm201806_title.jpg" alt="" data-position="center center" class="nolimits" />
 						</a>
@@ -185,23 +202,6 @@
                             </div>
                         </div>
                     </section>
-                    
-                    <section>
-                        <a href="/projects/python_ffmpegendecoder/" class="image">
-							<img src="/img/projects/python_ffmpegendecoder_title.jpg" alt="" data-position="center center" class="nolimits" />
-						</a>
-                        <div class="content">
-                            <div class="inner">
-                                <header class="major">
-                                    <h3>FFmpeg Encoder Decoder for Python</h3>
-                                </header>
-                                <p>This is a C&#43;&#43; based FFmpeg Encoder/Decoder for Python 3.5&#43; &amp; numpy 1.13&#43;. Both Linux &amp; Win versions are provided. Theoretically you do not need to install FFmpeg for using this library.</p>
-                                <ul class="actions">
-                                    <li><a href="/projects/python_ffmpegendecoder/" class="button">Learn more</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
                      
                     <!-- Pagination -->
 
@@ -219,6 +219,65 @@
 <!-- $upper_limit = $paginator.TotalPages - $adjacent_links -->
 
 
+
+<div class="inner" style="text-align: center; padding: 1em;">
+<ul class="pagination" id="paginator">
+    
+    <li>
+        <a href="/projects/" aria-label="First" class="button small">First</a>
+    </li>
+    
+    <li>
+        
+        <span class="button small disabled">Prev</a>
+        
+    </li>
+    <li><span style="padding-left:10px"></span></li>
+    
+    
+    
+        
+    
+    
+    <li>
+        <a class="page active" href="/projects/">1</a>
+    </li>
+    
+    
+    
+    
+        
+    
+    
+    <li>
+        <a class="page " href="/projects/page/2/">2</a>
+    </li>
+    
+    
+    <li><span style="padding-right:10px"></span></li>
+    <li>
+        <div class="dropdown">
+        <select class="dropdown-select" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"> 
+            
+                <option value="/projects//#paginator" selected="selected">1</option> 
+            
+                <option value="/projects/page/2//#paginator" >2</option> 
+            
+        </select>
+    </div>
+    </li>
+    <li>
+        
+        <a href="/projects/page/2/" aria-label="Next" class="button small ">Next</a>
+        
+    </li>
+    
+    <li>
+        <a href="/projects/page/2/" aria-label="Last" class="button small">Last</a>
+    </li>
+    
+</ul>
+</div>
 
 <!-- end pagination partial //-->
                 </section>

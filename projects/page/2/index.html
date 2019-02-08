@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html>
 <!-- Header -->
     <head>
@@ -7,13 +8,16 @@
 	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
 	<meta name="author" content="Yuchen Jin">
 	<meta name="generator" content="Hugo 0.53" />
-	<title>Latex &middot; Rosenkreutz Studio</title>
+	<title>Projects &middot; Rosenkreutz Studio</title>
 	<!-- Stylesheets -->
 	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
 	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
-    <link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
-    
-    <link rel="stylesheet" href="https://cainmagi.github.io/css/tagcats.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
 	
 	
 
@@ -21,6 +25,7 @@
 
 	<!-- Custom Fonts -->
 	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 	
 	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
@@ -79,65 +84,117 @@
 
                 <section id="banner" class="style2">
                     <div class="inner">
+			
                         <span class="image">
-                            <img src="/img/bannercategories.jpg" alt="" />
+                            <img src="/img/bannerprojects.jpg" alt="" class="nolimits" />
                         </span>
+			
                         <header class="major">
-                            <h1>Latex</h1>
+                            <h1>Projects</h1>
                         </header>
                         <div class="content">
-                            
+                            <p>All codes of my projects on Github.</p>
+
                         </div>
                     </div>
                 </section>
-                
+
                 <section id="two" class="spotlights">
-                    <div class="grid">
-                        <div class="row">
-                          
-                              <div class="box-limitation">
-                                  <div class="box-masonry">
-                                      <div class="box-masonry-text">
-                                          <h4><a href="/projects/latex_templates/">Latex Templates</a></h4>
-                                          <div class="box-masonry-description">
-                                            <p>A collection of LaTex templates designed by myself. Now this page includes Beamer templates.</p>
-                                            <ul class="actions">
-                                                <li><a href="/projects/latex_templates/" class="button">Learn more</a></li>
-                                            </ul>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          
-                              <div class="box-limitation">
-                                  <div class="box-masonry">
-                                      <div class="box-masonry-text">
-                                          <h4><a href="/playground/20180525biblestudy/">Bibile Study Notes of UH Group</a></h4>
-                                          <div class="box-masonry-description">
-                                            <p>Glory to God. These are bible study notes for fellowship of UH bible study group on Thursday.</p>
-                                            <ul class="actions">
-                                                <li><a href="/playground/20180525biblestudy/" class="button">Learn more</a></li>
-                                            </ul>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                           
-                          <div class="box-limitation">
-                              <div class="box-masonry box-back">
-                                  <div class="box-masonry-text">
-                                      <h4><a href="..">Get Back</a></h4>
-                                      <div class="box-masonry-description">
-                                        <p>Get back to the higher stage contents.</p>
-                                        <ul class="actions">
-                                            <li><a href=".." class="button">Get Back</a></li>
-                                        </ul>
-                                      </div> 
-                                  </div>
-                              </div>
-                          </div>
+                    
+                    <section>
+                        <a href="/projects/python_ffmpegendecoder/" class="image">
+							<img src="/img/projects/python_ffmpegendecoder_title.jpg" alt="" data-position="center center" class="nolimits" />
+						</a>
+                        <div class="content">
+                            <div class="inner">
+                                <header class="major">
+                                    <h3>FFmpeg Encoder Decoder for Python</h3>
+                                </header>
+                                <p>This is a C&#43;&#43; based FFmpeg Encoder/Decoder for Python 3.5&#43; &amp; numpy 1.13&#43;. Both Linux &amp; Win versions are provided. Theoretically you do not need to install FFmpeg for using this library.</p>
+                                <ul class="actions">
+                                    <li><a href="/projects/python_ffmpegendecoder/" class="button">Learn more</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    </section>
+                     
+                    <!-- Pagination -->
+
+
+
+<!-- Number of links either side of the current page. -->
+
+
+<!-- $max_links = ($adjacent_links * 2) + 1 -->
+
+
+<!-- $lower_limit = $adjacent_links + 1 -->
+
+
+<!-- $upper_limit = $paginator.TotalPages - $adjacent_links -->
+
+
+
+<div class="inner" style="text-align: center; padding: 1em;">
+<ul class="pagination" id="paginator">
+    
+    <li>
+        <a href="/projects/" aria-label="First" class="button small">First</a>
+    </li>
+    
+    <li>
+        
+        <a href="/projects/" aria-label="Previous" class="button small ">Prev</a>
+        
+    </li>
+    <li><span style="padding-left:10px"></span></li>
+    
+    
+    
+        
+    
+    
+    <li>
+        <a class="page " href="/projects/">1</a>
+    </li>
+    
+    
+    
+    
+        
+    
+    
+    <li>
+        <a class="page active" href="/projects/page/2/">2</a>
+    </li>
+    
+    
+    <li><span style="padding-right:10px"></span></li>
+    <li>
+        <div class="dropdown">
+        <select class="dropdown-select" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"> 
+            
+                <option value="/projects//#paginator" >1</option> 
+            
+                <option value="/projects/page/2//#paginator" selected="selected">2</option> 
+            
+        </select>
+    </div>
+    </li>
+    <li>
+        
+        <span class="button small disabled">Next</a>
+        
+    </li>
+    
+    <li>
+        <a href="/projects/page/2/" aria-label="Last" class="button small">Last</a>
+    </li>
+    
+</ul>
+</div>
+
+<!-- end pagination partial //-->
                 </section>
             </div>
             
@@ -178,13 +235,19 @@
     <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
     <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
     <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
     <script src="https://cainmagi.github.io/js/skel.min.js"></script>
     <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
 
     
 
     <!-- Main JS -->
     <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
 
     
 <script type="application/javascript">

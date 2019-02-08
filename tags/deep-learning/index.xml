@@ -6,10 +6,20 @@
     <description>Recent content in Deep Learning on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Aug 2018 03:45:41 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 29 Jan 2019 17:23:42 -0600</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on Jan. 29, 2019</title>
+      <link>https://cainmagi.github.io/notes/note20190129/</link>
+      <pubDate>Tue, 29 Jan 2019 17:23:42 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190129/</guid>
+      <description>Introduction In this article we would summarize some popular solutions for the inverse problem. To be specific, here we only discuss the methods of inverse problems. Although when introducing some algorithms, we may need to explain what problem they work on, the various topics about which problem we solve is not what we concentrate on in this article.
+Generally the solutions could be divided into 2 parts: optimizing methods and stochastic approaches.</description>
+    </item>
     
     <item>
       <title>Special Notes on Aug. 24, 2018</title>

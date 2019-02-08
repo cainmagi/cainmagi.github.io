@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Latex on Rosenkreutz Studio</title>
-    <link>https://cainmagi.github.io/categories/latex/</link>
+    <link>https://cainmagi.github.io/tags/latex/</link>
     <description>Recent content in Latex on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 05 Feb 2019 17:26:37 -0600</lastBuildDate>
     
-	<atom:link href="https://cainmagi.github.io/categories/latex/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cainmagi.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,17 +19,6 @@
       <guid>https://cainmagi.github.io/projects/latex_templates/</guid>
       <description>Introduction This project contains all $\LaTeX$ templates designed by myself. Now it only contains some Beamer templates. In the future, I would upload more templates if necessary.
 All of these templates are tested on $\TeX\mathrm{Live}$ and Windows. Some reports show that these templates may not compatible with MikTex, MacTex and some other platforms. If you want to use these templates in those environment, you may have to solve the incompatible problems by yourself.</description>
-    </item>
-    
-    <item>
-      <title>Bibile Study Notes of UH Group</title>
-      <link>https://cainmagi.github.io/playground/20180525biblestudy/</link>
-      <pubDate>Fri, 25 May 2018 09:43:00 -0500</pubDate>
-      
-      <guid>https://cainmagi.github.io/playground/20180525biblestudy/</guid>
-      <description>Introduction This is a latex project of the Thursday fellowship in UH religion center. Although I attempt to build a full collection of our bible study progress, I have failed on this work. Now it only contains notes for several but not all meetings. Some of these notes are materials when I need to host the meeting.
-Note that the language is Chinese.
-Contents of the Book Now it contents:</description>
     </item>
     
   </channel>

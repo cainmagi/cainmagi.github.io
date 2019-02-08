@@ -1,0 +1,640 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	<meta name="generator" content="Hugo 0.53" />
+	<title>Notes on Jan. 29, 2019 &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Notes on Jan. 29, 2019</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>Jan 29, 2019</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>Jan 29, 2019</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/notes" title="Notes">Notes</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/drafts" title="Drafts">Drafts</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/research" title="research">research</a>
+                                                    
+                                                    <a class="ui label" href="/tags/deep-learning" title="deep-learning">deep-learning</a>
+                                                    
+                                                    <a class="ui label" href="/tags/inverse-problem" title="inverse-problem">inverse-problem</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/notes/draft.jpg" alt="" /></span>
+                                
+                            </header>
+                            
+                            <hr/>
+                            <h1 id="contents">Contents</h1>
+                            <p><nav id="TableOfContents">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#optimizing-methods">Optimizing methods</a>
+<ul>
+<li><a href="#optimizing-methods-for-solving-non-linear-inverse-problem">Optimizing methods for solving non-linear inverse problem</a>
+<ul>
+<li><a href="#conjugate-gradient-descent">Conjugate gradient descent</a></li>
+<li><a href="#frank-wolfe-algorithm">Frank–Wolfe Algorithm</a></li>
+</ul></li>
+<li><a href="#optimizing-methods-for-solving-linear-inverse-problem">Optimizing methods for solving linear inverse problem</a>
+<ul>
+<li><a href="#lista-cpss-algorithm">LISTA-CPSS Algorithm</a></li>
+<li><a href="#inf-admm-adnn">Inf-ADMM-ADNN</a></li>
+<li><a href="#vamp-equipped-with-non-separable-denoiser">VAMP equipped with non-separable denoiser</a></li>
+</ul></li>
+<li><a href="#regularization-penalty">Regularization / Penalty</a>
+<ul>
+<li><a href="#adversarial-regularizers">Adversarial Regularizers</a></li>
+<li><a href="#proximal-gradient-method">Proximal gradient method</a></li>
+<li><a href="#landweber-iteration">Landweber iteration</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#stochastic-methods">Stochastic methods</a>
+<ul>
+<li><a href="#sampling-methods">Sampling methods</a></li>
+<li><a href="#heuristic-methods">Heuristic methods</a></li>
+</ul></li>
+</ul>
+</nav></p>
+                            
+                            <hr/>
+                            
+
+<h1 id="introduction">Introduction</h1>
+
+<p>In this article we would summarize some popular solutions for the inverse problem. To be specific, here we only discuss the methods of inverse problems. Although when introducing some algorithms, we may need to explain what problem they work on, the various topics about which problem we solve is not what we concentrate on in this article.</p>
+
+<p>Generally the solutions could be divided into 2 parts: optimizing methods and stochastic approaches. In the first part, i.e. the optimizing methods, we would introduce different iterative algorithms which are used to find the optimal solution of the problem. In most cases, these algorithms are based on deterministic methods, i.e. the derivatives. In the second part, we would introduce some stochastic methods especially some heuristic methods where we do not need to calculate the gradient but only need to evaluate the loss function. In those 2 parts, we would also talks about machine learning, regularization and some other related topics which have been applied to enhance the performance of the plain algorithms.</p>
+
+<p>In the following parts, we will show not only the methods and ideas but also the state-of-art progress on inverse problem. Our literature resource is mainly from <a href="https://papers.nips.cc">NIPS</a> and <a href="https://ieeexplore.ieee.org/Xplore/home.jsp">IEEE Xplore</a>.</p>
+
+<h1 id="optimizing-methods">Optimizing methods</h1>
+
+<h2 id="optimizing-methods-for-solving-non-linear-inverse-problem">Optimizing methods for solving non-linear inverse problem</h2>
+
+<h3 id="conjugate-gradient-descent">Conjugate gradient descent</h3>
+
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: A new family of conjugate gradient methods for unconstrained optimization</li>
+        <li><b>Author</b>: Mohd Rivaie, Muhammad Fauzi, and Mustafa Mamat</li>
+        <li><b>Year</b>: 2011</li>
+        <li><b>Theory level</b>: Theoretical</li>
+        <li><b>Theory type</b>: Gradient based algotirhm</li>
+        <li><b>Used data</b>: Standard testing benchmarks</li>
+        <li><b>Source</b>: International Conference on Modeling, Simulation and Applied Optimization</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://ieeexplore.ieee.org/document/5775548" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+        <ul>
+        <li><b>External Reference</b>: <i>A modified PRP conjugate gradient method with Armijo line search for large-scale unconstrained optimization</i>.</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://ieeexplore.ieee.org/document/8027748" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>This paper proposes a new conjugate gradient coefficient which is used in conjugate gradient descent method. As an alternative of Newton's method, conjugate gradient method aims at approximating the Hessian matrix with first order gradient to avoid the computationally expensive second-order term. Regardless the computational cost, this method is slower than Newton's method but faster than first-order gradient descent.</p>
+        <p>Denote that we need to solve such an unconstrained problem which could be non-linear,</p>
+        <div class="overflow">
+        \begin{align}
+            \hat{\mathbf{x}} = \arg \min\limits_{\mathbf{x}} f(\mathbf{x}).
+        \end{align}
+        </div>
+        <p>The algorithm could be described as:</p>
+        <ol>
+            <li>Initialize the input parameter $\mathbf{x}_0$, $k=0$.</li>
+            <li>Calculate first-order gradient $\mathbf{g}_k = \nabla f(\mathbf{x}_k)$.</li>
+            <li>Compute $\boldsymbol{\beta}_k$ which is the conjugate gradient coefficient.</li>
+            <li>Update descent direction: when $k=0$, let $\mathbf{d}_k=-\mathbf{g}_k$; when $k &gt; 0$, $\mathbf{d}_k=-\mathbf{g}_k+\boldsymbol{\beta}_k\mathbf{d}_{k-1}$.</li>
+            <li>Use line search to find the best update parameter: $\alpha_k=\arg \min_{\alpha}f(\mathbf{x}_k+\alpha \mathbf{d}_k)$.</li>
+            <li>Let $\mathbf{x}_{k+1} = \mathbf{x}_k+\alpha_k \mathbf{d}_k$. If $f(\mathbf{x}_{k+1}) &lt; f(\mathbf{x}_k)$ and $\lVert \mathbf{g}_k \rVert &lt; \varepsilon$, stop; otherwise get back to step 2.</li>
+        </ol>
+        <p>The author also proposes a new conjugate gradient coefficient and proves the convergence of the new coefficient.</p>
+    </div>
+  </div>
+</div>
+
+<h3 id="frank-wolfe-algorithm">Frank–Wolfe Algorithm</h3>
+
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: Decentralized Frank–Wolfe Algorithm for Convex and Nonconvex Problems</li>
+        <li><b>Author</b>: Hoi-To Wai, Jean Lafond, Anna Scaglione, and Eric Moulines</li>
+        <li><b>Year</b>: 2017</li>
+        <li><b>Theory level</b>: Theoretical</li>
+        <li><b>Theory type</b>: Gradient based algotirhm</li>
+        <li><b>Used data</b>: Standard testing benchmarks</li>
+        <li><b>Source</b>: IEEE Transactions on Automatic Control</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://ieeexplore.ieee.org/document/7883821" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>This paper introduce a decentralized version of Frank–Wolfe Algorithm which is used to solve a strictly constrained optimizing problem. In this paper, the author assume that there a series of functions $f_i (\mathbf{x})$ which might not be convex, then the problem is</p>
+        <div class="overflow">
+        \begin{align}
+            \hat{\mathbf{x}} = \arg \min\limits_{\mathbf{x} \in \mathcal{D}} F(\mathbf{x}) = \arg \min\limits_{\mathbf{x} \in \mathcal{D}} \sum_i f_i(\mathbf{x}).
+        \end{align}
+        </div>
+        <p>Denote that the adjacent matrix $\mathbf{W}$ has such condition: $\sum_{j} W_{ij} = 1$. Then the algorithm could be described as:</p>
+        <ol>
+            <li>For each agent, calculate the local average iterate among its neighbor: $\bar{\mathbf{x}}_i = \sum_{j} W_{ij} \mathbf{x}_j$, where $W_{ij}$ is an element of the adjacent matrix.</li>
+            <li>For each agent, calculate the local average gradient among its neighbor: $\overline{\nabla F}_i= \sum_{j} W_{ij} \nabla f_j (\mathbf{x}_j)$.</li>
+            <li>Let $\boldsymbol{\alpha}_i =  \arg \min\limits_{\boldsymbol{\alpha}_i \in \mathcal{D}} \boldsymbol{\alpha}_i^T \overline{\nabla F}_i$.</li>
+            <li>Update iterate: $\mathbf{x}_{i+1} = (1-\gamma) \bar{\mathbf{x}}_i + \gamma \boldsymbol{\alpha}_i$.</li>
+        </ol>
+        <p>Note that the domain $\mathcal{D}$ is a strict constraint. For example, we could set that $\mathcal{D} = \{ \mathbf{x} | \lVert \mathbf{x} \rVert_1 &lt; \lambda \}$. Then the problem would become a lasso problem.</p>
+        <p>The author also discuss the convergence when $f_i$ is convex functions, and the bound when $f_i$ is non-convex. Compared to the conventional FW algorithm, the proposed one is decentralized, which means it could make use of multiple agents and the parallel computing. The author has proved that although in the algorithm we only calculate the "local average" for each agent, when considering the whole system product, the "local average" would converge to the real one.</p>
+        <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Frank-Wolfe_Algorithm.png/440px-Frank-Wolfe_Algorithm.png"/></p>
+    </div>
+  </div>
+</div>
+
+<h2 id="optimizing-methods-for-solving-linear-inverse-problem">Optimizing methods for solving linear inverse problem</h2>
+
+<h3 id="lista-cpss-algorithm">LISTA-CPSS Algorithm</h3>
+
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: Theoretical Linear Convergence of Unfolded ISTA and its PracticalWeights and Thresholds</li>
+        <li><b>Author</b>: Xiaohan Chen, Jialin Liu, Zhangyang Wang and Wotao Yin</li>
+        <li><b>Year</b>: 2018</li>
+        <li><b>Theory level</b>: Theoretical</li>
+        <li><b>Theory type</b>: Machine learning</li>
+        <li><b>Used data</b>: 11 test images for sparse coding</li>
+        <li><b>Source</b>: Advances in Neural Information Processing Systems 31 (NIPS 2018) pre-proceedings</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://papers.nips.cc/paper/8120-theoretical-linear-convergence-of-unfolded-ista-and-its-practical-weights-and-thresholds" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>This paper concentrates on the inspection on LISTA (Learning-ISTA). To check the basic idea of LISTA and LAMP, please check this article:</p>
+        <p style="text-indent:2em"><a href="../note20180813special/#proposed-methods" class="button icon fa-file-text-o" style="text-indent:0em">Reference</a></p>
+        <p>LISTA which is adapted from ISTA, has 2 weight matrices in each layer. The network structure could be described in the following figure.</p>
+        <p><img src="./lista.svg"/></p>
+        <p>The network still preserves the workflow of ISTA. The observed data is the input for each layer, while we still need an initial guess for the prediction. The initial guess is passed to the first layer and adjusted in each layer until we get the accurate prediction.</p>
+        <p>In this paper, the author propose two improvements on the original LISTA:</p>
+        <ol>
+            <li><b>Partial weight coupling (CP)</b>: The author proves that the primal LISTA could not converge unless $\mathbf{W}_{k2} = \mathbf{I} - \mathbf{W}_{k1} \mathbf{A}$. Hence we would only has one weight matrix in each layer.</li>
+            <li><b>Support selection technique</b>: The author proposes that after we calculate the $\mathbf{v}_k = \mathbf{W}_{k1} \mathbf{b} + \mathbf{W}_{k2} \mathbf{x}_k$, we could use a new threshold technique. When $\mathbf{v}_k$ is small, use soft thresholding; when $\mathbf{v}_k$ is large, use hard thresholding.</li>
+        </ol>
+        <p>With the two above methods equipped, the convergence speed would be accelerated.</p>
+    </div>
+  </div>
+</div>
+
+<h3 id="inf-admm-adnn">Inf-ADMM-ADNN</h3>
+
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: An inner-loop free solution to inverse problems using deep neural networks</li>
+        <li><b>Author</b>: Kai Fan, Qi Wei, Lawrence Carin and Katherine A. Heller</li>
+        <li><b>Year</b>: 2017</li>
+        <li><b>Theory level</b>: Application</li>
+        <li><b>Theory type</b>: Machine learning</li>
+        <li><b>Used data</b>: Deblurring, super resolution and colorization</li>
+        <li><b>Source</b>: Advances in Neural Information Processing Systems 30 (NIPS 2017)</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://papers.nips.cc/paper/6831-an-inner-loop-free-solution-to-inverse-problems-using-deep-neural-networks" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+        <ul>
+          <li><b>External Reference</b>: <i>Distributed optimization and statistical learning via the alternating direction method of multipliers</i>.</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://stanford.edu/class/ee367/reading/admm_distr_stats.pdf" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>This paper aims at solve a general form of liner inverse problem:</p>
+        <div class="overflow">
+        \begin{equation}
+          \begin{aligned}
+            \arg \min\limits_{\mathbf{x}} &\lVert \mathbf{y} - \mathbf{A}\mathbf{z} \rVert + \lambda \mathcal{R}(\mathbf{x},~\mathbf{y}),\\
+            \mathrm{s.t.}&~\mathbf{z}=\mathbf{x}.
+          \end{aligned}
+        \end{equation}
+        </div>
+        <p>By using Lagrange multiplier method, we could decompose this optimization into 3 steps in each iteration. We call this method alternating direction method of multipliers (ADMM) framework:</p>
+        <div class="overflow">
+        \begin{equation}
+          \left\{
+          \begin{aligned}
+            \mathbf{x}^{k+1} &= \arg \min\limits_{\mathbf{x}} \beta \left\lVert \mathbf{x} - \mathbf{z}^k + \frac{\mathbf{u}^k}{2\beta} \right\rVert^2 + \lambda \mathcal{R}(\mathbf{x},~\mathbf{y}), \\
+            \mathbf{z}^{k+1} &= \arg \min\limits_{\mathbf{z}} \left\lVert \mathbf{y} - \mathbf{A}\mathbf{z} \right\rVert^2 + \beta \left\lVert \mathbf{x} - \mathbf{z}^k + \frac{\mathbf{u}^k}{2\beta} \right\rVert^2, \\
+            \mathbf{u}^{k+1} &= \mathbf{u}^k + 2 \beta \left( \mathbf{x}^{k+1} - \mathbf{z}^{k+1} \right)
+          \end{aligned}
+          \right.
+        \end{equation}
+        </div>
+        <p>In practice, the matrix $\mathbf{A}$ may be a very large one. To solve this problem, we have overcome two main challenges. The first one is the solution for $\mathbf{z}^{k+1}$. Although it has a closed-form solution, we need to calculate the inverse of $\mathbf{B} = \left( \beta\mathbf{I} + \mathbf{A}\mathbf{A}^T \right)^{-1}$. Thus the author proposes a network which is used to learn $\mathbf{C}_{\phi} \rightarrow \mathbf{B}^{-1}$</p>
+        <p><img src="./adnn-net1.svg"/></p>
+        <p>In some cases, for example, if $\mathcal{R} = \lVert \cdot \rVert_1$, $\mathbf{x}^{k+1}$ which is deduced from proximal operator could get the closed-form solution. However, if $\mathcal{R}$ is in a generalized form, for the proximal operator $\arg\min\limits_{\mathbf{x}} \frac{1}{2} \lVert \mathbf{x} - \mathbf{v} \rVert_2^2 + \mathcal{R}(\mathbf{x},~\mathbf{y})$, we could find that</p>
+        <div class="overflow">
+        \begin{align}
+            \mathbf{v} - \mathbf{x} \propto \partial \mathcal{R}.
+        \end{align}
+        </div>
+        <p>Thus we know that $\mathbf{v} = \mathcal{F} (\mathbf{x})$. And we use the following network to learn the inverse $\mathbf{x} = \mathcal{F}^{-1}(\mathbf{v})$.</p>
+        <p><img src="./adnn-net2.svg"/></p>
+    </div>
+  </div>
+</div>
+
+<h3 id="vamp-equipped-with-non-separable-denoiser">VAMP equipped with non-separable denoiser</h3>
+
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: Theoretical Linear Convergence of Unfolded ISTA and its PracticalWeights and Thresholds</li>
+        <li><b>Author</b>: Xiaohan Chen, Jialin Liu, Zhangyang Wang and Wotao Yin</li>
+        <li><b>Year</b>: 2018</li>
+        <li><b>Theory level</b>: Theoretical</li>
+        <li><b>Theory type</b>: Machine learning</li>
+        <li><b>Used data</b>: 11 test images for sparse coding</li>
+        <li><b>Source</b>: Advances in Neural Information Processing Systems 31 (NIPS 2018) pre-proceedings</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://papers.nips.cc/paper/8120-theoretical-linear-convergence-of-unfolded-ista-and-its-practical-weights-and-thresholds" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+        <ul>
+          <li><b>External Reference</b>: To learn more about AMP, please check this note:</li>
+        </ul>
+        <p style="text-indent:2em"><a href="../note20180813special/#proposed-methods" class="button icon fa-file-text-o" style="text-indent:0em">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>This paper extends the Vector-AMP (VAMP) to a wider case. First, let us introduce VAMP. VAMP extend the conventional AMP into a two-part iteration structure. In the first part, we use a denoising operator $\mathbf{g}_1(\cdot)$ as we have done in AMP. In the other part, we use a linear minimum mean-squared error (LMMSE) operator to ensure a state evolution (SE) analysis. This technique extend the algorithm to a case that $\mathbf{A}$ is not required to be in the i.i.d. sub-Gaussian distribution but only need to be an arbitrary right rotationally invariant matrix.</p>
+        <p>This is the algorithm of VAMP:</p>
+        <p><img src="./vampns-alg.svg"/></p>
+        <p>The sub-structure in each part is the same as AMP. However, in this algorithm, we have 2 function vectors $\mathbf{g}_1(\cdot)$ and $\mathbf{g}_2(\cdot)$, where $\mathbf{g}_2(\cdot)$ needs to be a solution to the L2-penalized linear inverse problem:</p>
+        <div class="overflow">
+        \begin{align}
+            \mathbf{g}_2(\mathbf{r}_{2k},~ \gamma_{2k}) := \left( \gamma_{\omega} \mathbf{A}^T\mathbf{A} + \gamma_{2k}\mathbf{I} \right)^{-1} \left( \gamma_{2k} \mathbf{A}^T\mathbf{y} + \gamma_{2k}\mathbf{r}_{2k} \right).
+        \end{align}
+        </div>
+        <p>However, $\mathbf{g}_1(\cdot)$ could be many kinds of denoisers. For example, soft thresholding is the solution derived from L<sub>1</sub> norm penalty, which is a separable denoiser. In this article, the author propose that with the ground truth $\mathbf{x}^{\ast}$ companied by Gaussian noise, both of the errors $\mathbf{p}_k = \mathbf{r}_{1k} - \mathbf{x}^{\ast}$ and $\mathbf{q}_k = \mathbf{V}^T \left(\mathbf{r}_{1k} - \mathbf{x}^{\ast}\right)$</p> converge to a vector with each element in the Gaussian distribution with zero mean and $\tau_{1k}$, $\tau_{2k}$ variance respectively.
+    </div>
+  </div>
+</div>
+
+<h2 id="regularization-penalty">Regularization / Penalty</h2>
+
+<h3 id="adversarial-regularizers">Adversarial Regularizers</h3>
+
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: Adversarial Regularizers in Inverse Problems</li>
+        <li><b>Author</b>: Sebastian Lunz, Carola Schoenlieb and Ozan Öktem</li>
+        <li><b>Year</b>: 2018</li>
+        <li><b>Theory level</b>: Theoretical</li>
+        <li><b>Theory type</b>: Machine learning</li>
+        <li><b>Used data</b>: image inverse, the data is from BSDS500 dataset</li>
+        <li><b>Source</b>: Advances in Neural Information Processing Systems 31 (NIPS 2018) pre-proceedings</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://papers.nips.cc/paper/8120-theoretical-linear-convergence-of-unfolded-ista-and-its-practical-weights-and-thresholds" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>Consider such a problem:</p>
+        <div class="overflow">
+        \begin{align}
+            \hat{\mathbf{x}} = \arg \min\limits_{\mathbf{x}} \lVert \mathbf{y} - \mathbf{A}\mathbf{x}\rVert_2^2 + \lambda f(\mathbf{x}).
+        \end{align}
+        </div>
+        <p>This paper proposes that we could use a network $\Psi_{\boldsymbol{\Theta}}(\cdot)$ to replace the regularization term $f$. Since the network could learn from the distribution of the data, it could serve better than a specially designed regularization.</p>
+        <p>Considering that $\mathbf{y} = \mathbf{A} \mathbf{x}$, we may have a direct inverse method that $\mathbf{x} = \mathbf{A}^{\ast}\mathbf{x}$. Note that because $\mathbf{A}$ may not be a square matrix, it would not have inverse in most cases. However, $\mathbf{A}^{\ast}$ could be viewed as a pseudo-inverse of $\mathbf{A}$. There exists some techniques where we could calculate $\mathbf{A}^{\ast}$ efficiently. And a research also discloses that such conclusion also holds when we consider a pseudo-inverse of a convolution.</p>
+        <p>Considering that we have ground truth set $\mathbb{P}_r$, and the observation set $\mathbf{P}_y$. By $\mathbf{A}^{\ast}$ we could project the observation into a pseudo-inverse set $\mathbf{P}_n$. Then we could use such loss function to train network:</p>
+        <div class="overflow">
+        \begin{align}
+            \mathcal{L} = \Psi_{\boldsymbol{\Theta}}(\mathbf{x}_r) - \Psi_{\boldsymbol{\Theta}}(\mathbf{x}_n) + \mu \max\left( \lVert \nabla_{\mathbf{x}_i} \Psi_{\boldsymbol{\Theta}}(\mathbf{x}_i) \rVert^2_2,~0\right)^2,
+        \end{align}
+        </div>
+        <p>where $\mathbf{x}_r \sim \mathbb{P}_r$, $\mathbf{x}_n \sim \mathbb{P}_n$ and $\mathbf{x}_i = \varepsilon \mathbf{x}_r + (1 - \varepsilon \mathbf{x}_n)$. $\varepsilon$ is a random variable in the uniform distribution $U(0,~1)$. The last term in the loss function is used to enforce $\Psi_{\boldsymbol{\Theta}}$ to be Lipschitz continuous. During the training, we sample $\mathbf{x}_r$ and $\mathbf{x}_n$ randomly. Since they are not coupled, the loss function is essentially the Wasserstein distance which makes the network learn the minimal distance between the two distribution $\mathbb{P}_r$ and $\mathbb{P}_n$.</p>
+        <p>After the network getting trained, the network parameter $\boldsymbol{\Theta}$ would be fixed. Then we could use gradient descent to solve the inverse problem:</p>
+        <div class="overflow">
+        \begin{align}
+            \mathbf{x}^{k+1} = \mathbf{x}^k - \alpha \nabla_{\mathbf{x}} \left( \lVert \mathbf{y} - \mathbf{A}\mathbf{x}^k\rVert_2^2 + \lambda \Psi_{\boldsymbol{\Theta}}(\mathbf{x}^k) \right).
+        \end{align}
+        </div>
+    </div>
+  </div>
+</div>
+
+<h3 id="proximal-gradient-method">Proximal gradient method</h3>
+
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: Parallel proximal methods for total variation minimization</li>
+        <li><b>Author</b>: Ulugbek S. Kamilov</li>
+        <li><b>Year</b>: 2017</li>
+        <li><b>Theory level</b>: Theoretical</li>
+        <li><b>Theory type</b>: Regularization</li>
+        <li><b>Used data</b>: Shepp-Logan images</li>
+        <li><b>Source</b>: IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://ieeexplore.ieee.org/document/7472568" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>In this paper, the author gives the general formulation of the proximal algorithm where we need to solve that</p>
+        <div class="overflow">
+        \begin{align}
+            \hat{\mathbf{x}} = \arg \min\limits_{\mathbf{x}} \mathcal{D}(\mathbf{x}) + \frac{1}{K} \sum_{k=1}^K \mathcal{R}_k(\mathbf{x}),
+        \end{align}
+        </div>
+        <p>where $\mathcal{D},~\mathcal{R}_k$ are convex. Such problem often appears when solving dictionary learning. To get the solution, we need to apply ISTA-based optimization:</p>
+        <div class="overflow">
+        \begin{align}
+            \mathbf{z}_t = \mathbf{x}_{t-1} - \gamma_t \nabla \mathcal{D} (\mathbf{x}_{t-1}), \\
+            \mathbf{x}_t = \frac{1}{K} \sum_{k=1}^K \mathrm{prox}_{\gamma_t \mathcal{R}_k}(\mathbf{z}_t).
+        \end{align}
+        </div>
+        <p>To learn the details about what is proximal operator ($\mathbf{prox}(\cdot)$) and how to solve it, please check:</p>
+        <p style="text-indent:2em"><a href="../note20180813special/#proximal-gradient-method" class="button icon fa-file-text-o" style="text-indent:0em">Reference</a></p>
+    </div>
+  </div>
+</div>
+
+<h3 id="landweber-iteration">Landweber iteration</h3>
+
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: Learning Model-Based Sparsity via Projected Gradient Descent</li>
+        <li><b>Author</b>: Sohail Bahmani, Petros T. Boufounos, and Bhiksha Raj</li>
+        <li><b>Year</b>: 2017</li>
+        <li><b>Theory level</b>: Theoretical</li>
+        <li><b>Theory type</b>: Regularization</li>
+        <li><b>Used data</b>: None (pure theoretical)</li>
+        <li><b>Source</b>: IEEE Transactions on Information Theory</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://ieeexplore.ieee.org/document/7373645" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>This paper gives the proof of how the Landweber iteration (Projected Gradient Descent) converges, and it also verify some other features like Stable Model-Restricted Hessian (SMRH) condition.</p>
+        <p>The Landweber iteration is used when there is a strict constraint accompanied with the optimization.</p>
+        <div class="overflow">
+        \begin{align}
+            \hat{\mathbf{x}} = \arg \min\limits_{\mathbf{x} \in \mathcal{C}} f(\mathbf{x}).
+        \end{align}
+        </div>
+        <p>Different from the plain gradient descent, it needs to project the updated parameter to the strictly limited space:</p>
+        <div class="overflow">
+        \begin{align}
+            \mathbf{x}_{t+1} = \mathcal{P}_{\mathcal{C}} (\mathbf{x}_t - \alpha \nabla f(\mathbf{x})).
+        \end{align}
+        </div>
+        <p>Note that to solve this problem, we need to use the project function $\mathcal{P}$ which means we find a solution $\mathbf{x}_{t+1} \in \mathcal{C}$ that has the smallest distance to $\mathbf{x}_t - \alpha \nabla f(\mathbf{x})$.</p>
+    </div>
+  </div>
+</div>
+
+<h1 id="stochastic-methods">Stochastic methods</h1>
+
+<h2 id="sampling-methods">Sampling methods</h2>
+
+<h2 id="heuristic-methods">Heuristic methods</h2>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmagi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119875813-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>

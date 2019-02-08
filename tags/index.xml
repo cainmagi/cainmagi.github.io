@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>Beamer</title>
+      <link>https://cainmagi.github.io/tags/beamer/</link>
+      <pubDate>Tue, 05 Feb 2019 17:26:37 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/beamer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Bible</title>
       <link>https://cainmagi.github.io/tags/bible/</link>
       <pubDate>Fri, 25 May 2018 09:43:00 -0500</pubDate>
@@ -86,7 +95,7 @@
     <item>
       <title>Deep Learning</title>
       <link>https://cainmagi.github.io/tags/deep-learning/</link>
-      <pubDate>Fri, 24 Aug 2018 03:45:41 -0500</pubDate>
+      <pubDate>Tue, 29 Jan 2019 17:23:42 -0600</pubDate>
       
       <guid>https://cainmagi.github.io/tags/deep-learning/</guid>
       <description></description>
@@ -149,9 +158,18 @@
     <item>
       <title>Inverse Problem</title>
       <link>https://cainmagi.github.io/tags/inverse-problem/</link>
-      <pubDate>Fri, 24 Aug 2018 03:45:41 -0500</pubDate>
+      <pubDate>Tue, 29 Jan 2019 17:23:42 -0600</pubDate>
       
       <guid>https://cainmagi.github.io/tags/inverse-problem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Latex</title>
+      <link>https://cainmagi.github.io/tags/latex/</link>
+      <pubDate>Tue, 05 Feb 2019 17:26:37 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/latex/</guid>
       <description></description>
     </item>
     
@@ -275,7 +293,7 @@
     <item>
       <title>Research</title>
       <link>https://cainmagi.github.io/tags/research/</link>
-      <pubDate>Mon, 13 Aug 2018 01:45:25 -0500</pubDate>
+      <pubDate>Tue, 29 Jan 2019 17:23:42 -0600</pubDate>
       
       <guid>https://cainmagi.github.io/tags/research/</guid>
       <description></description>
@@ -336,11 +354,29 @@
     </item>
     
     <item>
+      <title>Template</title>
+      <link>https://cainmagi.github.io/tags/template/</link>
+      <pubDate>Tue, 05 Feb 2019 17:26:37 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/template/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Tensorflow</title>
       <link>https://cainmagi.github.io/tags/tensorflow/</link>
       <pubDate>Fri, 06 Jul 2018 13:52:21 -0500</pubDate>
       
       <guid>https://cainmagi.github.io/tags/tensorflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Texlive</title>
+      <link>https://cainmagi.github.io/tags/texlive/</link>
+      <pubDate>Tue, 05 Feb 2019 17:26:37 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/tags/texlive/</guid>
       <description></description>
     </item>
     
