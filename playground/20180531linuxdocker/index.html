@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
 	<meta name="author" content="Yuchen Jin">
-	<meta name="generator" content="Hugo 0.53" />
+	<meta name="generator" content="Hugo 0.54.0" />
 	<title>Advanced Linux Skills for Using NVIDIA Docker &middot; Rosenkreutz Studio</title>
 	<!-- Stylesheets -->
 	
@@ -95,7 +95,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>Jun 1, 2018</td>
+                                            <td>Feb 15, 2019</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -267,30 +267,24 @@
 
 <h1 id="get-started">Get started</h1>
 
-<p>First, you need a NVIDIA cloud account. There are two versions of this account:</p>
+<p>First, you need a NVIDIA cloud account:</p>
 
-<ul>
-    <li><b>Free</b>: offers all available container images, but only allows downloading (pull).
-        <ul style="padding: 1em 0 1em 0">
-            <p><a href="https://ngc.nvidia.com/" class="button icon fa-cloud">NGC Sign in</a></p>
-        </ul>
-    </li> 
-    <li><b>Commercial</b>: only provided to customers who receive the invitation. It allows users upload (push) their own images.
-        <ul style="padding: 1em 0 1em 0">
-            <p><a href="https://compute.nvidia.com/" class="button icon fa-cloud">NVIDIA DGX Sign in</a></p>
-        </ul>
-    </li> 
-</ul>
+<p><a href="https://ngc.nvidia.com/" class="button icon fa-cloud">NGC Sign in</a></p>
 
-<p>Here we will only show how to use free account. But we will still discuss about <strong>pushing</strong> your images to cloud later.</p>
+<p>There are two kinds of accounts. The first one is free, you could download (pull) the public nvidia images freely, but do not have the primary space and authority to upload your own image to NVIDIA GPU cloud. The other kind is commercial account. A person could only register a commercial account via an invitation e-mail. Here we will only show how to use free account. But we will still discuss about <strong>pushing</strong> your images to cloud later.</p>
 
 <h2 id="set-up-an-account">Set up an account</h2>
 
 <p>You may check the official document to learn how to create an account on NGC. Or you could also read instructions here.</p>
 
-<div class="box">
-    <p style="color:#F77"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Note that if you plan to get the commercial account, it is better to avoid using your primary email to sign up NGC cloud, because this free account would take your email address and make this address invalid when signing up the commercial cloud.</p>
-</div>
+<div class="box" style="color:#FB8; padding-bottom:40px">
+    <div style="float: left;"> 
+      <p><i class="fa fa-exclamation-triangle" aria-hidden="true" style="font-size: 50px"></i></p>
+    </div>
+    <div style="margin-left: 60px; font-style:normal;">
+      <p>Note that if you are using a commercial account, you should register via the invitation e-mail. So you do not sign up here. But you still need to login and get your API key.</p>
+    </div>
+  </div>
 
 <ol>
 <li><p>From your browser, go to <a href="https://ngc.nvidia.com">https://ngc.nvidia.com</a>. Click Sign Up to start the sign-up process.</p>

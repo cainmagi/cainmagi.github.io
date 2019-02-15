@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lecture on Rosenkreutz Studio</title>
+    <link>https://cainmagi.github.io/tags/lecture/</link>
+    <description>Recent content in Lecture on Rosenkreutz Studio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 Feb 2019 13:04:50 -0600</lastBuildDate>
+    
+	<atom:link href="https://cainmagi.github.io/tags/lecture/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Stochastic optimization I: from Monte-Carlo methods to Gibbs sampling</title>
+      <link>https://cainmagi.github.io/notes/note20190215sp/</link>
+      <pubDate>Fri, 15 Feb 2019 13:04:50 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190215sp/</guid>
+      <description>
+This article is still being produced. Please wait for several days to see the full edition.
+ </description>
+    </item>
+    
+  </channel>
+</rss>

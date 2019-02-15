@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stochastic on Rosenkreutz Studio</title>
+    <link>https://cainmagi.github.io/tags/stochastic/</link>
+    <description>Recent content in Stochastic on Rosenkreutz Studio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 Feb 2019 13:04:50 -0600</lastBuildDate>
+    
+	<atom:link href="https://cainmagi.github.io/tags/stochastic/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Stochastic optimization I: from Monte-Carlo methods to Gibbs sampling</title>
+      <link>https://cainmagi.github.io/notes/note20190215sp/</link>
+      <pubDate>Fri, 15 Feb 2019 13:04:50 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190215sp/</guid>
+      <description>
+This article is still being produced. Please wait for several days to see the full edition.
+ </description>
+    </item>
+    
+    <item>
+      <title>Notes from Jan. 29, 2019 to Feb. 15, 2019</title>
+      <link>https://cainmagi.github.io/notes/note20190129/</link>
+      <pubDate>Tue, 29 Jan 2019 17:23:42 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190129/</guid>
+      <description>Introduction In this article we would summarize some popular solutions for the inverse problem. To be specific, here we only discuss the methods of inverse problems. Although when introducing some algorithms, we may need to explain what problem they work on, the various topics about which problem we solve is not what we concentrate on in this article.
+Generally the solutions could be divided into 2 parts: optimizing methods and stochastic approaches.</description>
+    </item>
+    
+  </channel>
+</rss>

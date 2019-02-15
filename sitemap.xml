@@ -3,13 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://cainmagi.github.io/notes/note20190215sp/</loc>
+    <lastmod>2019-02-15T13:04:50-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/projects/latex_templates/</loc>
     <lastmod>2019-02-05T17:26:37-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://cainmagi.github.io/notes/note20190129/</loc>
-    <lastmod>2019-02-07T23:24:43-06:00</lastmod>
+    <lastmod>2019-02-15T12:52:26-06:00</lastmod>
   </url>
   
   <url>
@@ -64,7 +69,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/playground/20180531linuxdocker/</loc>
-    <lastmod>2018-06-01T10:36:54-05:00</lastmod>
+    <lastmod>2019-02-15T12:59:59-05:00</lastmod>
   </url>
   
   <url>
@@ -145,7 +150,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/algorithm/</loc>
-    <lastmod>2019-01-29T16:59:08-05:00</lastmod>
+    <lastmod>2019-02-15T13:04:50-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -211,7 +216,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/deep-learning/</loc>
-    <lastmod>2019-02-07T23:24:43-06:00</lastmod>
+    <lastmod>2019-02-15T12:52:26-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -229,7 +234,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/drafts/</loc>
-    <lastmod>2019-02-07T23:24:43-06:00</lastmod>
+    <lastmod>2018-08-10T22:06:31-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -265,7 +270,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/inverse-problem/</loc>
-    <lastmod>2019-02-07T23:24:43-06:00</lastmod>
+    <lastmod>2019-02-15T12:52:26-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -278,6 +283,12 @@
   <url>
     <loc>https://cainmagi.github.io/categories/latex/</loc>
     <lastmod>2019-02-05T17:26:37-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/lecture/</loc>
+    <lastmod>2019-02-15T13:04:50-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -313,7 +324,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/notes/</loc>
-    <lastmod>2019-02-07T23:24:43-06:00</lastmod>
+    <lastmod>2019-02-15T13:04:50-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -331,13 +342,13 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/optimization/</loc>
-    <lastmod>2019-01-28T17:26:14-06:00</lastmod>
+    <lastmod>2019-02-15T13:04:50-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://cainmagi.github.io/categories/papers/</loc>
-    <lastmod>2018-08-24T03:45:41-05:00</lastmod>
+    <lastmod>2019-02-15T12:52:26-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -403,7 +414,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/research/</loc>
-    <lastmod>2019-02-07T23:24:43-06:00</lastmod>
+    <lastmod>2019-02-15T12:52:26-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -415,7 +426,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/</loc>
-    <lastmod>2019-02-05T17:26:37-06:00</lastmod>
+    <lastmod>2019-02-15T13:04:50-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -446,6 +457,12 @@
   <url>
     <loc>https://cainmagi.github.io/tags/sparsity/</loc>
     <lastmod>2018-06-14T19:22:12-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/tags/stochastic/</loc>
+    <lastmod>2019-02-15T13:04:50-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -487,7 +504,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/theory/</loc>
-    <lastmod>2019-01-28T17:26:14-06:00</lastmod>
+    <lastmod>2019-02-15T13:04:50-06:00</lastmod>
     <priority>0</priority>
   </url>
   

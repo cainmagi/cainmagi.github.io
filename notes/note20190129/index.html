@@ -7,8 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
 	<meta name="author" content="Yuchen Jin">
-	<meta name="generator" content="Hugo 0.53" />
-	<title>Notes on Jan. 29, 2019 &middot; Rosenkreutz Studio</title>
+	<meta name="generator" content="Hugo 0.54.0" />
+	<title>Notes from Jan. 29, 2019 to Feb. 15, 2019 &middot; Rosenkreutz Studio</title>
 	<!-- Stylesheets -->
 	
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
@@ -86,7 +86,7 @@
                     <section id="one">
                         <div class="inner">
                             <header id="pagetitle" class="major">
-                                <h1 id='main_title'>Notes on Jan. 29, 2019</h1>
+                                <h1 id='main_title'>Notes from Jan. 29, 2019 to Feb. 15, 2019</h1>
                                 <table class="sub-title">
                                     <tbody>
                                         <tr>
@@ -95,14 +95,14 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>Feb 7, 2019</td>
+                                            <td>Feb 15, 2019</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
                                             <td><section class="dream-tags">
                                                     <a class="ui label categ" href="/categories/notes" title="Notes">Notes</a>
                                                     
-                                                    <a class="ui label categ" href="/categories/drafts" title="Drafts">Drafts</a>
+                                                    <a class="ui label categ" href="/categories/papers" title="Papers">Papers</a>
                                                     
                                                 
                                             </section></td>
@@ -114,6 +114,8 @@
                                                     
                                                     <a class="ui label" href="/tags/deep-learning" title="deep-learning">deep-learning</a>
                                                     
+                                                    <a class="ui label" href="/tags/stochastic" title="stochastic">stochastic</a>
+                                                    
                                                     <a class="ui label" href="/tags/inverse-problem" title="inverse-problem">inverse-problem</a>
                                                     
                                                 
@@ -122,7 +124,7 @@
                                     </tbody>
                                 </table>
                                 
-                                <span class="image main"><img src="/img/notes/draft.jpg" alt="" /></span>
+                                <span class="image main"><img src="/img/notes/default.jpg" alt="" /></span>
                                 
                             </header>
                             
@@ -153,8 +155,23 @@
 </ul></li>
 <li><a href="#stochastic-methods">Stochastic methods</a>
 <ul>
-<li><a href="#sampling-methods">Sampling methods</a></li>
-<li><a href="#heuristic-methods">Heuristic methods</a></li>
+<li><a href="#sampling-methods">Sampling methods</a>
+<ul>
+<li><a href="#metropolis-hastings">Metropolis-Hastings</a></li>
+<li><a href="#gibbs-sampling">Gibbs sampling</a></li>
+</ul></li>
+<li><a href="#heuristic-methods">Heuristic methods</a>
+<ul>
+<li><a href="#ant-colony-algorithm">Ant colony algorithm</a></li>
+<li><a href="#bat-algorithm">Bat algorithm</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#related-slices">Related slices</a>
+<ul>
+<li><a href="#slices-on-week-1-feb-1-2019">Slices on week 1, Feb. 1, 2019</a></li>
+<li><a href="#slices-on-week-2-feb-8-2019">Slices on week 2, Feb. 8, 2019</a></li>
+<li><a href="#slices-on-week-3-a-feb-13-2019">Slices on week 3-a, Feb. 13, 2019</a></li>
+<li><a href="#slices-on-week-3-b-feb-15-2019">Slices on week 3-b, Feb. 15, 2019</a></li>
 </ul></li>
 </ul>
 </nav></p>
@@ -169,6 +186,8 @@
 <p>Generally the solutions could be divided into 2 parts: optimizing methods and stochastic approaches. In the first part, i.e. the optimizing methods, we would introduce different iterative algorithms which are used to find the optimal solution of the problem. In most cases, these algorithms are based on deterministic methods, i.e. the derivatives. In the second part, we would introduce some stochastic methods especially some heuristic methods where we do not need to calculate the gradient but only need to evaluate the loss function. In those 2 parts, we would also talks about machine learning, regularization and some other related topics which have been applied to enhance the performance of the plain algorithms.</p>
 
 <p>In the following parts, we will show not only the methods and ideas but also the state-of-art progress on inverse problem. Our literature resource is mainly from <a href="https://papers.nips.cc">NIPS</a> and <a href="https://ieeexplore.ieee.org/Xplore/home.jsp">IEEE Xplore</a>.</p>
+
+<p>In the last section, we attach 3 groups of slices which are related to this article. The slices include the weekly report from 02/01/2019 to 02/15/2019.</p>
 
 <h1 id="optimizing-methods">Optimizing methods</h1>
 
@@ -353,15 +372,15 @@
   <div class='row' style="margin-left:0em">
     <div class="6u 12u(mobilep)" style="margin-bottom:2em">
         <ul>
-        <li><b>Title</b>: Theoretical Linear Convergence of Unfolded ISTA and its PracticalWeights and Thresholds</li>
-        <li><b>Author</b>: Xiaohan Chen, Jialin Liu, Zhangyang Wang and Wotao Yin</li>
+        <li><b>Title</b>: Plug-in Estimation in High-Dimensional Linear Inverse Problems: A Rigorous Analysis</li>
+        <li><b>Author</b>: Alyson K. Fletcher, Parthe Pandit, Sundeep Rangan, Subrata Sarkar and Philip Schniter</li>
         <li><b>Year</b>: 2018</li>
         <li><b>Theory level</b>: Theoretical</li>
-        <li><b>Theory type</b>: Machine learning</li>
-        <li><b>Used data</b>: 11 test images for sparse coding</li>
+        <li><b>Theory type</b>: Gradient based algorithm</li>
+        <li><b>Used data</b>: Compressive Image Recovery and Lifting</li>
         <li><b>Source</b>: Advances in Neural Information Processing Systems 31 (NIPS 2018) pre-proceedings</li>
         </ul>
-        <p style="text-indent:2em"><a href="https://papers.nips.cc/paper/8120-theoretical-linear-convergence-of-unfolded-ista-and-its-practical-weights-and-thresholds" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+        <p style="text-indent:2em"><a href="https://papers.nips.cc/paper/7973-plug-in-estimation-in-high-dimensional-linear-inverse-problems-a-rigorous-analysis" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
         <ul>
           <li><b>External Reference</b>: To learn more about AMP, please check this note:</li>
         </ul>
@@ -399,7 +418,7 @@
         <li><b>Used data</b>: image inverse, the data is from BSDS500 dataset</li>
         <li><b>Source</b>: Advances in Neural Information Processing Systems 31 (NIPS 2018) pre-proceedings</li>
         </ul>
-        <p style="text-indent:2em"><a href="https://papers.nips.cc/paper/8120-theoretical-linear-convergence-of-unfolded-ista-and-its-practical-weights-and-thresholds" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+        <p style="text-indent:2em"><a href="https://papers.nips.cc/paper/8070-adversarial-regularizers-in-inverse-problems" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
     </div>
     <div class="6u 12u(mobilep)" style="margin-bottom:2em">
         <h4 class="cancel_link">Learning abstract:</h4>
@@ -505,16 +524,263 @@
 
 <h2 id="sampling-methods">Sampling methods</h2>
 
-<h2 id="heuristic-methods">Heuristic methods</h2>
+<h3 id="metropolis-hastings">Metropolis-Hastings</h3>
 
-<div class="box" style="color:#FB8; padding-bottom:40px">
-    <div style="float: left;"> 
-      <p><i class="fa fa-exclamation-triangle" aria-hidden="true" style="font-size: 50px"></i></p>
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: Bayesian calibration of a large‐scale geothermal reservoir model by a new adaptive delayed acceptance Metropolis Hastings algorithm</li>
+        <li><b>Author</b>: T. Cui, C. Fox, and M. J. O'Sullivan</li>
+        <li><b>Year</b>: 2011</li>
+        <li><b>Theory level</b>: Algorithm</li>
+        <li><b>Theory type</b>: Stochastic sampling algorithm</li>
+        <li><b>Used data</b>: Geothermal reservoir modeling</li>
+        <li><b>Source</b>: Water Resources Research</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2010WR010352" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
     </div>
-    <div style="margin-left: 60px; font-style:normal;">
-      <p>This article is still being produced. Please wait for several days to see the full edition.</p>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>Metropolis-Hastings method is widely used in Monte-Carlo-Markov-Chain (MCMC) methods. This paper proposes an improvement for solving inverse problems with a highly complicated forward model. Suppose we have a model function $\mathbf{f}$, the likelihood function derived from Bayesian method could be formulated as</p>
+        <div class="overflow">
+        \begin{align}
+            p(\mathbf{x}|\mathbf{y}) \propto e^{-\frac{1}{2} (\mathbf{y} - \mathbf{f}(\mathbf{x}))^T \Sigma_e^{-1} (\mathbf{y} - \mathbf{f}(\mathbf{x})) } p(\mathbf{x}),
+        \end{align}
+        </div>
+        <p>where $\Sigma_e$ is the covariance matrix of the misfit vector $\mathbf{e} = \mathbf{y} - \mathbf{f}(\mathbf{x})$. Note that if we have a coarse model $\mathbf{f}^{\ast}(\mathbf{x})$ which is derived by reducing the order of $\mathbf{f}$, then we would have $\mathbf{e} = \mathbf{y} - \mathbf{f}_d(\mathbf{x}) + \left(\mathbf{f}_d(\mathbf{x}) - \mathbf{f}(\mathbf{x}) \right)$. Denote that $\mathbf{d} = \mathbf{f}_d(\mathbf{x}) - \mathbf{f}(\mathbf{x})$, and suppose that $\mathbf{d} \sim \mathcal{N}(\mu_d, \Sigma_d)$. Then we would have a new likelihood function</p>
+        <div class="overflow">
+        \begin{align}
+            p_d(\mathbf{x}|\mathbf{y}) \propto e^{-\frac{1}{2} (\mathbf{y}_d - \mathbf{f}_d(\mathbf{x}) - \mu_d )^T (\Sigma_e + \Sigma_d)^{-1} (\mathbf{y}_d - \mathbf{f}_d(\mathbf{x}) - \mu_d) } p(\mathbf{x}).
+        \end{align}
+        </div>
+        <p>Suppose that we have a probability function $\mathbf{g}(\cdot)$, and random vector $\boldsymbol{\lambda}$ follows the distribution of $\mathbf{g}$. Then we could update a model parameter $\mathbf{x}_k$ by updating function $\mathbf{x}^{\dagger} = \boldsymbol{\eta}(\mathbf{x}_k,~\boldsymbol{\lambda})$. Consider another probablity function $\mathbf{g}_r(\cdots)$ which generates another random vector $\boldsymbol{\lambda}_r$. We may have another updating function $\mathbf{x}_k = \boldsymbol{\eta}_r(\mathbf{x}^{\dagger},~\boldsymbol{\lambda}_r)$. Hence we know $\boldsymbol{\eta},~\boldsymbol{\eta}_r$ are reverse transitions compared to each other. After that, we could define the proposal distribution as</p>
+        <div class="overflow">
+        \begin{equation}
+          \left\{
+          \begin{aligned}
+            &q(\mathbf{x}_k \rightarrow \mathbf{x}^{\dagger}) = g(\boldsymbol{\lambda}),\\
+            &q(\mathbf{x}^{\dagger} \rightarrow \mathbf{x}_k) = g_r(\boldsymbol{\lambda}_r) \mathbf{J}, \\
+            &\mathbf{J} = \left| \frac{ \partial \boldsymbol{\eta} \left( \begin{bmatrix} \mathbf{x} \\ \boldsymbol{\lambda} \end{bmatrix} \right) }{ \partial \begin{bmatrix} \mathbf{x} \\ \boldsymbol{\lambda} \end{bmatrix} } \right|.
+          \end{aligned}
+          \right.
+        \end{equation}
+        </div>
+        <p>Then, the Metropolis-Hastings algorithm could be described as</p>
+        <ol>
+          <li>Generate a random update $\mathbf{x}^{\dagger}$ and calculate its bi-directional transitions $q(\mathbf{x}_k \rightarrow \mathbf{x}^{\dagger}) ,~ q(\mathbf{x}^{\dagger} \rightarrow \mathbf{x}_k)$.</li>
+          <li>Use Metropolis-Hastings algorithm to calculate acception rate over the coarse likelihood:
+            <div class="overflow">
+            \begin{align}
+                \alpha(\mathbf{x}_k ,~ \mathbf{x}^{\dagger}) = \min \left( 1,~ \frac{p_d(\mathbf{x}^{\dagger}|\mathbf{y}) q(\mathbf{x}^{\dagger} \rightarrow \mathbf{x}_k)}{p_d(\mathbf{x}_k|\mathbf{y}) q(\mathbf{x}_k \rightarrow \mathbf{x}^{\dagger})} \right).
+            \end{align}
+            </div>
+          </li>
+          <li>If $\mathbf{x}^{\dagger}$ could be accept according to the acception rate $\alpha$, then calculate another accpetion rate over the detail likelihood:
+            <div class="overflow">
+            \begin{align}
+                \beta(\mathbf{x}_k ,~ \mathbf{x}^{\dagger}) = \min \left( 1,~ \frac{p(\mathbf{x}^{\dagger}|\mathbf{y}) \alpha(\mathbf{x}^{\dagger} ,~ \mathbf{x}_k) q(\mathbf{x}^{\dagger} \rightarrow \mathbf{x}_k)}{p(\mathbf{x}_k|\mathbf{y}) \alpha(\mathbf{x}_k ,~ \mathbf{x}^{\dagger}) q(\mathbf{x}_k \rightarrow \mathbf{x}^{\dagger})} \right).
+            \end{align}
+            </div>
+          </li>
+          <li>If $\mathbf{x}^{\dagger}$ could be accept according to the acception rate $\beta$, then perform update $\mathbf{x}_{k+1} = \mathbf{x}^{\dagger}$.</li>
+        </ol>
+        <p>The idea of this algorithm is, if the sample is rejected by the coarse likelihood, then we do not need to calculate the complicated forward model. Although calculating the coarse model would reduce the efficiency, if the sample is easy to be rejected, then we would gain better performance by this method.</p>
     </div>
   </div>
+</div>
+
+<h3 id="gibbs-sampling">Gibbs sampling</h3>
+
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: A Bayesian inference approach to the inverse heat conduction problem</li>
+        <li><b>Author</b>: Jingbo Wang, and Nicholas Zabaras</li>
+        <li><b>Year</b>: 2004</li>
+        <li><b>Theory level</b>: Algorithm</li>
+        <li><b>Theory type</b>: Stochastic sampling algorithm</li>
+        <li><b>Used data</b>: Two-dimensional inverse heat conduction problem (IHCP)</li>
+        <li><b>Source</b>: International Journal of Heat and Mass Transfer</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://www.sciencedirect.com/science/article/pii/S0017931004000985" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+        <ul>
+          <li><b>External Reference</b>: This is another article about solving multi-frequency problem (i.e. multiple forward model) with Gibbs sampling:</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://asa.scitation.org/doi/10.1121/1.1419086" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>In this paper, we have $y_j \sim \mathbf{T}(\mathbf{x},t_j)$, and $k \frac{\partial T(\mathbf{x}, t)}{\partial \mathbf{n}} = \sum \theta_i \mathbf{w}_i (\mathbf{x},~t)$. Hence we define that vector $\mathbf{y}$ should fulfil that $\mathbf{y} \sim \mathbf{f} (\boldsymbol{\theta})$, where $\mathbf{f}(\cdot)$ is known by some prior work.</p>
+        <p>According to Bayesian method, $p(\boldsymbol{\theta}|\mathbf{y}) \propto p(\mathbf{y}|\boldsymbol{\theta}) p(\boldsymbol{\theta})$, hence we have</p>
+        <div class="overflow">
+        \begin{align}
+            p(\boldsymbol{\theta}|\mathbf{y}) \propto e^{-\frac{1}{2\sigma^2}\left( \mathbf{f}(\boldsymbol{\theta}) - \mathbf{y} \right)^T\left( \mathbf{f}(\boldsymbol{\theta}) - \mathbf{y} \right)} p(\boldsymbol{\theta}).
+        \end{align}
+        </div>
+        <p>To specify the prior $p(\boldsymbol{\theta})$, we use the random field, which means</p>
+        <div class="overflow">
+        \begin{align}
+            p(\boldsymbol{\theta}) \propto e^{-\sum_{i,~j} W_{ij} (\theta_i - \theta_j)^2} = \lambda^{\frac{m}{2}} e^{- \frac{1}{2} \boldsymbol{\theta}^T \mathbf{W} \boldsymbol{\theta}}
+        \end{align}
+        </div>
+        <p>Then in each iteration, we could use Gibbs sampling method, which means in the k<sup>th</sup> iteration, if we have $\boldsymbol{\theta}^{(k)}$, then we perform that</p>
+        <div class="overflow">
+        <ol>
+          <li>$\theta^{(k+1)}_1 \sim p\left(\theta_1 \left| \theta_2=\theta^{(k)}_2,~ \theta_3=\theta^{(k)}_3,~ \theta_n=\theta^{(k)}_n \right.\right)$</li>
+          <li>$\theta^{(k+1)}_2 \sim p\left(\theta_2 \left| \theta_1=\theta^{(k+1)}_1,~ \theta_3=\theta^{(k)}_3,~ \theta_n=\theta^{(k)}_n \right.\right)$</li>
+          <li>$\theta^{(k+1)}_3 \sim p\left(\theta_3 \left| \theta_1=\theta^{(k+1)}_2,~ \theta_2=\theta^{(k+1)}_2,~ \theta_n=\theta^{(k)}_n \right.\right)$</li>
+          <li>...</li>
+          <li>$\theta^{(k+1)}_n \sim p\left(\theta_n \left| \theta_1=\theta^{(k+1)}_1,~ \theta_2=\theta^{(k+1)}_2,~ \theta_n=\theta^{(k+1)}_{n-1} \right.\right)$</li>
+        </ol>
+        </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="heuristic-methods">Heuristic methods</h2>
+
+<h3 id="ant-colony-algorithm">Ant colony algorithm</h3>
+
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: Application of homogenous continuous Ant Colony Optimization algorithm to inverse problem of one-dimensional coupled radiation and conduction heat transfer</li>
+        <li><b>Author</b>: Biao Zhang, Hong Qi, Ya-Tao Ren, Shuang-Cheng Sun, and Li-Ming Ruan</li>
+        <li><b>Year</b>: 2013</li>
+        <li><b>Theory level</b>: Algorithm</li>
+        <li><b>Theory type</b>: Stochastic heruistic algorithm</li>
+        <li><b>Used data</b>: Steady-state coupled radiation and conduction heat transfer in an absorbing, emitting and scattering
+plane-parallel slab</li>
+        <li><b>Source</b>: International Journal of Heat and Mass Transfer</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://www.sciencedirect.com/science/article/pii/S001793101300608X" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+        <ul>
+          <li><b>External Reference</b>: To learn a visual demo for ant colony optimization, please check this link:</li>
+        </ul>
+        <p style="text-indent:2em"><a href="http://lab.breezedust.com/aco/" class="button icon fa-area-chart" style="text-indent:0em">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>This paper introduce a method where we could enhance the optimization results by ant colony optimization (ACO). First, this paper introduce the basic-ACO (BACO), which shrinks the search scope in each iteration to reduce the calculation complexity. However, because of the grid-scheme and the scope-shrinking strategy, BACO may converge to the local minimum in some cases. To solve this problem, in this paper the author proposes the homogeneous ACO (HACO).</p>
+        <p>Suppose that we need to solve $\arg \min\limits_{\mathbf{x}} \lVert \mathbf{y} - \mathbf{f}(\mathbf{x})\rVert_2^2$, where $\mathbf{f}$ is a highly nonlinear model. Then we could initialize $M$ solutions $\mathbf{x}^{(1)},\mathbf{x}^{(2)},\cdots,\mathbf{x}^{(M)}$, which is also called "ants" in ACO. Suppose that the metric function $\mathcal{L}(\mathbf{x})=\frac{1}{N}\left\lVert \mathbf{y} - \mathbf{f}\left(\mathbf{x}^{(k)}\right) \right\rVert_2$ is used to evaluate the solution $\mathbf{x}^{(k)}$. For each parameter of any $\mathbf{x}^{(k)}=\begin{bmatrix}x^{(k)}_1 & x^{(k)}_2 & \cdots & x^{(1)}_n \end{bmatrix}$, we set the initial searching scope $x^{(k)}_i \in [L_i, S_i]$ and divide the scope into $N_i$ intervals. Then we could get a series of discrete positions. Initialize that $\tau_{ij} = Q$ and $\eta_{ij} = \frac{1}{N}$. After that we could perform such iterations:</p>
+        <div class="overflow">
+        <ol>
+          <li>For each solution $k$, $p^{(k)}_{ij} = \frac{\zeta}{N_i} + \left( 1 - \zeta \right)\frac{ \tau^{\alpha}_{ij} \eta^{\beta}_{ij} }{ \sum_{j=1}^{N_i} \tau^{\alpha}_{ij} \eta^{\beta}_{ij} }$, where $\alpha,~\beta &gt; 0$ and $\zeta \in [0,~1]$. $p^{(k)}_{ij}$ is the probability that how possible $x^{(k)}_i$ would transfer into $x^{(k)}_j$. Since when $\zeta \rightarrow 1$, the move tends to be random, we call such update "homogeneous updating".</li>
+          <li>After we update the new solutions according to $p^{(k)}_{ij}$, we could search a local minimum for each solution in a local area. This search could be totally random, i.e. we just adjust the solutions by adding random noise. And we could also use some deterministic methods. If we calculate $\mathcal{L}(\mathbf{x}^{(k)})$ for each solution, the local minimum should satisfy that $\mathcal{L}(\mathbf{x}^{(k)} + \boldsymbol{\varepsilon}^{(k)}) &lt; \mathcal{L}(\mathbf{x}^{(k)})$. This step is designed for reducing the discrete sampling effect. Record and update the historical best solution $\mathbf{x}^{\ast}$ and the best 3 solutions in this step: $\mathbf{x}^{(s_1)},~\mathbf{x}^{(s_2)},~\mathbf{x}^{(s_3)}$.</li>
+          <li>Calculate the increments for each solution $k$, which means in step 1, if $x^{(k)}_i$ changes to $x^{(k)}_j$, then we have $\Delta \tau^{(k)}_{ij} = Q$ and $\Delta \eta^{(k)}_{ij} = \frac{1}{N \mathcal{L}(\mathbf{x}_j)}$.</li>
+          <li>Update the information variables: 
+          \begin{align*}
+            \tau_{ij} &= (1-\rho) \tau_{ij} + \sum_{k=1}^{M} \Delta \tau^{(k)}_{ij},\\
+            \eta_{ij} &= \max \left( \eta_{ij},~ \sum_{k=1}^{M} \Delta \eta^{(k)}_{ij} \right).
+          \end{align*}
+          </li>
+          <li>Defining $\gamma \in (0,1)$ which indicates the shrinking ratio. Then we could shrink the searching scopes according to such equations:
+          \begin{align*}
+            L_i &= \max \left( \min \left( x^{\ast}_i,~ x^{(s_1)}_i,~ x^{(s_2)}_i,~ x^{(s_3)}_i \right) - \gamma \frac{S_i - L_i}{2},~ L_i \right),\\
+            S_i &= \min \left( \max \left( x^{\ast}_i,~ x^{(s_1)}_i,~ x^{(s_2)}_i,~ x^{(s_3)}_i \right) + \gamma \frac{S_i - L_i}{2},~ S_i \right).
+          \end{align*}
+          </li>
+          <li>Resampling the new $N_i$ intervals according to new scope $x^{(k)}_i \in [L_i, S_i]$. Note that we need to interpolate $\tau_{ij},~\eta_{ij}$ for new intervals due to the resampling. Then start a new loop beginning from step 1.</li>
+        </ol>
+        </div>
+    </div>
+  </div>
+</div>
+
+<h3 id="bat-algorithm">Bat algorithm</h3>
+
+<div class='box' style="margin-left:2em">
+  <div class='row' style="margin-left:0em">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <ul>
+        <li><b>Title</b>: A New Metaheuristic Bat-Inspired Algorithm</li>
+        <li><b>Author</b>: Xin-She Yang</li>
+        <li><b>Year</b>: 2010</li>
+        <li><b>Theory level</b>: Algorithm</li>
+        <li><b>Theory type</b>: Stochastic heruistic algorithm</li>
+        <li><b>Used data</b>: Standard benchmark non-linear functions</li>
+        <li><b>Source</b>: Nature Inspired Cooperative Strategies for Optimization</li>
+        </ul>
+        <p style="text-indent:2em"><a href="https://arxiv.org/abs/1004.4170" class="button icon fa-file-pdf-o" style="text-indent:0em">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+        <h4 class="cancel_link">Learning abstract:</h4>
+        <p>Bat algorithm could be viewed as an adaptation of particle swarm optimizaion (PSO). The author of this paper has proposed several algorithms in this kind, for example, the firefly algorithm. This algorithm imitates bats' behavior. When they have not hunt the best solution, they tend to move close to the current optimal solution; once they get the best solution, they would try to stay in the local position.</p>
+        <p>Consider we have the loss function $\mathcal{L}(\mathbf{x})$, and we initialize a series of solutions randomly $\mathbf{x}_1,~\mathbf{x}_2,~\mathbf{x}_n$, where each solution could be viewed as a bat. Attach each bat with a velocity $\mathbf{v}_i$, a frequency $f_i$, a pulse rate $r_i=0$, and a loudness $A_i=1$. Set $\alpha &lt; 1$. Then perform such iterations:</p>
+        <div class="overflow">
+        <ol>
+          <li>In iteration $t$, mark the current optimal solution as $\mathbf{x}^{\ast}$. For each bat (solution) $\mathbf{x}_i$, generate a new solution $\mathbf{x}'_i$:
+            <ol>
+              <li>Update its frequency in uniform distribution $f_i \sim U(0,~\alpha)$.</li>
+              <li>Update the velocity $\mathbf{v}'_{i} = \mathbf{v}_{i} (1-f_i) + \left( \mathbf{x}^{\ast} - \mathbf{x}_i\right) f_i$.</li>
+              <li>Update its position $\mathbf{x}'_i = \mathbf{x}_i + \mathbf{v}'_{i}$.</li>
+              <li>Generate $r \sim U(0,1)$. If $r &gt; r_i$, select a solution from the M best solutions. And use a random vector $\boldsymbol{\epsilon}$ to update it, i.e. $\mathbf{x}'_i = \mathbf{x}_{\mathrm{selected}} + \mathrm{diag}(\boldsymbol{\epsilon})\mathbf{A}$.</li>
+              <li>Adjust $\mathbf{x}_i$ slightly and randomly.</li>
+              <li>Generate $a \sim U(0,1)$. If $a &lt; A_i$, and $\mathcal{L}(\mathbf{x}'_i) < \mathcal{L}(\mathbf{x}_i)$, then let
+              \begin{align*}
+                \mathbf{x}_i &= \mathbf{x}'_i,\\
+                r_i &= 1 - e^{\lambda t},\\
+                A_i &= \beta A_i.
+              \end{align*}
+              </li>
+            </ol>
+          </li>
+          <li>After iteration $t$, sort all solutions $\{\mathbf{x}_i\}$, then we could update the optimal solution $\mathbf{x}^{\ast}$.</li>
+        </ol>
+        </div>
+        <p>In the beginning, $r$ is small while $A$ is large, the algorithm tends to abandon the solutions which are not good and accept new solutions. When the algorithm is nearly converged, the new solutions would not be accepted.</p>
+    </div>
+  </div>
+</div>
+
+<h1 id="related-slices">Related slices</h1>
+
+<h2 id="slices-on-week-1-feb-1-2019">Slices on week 1, Feb. 1, 2019</h2>
+
+<div class="youtube container">
+    <object class="docs" data="https://cainmagi.github.io/notes/note20190129/yjin4-week1-02012019.pdf" type="application/pdf">
+        <div class="box center">
+            <p style="top:10%;color:#FCC; margin-bottom:0.2em"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Ooops! Your browser does not support viewing pdfs.</p> 
+            <p style="top:50%;text-align:center;height:100%; display:block"><a href="https://cainmagi.github.io/notes/note20190129/yjin4-week1-02012019.pdf" class="button icon fa-pdf-o">Download PDF</a></p>
+        </div>
+    </object>
+</div>
+
+<h2 id="slices-on-week-2-feb-8-2019">Slices on week 2, Feb. 8, 2019</h2>
+
+<div class="youtube container">
+    <object class="docs" data="https://cainmagi.github.io/notes/note20190129/yjin4-week2-02082019.pdf" type="application/pdf">
+        <div class="box center">
+            <p style="top:10%;color:#FCC; margin-bottom:0.2em"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Ooops! Your browser does not support viewing pdfs.</p> 
+            <p style="top:50%;text-align:center;height:100%; display:block"><a href="https://cainmagi.github.io/notes/note20190129/yjin4-week2-02082019.pdf" class="button icon fa-pdf-o">Download PDF</a></p>
+        </div>
+    </object>
+</div>
+
+<h2 id="slices-on-week-3-a-feb-13-2019">Slices on week 3-a, Feb. 13, 2019</h2>
+
+<div class="youtube container">
+    <object class="docs" data="https://cainmagi.github.io/notes/note20190129/yjin4-week3a-02132019.pdf" type="application/pdf">
+        <div class="box center">
+            <p style="top:10%;color:#FCC; margin-bottom:0.2em"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Ooops! Your browser does not support viewing pdfs.</p> 
+            <p style="top:50%;text-align:center;height:100%; display:block"><a href="https://cainmagi.github.io/notes/note20190129/yjin4-week3a-02132019.pdf" class="button icon fa-pdf-o">Download PDF</a></p>
+        </div>
+    </object>
+</div>
+
+<h2 id="slices-on-week-3-b-feb-15-2019">Slices on week 3-b, Feb. 15, 2019</h2>
+
+<div class="youtube container">
+    <object class="docs" data="https://cainmagi.github.io/notes/note20190129/yjin4-week3b-02152019.pdf" type="application/pdf">
+        <div class="box center">
+            <p style="top:10%;color:#FCC; margin-bottom:0.2em"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Ooops! Your browser does not support viewing pdfs.</p> 
+            <p style="top:50%;text-align:center;height:100%; display:block"><a href="https://cainmagi.github.io/notes/note20190129/yjin4-week3b-02152019.pdf" class="button icon fa-pdf-o">Download PDF</a></p>
+        </div>
+    </object>
+</div>
 
                         </div>
                     </section>

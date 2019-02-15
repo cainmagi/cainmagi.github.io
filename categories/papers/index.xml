@@ -6,10 +6,31 @@
     <description>Recent content in Papers on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Aug 2018 01:45:25 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 29 Jan 2019 17:23:42 -0600</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/categories/papers/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes from Jan. 29, 2019 to Feb. 15, 2019</title>
+      <link>https://cainmagi.github.io/notes/note20190129/</link>
+      <pubDate>Tue, 29 Jan 2019 17:23:42 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190129/</guid>
+      <description>Introduction In this article we would summarize some popular solutions for the inverse problem. To be specific, here we only discuss the methods of inverse problems. Although when introducing some algorithms, we may need to explain what problem they work on, the various topics about which problem we solve is not what we concentrate on in this article.
+Generally the solutions could be divided into 2 parts: optimizing methods and stochastic approaches.</description>
+    </item>
+    
+    <item>
+      <title>Special Notes on Nov. 19, 2018</title>
+      <link>https://cainmagi.github.io/notes/note20181129special/</link>
+      <pubDate>Mon, 19 Nov 2018 17:25:43 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20181129special/</guid>
+      <description>Theory of Lovasz extension The Lovasz extension is proposed to form an interpolating function for a sub-modular set function. In this article, we are discussing about the theory and the results from this paper: &amp;ldquo;The Lovász-Softmax loss: A tractable surrogate for the optimization of the intersection-over-union measure in neural networks&amp;rdquo;,
+Reference
+To get more details, we have the further reading material about Lovasz-hinge optimization: &amp;ldquo;The Lovász Hinge: A Novel Convex Surrogate for Submodular Losses&amp;ldquo;</description>
+    </item>
     
     <item>
       <title>Special Notes on Aug. 13, 2018</title>

@@ -6,20 +6,10 @@
     <description>Recent content in Drafts on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Jan 2019 17:23:42 -0600</lastBuildDate>
+    <lastBuildDate>Fri, 20 Jul 2018 05:37:52 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/categories/drafts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Notes on Jan. 29, 2019</title>
-      <link>https://cainmagi.github.io/notes/note20190129/</link>
-      <pubDate>Tue, 29 Jan 2019 17:23:42 -0600</pubDate>
-      
-      <guid>https://cainmagi.github.io/notes/note20190129/</guid>
-      <description>Introduction In this article we would summarize some popular solutions for the inverse problem. To be specific, here we only discuss the methods of inverse problems. Although when introducing some algorithms, we may need to explain what problem they work on, the various topics about which problem we solve is not what we concentrate on in this article.
-Generally the solutions could be divided into 2 parts: optimizing methods and stochastic approaches.</description>
-    </item>
     
     <item>
       <title>Notes on Jul. 20, 2018</title>
