@@ -1,4 +1,4 @@
-$('h1:not(#main_title)').each(function() { 
+$('h1:not(#main_title):not(.cancel_link)').each(function() { 
     $(this).wrapInner('<a href=#contents />');
 })
 $('h2:not(.cancel_link)').each(function() { 

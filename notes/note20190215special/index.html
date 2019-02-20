@@ -1,0 +1,1352 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	<meta name="generator" content="Hugo 0.54.0" />
+	<title>Stochastic optimization I: from Monte-Carlo methods to Gibbs sampling &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Stochastic optimization I: from Monte-Carlo methods to Gibbs sampling</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>Feb 15, 2019</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>Feb 20, 2019</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/notes" title="Notes">Notes</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/theory" title="Theory">Theory</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/lecture" title="lecture">lecture</a>
+                                                    
+                                                    <a class="ui label" href="/tags/stochastic" title="stochastic">stochastic</a>
+                                                    
+                                                    <a class="ui label" href="/tags/optimization" title="optimization">optimization</a>
+                                                    
+                                                    <a class="ui label" href="/tags/algorithm" title="algorithm">algorithm</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/notes/note20190215sp.jpg" alt="" /></span>
+                                
+                            </header>
+                            
+                            <hr/>
+                            <h1 id="contents">Contents</h1>
+                            <p><nav id="TableOfContents">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#this-topic">This topic</a></li>
+<li><a href="#monte-carlo-method">Monte-Carlo method</a>
+<ul>
+<li><a href="#what-is-monte-carlo-method">What is Monte-Carlo method</a></li>
+<li><a href="#unbiased-estimator-and-error-analysis">Unbiased estimator and error analysis</a>
+<ul>
+<li><a href="#unbiased-estimator-for-the-expectation">Unbiased estimator for the expectation</a></li>
+<li><a href="#unbiased-estimator-for-the-variance">Unbiased estimator for the variance</a></li>
+<li><a href="#unbiased-estimator-for-the-error-of-expectation">Unbiased estimator for the error of expectation</a></li>
+</ul></li>
+<li><a href="#importance-sampling">Importance sampling</a>
+<ul>
+<li><a href="#unbiased-estimator-for-importance-sampling">Unbiased estimator for importance sampling</a></li>
+<li><a href="#alternative-self-normalized-importance-sampling">Alternative: self-normalized importance sampling</a></li>
+<li><a href="#simulation-results">Simulation results</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#metropolis-hastings-algorithm">Metropolis-Hastings algorithm</a>
+<ul>
+<li><a href="#stationarity-of-a-markov-chain">Stationarity of a Markov chain</a>
+<ul>
+<li><a href="#continuous-form-of-reversibility-condition">Continuous form of reversibility condition</a></li>
+</ul></li>
+<li><a href="#what-is-metropolis-hastings-algorithm">What is Metropolis-Hastings algorithm</a></li>
+<li><a href="#stationarity-of-metropolis-hastings-algorithm">Stationarity of Metropolis-Hastings algorithm</a></li>
+<li><a href="#estimate-the-convergence-of-metropolis-hasting-algorithm">Estimate the convergence of Metropolis-Hasting algorithm</a>
+<ul>
+<li><a href="#ar-sub-1-sub-process">AR<sub>1</sub> process</a></li>
+<li><a href="#standard-error-of-ar-sub-1-sub-process">Standard error of AR<sub>1</sub> process</a></li>
+</ul></li>
+<li><a href="#simulation-results-1">Simulation results</a></li>
+</ul></li>
+<li><a href="#gibbs-sampling">Gibbs sampling</a>
+<ul>
+<li><a href="#what-is-gibbs-sampling">What is Gibbs sampling</a></li>
+<li><a href="#staionarity-of-gibbs-sampling">Staionarity of Gibbs sampling</a></li>
+<li><a href="#approximate-the-marginal-density-function">Approximate the marginal density function</a></li>
+<li><a href="#estimate-the-standard-error-of-a-sampling-method">Estimate the standard error of a sampling method</a></li>
+<li><a href="#simulation-results-2">Simulation results</a></li>
+</ul></li>
+<li><a href="#source-code">Source code</a></li>
+</ul>
+</nav></p>
+                            
+                            <hr/>
+                            
+
+<h1 id="introduction">Introduction</h1>
+
+<p>This is a series of inspection on stochastic methods. Traditionally, an optimization problem could be solved by gradient descent methods, greedy algorithm and stochastic methods. For example, Levenberg–Marquardt algorithm is a gradient descent based methods. Another example is OMP which is used to find a local minimum of L<sub>0</sub> penalized problem. Since the L<sub>0</sub> norm is totally indifferentiable, we could not calculate its gradient. Therefore, such kind of problem is generally more difficult than those differentiable problems. However, in this series, we would only talk about the stochastic methods. When applying this method to solve optimization, we usually need to construct a probability which shows how possible the solution lies in a specific location.</p>
+
+<p>In this series, we would starter from a beginner&rsquo;s view on stochastic optimization, and end on some state-of-art researches. A person who read this article may need to have fundamental experiences on such issues:</p>
+
+<ul>
+<li><p>Gradient based optimization.</p></li>
+
+<li><p>Probability theory on elementary level.</p></li>
+
+<li><p>Stochastic process on elementary level.</p></li>
+</ul>
+
+<p>Note that in many cases, a method should not be classified into a particular category, because it may integrate some different ideas from different ares. For example, to solve a Bayesian analysis problem, we could apply the gradient descent method on the likelihood function instead of using random search. Generally, if you know more about optimization, you may have a stronger basis for learning stochastic methods. Actually, many newest topics including deep learning, entropy analysis and uncertainly quantification are related to stochastic methods. In this series, we may talk about those topics.</p>
+
+<p>Certainly, in this topic, we would have some learning materials including lecture notes, slices, blogs and papers. To understand some concepts better, we may provide some codes. In the following notes, we are mainly focus on some concepts that are not explained well in our reading materials. Some topics mentioned in those materials but not very important would be ignored.</p>
+
+<h1 id="this-topic">This topic</h1>
+
+<p>In this topic, we would discuss Monte-Carlo method, Metropolis-Hastings algorithm and Gibbs sampling. The learning materials could be found here:</p>
+
+<div class="box">
+  <div class="row">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+      <p>Check this button to see the article <i>Markov Chain Monte Carlo and Gibbs Sampling</i>:</p>
+      <p><a href="http://nitro.biosci.arizona.edu/courses/EEB596/handouts/Gibbs.pdf" class="button icon fa-file-pdf-o">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+      <p>In case of the situation that the article is missing, please check:</p>
+      <p><a href="./Gibbs.pdf" class="button icon fa-file-pdf-o">Reference</a></p>
+    </div>
+  </div>
+</div>
+
+<h1 id="monte-carlo-method">Monte-Carlo method</h1>
+
+<h2 id="what-is-monte-carlo-method">What is Monte-Carlo method</h2>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method"><b>Monte Carlo method</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>Monte-Carlo method is a general experiment for estimating a integration. For example, for any function $f(x)$, we could calculate the integration by</p>
+
+<div class="overflow">
+\begin{align} \label{fml:mc:intro}
+    \int_a^b f(x) \mathrm{d} x = \left( b - a \right) \int_a^b f(x) \frac{1}{b-a} \mathrm{d} x \approx \frac{ b - a }{N} \sum_i^N f(x_i),
+\end{align}
+</div>
+
+<p>where $x_i \sim U(a,b)$, which means if we generate a lot of samples that follow the uniform distribution, then we could estimate the integration statistically. Since $f(\cdot)$ is an arbitrary function, we know that a uniform sampling could be used to estimate arbitrary integration. This idea is easy to be extended to the case of vector calculation.</p>
+
+<p>Furthermore, to get a more general form, we could rewrite $\eqref{fml:mc:intro}$ as</p>
+
+<div class="overflow">
+\begin{align} \label{fml:mc:general}
+    \int_a^b f(x) p(x) \mathrm{d} x \approx \frac{1}{N} \sum_i^N f(x_i),
+\end{align}
+</div>
+
+<p>where $x_i \sim p(\cdot)$. $p(\cdot)$ is an arbitrary distribution, which means we could use an arbitrary distribution to generate a lot of samples, and use those samples to estimate an arbitrary integration.</p>
+
+<table>
+<thead>
+<tr>
+<th>An example of estimating $\pi / 4$</th>
+<th><a href="http://mathgifs.blogspot.com/2013/11/buffons-needle-and-his-noodles.html">An example of Buffon&rsquo;s needle test</a></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Pi_30K.gif/440px-Pi_30K.gif" alt="" title="Estimate pi/4" /></td>
+<td><img src="./buffon_dense50.gif" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Buffon%27s_needle_problem" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Buffon%27s_needle_problem"><b>Buffon&#39;s needle problem</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>Here are two examples for estimating $pi$ by Monte-Carlo method. In the first example, we count the points that satisfy $\lVert (x,y) \rVert_2 &lt; 1$ and use the ratio of these points to estimate $\frac{\pi}{4}$. In the second example, we throw needles randomly and count the ratio of needles that lie across the parallel lines. The ratio could be used to estimate $\pi$. In both of these examples, we do not calculate any integration, and we do not need to measure any area. However, we could use a lot of experiments to approximate the unknown integration, $\pi$.</p>
+
+<h2 id="unbiased-estimator-and-error-analysis">Unbiased estimator and error analysis</h2>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Bias_of_an_estimator" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Bias_of_an_estimator"><b>Bias of an estimator</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<h3 id="unbiased-estimator-for-the-expectation">Unbiased estimator for the expectation</h3>
+
+<p>Remark that $\eqref{fml:mc:general}$ is called &ldquo;Expectation over distribution $p(\cdot)$&ldquo;. Note that if we denote that</p>
+
+<div class="overflow">
+\begin{align}
+    \mu &:= \mathbb{E}_p[f(x)] = \int_a^b f(x) p(x) \mathrm{d} x, \\
+    \overline{f(x)} &:= \frac{1}{N} \sum_{i=1}^N f(x_i),
+\end{align}
+</div>
+
+<p>where $\mu$ is the expectation and $\overline{f(x)}$ is the estimator for $\mu$. Because for any $i$, we have $\mathbb{E}_p[f(x_i)] = \mu$, we have</p>
+
+<div class="overflow">
+\begin{align} \label{fml:mc:unb-exp}
+    \mathbb{E}_p\left[\overline{f(x)}\right] = \frac{1}{N} \mathbb{E}_p\left[ \sum_{i=1}^N f(x_i) \right] = \frac{1}{N} \sum_{i=1}^N \mathbb{E}_p\left[ f(x_i) \right] = \frac{1}{N} N \mu = \mu.
+\end{align}
+</div>
+
+<p>So $\overline{f(x)}$ is the unbiased estimator for the expectation $\mu$. Note that although $\overline{f(x)}$ is a random variable with an average of $\mu$, it is not equivalent to the real expectation. However, this derivation shows that why we could use the average of stochastic samples to replace the original integration in $\eqref{fml:mc:general}$.</p>
+
+<h3 id="unbiased-estimator-for-the-variance">Unbiased estimator for the variance</h3>
+
+<p>Consider the standard deviation $\sigma$, we know that $\sigma:=\sqrt{\mathbb{D}(\cdot)}$, where $\mathbb{D}$ is the variance. Then if we have a distribution $p(\cdot)$, we would have</p>
+
+<div class="overflow">
+\begin{align}
+    \sigma^2 &:= \mathbb{D}_p[f(x)] = \mathbb{E}_p \left[ (f(x) - \mu)^2 \right] = \int_a^b ( f(x) - \mu )^2 p(x) \mathrm{d} x, \label{fml:mc:def-var} \\
+    s^2 &:= \frac{1}{N-1} \sum_{i=1}^N \left( f(x_i) - \overline{f(x)} \right)^2,
+\end{align}
+</div>
+
+<p>First, we have already known that for any function $f$, $\mathbb{D}_p[f(x)] = \mathbb{E}_p \left[ f^2(x) \right] - \mathbb{E}^2_p \left[ f(x) \right]$. Because for any $i \neq j$, $\mathbb{E}_p \left[ f^2(x_i) \right] = \mathbb{E}_p \left[ f^2(x) \right]$ and $\mathbb{E}_p \left[ f(x_i)f(x_j) \right] = \mathbb{E}^2_p \left[ f(x) \right]$, we could derive that</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \mathbb{E}_p \left[ s^2 \right] &= \frac{1}{N-1} \mathbb{E}_p \left[ \sum_{i=1}^N \left( f(x_i) - \overline{f(x)} \right)^2 \right] \\
+    &= \frac{1}{N-1} \mathbb{E}_p \left[ \sum_{i=1}^N \left( f^2(x_i) - \frac{2}{N} f(x_i) \sum_{j=1}^N f(x_j) + \frac{1}{N^2}\left( \sum_{j=1}^N f(x_j) \right)^2 \right) \right] \\
+    &= \frac{1}{N-1} \mathbb{E}_p \left[ \sum_{i=1}^N f^2(x_i) - \frac{2}{N} \sum_{i=1}^N f^2(x_i) - \frac{2}{N} \sum_{i=1}^N \sum_{j \neq i}^N f(x_i) f(x_j) + \frac{1}{N}\left( \sum_{j=1}^N f(x_j) \right)^2 \right] \\
+    &= \frac{1}{N-1} \mathbb{E}_p \left[ \frac{N-2}{N} \sum_{i=1}^N f^2(x_i) - \frac{2}{N} \sum_{i=1}^N \sum_{j \neq i}^N f(x_i) f(x_j) + \frac{1}{N} \sum_{j=1}^N f^2(x_j) + \frac{1}{N} \sum_{i=1}^N \sum_{j \neq i}^N f(x_i) f(x_j) \right] \\
+    &= \frac{1}{N-1} \mathbb{E}_p \left[ \frac{N-1}{N} \sum_{i=1}^N f^2(x_i) - \frac{1}{N} \sum_{i=1}^N \sum_{j \neq i}^N f(x_i) f(x_j) \right] \\
+    &= \frac{1}{N} \sum_{i=1}^N \mathbb{E}_p \left[ f^2(x_i) \right] - \frac{1}{N(N-1)} \sum_{i=1}^N \sum_{j \neq i}^N \mathbb{E}_p \left[ f(x_i) f(x_j) \right] \\
+    &= \frac{1}{N} N \mathbb{E}_p \left[ f^2(x) \right] - \frac{1}{N(N-1)} (N^2 - N) \mathbb{E}^2_p \left[ f(x) \right] \\
+    &= \mathbb{E}_p \left[ f^2(x) \right] - \mathbb{E}^2_p \left[ f(x) \right] = \mathbb{D}_p[f(x)] = \sigma^2.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Hence $s^2$ is an unbiased estimator for the real variance $\sigma^2$, because the expectation of $s^2$ is exactly $\sigma^2$.</p>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Standard_deviation#Unbiased_sample_standard_deviation" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Standard_deviation#Unbiased_sample_standard_deviation"><b>Unbiased sample standard deviation</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>A following question is: &ldquo;is $s$ also the unbiased estimator for $\sigma$?&rdquo; Centainly not. Assume that we have already known $\mathbb{E}(x^2) = a$, generally $\mathbb{E}(x) \neq \sqrt{a}$, unless $x$ is a constant. In fact $s$ is not a constant, so $s$ is not the unbiased estimator for $\sigma$.</p>
+
+<p>The second question is: &ldquo;Is it possible for us to calculate the definite value of the unbiased estimator for the standard deviation?&rdquo; In some cases we could do that. Since this technique requires us to use Taylor expansion for $\sqrt{\cdot}$, it is very difficult for most cases. The reference from Wikipedia here gives some examples of the unbiased estimator for standard deviation, but here we would not discuss about this topic further.</p>
+
+<h3 id="unbiased-estimator-for-the-error-of-expectation">Unbiased estimator for the error of expectation</h3>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Standard_error" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Standard_error"><b>Standard error</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>Now we would introduce a new concept: standard error. It is important to know that STANDARD <strong>ERROR</strong> is quite different from STANDARD <strong>DEVIATION</strong>. A deviation is determined by the specific distribution $p(\cdot)$ and the function $f(\cdot)$. Once we determine $p(\cdot),~f(\cdot)$, the $\sigma$ would be a constant value. Although we could use the unbiased estimator $s^2$ to estimate $\sigma^2$, even we generate infinite samples, the estimated variance would only converge to $\sigma^2$ (not 0). However, the standard error means <strong>how much the variance of the estimated expectation is</strong>.</p>
+
+<p>Recall that we use $\overline{f(x)} := \frac{1}{N} \sum_{i=1}^N f(x_i)$ to make an unbiased estimation, and we know that such an estimator would converge to the true expectation exactly, i.e. $\mathbb{E}_p\left[\overline{f(x)}\right] = \mu$ (proved in $\eqref{fml:mc:unb-exp}$). But we know that $\overline{f(x)}$ is also a random variable, so it would has the variance (deviation). Hence we denote the standard deviation of the estimator for the expectation as the <strong>standard error</strong>, i.e.</p>
+
+<div class="overflow">
+\begin{align}
+    \varepsilon^2 := \mathbb{D}_p[\overline{f(x)}] = \mathbb{E}_p \left[ \left( \overline{f(x)} - \mathbb{E}_p \left[ \overline{f(x)} \right] \right)^2 \right] = \mathbb{E}_p \left[ \left( \overline{f(x)} - \mu \right)^2 \right].
+\end{align}
+</div>
+
+<p>According to the definition of the variance in $\eqref{fml:mc:def-var}$, for any $i$, we have $\mathbb{E}_p \left[ \left( f(x_i) - \mu \right)^2 \right] = \sigma^2$, where $x_i \sim p(\cdot)$. Then we have</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \varepsilon^2 &= \mathbb{E}_p \left[ \left( \overline{f(x)} - \mu \right)^2 \right] = \mathbb{E}_p \left[ \left( \frac{1}{N} \sum_{i=1}^N \left( f(x_i) \right) - \frac{1}{N} N \mu \right)^2 \right] \\
+    &= \frac{1}{N^2} \mathbb{E}_p \left[ \left( \sum_{i=1}^N\left( f(x_i) - \mu \right) \right)^2 \right] \\
+    &= \frac{1}{N^2} \mathbb{E}_p \left[ \sum_{i=1}^N \left( f(x_i) - \mu \right)^2 + \sum_{i=1}^N \sum_{j \neq i}^N \left( f(x_i) - \mu \right) \left( f(x_j) - \mu \right) \right] \\
+    &= \frac{1}{N^2} \left( \sum_{i=1}^N \mathbb{E}_p \left[ \left( f(x) - \mu \right)^2 \right] + \sum_{i=1}^N \sum_{j \neq i}^N \mathbb{E}^2_p \left[ f(x) - \mu \right] \right) \\
+    &= \frac{1}{N^2} \left( N \sigma^2 + (N^2-N) \cdot 0 \right) = \frac{1}{N} \sigma^2. 
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>In the above derivation, $\varepsilon^2 = \frac{1}{N} \sigma^2$ discloses that standard error which is a constant is exactly $\frac{\sigma}{\sqrt{N}}$, where the standard deviation is also a constant. Hence, if $\mathbb{E}_p \left[ s^2 \right] = \sigma^2$ shows that $s^2$ is the unbiased estimator for the variance $\sigma^2$, then we know the unbiased estimator for $\varepsilon^2$ is</p>
+
+<div class="overflow">
+\begin{align} \label{fml:mc:unb-se}
+    \mathrm{SE}^2 := \frac{1}{n} s^2 = \frac{1}{N(N-1)} \sum_{i=1}^N \left( f(x_i) - \overline{f(x)} \right)^2.
+\end{align}
+</div>
+
+<p>It is easy to know that</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbb{E}_p \left[ \mathrm{SE}^2 \right] = \frac{1}{N} \mathbb{E}_p \left[ s^2 \right] = \frac{\sigma^2}{N} = \varepsilon^2.
+\end{align}
+</div>
+
+<p>To be emphasized, $\mathrm{SE}^2$ is an unbiased estimator for $\varepsilon^2$, however, $\mathrm{SE}$ is not the unbiased estimator for $\varepsilon$. Because we are borrowing the derivation of the estimator for the variance. Certainly, if we could calculate the unbiased estimator for $\sigma$ (although it is difficult to find such an estimator), then it is easy to learn that the unbiased estimator for $\varepsilon$ is $\frac{1}{\sqrt{N}}$ of the estimator for $\sigma$.</p>
+
+<h2 id="importance-sampling">Importance sampling</h2>
+
+<p>Defining a set (area) that $\mathcal{Q} = \{ x | q(x) &gt; 0 \}$, we know it has a subset $\mathcal{X} = \{ x | f(x)q(x) \neq 0 \}$. Consider another set $\mathcal{P} = \{ x | p(x) &gt; 0 \}$, then we know that $\mathcal{P}$ and $\mathcal{Q}$ are the domains of two different distributions $p(\cdot),~q(\cdot)$ respectively. As long as we ensure that $\mathcal{X} \in \mathcal{P}$, we could calculate the expectation $\mathbb{E}_q [f(x)]$ by</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \mathbb{E}_p \left[f(x)\frac{q(x)}{p(x)}\right] &= \int_{x \in \mathcal{P}} \left( f(x) \frac{q(x)}{p(x)} \right) p(x) \mathrm{d} x \\
+    &= \int_{x \in \mathcal{X}} \left( f(x) \frac{q(x)}{p(x)} \right) p(x) \mathrm{d} x + \int_{x \in \overline{\mathcal{X}} \cap \mathcal{P}} \left( f(x) \frac{q(x)}{p(x)} \right) p(x) \mathrm{d} x\\
+    &= \int_{x \in \mathcal{X}} f(x) q(x) \mathrm{d} x + 0 = \mathbb{E}_q [f(x)].
+  \end{aligned}
+\end{equation}
+</div>
+
+<table>
+<thead>
+<tr>
+<th>General case</th>
+<th>Simplified case</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./mc-impsamp-1.svg" alt="" /></td>
+<td><img src="./mc-impsamp-2.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>The above two figures show the relationship among three domains. In the left figure, we show a general case, where $\mathcal{P} \neq \mathcal{Q}$. In some cases, when $q(x) &gt; 0$, $p(x) = 0$, but we have $f(x)=0$ in such cases. So we could use a distribution like $p(\cdot)$ with a domain $\mathcal{P}$ to calculate the expectation.</p>
+
+<p>Such a relationship is not convenient in many cases. To simplify it, we could construct a distribution $p(\cdot)$ which domain satisfies $\mathcal{Q} \subseteq \mathcal{P}$. This case is shown in the right figure.</p>
+
+<p>The technique where we use $\mathbb{E}_p \left[f(x)\frac{q(x)}{p(x)}\right]$ to calculate $\mathbb{E}_q [f(x)]$ is called &ldquo;importance sampling&rdquo; which means we use a distribution to calculate Monte-Carlo integration over another distribution.</p>
+
+<h3 id="unbiased-estimator-for-importance-sampling">Unbiased estimator for importance sampling</h3>
+
+<p>Since $\mathbb{E}_p \left[f(x)\frac{q(x)}{p(x)}\right] = \mathbb{E}_q [f(x)]$, if we denote $w_i = \frac{q(x_i)}{p(x_i)}$, we could define such unbiased estimators</p>
+
+<div class="overflow">
+\begin{align}
+    \overline{wf(x)} &:= \frac{1}{N} \sum_{i=1}^N w_i f(x_i), \\
+    s^2 &:= \frac{1}{N-1} \sum_{i=1}^N \left( w_i f(x_i) - \overline{wf(x)} \right)^2, \\
+    \mathrm{SE}^2 &:= \frac{1}{N(N-1)} \sum_{i=1}^N \left( w_i f(x_i) - \overline{wf(x)} \right)^2,
+\end{align}
+</div>
+
+<p>where $x_i \sim p(\cdot)$.</p>
+
+<p>If we set $f^{\dagger}(x_i) := w_i f(x_i)$, we would know that the three estimators could be proved to be unbiased by the totally same methods discussed before. These three estimators are for <strong>expectation</strong>, <strong>variance</strong> and <strong>squared standard error</strong> respectively.</p>
+
+<p>To be specific, we have known that $\mathbb{E}_p \left[f(x)\frac{q(x)}{p(x)}\right] = \mathbb{E}_q [f(x)]$, which means $\mathbb{E}_p \left[ \overline{wf(x)} \right] = \mathbb{E}_q [f(x)] = \mu_q$. So the unbiased estimator for the expectation is exactly the real expectation over the $q(\cdot)$.</p>
+
+<p>However, If we consider the unbiased estimator for the variance, we would find that</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \widehat{\sigma_q^2} &= \mathbb{E}_p \left[ \left( f(x) \frac{q(x)}{p(x)} - \mathbb{E}_p \left[ f(x) \frac{q(x)}{p(x)} \right] \right)^2 \right] \\
+    &= \mathbb{E}_p \left[ \left( f(x) \frac{q(x)}{p(x)} - \mu_q \right)^2 \right] = \mathbb{E}_p \left[ \left( f(x) \frac{q(x)}{p(x)} \right)^2 \right] - \mu^2_q.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Consider the real variance $\sigma^2_q = \mathbb{E}_q \left[ f^2(x) \right] - \mu^2_q$, we would find that the bias of the proposed variance is</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \widehat{\sigma_q^2} - \sigma^2_q &= \mathbb{E}_p \left[ \left( f(x) \frac{q(x)}{p(x)} \right)^2 \right] - \mathbb{E}_q \left[ f^2(x) \right] \\
+    &= \int_{x \in \mathcal{X}} \left( \frac{q(x)}{p(x)} - 1 \right) f^2(x) q(x) \mathrm{d} x.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Hence we know that the unbiased estimator for the &ldquo;variance&rdquo; here is not the unbiased estimator for the true variance of $f(\cdot)$ over $q(\cdot)$. Certainly, it is really an unbiased estimator, but it converges to another variance.</p>
+
+<p>Since $\exists~C,~\forall~x, \frac{q(x)}{p(x)} &lt; C$, we know that $\widehat{\sigma_q^2}$ would not be extremely larger than $\sigma_q^2$ if we choose a good density function $p(\cdot)$ that is close to $q(\cdot)$. In particular, when $p(\cdot) = q(\cdot)$, $\widehat{\sigma_q^2} = \sigma_q^2$.</p>
+
+<p>There is the similar circumstance for the estimator for standard error, because the $\widehat{\varepsilon^2_q} = \frac{1}{N} \widehat{\sigma_q^2}$.</p>
+
+<p>The above derivations shows that when using importance sampling to calculate the Monte-Carlo integration, we could still preserve the expectation for another probability. However, compared to generating samples over the original probability directly, this method may introduce a different variance (almost always larger). The above unbiased estimators could estimate the variance and standard error correctly, but both of the variance and standard error are different from those of the direct sampling method.</p>
+
+<h3 id="alternative-self-normalized-importance-sampling">Alternative: self-normalized importance sampling</h3>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Importance_sampling" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Importance_sampling"><b>Importance sampling</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>We have already known that $\overline{wf(x)}$ is an unbiased estimator for $\mathbb{E}_q [f(x)]$. Let $f(x) = 1$, then we could define an unbiased estimator</p>
+
+<div class="overflow">
+\begin{align}
+    \overline{w} := \frac{1}{N} \sum_{i=1}^N w_i,
+\end{align}
+</div>
+
+<p>where $\mathbb{E}_p (\overline{w}) = 1$.</p>
+
+<p>Since</p>
+
+<div class="overflow">
+\begin{align} \label{fml:mc:est}
+    \frac{\mathbb{E}_p \left[ \overline{wf(x)} \right] }{ \mathbb{E}_p \left[ \overline{w} \right] } = \frac{ \mathbb{E}_q [f(x)] }{ 1 } = \mu_q.
+\end{align}
+</div>
+
+<p>We could derive an estimator that</p>
+
+<div class="overflow">
+\begin{align}
+    \widetilde{wf(x)} = \frac{ \overline{wf(x)} }{ \overline{w} } = \frac{\sum_{i=1}^N w_i f(x_i)}{\sum_{i=1}^N w_i}.
+\end{align}
+</div>
+
+<p>According to $\mathbb{E}\left[ \frac{a}{b} \right] = \frac{\mathbb{E}[a]}{\mathbb{E}[b]} - \frac{\mathrm{Cov}\left( b,~\frac{a}{b} \right)}{\mathbb{E}[b]}$, we have</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \mathbb{E}_p \left[ \widetilde{wf(x)} \right] &= \mathbb{E}_p \left[ \frac{ \overline{wf(x)} }{ \overline{w} } \right] = \frac{\mathbb{E}_p \left[ \overline{wf(x)} \right] }{ \mathbb{E}_p \left[ \overline{w} \right] } - \frac{\mathrm{Cov}\left( \overline{w},~ \frac{ \overline{wf(x)} }{ \overline{w} } \right)}{ \mathbb{E}_p \left[ \overline{w} \right] } \\
+    &= \mu_q - \mathrm{Cov}\left( \overline{w},~ \frac{ \overline{wf(x)} }{ \overline{w} } \right) \neq \mu_q.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Hence we know that $\widetilde{wf(x)}$ is not the unbiased estimator of $\mu_q$. Although in some materials, we may derive that if $N \rightarrow \infty$, $\lim\limits_{N \rightarrow \infty} \widetilde{wf(x)} = \mu_q$, this conclusion could not ensure an unbiased estimation. In some materials, such kind of estimator is described as &ldquo;<strong>asymptotically unbiased</strong>&rdquo;.</p>
+
+<p>To be frank, almost all materials about self-normalized importance sampling do not mention the estimator for variance ($\widetilde{s^2}$), thus we do not talk about it here. First, for any $x_i$, we have</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbb{E}_p \left[ w_i (f(x_i) - \mu_q) \right] = \mathbb{E}_p \left[ w_i f(x_i) \right] - \mu_q \mathbb{E}_p \left[ w_i \right] = 0. 
+\end{align}
+</div>
+
+<p>Consider the definition of the standard error, we would have</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \widetilde{\varepsilon^2} &= \mathbb{E}_p \left[ \left( \widetilde{wf(x)} - \mu_q \right)^2 \right] = \mathbb{E}_p \left[ \left( \frac{\sum_{i=1}^N w_i f(x_i) - \mu_q \sum_{i=1}^N w_i }{\sum_{i=1}^N w_i} \right)^2 \right] \\
+    &= \mathbb{E}_p \left[ \frac{ \left( \sum_{i=1}^N w_i \left(f(x_i) - \mu_q \right) \right)^2 }{ \left( \sum_{i=1}^N w_i \right)^2 } \right] \approx \frac{ \mathbb{E}_p \left[ \left( \sum_{i=1}^N w_i \left(f(x_i) - \mu_q \right) \right)^2 \right] }{ \mathbb{E}_p \left[ \left( \sum_{i=1}^N w_i \right)^2 \right] }\\
+    &= \frac{ \sum_{i=1}^N \mathbb{E}_p \left[ w^2_i \left(f(x_i) - \mu_q \right)^2 \right] + \sum_{i=1}^N \sum_{j \neq i}^N \mathbb{E}_p \left[ w_i \left(f(x_i) - \mu_q \right) \right] \mathbb{E}_p \left[ w_j \left(f(x_j) - \mu_q \right) \right] }{ \sum_{i=1}^N \mathbb{E}_p \left[ w^2_i \right] + \sum_{i=1}^N \sum_{j \neq i}^N \mathbb{E}_p \left[ w_i \right] \mathbb{E}_p \left[ w_j \right] } \\
+    &= \frac{\sum_{i=1}^N \mathbb{E}_p \left[ w^2_i \left(f(x_i) - \mu_q \right)^2 \right] + 0}{ N \mathbb{E}_p \left[ w^2 \right] + N(N-1) \mathbb{E}^2_p \left[ w \right]} = \frac{N \mathbb{E}_p \left[ w^2 \left(f(x) - \mu_q \right)^2 \right]}{ N \mathbb{D}_p \left[ w \right] + N^2 \mathbb{E}^2_p \left[ w \right] } \approx \frac{\mathbb{E}_p \left[ w^2 \left(f(x) - \mu_q \right)^2 \right]}{ N \mathbb{E}^2_p \left[ w \right] }.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>In this derivation, we make 2 approximations. In the first approximation, we apply $\mathbb{E} \left[\frac{a}{b}\right] = \frac{ \mathbb{E}[a] }{ \mathbb{E}[b] }$, which causes the error brought from the covariance removed. In the second approximation, we know that $\mathbb{E}_p [w] = 1$ while $\frac{1}{N} \mathbb{D}_p [ w ] &lt; \frac{1}{N}$, which means we remove the variance in the dominator. Hence we could only get an approximation of the squared standard error $\widetilde{\varepsilon^2}$ here. If we apply another approximation that $\widetilde{wf(x)} \approx \mu_q$, we could get an estimator</p>
+
+<div class="overflow">
+\begin{align}
+    \widetilde{\mathrm{SE}^2} := \frac{1}{N} \frac{ \frac{1}{N} \sum_{i=1}^N w_i^2 \left(f(x_i) - \widetilde{wf(x)} \right)^2 }{ \frac{1}{N^2} \left( \sum_{i=1}^N w_i \right)^2 } = \frac{ \sum_{i=1}^N w_i^2 \left(f(x_i) - \widetilde{wf(x)} \right)^2 }{ \left( \sum_{i=1}^N w_i \right)^2 }.
+\end{align}
+</div>
+
+<p>Apparently this is not an unbiased estimator for both $\widetilde{\varepsilon^2}$ and $\varepsilon^2$. If we substitute that $w_i = 1$, we would find that $\widetilde{\mathrm{SE}^2} = \frac{ \sum_{i=1}^N \left(f(x_i) - \overline{f(x)} \right)^2 }{ N^2 }$, which is different from the unbiased estimator that we have derived in $\eqref{fml:mc:unb-se}$.</p>
+
+<h3 id="simulation-results">Simulation results</h3>
+
+<p>To show that why the unbiased estimator is so important and how importance sampling works, we write codes to perform Monte-Carlo simulation.</p>
+
+<p>Let $p(\cdot) \sim \mathcal{N}(\mu_n,~\sigma_n)$, $q(\cdot) \sim \chi^2 (k)$. Then we could use different parameters to test different estimators.</p>
+
+<ul>
+<li><p>For expectation, we test the estimators for direct sampling, importance sampling (where we use $\frac{q(x)}{p(x)}$) and self-normalized importance sampling.</p></li>
+
+<li><p>For variance, we compare the estimators for direct sampling and importance sampling. Both estimators are unbiased, however, they are for different variance value.</p></li>
+
+<li><p>For standard error, we compare the estimators for 3 methods. Note that the last estimator, i.e. the estimator in self-normalized importance sampling is biased.</p></li>
+</ul>
+
+<p>For all experiments, we set $k=10$. Then here are the results:</p>
+
+<table>
+<thead>
+<tr>
+<th>$(\mu_n,~\sigma_n)$</th>
+<th>PDF</th>
+<th>Expectation</th>
+<th>Variance</th>
+<th>Standard error</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>(20, 10)</td>
+<td><img src="./impsamp-1-prob.svg" alt="" /></td>
+<td><img src="./impsamp-1-mu.svg" alt="" /></td>
+<td><img src="./impsamp-1-var.svg" alt="" /></td>
+<td><img src="./impsamp-1-se.svg" alt="" /></td>
+</tr>
+
+<tr>
+<td>(9, 6)</td>
+<td><img src="./impsamp-2-prob.svg" alt="" /></td>
+<td><img src="./impsamp-2-mu.svg" alt="" /></td>
+<td><img src="./impsamp-2-var.svg" alt="" /></td>
+<td><img src="./impsamp-2-se.svg" alt="" /></td>
+</tr>
+
+<tr>
+<td>(20, 3)</td>
+<td><img src="./impsamp-3-prob.svg" alt="" /></td>
+<td><img src="./impsamp-3-mu.svg" alt="" /></td>
+<td><img src="./impsamp-3-var.svg" alt="" /></td>
+<td><img src="./impsamp-3-se.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>We use <span style="color:#ff7855">dashed red line</span> to show the true value calculated by integration. The <span style="color:#95d0fc">blue curves</span>, <span style="color:#fdaa48">orange curves</span> and <span style="color:#96f97b">green curves</span> are Monte-Carlo simulation results by direct sampling, by importance sampling and self-normalized importance sampling respectively. Generally we could find that the standard error estimator in self-normalized importance sampling converges to 0 more slowly, because it is not only a biased estimator, but also an estimator for an approximate standard error.</p>
+
+<p>The blue density function is $\chi^2(10)$. Then we know that</p>
+
+<ul>
+<li><p>In the first experiment, we use a widely spread normal distribution which is not close to the target distribution to perform importance sampling. We could find that the convergence of the expectation is fairly good, while it has an obviously larger variance and standard error compared to direct sampling.</p></li>
+
+<li><p>In the second experiment, we adjust the parameters of the normal distribution so that it is closer to the target distribution. The results are even better than the first experiment. Consider that the maximum of the probability density function of the target distribution is about 1.5 times of that of the normal distribution. And we find that the variance of the importance sampling is almost also 1.5 times than the original variance, which proves our theory.</p></li>
+
+<li><p>In the last experiment, we use a bad distribution to sampling the target distribution. The distribution is bad because there is a small probability when we get a sample that appears in the target distribution with a high possibility. There is no surprise that the simulation of the importance sampling is in very low quality with an extremely high variance and nearly unconverged standard error.</p></li>
+</ul>
+
+<h1 id="metropolis-hastings-algorithm">Metropolis-Hastings algorithm</h1>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Inverse_transform_sampling" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Inverse_transform_sampling"><b>Inverse transform sampling</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>In the above parts, we are keeping discussing about the single value function with a single value distribution. In somehow, some conclusions are also satisfied in the case of multi-variate distribution. However, an inevitable challenge is how could we generate samples from an arbitrary multi-variate distribution.</p>
+
+<p>Consider the case that we only have single value. In this case, we usually use &ldquo;<strong>inverse transform sampling</strong>&rdquo;. The algorithm could be described as</p>
+
+<div class='box'>
+  <ol>
+    <li>For the arbitrary probability density function $p(\cdot)$, apply integration and calculate its corresponding cumulative density function $F(\cdot)$.</li>
+    <li>Find the inverse function $F^{-1}(\cdot)$.</li>
+    <li>Generate a random variable $r \sim U(0,1)$, apply that $x = F^{-1}(r)$, where $x$ is the sample in the distribution $x \sim p(x)$.</li>
+  </ol>
+</div>
+
+<p>Such a technique is not applicable in many cases. For example, if we could not find a inverse of $F(\cdot)$, it may take extra pre-processing to fix this problem. Furthermore, in most cases, we need to deal with multi-variate distribution which makes it very difficult to find a multi-output function $\mathbf{x} = F^{-1}( r )$. Hence we need to find some alternatives to allow us simulate multi-variate sampling. Metropolis-Hastings algorithm is such an approach. Since it is based on Monte-Carlo Markov chain (MCMC), to learn this method, we need to recall the some key points of the theory of Markov chain.</p>
+
+<h2 id="stationarity-of-a-markov-chain">Stationarity of a Markov chain</h2>
+
+<p>Consider a Markov chain model. In the example shown in the following figure, we have 5 available states, where the probability that current state is the i<sup>th</sup> state is $p_i$ (hence the distribution could be represented as $\mathbf{p}$). Denote the <strong>probability transition matrix</strong> as $\mathbf{Q}$, then we know that the probability that state i turning into state j is $q_{i \rightarrow j}$. We call &ldquo;a step&rdquo; in Markov chain</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbf{p}(t+1) = \mathbf{p}(t) \mathbf{Q}.
+\end{align}
+</div>
+
+<p>If we have $\mathbf{p}(t+1) = \mathbf{p}(t)$, we call such a distribution as <strong>stationary distribution</strong>, or $\boldsymbol{\pi}$. Because $\boldsymbol{\pi} = \boldsymbol{\pi} \mathbf{Q}$, for the probability of the j<sup>th</sup> state, we have</p>
+
+<div class="overflow">
+\begin{align}
+    \pi_j = \sum_{i} \pi_i q_{i \rightarrow j}.
+\end{align}
+</div>
+
+<p>Here we introduce the <strong>reversibility condition</strong>. If we have such an equation for any i and j,</p>
+
+<div class="overflow">
+\begin{align}
+    p_i (t) q_{i \rightarrow j} = p_j (t) q_{j \rightarrow i},
+\end{align}
+</div>
+
+<p>then the markov chain has the <strong>stationary distribution</strong>. To understand this condition, we could derive that</p>
+
+<div class="overflow">
+\begin{align}
+    p_j (t+1) = \sum_{i} p_i(t) q_{i \rightarrow j} = \sum_{i} p_j(t) q_{j \rightarrow i} = p_j(t) \sum_{i} q_{j \rightarrow i} = p_j (t).
+\end{align}
+</div>
+
+<p>Hence we know such a Markov chain is stable. The reversibility condition is a sufficient condition for stationarity. However, a stationary distribution may not require reversibility condition.</p>
+
+<p>Note that if $\mathbf{Q}$ is confirmed, we would have the unique solution for $\boldsymbol{\pi}$. So if we have already known $\mathbf{Q}$ and $\boldsymbol{\pi}$ which could ensure the reversibility condition, then we could confirm that $\boldsymbol{\pi}$ is the steady distribution for this Markov chain.</p>
+
+<h3 id="continuous-form-of-reversibility-condition">Continuous form of reversibility condition</h3>
+
+<p>Consider that we have a distribution $p(x)$ in continuous form. For any $x,~y$, if we have the transition probability $q(x,~y) := P(x \rightarrow y | x)$ which is continuous, then the reversibility condition could be rewritten as</p>
+
+<div class="overflow">
+\begin{align}
+    p (x) q(x,~y) = p (y) q (y,~x),
+\end{align}
+</div>
+
+<p>where $\int_{y \in \Omega} q(x,~y) \mathrm{d} y= 1$. Hence we know that</p>
+
+<div class="overflow">
+\begin{align}
+    p_{t+1} (y) = \int_{x \in \Omega} p_{t}(x) q(x,~y) = \int_{x \in \Omega} p_{t}(y) q(y,~x) = p_{t}(y),
+\end{align}
+</div>
+
+<p>which ensures the stationarity of the continuous Markov chain.</p>
+
+<h2 id="what-is-metropolis-hastings-algorithm">What is Metropolis-Hastings algorithm</h2>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Metropolis%e2%80%93Hastings_algorithm" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Metropolis%e2%80%93Hastings_algorithm"><b>Metropolis–Hastings algorithm</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>Metropolis-Hastings algorithm is a MCMC sampling method. The idea of this method is constructing a reversible Markov chain. Suppose that we have a target density function $p(\boldsymbol{\theta})$ which is multi-variate. If we know any $\boldsymbol{\theta}$, we have a jumping distribution $q(\boldsymbol{\theta},~\boldsymbol{\theta}^{\dagger}) := q(\boldsymbol{\theta}^{\dagger} | \boldsymbol{\theta})$. Then given a initial variable $\boldsymbol{\theta}_0$, the algorithm could be described as follows</p>
+
+<div class='box'>
+  <ol>
+    <li>For any $t$ ($t \geqslant 0$), generate a sample $\boldsymbol{\theta}^{\dagger} \sim q(\boldsymbol{\theta}_t,~\boldsymbol{\theta}^{\dagger})$.</li>
+    <li>Calculate the acceptance rate $\alpha (\boldsymbol{\theta}^{\dagger} | \boldsymbol{\theta}_t) = \max \left( \frac{ p(\boldsymbol{\theta}^{\dagger}) q(\boldsymbol{\theta}^{\dagger},~\boldsymbol{\theta}_t) }{ p(\boldsymbol{\theta}_t) q(\boldsymbol{\theta}_t,~\boldsymbol{\theta}^{\dagger}) },~ 1 \right)$.</li>
+    <li>Generate a random variable $r \sim U(0,~1)$. If $r &lt; \alpha$, accept the new sample, i.e. $\boldsymbol{\theta}_{t+1} = \boldsymbol{\theta}^{\dagger}$. Otherwise reject it, i.e. $\boldsymbol{\theta}_{t+1}=\boldsymbol{\theta}_t$.</li>
+    <li>Go back to step 1 until we get a group of samples which are unrelated to each other.</li>
+  </ol>
+</div>
+
+<p>In the real application, selecting a good jumping distribution is very important. It is obvious that since $q$ is also a multi-variate distribution, it is necessary to use a simple distribution. Otherwise, we have no approach to generate samples over $q$ quickly. Generally, we use the multi-variate normal distribution, i.e. $q(\cdot|\boldsymbol{\theta}) \sim \mathcal{N}(\boldsymbol{\theta},~\Sigma(\boldsymbol{\theta}))$. We may use different covariance matrices at different position $\boldsymbol{\theta}$. If we make the covariance matrix homogenous, i.e. $\Sigma$ is diagonal, then we have $q(\boldsymbol{\theta}_t,~\boldsymbol{\theta}^{\dagger}) = q(\boldsymbol{\theta}^{\dagger},~\boldsymbol{\theta}_t)$. In this case, the Metropolis-Hastings algorithm degenerates to Metropolis algorithm:</p>
+
+<div class='box'>
+  <ol>
+    <li>For any $t$ ($t \geqslant 0$), generate a sample $\boldsymbol{\theta}^{\dagger} \sim q(\boldsymbol{\theta}_t,~\boldsymbol{\theta}^{\dagger})$.</li>
+    <li>Calculate the acceptance rate $\alpha (\boldsymbol{\theta}^{\dagger} | \boldsymbol{\theta}_t) = \max \left( \frac{ p(\boldsymbol{\theta}^{\dagger}) }{ p(\boldsymbol{\theta}_t) },~ 1 \right)$.</li>
+    <li>Generate a random variable $r \sim U(0,~1)$. If $r &lt; \alpha$, accept the new sample, i.e. $\boldsymbol{\theta}_{t+1} = \boldsymbol{\theta}^{\dagger}$. Otherwise reject it, i.e. $\boldsymbol{\theta}_{t+1}=\boldsymbol{\theta}_t$.</li>
+    <li>Go back to step 1 until we get a group of samples which are unrelated to each other.</li>
+  </ol>
+</div>
+
+<h2 id="stationarity-of-metropolis-hastings-algorithm">Stationarity of Metropolis-Hastings algorithm</h2>
+
+<p>The continuous transition in Metropolis-Hastings algorithm fulfils the reversibility condition. Note that if a sample is accepted, we have</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    p (\boldsymbol{\theta}) \left[ q(\boldsymbol{\theta},~\boldsymbol{\theta}^{\dagger}) \alpha( \boldsymbol{\theta}^{\dagger} | \boldsymbol{\theta} ) \right] &= p (\boldsymbol{\theta}) q(\boldsymbol{\theta},~\boldsymbol{\theta}^{\dagger}) \max \left( \frac{ p(\boldsymbol{\theta}^{\dagger}) q(\boldsymbol{\theta}^{\dagger},~\boldsymbol{\theta}) }{ p(\boldsymbol{\theta}) q(\boldsymbol{\theta},~\boldsymbol{\theta}^{\dagger}) },~ 1 \right)\\
+    &= \max \left( p(\boldsymbol{\theta}^{\dagger}) q(\boldsymbol{\theta}^{\dagger},~\boldsymbol{\theta}),~ p (\boldsymbol{\theta}) q(\boldsymbol{\theta},~\boldsymbol{\theta}^{\dagger}) \right)\\
+    &= p(\boldsymbol{\theta}^{\dagger}) q(\boldsymbol{\theta}^{\dagger},~\boldsymbol{\theta}) \max \left( 1,~ \frac{ p(\boldsymbol{\theta}) q(\boldsymbol{\theta},~\boldsymbol{\theta}^{\dagger}) }{ p(\boldsymbol{\theta}^{\dagger}) q(\boldsymbol{\theta}^{\dagger},~\boldsymbol{\theta}) } \right)\\
+    &= p(\boldsymbol{\theta}^{\dagger}) \left[ q(\boldsymbol{\theta}^{\dagger},~\boldsymbol{\theta}) \alpha( \boldsymbol{\theta} | \boldsymbol{\theta}^{\dagger}) \right].
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>If the sample is rejected, since the state does not change, we have $\boldsymbol{\theta}^{\dagger} = \boldsymbol{\theta}$, so no matter how much is the probability of the rejection, the reversibility condition still holds.</p>
+
+<h2 id="estimate-the-convergence-of-metropolis-hasting-algorithm">Estimate the convergence of Metropolis-Hasting algorithm</h2>
+
+<p>First, let us introduce the covariance and autocorrelation. For two random variable, the covariance is</p>
+
+<div class="overflow">
+\begin{align}
+    \mathrm{Cov}(x,~y) = \mathbb{E}\left[ \left( x - \mathbb{E} \left[ x \right] \right) \left( y - \mathbb{E} \left[ y \right] \right) \right] = \mathbb{E}\left[ x y \right] - \mathbb{E} \left[ x \right] \mathbb{E} \left[ y \right].
+\end{align}
+</div>
+
+<p>Then if we have a sequence $\{ \theta_i \}$ could define the autocorrelation:</p>
+
+<div class="overflow">
+\begin{align}
+    \rho_{k} = \frac{\mathrm{Cov}(\theta_{i+k},~\theta_i)}{\mathbb{D}\left[ \theta \right]} = \frac{ \mathbb{E}\left[ \left( \theta_{i+k} - \mathbb{E} \left[ \theta \right] \right) \left( \theta_{i} - \mathbb{E} \left[ \theta \right] \right) \right] } { \mathbb{E}\left[ \left( \theta_{i} - \mathbb{E} \left[ \theta \right] \right)^2\right] }.
+\end{align}
+</div>
+
+<p>Here we introduce an estimator for autocorrelation:</p>
+
+<div class="overflow">
+\begin{align} \label{fml:mh:rhoest}
+    \hat{\rho}_{k} = \frac{ \sum_{i=1}^{N-k} \left( \theta_{i+k} - \overline{\theta} \right) \left( \theta_{i} - \overline{\theta} \right) } { \sum_{i=1}^{N-k} \left( \theta_{i} - \overline{\theta} \right)^2 },
+\end{align}
+</div>
+
+<p>where $\overline{\theta} = \frac{1}{N} \sum_{i=1}^{N} \theta_{i}$.</p>
+
+<p>Actually, $\hat{\rho}_{k}$ is a biased estimator, unless we use the true values of expectation and variance instead of unbiased estimation in $\eqref{fml:mh:rhoest}$. In the following part, we would assume that we could use this estimator to calculate autocorrelation.</p>
+
+<h3 id="ar-sub-1-sub-process">AR<sub>1</sub> process</h3>
+
+<p>To learn how Metropolis-Hastings algorithm converges, we need to generalize this algorithm as a first-order autoregressive process (AR<sub>1</sub>). This process could be formulated as the following sequence:</p>
+
+<div class="overflow">
+\begin{align}
+    \theta_t - \mu = \alpha ( \theta_{t-1} - \mu) + \varepsilon,
+\end{align}
+</div>
+
+<p>where $\varepsilon \sim \mathcal{N} (0,~\sigma)$ is a random noise, $\alpha \in (0,~1)$. Hence we have</p>
+
+<div class="overflow">
+\begin{align}
+    \theta_t - \mu = \alpha^t ( \theta_0 - \mu) + \sum_{i=1}^t \alpha^{i-1} \varepsilon_i \approx \sum_{i=1}^{\infty} \alpha^{i-1} \varepsilon_i,
+\end{align}
+</div>
+
+<p>where $\varepsilon_1,~ \varepsilon_2,~ \cdots$ are a series random variables which are unrelated to each other.</p>
+
+<p>Hence we could find that $\mathbb{E} \left[ \theta_t - \mu \right] = 0$, i.e.</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbb{E} \left[ \theta \right] = \mu.
+\end{align}
+</div>
+
+<p>We could calculate the variance</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbb{D} \left[ \theta \right] = \mathbb{D} \left[ \mu + \sum_{i=1}^{\infty} \alpha^{i-1} \varepsilon_i \right] = \mathbb{D} \left[ \sum_{i=1}^{\infty} \alpha^{i-1} \varepsilon_i \right] = \sum_{i=1}^{\infty} \alpha^{2(i-1)} \mathbb{D} \left[ \varepsilon_i \right] = \frac{1}{1 - \alpha^2} \sigma^2,
+\end{align}
+</div>
+
+<p>and the covariance</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \mathrm{Cov}(\theta_{i+k},~\theta_i) &= \mathbb{E} \left[ (\theta_{i+k} - \mu) (\theta_{i} - \mu) \right] \\
+    &= \mathbb{E} \left[ \left( \alpha^k ( \theta_i - \mu) + \sum_{i=1}^k \alpha^{i-1} \varepsilon_i \right) \left( \theta_{i} - \mu \right) \right] \\
+    &= \mathbb{E} \left[ \left( \alpha^k ( \theta_i - \mu) \right)^2 \right] = \alpha^k \mathbb{D} \left[ \theta \right].
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Hence the truth of the autocorrelation is $\rho_k = \alpha^k$. Since we are using expectation operator to draw this conclusion, $\alpha^k$ is the true value, not an estimator.</p>
+
+<h3 id="standard-error-of-ar-sub-1-sub-process">Standard error of AR<sub>1</sub> process</h3>
+
+<p>To learn the standard error, first, we need to calculate</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \mathbb{E} \left[ \overline{\theta} \right] = \frac{1}{N} \sum_{i=1}^N \mathbb{E} \left[ \theta_i \right] = \mu.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Then we calculate</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \mathrm{SE}^2 &= \mathbb{D} \left[ \overline{\theta} \right] = \mathbb{E} \left[ \left( \overline{\theta} - \mu \right)^2 \right] = \frac{1}{N^2} \mathbb{E} \left[ \sum_{i=1}^N \sum_{j=1}^N (\theta_i - \mu) (\theta_j - \mu) \right]\\
+    &= \frac{1}{N^2} \sum_{i=1}^N \sum_{j=1}^N \mathrm{Cov}(\theta_i,~\theta_j) = \frac{\mathbb{D} \left[ \theta \right]}{N^2} \sum_{i=1}^N \sum_{j=1}^N \alpha^{|i-j|}.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Consider the covariance matrix</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \Sigma_{AR_1} = \frac{\sigma^2}{1 - \alpha^2}
+    \begin{bmatrix}
+      1 & \alpha & \alpha^2 & \cdots & \alpha^{N-1} \\
+      \alpha & 1 & \alpha & \vdots & \alpha^{N-2} \\
+      \alpha^2 & \alpha & 1 & \vdots & \vdots \\
+      \vdots & \vdots & \vdots & \ddots & \alpha \\
+      \alpha^{N-1} & \alpha^{N-2} & \cdots & \alpha & 1
+    \end{bmatrix}.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>The standard error is the average of all elements in the covariance matrix. Hence we have</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \mathrm{SE}^2 &= \frac{\sum_{j=1}^N \alpha^{|i-j|}}{N^2} \sum_{i=1}^N \mathbb{D} \left[ \theta \right] \\
+    &= \frac{N + 2(N-1)\alpha + 2(N-2)\alpha^2 + \cdots + 2 \alpha^{N-1}}{N^2} \frac{\sigma^2}{1 - \alpha^2} \\
+    &\approx \frac{N + 2(N-1)\alpha + 2(N-2)\alpha^2}{N^2} \frac{\sigma^2}{1 - \alpha^2} = \frac{N (1+\alpha)^2 - 2\alpha + (N-4)\alpha^2}{N^2} \frac{\sigma^2}{1 - \alpha^2} \\
+    &\approx \frac{N (1+\alpha)^2}{N^2} \frac{\sigma^2}{1 - \alpha^2} = \frac{\sigma^2}{N} \frac{1 + \alpha}{1 - \alpha}.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Hence we know that $\mathrm{SE} \approx \frac{\sigma}{\sqrt{N}} \sqrt{\frac{1 + \alpha}{1 - \alpha}}$. This is not an estimator, but an approximation to the true value. Since $\rho_1 = \alpha$, we could find that the less autocorrelation in the sequence, the smaller the standard error is.</p>
+
+<h2 id="simulation-results-1">Simulation results</h2>
+
+<p>To test the performance of Metropolis-Hastings algorithm, we design such a probability density function:</p>
+
+<table>
+<thead>
+<tr>
+<th>Our specially designed pdf</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./mh-den.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>In somehow, this function is not very suitable for applying Metropolis-Hastings, because in most of the input domain, $p(\cdot)=0$. But we could still test it. In this example, we generate a distribution with the mean value of [0.5, 1.0].</p>
+
+<p>We use $\mathbf{x} = \mathbf{x} + \mathcal{N}(0, 0.005)$ to update the sample. Beginning at [0.4, 0.8], after 20000 steps, we choose the last 10000 samples. The results are shown as follows</p>
+
+<table>
+<thead>
+<tr>
+<th>Test<sub>1</sub></th>
+<th>Test<sub>2</sub></th>
+<th>Test<sub>3</sub></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./mh-1.svg" alt="" /></td>
+<td><img src="./mh-2.svg" alt="" /></td>
+<td><img src="./mh-3.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>We use <span style="color:#95d0fc">blue points</span> to show the samples lying in the right domain. The <span style="color:#ff7855">red points</span> represent samples with a $p(\cdot)=0$. The performance of the algorithm is not very stable.</p>
+
+<p>Here we show the estimation of the standard error. Because we have already known the true expectation ([0.5, 1.0]), our estimation for standard error is unbiased here. The result is shown in the following figure:</p>
+
+<table>
+<thead>
+<tr>
+<th>Estimation for standard error</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./mh-se.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>To prevent the cases that the samples are not in valid domain, we could adapt Metropolis-Hastings algorithm as below</p>
+
+<div class='box'>
+  <ol>
+    <li>For any $t$ ($t \geqslant 0$), generate a sample $\boldsymbol{\theta}^{\dagger} \sim q(\boldsymbol{\theta}_t,~\boldsymbol{\theta}^{\dagger})$.</li>
+    <li>Calculate the acceptance rate $\alpha (\boldsymbol{\theta}^{\dagger} | \boldsymbol{\theta}_t) = \max \left( \frac{ p(\boldsymbol{\theta}^{\dagger}) q(\boldsymbol{\theta}^{\dagger},~\boldsymbol{\theta}_t) }{ p(\boldsymbol{\theta}_t) q(\boldsymbol{\theta}_t,~\boldsymbol{\theta}^{\dagger}) },~ 1 \right)$.</li>
+    <li>If $p(\boldsymbol{\theta}^{\dagger}) &lt; T$, where $T$ is a threshold, let $\alpha=0$</li>
+    <li>Generate a random variable $r \sim U(0,~1)$. If $r &lt; \alpha$, accept the new sample, i.e. $\boldsymbol{\theta}_{t+1} = \boldsymbol{\theta}^{\dagger}$. Otherwise reject it, i.e. $\boldsymbol{\theta}_{t+1}=\boldsymbol{\theta}_t$.</li>
+    <li>Go back to step 1 until we get a group of samples which are unrelated to each other.</li>
+  </ol>
+</div>
+
+<p>By improving the algorithm, we could set a larger $\sigma$, i.e. $\mathbf{x} = \mathbf{x} + \mathcal{N}(0, 1)$. Then we would have new results:</p>
+
+<table>
+<thead>
+<tr>
+<th>Sampling iterations</th>
+<th>Test Results (Last 10K samples)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>20K</td>
+<td><img src="./mh-4.svg" alt="" /></td>
+</tr>
+
+<tr>
+<td>100K</td>
+<td><img src="./mh-5.svg" alt="" /></td>
+</tr>
+
+<tr>
+<td>1M</td>
+<td><img src="./mh-6.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>Sampling iterations</th>
+<th>Estimation for standard error (improved algorithm)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>20K</td>
+<td><img src="./mh-se2.svg" alt="" /></td>
+</tr>
+
+<tr>
+<td>100K</td>
+<td><img src="./mh-se3.svg" alt="" /></td>
+</tr>
+
+<tr>
+<td>1M</td>
+<td><img src="./mh-se4.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>We could find that after improving the algorithm, there is no point lying out of the valid domain. Furthermore, it seems that in these simulations, the autocorrelation does not influence the standard error very much, which may be caused by our distribution.</p>
+
+<h1 id="gibbs-sampling">Gibbs sampling</h1>
+
+<p>We have known that although Metropolis-Hastings algorithm could be a good simulation, the results may be influenced by the distribution of jumping probability. To get rid of such influence, we may let $q(\cdot) \sim U(\mathbf{x} \in \Omega)$, which means using uniform distribution in the whole input domain. However, if we could generate the conditional sampling of the target distribution $p(\cdot)$, Gibbs sampling would be a better choice.</p>
+
+<h2 id="what-is-gibbs-sampling">What is Gibbs sampling</h2>
+
+<p>Gibbs sampling could be viewed as a special case of the Metropolis-Hastings algorithm. It is also used to generate samples for a multi-variate distribution. Consider that we have a multi-variate variable $\boldsymbol{\theta} \sim p(\boldsymbol{\theta})$, If we set the initial guess as $\boldsymbol{\theta}^{(0)}$, then Gibbs sampling could be described as</p>
+
+<div class='box'>
+  <div class="overflow">
+  <p>For any $k \geqslant 0$, the k<sup>th</sup> iteration of Gibbs sampling could be described as</p>
+  <ol>
+    <li>$\theta^{(k+1)}_1 \sim p\left(\theta_1 \left| \theta_2=\theta^{(k)}_2,~ \theta_3=\theta^{(k)}_3,~ \theta_n=\theta^{(k)}_n \right.\right)$</li>
+    <li>$\theta^{(k+1)}_2 \sim p\left(\theta_2 \left| \theta_1=\theta^{(k+1)}_1,~ \theta_3=\theta^{(k)}_3,~ \theta_n=\theta^{(k)}_n \right.\right)$</li>
+    <li>$\theta^{(k+1)}_3 \sim p\left(\theta_3 \left| \theta_1=\theta^{(k+1)}_2,~ \theta_2=\theta^{(k+1)}_2,~ \theta_n=\theta^{(k)}_n \right.\right)$</li>
+    <li>...</li>
+    <li>$\theta^{(k+1)}_n \sim p\left(\theta_n \left| \theta_1=\theta^{(k+1)}_1,~ \theta_2=\theta^{(k+1)}_2,~ \theta_n=\theta^{(k+1)}_{n-1} \right.\right)$</li>
+  </ol>
+  </div>
+</div>
+
+<p>Although it is much easier for us to sample from a conditional distribution with a single variable and other parameters fixed, it may still take us some efforts to calculate the conditional sampling. So Gibbs sampling may be not efficient in some cases that even the conditional sampling is difficult.</p>
+
+<h2 id="staionarity-of-gibbs-sampling">Staionarity of Gibbs sampling</h2>
+
+<p>Consider that we are running the i<sup>th</sup> step of Gibbs sampling. In this case, we know that</p>
+
+<div class="overflow">
+\begin{align}
+    q(\boldsymbol{\theta},~\boldsymbol{\theta}^{\dagger}) = p(\theta^{(k+1)}_1,~\theta^{(k+1)}_2,~\cdots,~\theta^{(k+1)}_i,~\theta^{(k)}_{i+1},~\cdots,~\theta^{(k)}_n), \\
+    q(\boldsymbol{\theta}^{\dagger},~\boldsymbol{\theta}) = p(\theta^{(k+1)}_1,~\theta^{(k+1)}_2,~\cdots,~\theta^{(k+1)}_{i-1},~\theta^{(k)}_{i},~\cdots,~\theta^{(k)}_n).
+\end{align}
+</div>
+
+<p>The acceptance rate is</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \alpha (\boldsymbol{\theta}^{\dagger} | \boldsymbol{\theta}_t) = \max \left( \frac{ p(\theta^{(k+1)}_1,~\theta^{(k+1)}_2,~\cdots,~\theta^{(k+1)}_i,~\theta^{(k)}_{i+1},~\cdots,~\theta^{(k)}_n) p(\theta^{(k+1)}_1,~\theta^{(k+1)}_2,~\cdots,~\theta^{(k+1)}_{i-1},~\theta^{(k)}_{i},~\cdots,~\theta^{(k)}_n) }{ p(\theta^{(k+1)}_1,~\theta^{(k+1)}_2,~\cdots,~\theta^{(k+1)}_{i-1},~\theta^{(k)}_{i},~\cdots,~\theta^{(k)}_n) p(\theta^{(k+1)}_1,~\theta^{(k+1)}_2,~\cdots,~\theta^{(k+1)}_i,~\theta^{(k)}_{i+1},~\cdots,~\theta^{(k)}_n) },~ 1 \right) = 1,
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>which means as Gibbs sampling always accept the new sample.</p>
+
+<p>Because we could find that in any step of any iteration, $q(\boldsymbol{\theta},~\boldsymbol{\theta}^{\dagger}) = p(\boldsymbol{\theta}^{\dagger})$, and $q(\boldsymbol{\theta}^{\dagger},~\boldsymbol{\theta}) = p(\boldsymbol{\theta})$, the reversible condition is satisfied obviously.</p>
+
+<h2 id="approximate-the-marginal-density-function">Approximate the marginal density function</h2>
+
+<p>If we could get a sampling result, then we could approximate the marginal distribution by Monte-Carlo method. In each iteration, we could calculate that</p>
+
+<div class="overflow">
+\begin{align}
+    p(\theta_i | \theta_1,~\theta_2,~\cdots,~\theta_{i-1},~\theta_{i+1},~\cdots,~\theta_{n}) = \frac{1}{M} \sum_{k=1}^M p(\theta_i | \theta^{(k)}_1,~\theta^{(k)}_2,~\cdots,~\theta^{(k)}_{i-1},~\theta^{(k)}_{i+1},~\cdots,~\theta^{(k)}_{n}).
+\end{align}
+</div>
+
+<p>We could select $M$ samples from the Gibbs sampling results randomly. For each sample, calculate the continuous probability density function for $\theta_i$, then use Monte-Carlo method to calculate the expectation of all other variables. Then the result is the marginal distribution.</p>
+
+<h2 id="estimate-the-standard-error-of-a-sampling-method">Estimate the standard error of a sampling method</h2>
+
+<p>Denote that $\mathrm{Cov}(\theta_i,~\theta_{i+k}) = \gamma(k)$. From the previous <a href="#standard-error-of-ar-sub-1-sub-process">derivation for AR<sub>1</sub> process</a>, we could get the similar conclusion that</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \mathrm{SE}^2 &= \mathbb{D} \left[ \overline{\theta} \right] = \mathbb{E} \left[ \left( \overline{\theta} - \mu \right)^2 \right] = \frac{1}{N^2} \mathbb{E} \left[ \sum_{i=1}^N \sum_{j=1}^N (\theta_i - \mu) (\theta_j - \mu) \right]\\
+    &= \frac{1}{N^2} \sum_{i=1}^N \sum_{j=1}^N \mathrm{Cov}(\theta_i,~\theta_j) = \frac{1}{N^2} \sum_{i=1}^N \sum_{j=1}^N \gamma(|i-j|).
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Consider the covariance matrix</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \Sigma =
+    \begin{bmatrix}
+      \gamma(0) & \gamma(1) & \gamma(2) & \cdots & \gamma(N-1) \\
+      \gamma(1) & \gamma(0) & \gamma(1) & \vdots & \gamma(N-2) \\
+      \gamma(2) & \gamma(1) & \gamma(0) & \vdots & \vdots \\
+      \vdots & \vdots & \vdots & \ddots & \gamma(1) \\
+      \gamma(N-1) & \gamma(N-2) & \cdots & \gamma(1) & \gamma(0)
+    \end{bmatrix}.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Hence</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \mathrm{SE}^2 &= \frac{1}{N^2} \sum_{j=1}^N \gamma(|i-j|) \\
+    &= \frac{N \gamma(0) + 2(N-1) \gamma(1) + 2(N-2) \gamma(2) + \cdots + 2 \gamma(N-1)}{N^2} \\
+    &= \frac{1}{N} \left( \gamma(0) + 2 \sum_{i=0}^{N-1} \left( 1-\frac{i}{N} \right) \gamma(i) \right).
+  \end{aligned}
+\end{equation}
+</div>
+
+<h2 id="simulation-results-2">Simulation results</h2>
+
+<p>To test the performance of Gibbs sampling, we still use the same density function which is used in <a href="#simulation-results-1">testing Metropolis-Hastings algorithm</a>:</p>
+
+<table>
+<thead>
+<tr>
+<th>Our specially designed pdf</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./gb-den.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>To perform Gibbs sampling, we need to specify the conditional probability. Denote the center of the distribution as $[\mu_x,~\mu_y]$, and the stretch of the distribution as $[S_x,~S_y]$. The parameters are shown in the following figure.</p>
+
+<p>For a known $x_0$ or $y_0$, we have</p>
+
+<div class="overflow">
+\begin{align}
+    p(x | y_0) = \mathrm{Triangle} \left( x \left| x_0,~\left( 1 - \frac{| y_0 - \mu_y |}{S_y} \right) S_x \right. \right), \\
+    p(y | x_0) = \mathrm{Triangle} \left( y \left| y_0,~\left( 1 - \frac{| x_0 - \mu_y |}{S_x} \right) S_y \right. \right),
+\end{align}
+</div>
+
+<p>where $\mathrm{Triangle}( x | \mu,~S )$ is the 1D triangular distribution. The center locates in $\mu$ while the boarder which defines $p(x) = 0$ is $[ \mu-S,~\mu+S ]$.</p>
+
+<p>We still begin with [0.4, 0.8]. After 20000 steps, we choose the last 10000 samples. The results are shown as follows</p>
+
+<table>
+<thead>
+<tr>
+<th>Test results</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./gb-rvs.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>It seems that the performance is very well.</p>
+
+<p>Here we show the estimation of the standard error. Because we have already known the true expectation ([0.5, 1.0]), our estimation for standard error is unbiased here. The result is shown in the following figure:</p>
+
+<table>
+<thead>
+<tr>
+<th>Estimation for standard error</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./gb-se.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>We could use the unbiased estimator $\overline{\mathbf{x}}$ to estimate the expectation, then we could define the distance from the estimator to the real value, i.e. $\lVert \overline{\mathbf{x}} - \boldsymbol{\mu} \rVert_2$. The results are shown as follows.</p>
+
+<table>
+<thead>
+<tr>
+<th>Estimation for distance from average to true expectation</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./gb-d2mu.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Since we do not change the estimation size $N$ but only change the start step of the estimation. Theoretically both the estimation for standard error and the estimation for distance error should be stable. The results prove the theory.</p>
+
+<h1 id="source-code">Source code</h1>
+
+<p>The source code of this inspection has been uploaded to Github, to learn more about the codes, please check the following link:</p>
+
+<p><a href="https://github.com/cainmagi/Literature-inspections/tree/StoOpt021819/" class="button icon fa-github">Github</a></p>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmagi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119875813-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>

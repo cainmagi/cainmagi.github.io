@@ -13,13 +13,11 @@
     
     <item>
       <title>Stochastic optimization I: from Monte-Carlo methods to Gibbs sampling</title>
-      <link>https://cainmagi.github.io/notes/note20190215sp/</link>
+      <link>https://cainmagi.github.io/notes/note20190215special/</link>
       <pubDate>Fri, 15 Feb 2019 13:04:50 -0600</pubDate>
       
-      <guid>https://cainmagi.github.io/notes/note20190215sp/</guid>
-      <description>
-This article is still being produced. Please wait for several days to see the full edition.
- </description>
+      <guid>https://cainmagi.github.io/notes/note20190215special/</guid>
+      <description>Introduction This is a series of inspection on stochastic methods. Traditionally, an optimization problem could be solved by gradient descent methods, greedy algorithm and stochastic methods. For example, Levenberg–Marquardt algorithm is a gradient descent based methods. Another example is OMP which is used to find a local minimum of L0 penalized problem. Since the L0 norm is totally indifferentiable, we could not calculate its gradient. Therefore, such kind of problem is generally more difficult than those differentiable problems.</description>
     </item>
     
     <item>
