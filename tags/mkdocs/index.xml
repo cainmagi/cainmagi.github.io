@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Web on Rosenkreutz Studio</title>
-    <link>https://cainmagi.github.io/categories/web/</link>
-    <description>Recent content in Web on Rosenkreutz Studio</description>
+    <title>Mkdocs on Rosenkreutz Studio</title>
+    <link>https://cainmagi.github.io/tags/mkdocs/</link>
+    <description>Recent content in Mkdocs on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 25 Feb 2019 00:17:46 -0600</lastBuildDate>
     
-	<atom:link href="https://cainmagi.github.io/categories/web/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cainmagi.github.io/tags/mkdocs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -30,28 +30,6 @@ github clone https://github.com/squidfunk/mkdocs-material.git  将该项目的�
 . |---.github |---docs |---material |---CODE_OF_CONDUCT.md |---CONTRIBUTING.md |---LICENSE |---mkdocs.yml `---README.md  事实上，根目录下除了mkdocs.yml属于模板的基本配置文件以外，其他的都是和模板本身无关的文件。例如./src目录保存的基本都是还没有压缩处理过的模板源文件。这些源文件亲测不能用来代替压缩后的模板./material。在Linux下，用户可以通过Makefile完成从./src编译到./material的过程，但是Windows下这一操作并不方便，所以在下文中，尽管有些修改原理是基于源文件介绍的，但实际情况下我们需要直接修改被压缩后的，可读性大大变差的模板文件，不得不说是一个费时不讨好的工作。
 改进 预备 新建3个空文件main.css，extensions.css和extensions.js，方便后续的插件配置。
 . |---.github |---docs | |---stylesheets | | |----main.css | | |----extensions.css | | `---... | `---javascripts | |----extensions.js | `---... |---material `---.</description>
-    </item>
-    
-    <item>
-      <title>Instructions for creating a Hugo site</title>
-      <link>https://cainmagi.github.io/playground/20180524ichs/</link>
-      <pubDate>Thu, 24 May 2018 16:13:10 -0500</pubDate>
-      
-      <guid>https://cainmagi.github.io/playground/20180524ichs/</guid>
-      <description>背景 这是一篇中文教程，基于前人的经验，补全一些没有提到的技巧。首先我们可以阅读以下站点的教程：
-一篇基础的、关于如何使用Hugo创建新站点，并托管到Github的流程
-补全教程：关于如何理解、使用Hugo主题
-然而，实际编写站点内容没有固定的套路，很多情况下能使用哪些功能取决于对应的主题。譬如有的主题支持HTML5，我们就能实现一些对应的技巧；而有些相对简单的主题不支持，我们就只能实现一些基本功能。共通的一些技巧可以查阅：
-Hugo官方文档
-本站使用的模板是Forty，这个模板支持HTML5。在做好所有的基础设置以后，我们可以用MarkDown写任何一篇内容。关于更高级的编写内容的技巧，可以查阅模板自带的Element范例。这些高级技巧无一例外需要通过HTML语法实现，包括但不限于分栏 ，按钮 ，图标 ，表单 ，下标 或者上标如此等等……
-补全 套用模板来定制主页 以Forty为例，下载后，其模板文档的关键结构如下：
-forty |---archetypes |---exampleSite | |---archetypes | |---content | | `---blogs | | |---_index.md | | `---blog1.md | |---static | |---config.toml | `---netlify.toml |---images |---layouts |---static | |---img | `---elements.html `---theme.toml  我们可以看到，Element就在static目录下，它不是由MarkDown渲染出的，而是静态网页，我们需要的参考都只能通过HTML的形式获取。图像文件都保存在static/img下，但是这里有不只一个static文件夹，我们稍后再讨论。现在我们需要关注的是exampleSite，它是一个模板自带的范例站点，通过调用
-hugo server --buildDrafts --watch  可以直接渲染出该范例，它就是模板提供预览的Demo。在这个Demo里面，主页是由config.toml定制的，我们需要将它和netlify.toml拷贝到我们自己的站点根目录下，覆盖原有的文件，通过上述命令，我们可以直接看到，主页的定制生效在了我们自己的站点上。
-config.toml是用Golang编写的，但是作为配置文件，它对于新手并不难懂，并且有丰富的注释。从[params]开始，该文件开始定义主页存在的要素，包括但不限于顶部的导航条（导航菜单）、主页Banner，精美的导航图片模块、联系方式以及底格的社交媒体按钮。通过替换图片文件、修改模块参数等方式，我们可以逐渐将范例的内容替换成我们自己的。
-特别注意的是使用图标的技巧。这一套图标是来自Font Awesome Icons的开源协议，通过以下的按钮，我们可以查阅所有我们能使用的图标：
-Font Awesome Icons
-内容的基本结构 让我们来重点关注根目录下content的内容
-. |---archetypes |---content | |---blogs | | |---_index.</description>
     </item>
     
   </channel>

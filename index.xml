@@ -6,10 +6,31 @@
     <description>Recent content on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Feb 2019 07:49:01 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 25 Feb 2019 00:17:46 -0600</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Customize MkDocs-Material with Javascript</title>
+      <link>https://cainmagi.github.io/playground/20190225mkdocs/</link>
+      <pubDate>Mon, 25 Feb 2019 00:17:46 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/playground/20190225mkdocs/</guid>
+      <description>背景 这是一篇中文教程，其目的主要是为最先进的MkDocs主题之一，Material提供一个更丰富的中文支持。部分操作需要修改模板内建的文件。截至本文写就的时候，笔者正在使用Python 3.6，MkDocs 1.0.4，以及Material 4.0.1。本文基于的模板Material，是MkDocs模板里集成了最多实用插件的模板之一，涵盖了绝大部分来自MarkDown extensions，和PyMdown Extensions的插件。已经包含了诸多妙用。该模板美观、现代，清晰易读，并且同时支持桌面和手机版，即使不用来写文档，也是一个非常优秀的博客站，欲了解更多关于Material的信息，参考以下链接：
+Material
+然而，该模板本身对中文的支持十分有限。鉴于此，本教程参考了以下的一些资料：
+mkdocs如何支持中文搜索
+为 lunr.js 添加中文支持
+事实上，Material已经支持了MathJax、代码高亮、Tip框、保留代码增删的注释等功能。不过在本教程里，基本不会讨论一些站点参数的设置、以及无关本文的插件的用法，读者最好应当有过使用Hugo，Hexo或者PyMarkDown等类似工具的经验。
+安装 首先，对于没有安装MkDocs的用户而言，需要
+pip install mkdocs  如果你的Python在你的环境变量里，或者你在使用Anaconda，那么就可以直接调用mkdocs --version来检查安装情况了。接下来需要安装一些插件
+pip install Pygments pymdown-extensions  由于我们需要修改模板本身，为了灵活方便起见，这里不建议使用安装的方式（例如pip）将Material安装到库里，反之，我们则应当直接clone项目。对于安装了Github Desktop的Windows用户，可以通过
+github clone https://github.com/squidfunk/mkdocs-material.git  将该项目的最新版（目前是4.0.1）Fork到你的常用项目目录里（喜欢使用git的也无妨）。接下来，在根目录下，删除所有无用的文件，最后只需要保留到
+. |---.github |---docs |---material |---CODE_OF_CONDUCT.md |---CONTRIBUTING.md |---LICENSE |---mkdocs.yml `---README.md  事实上，根目录下除了mkdocs.yml属于模板的基本配置文件以外，其他的都是和模板本身无关的文件。例如./src目录保存的基本都是还没有压缩处理过的模板源文件。这些源文件亲测不能用来代替压缩后的模板./material。在Linux下，用户可以通过Makefile完成从./src编译到./material的过程，但是Windows下这一操作并不方便，所以在下文中，尽管有些修改原理是基于源文件介绍的，但实际情况下我们需要直接修改被压缩后的，可读性大大变差的模板文件，不得不说是一个费时不讨好的工作。
+改进 预备 新建3个空文件main.css，extensions.css和extensions.js，方便后续的插件配置。
+. |---.github |---docs | |---stylesheets | | |----main.css | | |----extensions.css | | `---... | `---javascripts | |----extensions.js | `---... |---material `---.</description>
+    </item>
     
     <item>
       <title>Notes on Feb. 23, 2019</title>
