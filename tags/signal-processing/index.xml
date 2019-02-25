@@ -6,10 +6,20 @@
     <description>Recent content in Signal Processing on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Jul 2018 13:52:21 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 25 Feb 2019 16:18:38 -0600</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/tags/signal-processing/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Guide book for Tensorflow</title>
+      <link>https://cainmagi.github.io/projects/web_tensorflowguide/</link>
+      <pubDate>Mon, 25 Feb 2019 16:18:38 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/projects/web_tensorflowguide/</guid>
+      <description>Redirection 欢迎来到本页面！如果你的页面没有自动跳转，很有可能是因为你的浏览器禁止了这一功能，那么，请点击以下链接查看详情：
+Tensorflow手札</description>
+    </item>
     
     <item>
       <title>Tensorflow Inspection for FWM Curves 180602</title>

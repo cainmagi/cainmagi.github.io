@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://cainmagi.github.io/projects/web_tensorflowguide/</loc>
+    <lastmod>2019-02-25T16:18:38-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://cainmagi.github.io/playground/20190225mkdocs/</loc>
     <lastmod>2019-02-25T13:20:31-06:00</lastmod>
   </url>
@@ -226,7 +231,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/deep-learning/</loc>
-    <lastmod>2019-02-15T12:52:26-06:00</lastmod>
+    <lastmod>2019-02-25T16:18:38-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -280,18 +285,18 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/inverse-problem/</loc>
-    <lastmod>2019-02-15T12:52:26-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cainmagi.github.io/categories/latex/</loc>
-    <lastmod>2019-02-05T17:26:37-06:00</lastmod>
+    <lastmod>2019-02-25T16:18:38-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://cainmagi.github.io/tags/latex/</loc>
+    <lastmod>2019-02-05T17:26:37-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cainmagi.github.io/categories/latex/</loc>
     <lastmod>2019-02-05T17:26:37-06:00</lastmod>
     <priority>0</priority>
   </url>
@@ -376,7 +381,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/projects/</loc>
-    <lastmod>2019-02-05T17:26:37-06:00</lastmod>
+    <lastmod>2019-02-25T16:18:38-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -387,14 +392,14 @@
   </url>
   
   <url>
-    <loc>https://cainmagi.github.io/categories/python/</loc>
-    <lastmod>2018-07-20T05:15:38-05:00</lastmod>
+    <loc>https://cainmagi.github.io/tags/python/</loc>
+    <lastmod>2019-02-25T16:18:38-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://cainmagi.github.io/tags/python/</loc>
-    <lastmod>2019-01-28T17:26:14-06:00</lastmod>
+    <loc>https://cainmagi.github.io/categories/python/</loc>
+    <lastmod>2018-07-20T05:15:38-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -442,7 +447,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/</loc>
-    <lastmod>2019-02-25T13:20:31-06:00</lastmod>
+    <lastmod>2019-02-25T16:18:38-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -466,7 +471,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/signal-processing/</loc>
-    <lastmod>2018-07-20T05:15:38-05:00</lastmod>
+    <lastmod>2019-02-25T16:18:38-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -501,14 +506,14 @@
   </url>
   
   <url>
-    <loc>https://cainmagi.github.io/categories/tensorflow/</loc>
-    <lastmod>2018-07-20T05:15:38-05:00</lastmod>
+    <loc>https://cainmagi.github.io/tags/tensorflow/</loc>
+    <lastmod>2019-02-25T16:18:38-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://cainmagi.github.io/tags/tensorflow/</loc>
-    <lastmod>2018-07-20T05:15:38-05:00</lastmod>
+    <loc>https://cainmagi.github.io/categories/tensorflow/</loc>
+    <lastmod>2019-02-25T16:18:38-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -538,7 +543,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/web/</loc>
-    <lastmod>2019-02-25T13:20:31-06:00</lastmod>
+    <lastmod>2019-02-25T16:18:38-06:00</lastmod>
     <priority>0</priority>
   </url>
   
