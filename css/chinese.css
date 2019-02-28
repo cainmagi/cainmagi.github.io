@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,600,700&subset=chinese-simplified');
+/* Reset */
+
+body, input, select, textarea {
+    font-family: "Source Sans Pro", "Noto Serif SC", serif;
+}
+
+h1, h2 {
+    font-weight: 700;
+}
+
+h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+#header {
+    font-weight: 700;
+}
+
+code {
+    font-family: "Courier New", monospace, "Noto Serif SC";
+}
+
+pre {
+    font-family: "Courier New", monospace, "Noto Serif SC";
+}

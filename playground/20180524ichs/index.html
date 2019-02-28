@@ -25,6 +25,10 @@
 	
 
 	<!-- Custom Fonts -->
+	
+	
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/chinese.css" />
+	
 	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
@@ -96,7 +100,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>May 27, 2018</td>
+                                            <td>Feb 27, 2019</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -147,6 +151,12 @@
 <li><a href="#扩展js代码">扩展JS代码</a></li>
 <li><a href="#扩展css">扩展CSS</a></li>
 <li><a href="#扩展模板的layout文件">扩展模板的Layout文件</a></li>
+</ul></li>
+<li><a href="#加入中文字体支持">加入中文字体支持</a>
+<ul>
+<li><a href="#扩展css-1">扩展CSS</a></li>
+<li><a href="#扩展模板的layout文件-1">扩展模板的Layout文件</a></li>
+<li><a href="#使用范例">使用范例</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#高级技巧的范例">高级技巧的范例</a></li>
@@ -378,11 +388,67 @@ productImage.click(function () {
 
 <p>该改动即可生效。类似地，如果我们还需要实现别的JQuery插件，同样也可以通过类似的步骤完成。</p>
 
+<h3 id="加入中文字体支持">加入中文字体支持</h3>
+
+<p>Forty的默认字体是<strong>Source Sans Pro</strong>，该字体通过在线<a href="https://fonts.google.com/specimen/Source+Sans+Pro" title="Source Sans Pro on Google Fonts">Google Fonts</a>的服务取得，为了支持中文，我们同样可以调用在线字库<a href="https://fonts.google.com/specimen/Noto+Serif+SC" title="Source Han Serif on Google Fonts"><strong>思源宋体</strong></a>。为了防止非中文页面加载该字体过度占用资源，我们需要在Markdown顶端的参数里增加一项<code>language</code>，只有在设为<code>Chinese</code>的情况下才会请求并替换字体。具体步骤如下</p>
+
+<h4 id="扩展css-1">扩展CSS</h4>
+
+<p>新建一个<code>chinese.css</code>文件，保存到模板的<code>static/css</code>目录下。内容如下：</p>
+
+<pre><code class="language-css">@import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,600,700&amp;subset=chinese-simplified');
+/* Reset */
+body, input, select, textarea {
+    font-family: &quot;Source Sans Pro&quot;, &quot;Noto Serif SC&quot;, serif;
+}
+h1, h2 {
+    font-weight: 700;
+}
+h3, h4, h5, h6 {
+    font-weight: 600;
+}
+#header {
+    font-weight: 700;
+}
+code {
+    font-family: &quot;Courier New&quot;, monospace, &quot;Noto Serif SC&quot;;
+}
+pre {
+    font-family: &quot;Courier New&quot;, monospace, &quot;Noto Serif SC&quot;;
+}
+</code></pre>
+
+<h4 id="扩展模板的layout文件-1">扩展模板的Layout文件</h4>
+
+<p>接下来，修改模板<code>layouts/partials</code>目录下的<code>header.html</code>文件，在<code>font-awesome.min.css</code>的前一行下添加（注意，所添加的行必须在<code>main.css</code>下方，以便默认字体设置能被覆盖）：</p>
+
+<pre><code class="language-html">{{ if .Params.language }}{{ if eq .Params.language &quot;Chinese&quot; }}
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{{ &quot;css/chinese.css&quot; | absURL}}&quot; /&gt;
+{{ end }}{{ end }}
+</code></pre>
+
+<p>则模板修改完毕。</p>
+
+<h4 id="使用范例">使用范例</h4>
+
+<p>实际使用的时候，对于想要开启中文字体的页面，在头部的配置部分，按如下方式：</p>
+
+<pre><code class="language-yaml">---
+title: &quot;Instructions for creating a Hugo site&quot;
+date: 2018-05-24T16:13:10-05:00
+draft: false
+language: &quot;Chinese&quot;
+...
+---
+</code></pre>
+
+<p>这里指提及关键设置<code>language: &quot;Chinese&quot;</code>，加上该行，则本页面将显示为中文字体。</p>
+
 <h2 id="高级技巧的范例">高级技巧的范例</h2>
 
 <p>事实上，这些都可以在<a href="../../elements.html" title="Hugo Theme - Forty elements"><strong>Element</strong></a>中查到，这里直接Copy一个例子（分栏与表单），当然，它是通过Copy HTML代码到MarkDown文件里实现的</p>
 
-<div id="wrapper">
+<div id="wrapper" style="margin-bottom:1em; padding-top:0">
   <section id="contact">
     <div class="inner">
       <section>

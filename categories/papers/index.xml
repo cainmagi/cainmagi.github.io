@@ -6,10 +6,26 @@
     <description>Recent content in Papers on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Jan 2019 17:23:42 -0600</lastBuildDate>
+    <lastBuildDate>Wed, 27 Feb 2019 14:47:48 -0600</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/categories/papers/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Special Notes on Feb. 27, 2019</title>
+      <link>https://cainmagi.github.io/notes/note20190227special/</link>
+      <pubDate>Wed, 27 Feb 2019 14:47:48 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190227special/</guid>
+      <description>Introduction In this topic, we are learning an article for studying the theory of the convergence for the neural network applied on inverse problem. To be specific, the related articles include
+[1]: NETT: Solving Inverse Problems with Deep Neural Networks:
+Reference
+ [2]: Generalized Bregman distances and convergence rates for non-convex regularization methods:
+Reference
+  [3]: On Total Convexity, Bregman Projections and Stability in Banach Spaces:
+Reference
+ [4]: Solving ill-posed inverse problems using iterative deep neural networks:</description>
+    </item>
     
     <item>
       <title>Notes from Jan. 29, 2019 to Feb. 15, 2019</title>

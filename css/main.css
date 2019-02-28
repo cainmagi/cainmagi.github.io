@@ -2301,6 +2301,7 @@
 
 			ul ul ul ul li:before {
 				content: '\25A1';
+                font-family: serif;
 				float: left;
 				margin-left: -1.5em
 			}

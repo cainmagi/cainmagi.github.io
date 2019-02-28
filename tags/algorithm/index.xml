@@ -6,10 +6,37 @@
     <description>Recent content in Algorithm on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Feb 2019 07:49:01 -0600</lastBuildDate>
+    <lastBuildDate>Thu, 28 Feb 2019 02:04:28 -0600</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Special Notes on Feb. 28, 2019</title>
+      <link>https://cainmagi.github.io/notes/note20190228special/</link>
+      <pubDate>Thu, 28 Feb 2019 02:04:28 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190228special/</guid>
+      <description>Introduction In this article, we would discuss the non-negative constrained least length problem. Due to the limitation of time, we only discuss the simplified form of this problem. The solution of this problem is derived from applying non-negative least squares algorithm.
+KT conditions Check here to see Karush–Kuhn–Tucker conditions in Wikipedia.
+ To solve this problem, first we need to introduce the Kuhn-Tucker (KT) theorem (or KT conditons).</description>
+    </item>
+    
+    <item>
+      <title>Special Notes on Feb. 27, 2019</title>
+      <link>https://cainmagi.github.io/notes/note20190227special/</link>
+      <pubDate>Wed, 27 Feb 2019 14:47:48 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190227special/</guid>
+      <description>Introduction In this topic, we are learning an article for studying the theory of the convergence for the neural network applied on inverse problem. To be specific, the related articles include
+[1]: NETT: Solving Inverse Problems with Deep Neural Networks:
+Reference
+ [2]: Generalized Bregman distances and convergence rates for non-convex regularization methods:
+Reference
+  [3]: On Total Convexity, Bregman Projections and Stability in Banach Spaces:
+Reference
+ [4]: Solving ill-posed inverse problems using iterative deep neural networks:</description>
+    </item>
     
     <item>
       <title>Notes on Feb. 23, 2019</title>

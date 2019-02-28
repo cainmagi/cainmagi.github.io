@@ -1,0 +1,640 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	
+	<meta name="generator" content="Hugo 0.54.0" />
+	<title>Special Notes on Feb. 28, 2019 &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	
+	
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Special Notes on Feb. 28, 2019</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>Feb 28, 2019</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>Feb 28, 2019</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/notes" title="Notes">Notes</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/theory" title="Theory">Theory</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/algorithm" title="algorithm">algorithm</a>
+                                                    
+                                                    <a class="ui label" href="/tags/inverse-problem" title="inverse-problem">inverse-problem</a>
+                                                    
+                                                    <a class="ui label" href="/tags/optimization" title="optimization">optimization</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/notes/special.jpg" alt="" /></span>
+                                
+                            </header>
+                            
+                            <hr/>
+                            <h1 id="contents">Contents</h1>
+                            <p><nav id="TableOfContents">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#kt-conditions">KT conditions</a></li>
+<li><a href="#non-negative-least-squares-algorithm">Non-negative least squares algorithm</a>
+<ul>
+<li><a href="#theory-of-the-solution">Theory of the solution</a></li>
+<li><a href="#algorithm">Algorithm</a></li>
+</ul></li>
+<li><a href="#non-negative-constrained-least-length-problem">Non-negative constrained least length problem</a>
+<ul>
+<li><a href="#approach">Approach</a></li>
+<li><a href="#proof">Proof</a></li>
+</ul></li>
+</ul>
+</nav></p>
+                            
+                            <hr/>
+                            
+
+<h1 id="introduction">Introduction</h1>
+
+<p>In this article, we would discuss the non-negative constrained least length problem. Due to the limitation of time, we only discuss the simplified form of this problem. The solution of this problem is derived from applying non-negative least squares algorithm.</p>
+
+<h1 id="kt-conditions">KT conditions</h1>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Karush%e2%80%93Kuhn%e2%80%93Tucker_conditions" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Karush%e2%80%93Kuhn%e2%80%93Tucker_conditions"><b>Karush–Kuhn–Tucker conditions</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+<p>To solve this problem, first we need to introduce the Kuhn-Tucker (KT) theorem (or KT conditons). We use $\mathbf{a} \succ \mathbf{b}$ to represent $\forall~i,~a_i &gt; b_i$. Consider that we have such a problem</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \hat{\mathbf{x}} = &~\arg \min\limits_{\mathbf{x}} E(\mathbf{x}), \\
+    E(\mathbf{x}) = &~\left\lVert \mathbf{y} - \mathbf{A} \mathbf{x} \right\rVert^2_2, \\[5pt]
+    \mathrm{s.t.}~& \mathbf{Hx} \succeq \mathbf{h},
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>where $\mathbf{Hx} \succeq \mathbf{h}$ defines a group of constraints that</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \begin{bmatrix}
+      \mathbf{h}^T_1 \\
+      \mathbf{h}^T_2 \\
+      \mathbf{h}^T_3 \\
+      \cdots \\
+      \mathbf{h}^T_P
+    \end{bmatrix}
+    \mathbf{x} \succeq
+    \begin{bmatrix}
+      h_1 \\
+      h_2 \\
+      h_3 \\
+      \cdots \\
+      h_P
+    \end{bmatrix},
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>where each row is a constraint.</p>
+
+<p>Consider that</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \frac{1}{2} \nabla E &= \nabla [\mathbf{H}\mathbf{x}] \cdot \mathbf{z}. \\
+    - \mathbf{A}^T \left( \mathbf{y} - \mathbf{A} \mathbf{x} \right) &= \mathbf{H}^T \mathbf{z}.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>If we could find a $\mathbf{z}$ that is non-negative, then we could divide it into two parts:</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \mathbf{z} = \begin{bmatrix}
+      \mathbf{z}_E \succ 0\\
+      \mathbf{z}_S = 0
+    \end{bmatrix} && \mathrm{and} &&
+    \left\{
+    \begin{matrix}
+      \mathbf{H_E x} = \mathbf{h}_E, \\
+      \mathbf{H_S x} \succ \mathbf{h}_S.
+    \end{matrix}
+    \right.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>We call <a class="icon" href="#mjx-eqn-4">$(4)$</a> &ldquo;<strong>KT conditions</strong>&rdquo;, which means for the solution, if a constraint is satisfied on the boundary, the gradient descent direction in this dimension would be opposite to the feasible domain. If a constraint is satisfied loosely (where $\mathbf{H_S x} \succ \mathbf{h}_S$), in this dimension the solution could converge to minimum.</p>
+
+<p>The proof of KT conditions is complicated, although KT conditions could demonstrated by the geometric meaning clearly. Here we would not discuss the theory on this issue, but just use KT conditions as a tool. <em>If we could find a solution which could satisfy the KT conditions, then we would know that this is the exact solution of the non-negative constrained problem.</em></p>
+
+<h1 id="non-negative-least-squares-algorithm">Non-negative least squares algorithm</h1>
+
+<h2 id="theory-of-the-solution">Theory of the solution</h2>
+
+<p>Consider we have such a simplified form</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \hat{\mathbf{m}} = &~\arg \min\limits_{\mathbf{m}} E(\mathbf{m}), \\
+    E(\mathbf{m}) = &~\left\lVert \mathbf{d} - \mathbf{G} \mathbf{m} \right\rVert^2_2, \\[5pt]
+    \mathrm{s.t.}~& \mathbf{m} \succeq \mathbf{0},
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>where we let $\mathbf{H}=\mathbf{I}$, and $\mathbf{h} = \mathbf{0}$. Then consider that</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \mathbf{H}_E \mathbf{m} =
+    \begin{bmatrix}
+      1 & 0 & 0 & 0 & 0 & \cdots & 0 \\
+      0 & 1 & 0 & 0 & 0 & \cdots & 0 \\
+      0 & 0 & 1 & 0 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+      0 & 0 & 0 & \cdots & 1 & \cdots & 0
+    \end{bmatrix}_{P_E \times N}
+    \mathbf{m} = \begin{bmatrix}
+      m_{E1} \\
+      m_{E2} \\
+      m_{E3} \\
+      \cdots \\
+      m_{EP_E}
+    \end{bmatrix} = \mathbf{m}_E = \mathbf{0}.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>And we also have $\mathbf{H}_S \mathbf{m} = \mathbf{m}_S \succ \mathbf{0}$. Here $\mathbf{H}$ serves as a selector which extract indexes from $\mathbf{m}$ to get $\mathbf{m}_E,~\mathbf{m}_S$ respectively.</p>
+
+<p>Then we could rewrite <a class="icon" href="#mjx-eqn-3">$(3)$</a> as</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \frac{1}{2} \nabla E &= \mathbf{z}. \\
+    - \mathbf{G}^T \left( \mathbf{d} - \mathbf{G} \mathbf{m} \right) &= \mathbf{z}.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Hence we have</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \nabla E = \begin{bmatrix}
+      \nabla E_E \succ 0\\
+      \nabla E_S = 0
+    \end{bmatrix} && \mathrm{and} &&
+    \left\{
+    \begin{matrix}
+      \mathbf{m}_E = \mathbf{0}, \\
+      \mathbf{m}_S \succ \mathbf{0}.
+    \end{matrix}
+    \right.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>From <a class="icon" href="#mjx-eqn-8">$(8)$</a> we could learn that for the solution, on the boundary $\mathbf{m}_E$, the gradient ascends with $\mathbf{m}_E$. In the feasible region (not on the boundary), the gradient is $\mathbf{0}$. Which indicates for a solution $\mathbf{m}$, if $m_i=0$, since $\nabla m_i &gt; 0$, if we want to decrease $E$, the constraint would be violated. If $m_i &gt; 0$, it has been on the minimum and could not be optimized. Hence such a $\mathbf{m}$ should be the exact solution.</p>
+
+<h2 id="algorithm">Algorithm</h2>
+
+<p>In practice, to get the correct solution, we may perform such an algorithm:</p>
+
+<div class='box'>
+  <ol>
+    <li>Initialization: $\mathbf{m}=\mathbf{0}$. Now we could find that all $m_i \in \mathbf{m}$ is in equality sense, i.e. $m_i \in \mathbf{m}_E$.</li>
+    <li>If all $m_i \in \mathbf{m}_E$ satisfies that $\nabla m_i \geqslant 0$, current $\mathbf{m}$ would be the final solution.</li>
+    <li>If ther is any $m_i \in \mathbf{m}_E$ that makes $\nabla m_i < 0$, choose an $i$ with the minimal gradient $\nabla m_i$, and move $m_i$ into $\mathbf{m}_S$.</li>
+    <li>Extract the index $S$, then solve the least square problem for a part of parameters: $\mathbf{d} = \mathbf{G}_S \mathbf{m}_S$. Mark the solution as $\mathbf{m}^{\dagger}_S$.</li>
+    <li>If $\mathbf{m}^{\dagger}_S$ is still in the feasible domain (including the boundary), let $\mathbf{m}_S = \mathbf{m}^{\dagger}_S$ update the boundary set $\mathbf{m}_E$ and return to step 2.</li>
+    <li>If $\mathbf{m}^{\dagger}_S$ is not in feasible domain, find the maximal $\alpha$ that enables $\mathbf{m}_S = \mathbf{m}_S + \alpha (\mathbf{m}^{\dagger}_S - \mathbf{m}_S)$ to be still in the feasible domain. Actually $\alpha = \min\limits_i \left[ \frac{m_{S_i}}{m_{S_i} - m^{\dagger}_{S_i}} \right]$. Since both $\mathbf{m}_S,~\mathbf{m}^{\dagger}_S$ are in feasible domain, the updated solution would still lie in the feasible domain. Since the updated result would be more close to the local minimum, after the update the function $E$ would decrease. After this step, we should get at least one element $m_i$ that falls back to the boundary from the feasible domain. So we need to update $\mathbf{m}_E$. Return to step 2.</li>
+  </ol>
+</div>
+
+<h1 id="non-negative-constrained-least-length-problem">Non-negative constrained least length problem</h1>
+
+<p>Consider a more complicated problem</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \hat{\mathbf{x}} = &~\arg \min\limits_{\mathbf{x}} L(\mathbf{x}), \\
+    L(\mathbf{x}) = &~\left\lVert \mathbf{x} \right\rVert^2_2, \\[5pt]
+    \mathrm{s.t.}~& \mathbf{Hx} \succeq \mathbf{h}.
+  \end{aligned}
+\end{equation}
+</div>
+
+<h2 id="approach">Approach</h2>
+
+<p>To solve this problem, we need to substitute that $\mathbf{d} = \begin{bmatrix} \mathbf{0} \\ 1 \end{bmatrix}$, $\mathbf{G} = \begin{bmatrix} \mathbf{H}^T \\ \mathbf{h}^T \end{bmatrix}$ in <a class="icon" href="#mjx-eqn-5">$(5)$</a>. Then we have</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \hat{\mathbf{m}} = &~\arg \min\limits_{\mathbf{m}} E(\mathbf{m}), \\
+    \mathbf{e} = &~\begin{bmatrix} \mathbf{0} \\ 1 \end{bmatrix} - \begin{bmatrix} \mathbf{H}^T \\ \mathbf{h}^T \end{bmatrix} \mathbf{m} = \begin{bmatrix} - \mathbf{H}^T \mathbf{m} \\ 1 - \mathbf{h}^T \mathbf{m} \end{bmatrix}, \\[5pt]
+    E(\mathbf{m}) = &~\left\lVert \mathbf{e} \right\rVert^2_2, \\[5pt]
+    \mathrm{s.t.}~& \mathbf{m} \succeq \mathbf{0}.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Note that here $\mathbf{m}$ is different from $\mathbf{x}$. Consider $\mathbf{H}_{P \times N}$, where $N$ is the dimension of $\mathbf{x}$, hence we know that $\mathbf{G} = \begin{bmatrix} \mathbf{H}^T \\ \mathbf{h}^T \end{bmatrix}$ has $N+1$ rows and $P$ columns, and $\mathbf{m}$ is a $P \times 1$ vector. However, $\mathbf{e},~\mathbf{d}$ are $(N+1) \times 1$ vectors. If we solve <a class="icon" href="#mjx-eqn-10">$(10)$</a> like what we have done for <a class="icon" href="#mjx-eqn-5">$(5)$</a>, we could get the solution that $x_i = -\frac{e_i}{e_{N+1}}$.</p>
+
+<h2 id="proof">Proof</h2>
+
+<p>To prove that why we could use <a class="icon" href="#mjx-eqn-10">$(10)$</a> to solve <a class="icon" href="#mjx-eqn-9">$(9)$</a>, we need to assume that the final solution is $\mathbf{x}$ which needs to satisfy the KT conditions. But at first we need to consider the KT conditions for the final solution $\mathbf{m}$. In the following part, all parameters we are talking about are the converged ones when we get the final solution.</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \nabla E = \begin{bmatrix}
+      \nabla E_E \succ 0\\
+      \nabla E_S = 0
+    \end{bmatrix} && \mathrm{and} &&
+    \left\{
+    \begin{matrix}
+      \mathbf{m}_E = \mathbf{0}, \\
+      \mathbf{m}_S \succ \mathbf{0}.
+    \end{matrix}
+    \right.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Then we know that</p>
+
+<div class="overflow">
+\begin{align}
+  \mathbf{m}^T \nabla E = \begin{bmatrix} \mathbf{m}_E & \mathbf{m}_S \end{bmatrix} \begin{bmatrix} \nabla E_E \\ \nabla E_S \end{bmatrix} = \mathbf{m}_E \nabla E_E + \mathbf{m}_S \nabla E_S = \mathbf{0}.
+\end{align}
+</div>
+
+<p>We have already known that $\frac{1}{2} \nabla E = -\mathbf{G}^T (\mathbf{d} - \mathbf{G}\mathbf{m}) = - \mathbf{G}^T \mathbf{e}$, hence we know</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    E &= \mathbf{e}^T \mathbf{e} = \begin{bmatrix} - \mathbf{m}^T \mathbf{H} & 1 - \mathbf{m}^T \mathbf{h} \end{bmatrix} \mathbf{e} = \begin{bmatrix} \mathbf{0} & 1 \end{bmatrix} \mathbf{e} - \mathbf{m}^T \begin{bmatrix} \mathbf{H} & \mathbf{h} \end{bmatrix} \mathbf{e} \\
+    &= e_{N+1} - \mathbf{m} \mathbf{G}^T \mathbf{e} = e_{N+1} + \frac{1}{2} \mathbf{m}^T \nabla E = e_{N+1} &gt; 0.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Note that if $E=0$, we would have $\mathbf{e}=\mathbf{0}$, which means $\mathbf{Hm} = \mathbf{0}$ while $\mathbf{h} \npreceq \mathbf{0}$. Then this situation is contradict to $\mathbf{Hm} \succ \mathbf{h}$. We would know that there should be $E = e_{N+1} &gt; 0$.</p>
+
+<p>Recall that $x_i = -\frac{e_i}{e_{N+1}}$, i.e. $e_i = -x_i e_{N+1}$, hence we have</p>
+
+<div class="overflow">
+\begin{align}
+  \mathbf{e} = \begin{bmatrix} -\mathbf{x} \\ 1 \end{bmatrix} e_{N+1}.
+\end{align}
+</div>
+
+<p>Because we have known that $\nabla E_E \succ 0$ and $\nabla E_S = 0$. It is obvious that the whole gradient $\nabla E \succeq \mathbf{0}$. Hence</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \frac{1}{2} \nabla E &= -\mathbf{G}^T \mathbf{e} = - \begin{bmatrix} \mathbf{H} & \mathbf{h} \end{bmatrix} \mathbf{e} = - \begin{bmatrix} \mathbf{H} & \mathbf{h} \end{bmatrix} \begin{bmatrix} -\mathbf{x} \\ 1 \end{bmatrix} e_{N+1} = e_{N+1} \left( \mathbf{H}\mathbf{x} - \mathbf{h} \right) \succeq \mathbf{0}.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Because $e_{N+1} &gt; 0$, $\mathbf{H}\mathbf{x} - \mathbf{h} \succeq \mathbf{0}$, which indicates that our solution is exactly in the feasible domain.</p>
+
+<p>Remove the last element $e_{N+1}$ from $\mathbf{e}$, we have $\mathbf{e}_{N} = \begin{bmatrix} e_1 \\ e_2 \\ \cdots \\ e_N \end{bmatrix} = -\mathbf{H}^T \mathbf{m}$. Then let us consider the gradient of the length function $L(\mathbf{x})$,</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \frac{1}{2} \nabla L = \frac{1}{2} \nabla \lVert \mathbf{x} \rVert^2_2 = \mathbf{x} = - \frac{1}{e_{N+1}} \begin{bmatrix} e_1 \\ e_2 \\ \cdots \\ e_N \end{bmatrix} = \mathbf{H}^T \frac{\mathbf{m}}{e_{N+1}}.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Compare to <a class="icon" href="#mjx-eqn-3">$(3)$</a>, we know the gradient could be described by non-negative combination of rows from $\mathbf{H}$, which means we could define that $\mathbf{z} = \frac{\mathbf{m}}{e_{N+1}}$. To be emphasized, $e_{N+1} &gt; 0$, hence we know $\mathbf{z}$ has the same sign compared to $\mathbf{m}$,</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \left\{
+    \begin{matrix}
+      \mathbf{m}_E = \mathbf{0}, \\
+      \mathbf{m}_S \succ \mathbf{0}.
+    \end{matrix}
+    \right. && \mathrm{and} &&
+    \left\{
+    \begin{matrix}
+      \mathbf{z}_E = \mathbf{0}, \\
+      \mathbf{z}_S \succ \mathbf{0}.
+    \end{matrix}
+    \right.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Then, recall that</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \nabla E = - 2 \mathbf{G}^T \mathbf{e} = 2 e_{N+1} \left( \mathbf{H}\mathbf{x} - \mathbf{h} \right).
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Since $e_{N+1} &gt; 0$, $\mathbf{H}\mathbf{x} - \mathbf{h}$ has the same sign compared to $\nabla E$. Recall <a class="icon" href="#mjx-eqn-11">$(11)$</a>, we could rewrite the equations as</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \left\{
+    \begin{matrix}
+      \mathbf{m}_E = \mathbf{0}, \\
+      \mathbf{m}_S \succ \mathbf{0}.
+    \end{matrix}
+    \right. && \mathrm{and} &&
+    \left\{
+    \begin{matrix}
+      \mathbf{H}_E\mathbf{x} - \mathbf{h}_E \succ \mathbf{0}, \\
+      \mathbf{H}_S\mathbf{x} - \mathbf{h}_S = \mathbf{0}.
+    \end{matrix}
+    \right.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Therefore, we know that</p>
+
+<div class="overflow">
+\begin{equation}
+  \begin{aligned}
+    \left\{
+    \begin{matrix}
+      \mathbf{z}_E = \mathbf{0}, \\
+      \mathbf{z}_S \succ \mathbf{0}.
+    \end{matrix}
+    \right. && \mathrm{and} &&
+    \left\{
+    \begin{matrix}
+      \mathbf{H}_E\mathbf{x} - \mathbf{h}_E \succ \mathbf{0}, \\
+      \mathbf{H}_S\mathbf{x} - \mathbf{h}_S = \mathbf{0}.
+    \end{matrix}
+    \right.
+  \end{aligned}
+\end{equation}
+</div>
+
+<p>Compared to <a class="icon" href="#mjx-eqn-4">$(4)$</a>, we may find that this solution has a pair of reversed subscripts, because the $E$ and $S$ here are used to describe $\mathbf{m}$. In fact, when $\mathbf{m}$ gets the boundary, $\mathbf{x}$ is inside the domain, vice versa. Remember to exchange the subscripts if we want a coherent form of the solution.</p>
+
+<p>These are the KT conditions. which means the solution defined in <a class="icon" href="#mjx-eqn-16">$(16)$</a> exactly satisfies the KT conditions. In conclusion, $\mathbf{x} = \mathbf{H}^T \frac{\mathbf{m}}{1 - \mathbf{h}^T \mathbf{m}}$ is exactly the solution of the non-negative constrained least length problem.</p>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmagi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119875813-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>
