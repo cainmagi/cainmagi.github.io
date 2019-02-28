@@ -137,12 +137,14 @@
                             <h1 id="contents">Contents</h1>
                             <p><nav id="TableOfContents">
 <ul>
-<li><a href="#introduction">Introduction</a>
-<ul>
+<li><a href="#introduction">Introduction</a></li>
 <li><a href="#the-issue">The issue</a>
 <ul>
 <li><a href="#non-convex-l-sub-q-sub-norm">Non-convex L<sub>q</sub> norm</a></li>
 <li><a href="#convolutional-neural-network">Convolutional neural network</a></li>
+<li><a href="#nett-regularization">NETT regularization</a>
+<ul>
+<li><a href="#well-posedness-and-weak-convergence">Well-posedness and weak convergence</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -182,7 +184,7 @@
 
 <p>In the following parts, I would discuss about the issue according to the structure of <a href="#ref-1">[1]</a>. In some sub-topics, I may introduce some extra theories from other articles. If we do not attach any notation, then it means this part is mainly from <a href="#ref-1">[1]</a>.</p>
 
-<h2 id="the-issue">The issue</h2>
+<h1 id="the-issue">The issue</h1>
 
 <p>In this article, we define the problem as</p>
 
@@ -205,7 +207,7 @@
 
 <p>This paper is focus on the proof of convergence for using appropriate regularizer $\mathcal{R}$, which could be either predefined function or a learnable neural network. Here both of these two cases are discussed.</p>
 
-<h3 id="non-convex-l-sub-q-sub-norm">Non-convex L<sub>q</sub> norm</h3>
+<h2 id="non-convex-l-sub-q-sub-norm">Non-convex L<sub>q</sub> norm</h2>
 
 <p>We could use a non-convex L<sub>q</sub> norm which is based on basis expansion:</p>
 
@@ -217,7 +219,7 @@
 
 <p>where $\mathbf{V}$ is a diagonal matrix which weights the basis matrix $\boldsymbol{\Phi}$. Consider we are using N basis, then $\boldsymbol{\varphi}_{\lambda}$ is a row of the matrix $\boldsymbol{\Phi}$.If $\boldsymbol{\Phi}$ is fixed, then we know that $\mathbf{V} \in \mathbb{V}$. If we apply some techniques like dictionary learning, then $\mathbf{V},~\boldsymbol{\Phi} \in \mathbb{V}$.</p>
 
-<h3 id="convolutional-neural-network">Convolutional neural network</h3>
+<h2 id="convolutional-neural-network">Convolutional neural network</h2>
 
 <p>A general convolutional neural network (CNN) $\boldsymbol{\Phi}(\mathbb{V},~x)$ could be formulated as a composition of a series of operators</p>
 
@@ -231,14 +233,27 @@
 
 <p>For any $l$, here we call $\sigma_l \circ \mathbb{V}_l$ &ldquo;a layer of the network&rdquo;. $\sigma_l$ is a nonlinear operator which could be ReLU, PReLU, or some other functions. $\mathbb{V}_l$ represents the affine linear operator of the layer, where $\mathbb{A}_l$ is defined by a series of convolutional functions $\mathcal{K}$. Assigning that there are $N^{(l)}$ channels for the l<sup>th</sup> layer, we know that $\lambda \in \mathbb{N} \cap [1,~N^{(l)}]$. Hence $\mathbb{A}$ maps the channels from the previous layer to the current one, while there are $N^{(l)}$ values in vector $b_l$ which is used to adjust the bias of the current layer.</p>
 
-<div class="box" style="color:#FB8; padding-bottom:40px">
-    <div style="float: left;"> 
-      <p><i class="fa fa-exclamation-triangle" aria-hidden="true" style="font-size: 50px"></i></p>
-    </div>
-    <div style="margin-left: 60px; font-style:normal;">
-      <p>This article is still being produced. Please wait for several days to see the full edition.</p>
-    </div>
+<h2 id="nett-regularization">NETT regularization</h2>
+
+<h3 id="well-posedness-and-weak-convergence">Well-posedness and weak convergence</h3>
+
+<div class="box" style="color:#F88; padding-bottom:40px">
+  <div style="float: left;"> 
+    <p><i class="fa fa-info-circle" aria-hidden="true" style="font-size: 50px"></i></p>
   </div>
+  <div style="margin-left: 60px; font-style:normal;">
+    <p>Now I have no idea for deriving this conclusion, because the original texts in the paper is ambiguous. As a compensation, I would try to finish this part in the future.</p>
+  </div>
+</div>
+
+<div class="box" style="color:#FB8; padding-bottom:40px">
+  <div style="float: left;"> 
+    <p><i class="fa fa-exclamation-triangle" aria-hidden="true" style="font-size: 50px"></i></p>
+  </div>
+  <div style="margin-left: 60px; font-style:normal;">
+    <p>This article is still being produced. Please wait for several days to see the full edition.</p>
+  </div>
+</div>
 
                         </div>
                     </section>

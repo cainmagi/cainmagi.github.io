@@ -310,7 +310,7 @@
 \end{equation}
 </div>
 
-<p>From <a class="icon" href="#mjx-eqn-8">$(8)$</a> we could learn that for the solution, on the boundary $\mathbf{m}_E$, the gradient ascends with $\mathbf{m}_E$. In the feasible region (not on the boundary), the gradient is $\mathbf{0}$. Which indicates for a solution $\mathbf{m}$, if $m_i=0$, since $\nabla m_i &gt; 0$, if we want to decrease $E$, the constraint would be violated. If $m_i &gt; 0$, it has been on the minimum and could not be optimized. Hence such a $\mathbf{m}$ should be the exact solution.</p>
+<p>From <a class="icon" href="#mjx-eqn-8">$(8)$</a> we could learn that for the solution, on the boundary $\mathbf{m}_E$, the gradient ascends with $\mathbf{m}_E$. In the feasible region (not on the boundary), the gradient is $\mathbf{0}$. Which indicates for a solution $\mathbf{m}$, if $m_i=0$, since $\frac{\partial E}{\partial m_i} &gt; 0$, if we want to decrease $E$, the constraint would be violated. If $m_i &gt; 0$, it has been on the minimum and could not be optimized. Hence such a $\mathbf{m}$ should be the exact solution.</p>
 
 <h2 id="algorithm">Algorithm</h2>
 
@@ -319,9 +319,9 @@
 <div class='box'>
   <ol>
     <li>Initialization: $\mathbf{m}=\mathbf{0}$. Now we could find that all $m_i \in \mathbf{m}$ is in equality sense, i.e. $m_i \in \mathbf{m}_E$.</li>
-    <li>If all $m_i \in \mathbf{m}_E$ satisfies that $\nabla m_i \geqslant 0$, current $\mathbf{m}$ would be the final solution.</li>
-    <li>If ther is any $m_i \in \mathbf{m}_E$ that makes $\nabla m_i < 0$, choose an $i$ with the minimal gradient $\nabla m_i$, and move $m_i$ into $\mathbf{m}_S$.</li>
-    <li>Extract the index $S$, then solve the least square problem for a part of parameters: $\mathbf{d} = \mathbf{G}_S \mathbf{m}_S$. Mark the solution as $\mathbf{m}^{\dagger}_S$.</li>
+    <li>If all $m_i \in \mathbf{m}_E$ satisfies that $\frac{\partial E}{\partial m_i} \geqslant 0$, current $\mathbf{m}$ would be the final solution.</li>
+    <li>If ther is any $m_i \in \mathbf{m}_E$ that makes $\frac{\partial E}{\partial m_i} &lt; 0$, choose an $i$ with the minimal gradient $\frac{\partial E}{\partial m_i}$, and move $m_i$ into $\mathbf{m}_S$.</li>
+    <li>Extract the index $S$, then solve the least square problem for a part of parameters: $\mathbf{G}_S \mathbf{m}_S = \mathbf{d} - \mathbf{G}_E \mathbf{m}_E = \mathbf{d}$. Mark the solution as $\mathbf{m}^{\dagger}_S$.</li>
     <li>If $\mathbf{m}^{\dagger}_S$ is still in the feasible domain (including the boundary), let $\mathbf{m}_S = \mathbf{m}^{\dagger}_S$ update the boundary set $\mathbf{m}_E$ and return to step 2.</li>
     <li>If $\mathbf{m}^{\dagger}_S$ is not in feasible domain, find the maximal $\alpha$ that enables $\mathbf{m}_S = \mathbf{m}_S + \alpha (\mathbf{m}^{\dagger}_S - \mathbf{m}_S)$ to be still in the feasible domain. Actually $\alpha = \min\limits_i \left[ \frac{m_{S_i}}{m_{S_i} - m^{\dagger}_{S_i}} \right]$. Since both $\mathbf{m}_S,~\mathbf{m}^{\dagger}_S$ are in feasible domain, the updated solution would still lie in the feasible domain. Since the updated result would be more close to the local minimum, after the update the function $E$ would decrease. After this step, we should get at least one element $m_i$ that falls back to the boundary from the feasible domain. So we need to update $\mathbf{m}_E$. Return to step 2.</li>
   </ol>

@@ -614,13 +614,13 @@ a.boxedThumb:hover {
 <h3 id="利用node-segment提供成句搜索">利用node-segment提供成句搜索</h3>
 
 <div class="box" style="color:#FB8; padding-bottom:40px">
-    <div style="float: left;"> 
-      <p><i class="fa fa-exclamation-triangle" aria-hidden="true" style="font-size: 50px"></i></p>
-    </div>
-    <div style="margin-left: 60px; font-style:normal;">
-      <p>该部分目前无法实现在Git Pages挂载的静态页面上！</p>
-    </div>
+  <div style="float: left;"> 
+    <p><i class="fa fa-exclamation-triangle" aria-hidden="true" style="font-size: 50px"></i></p>
   </div>
+  <div style="margin-left: 60px; font-style:normal;">
+    <p>该部分目前无法实现在Git Pages挂载的静态页面上！</p>
+  </div>
+</div>
 
 <p>接下来需要覆盖的是lunr内置的分词机制，使用中文分词工具node-segment代替。注意由于这是一个node.js项目，它无法被加载到静态页面里。目前尚未看到有一个合适的改进。以下代码只能作为一个理论上的参考，实际情况下由于MkDocs挂载的是静态站点的问题，无法引入node-segment模块。</p>
 
