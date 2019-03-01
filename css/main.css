@@ -1769,6 +1769,12 @@
 		padding: 0.5em 0 0.5em 2em;
 	}
 
+		blockquote > :last-child,
+		blockquote > :last-child > :last-child,
+		blockquote > :last-child > :last-child > :last-child {
+			margin-bottom: 0;
+		}
+
 	code {
 		background: rgba(212, 212, 255, 0.035);
 		font-family: "Courier New", monospace;

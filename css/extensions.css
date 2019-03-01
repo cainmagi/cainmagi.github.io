@@ -343,3 +343,8 @@ h5 {
     padding-top: 0;
     margin-top: 0;
 }
+
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
+    margin-top: inherit;
+    padding-top: inherit;
+}

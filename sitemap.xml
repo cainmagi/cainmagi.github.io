@@ -9,7 +9,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/notes/note20190227special/</loc>
-    <lastmod>2019-02-27T14:47:48-06:00</lastmod>
+    <lastmod>2019-03-01T04:31:51-06:00</lastmod>
   </url>
   
   <url>
@@ -241,7 +241,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/deep-learning/</loc>
-    <lastmod>2019-02-27T14:47:48-06:00</lastmod>
+    <lastmod>2019-03-01T04:31:51-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -300,13 +300,13 @@
   </url>
   
   <url>
-    <loc>https://cainmagi.github.io/tags/latex/</loc>
+    <loc>https://cainmagi.github.io/categories/latex/</loc>
     <lastmod>2019-02-05T17:26:37-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://cainmagi.github.io/categories/latex/</loc>
+    <loc>https://cainmagi.github.io/tags/latex/</loc>
     <lastmod>2019-02-05T17:26:37-06:00</lastmod>
     <priority>0</priority>
   </url>
@@ -379,7 +379,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/categories/papers/</loc>
-    <lastmod>2019-02-27T14:47:48-06:00</lastmod>
+    <lastmod>2019-03-01T04:31:51-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -402,14 +402,14 @@
   </url>
   
   <url>
-    <loc>https://cainmagi.github.io/tags/python/</loc>
-    <lastmod>2019-02-25T16:18:38-06:00</lastmod>
+    <loc>https://cainmagi.github.io/categories/python/</loc>
+    <lastmod>2018-07-20T05:15:38-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://cainmagi.github.io/categories/python/</loc>
-    <lastmod>2018-07-20T05:15:38-05:00</lastmod>
+    <loc>https://cainmagi.github.io/tags/python/</loc>
+    <lastmod>2019-02-25T16:18:38-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -445,7 +445,7 @@
   
   <url>
     <loc>https://cainmagi.github.io/tags/research/</loc>
-    <lastmod>2019-02-27T14:47:48-06:00</lastmod>
+    <lastmod>2019-03-01T04:31:51-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -516,13 +516,13 @@
   </url>
   
   <url>
-    <loc>https://cainmagi.github.io/tags/tensorflow/</loc>
+    <loc>https://cainmagi.github.io/categories/tensorflow/</loc>
     <lastmod>2019-02-25T16:18:38-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://cainmagi.github.io/categories/tensorflow/</loc>
+    <loc>https://cainmagi.github.io/tags/tensorflow/</loc>
     <lastmod>2019-02-25T16:18:38-06:00</lastmod>
     <priority>0</priority>
   </url>

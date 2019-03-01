@@ -98,7 +98,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>Feb 27, 2019</td>
+                                            <td>Mar 1, 2019</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -144,7 +144,11 @@
 <li><a href="#convolutional-neural-network">Convolutional neural network</a></li>
 <li><a href="#nett-regularization">NETT regularization</a>
 <ul>
-<li><a href="#well-posedness-and-weak-convergence">Well-posedness and weak convergence</a></li>
+<li><a href="#well-posedness-and-weak-convergence">Well-posedness and weak convergence</a>
+<ul>
+<li><a href="#theorem-1">Theorem 1</a></li>
+</ul></li>
+<li><a href="#strong-convergence-and-non-linearity">Strong convergence and non-linearity</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -200,7 +204,7 @@
 <p>where $\mathcal{D}$ is the distance function which could be L<sub>1</sub> norm, L<sub>2</sub> norm, or KL divergence, and $\mathcal{R}$ is the regularization function which could be L<sub>q</sub> norm, or a deep network. $\mathbb{V}$ defines a space of learnable variables. In <a class="icon" href="#mjx-eqn-1">$(1)$</a>, we assume that the the observed data $y_{\delta} = \mathbf{F}(x) + \xi_{\delta}$, which means the data has additive noise. However, if the data has no noise, i.e. the solution for $\mathbf{F}(x) = y_0$ exists, then we could have another form of the solution:</p>
 
 <div class="overflow">
-\begin{align}
+\begin{align} \label{fml:iss:int2}
   x_+ \in \arg\min \{ \mathcal{R}(\mathbb{V},~ x) | x \in \mathbb{D} \cap \mathbf{F}(x) = y_0 \}.
 \end{align}
 </div>
@@ -233,7 +237,119 @@
 
 <p>For any $l$, here we call $\sigma_l \circ \mathbb{V}_l$ &ldquo;a layer of the network&rdquo;. $\sigma_l$ is a nonlinear operator which could be ReLU, PReLU, or some other functions. $\mathbb{V}_l$ represents the affine linear operator of the layer, where $\mathbb{A}_l$ is defined by a series of convolutional functions $\mathcal{K}$. Assigning that there are $N^{(l)}$ channels for the l<sup>th</sup> layer, we know that $\lambda \in \mathbb{N} \cap [1,~N^{(l)}]$. Hence $\mathbb{A}$ maps the channels from the previous layer to the current one, while there are $N^{(l)}$ values in vector $b_l$ which is used to adjust the bias of the current layer.</p>
 
+<p>If we use the network as the regularizer, then we have</p>
+
+<div class="overflow">
+\begin{align}
+  \mathcal{R}(\mathbb{V},~x) = \psi ( \boldsymbol{\Phi}(\mathbb{V},~x) ).
+\end{align}
+</div>
+
 <h2 id="nett-regularization">NETT regularization</h2>
+
+<p>To understand this part, we may need to introduce the following definitions about topology:</p>
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Coercive_function#Norm-coercive_mappings" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Coercive_function#Norm-coercive_mappings"><b>Norm-coercive mappings</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+
+
+
+<blockquote class="">
+
+
+  <p><strong>Coercive function</strong>:</p>
+
+<p>A function $f$ is coercive means, when $\lVert x \rVert \rightarrow \infty$, we have $\lVert f(x) \rVert \rightarrow \infty$.</p>
+
+
+
+
+</blockquote>
+
+
+
+
+
+
+<blockquote class="">
+
+
+  <p><strong>λ open set</strong>:</p></p>
+
+<p>Consider a set $A$, then we have</p>
+
+<ol>
+<li>For any $B \supseteq A$, if $A$ equals to the intersection of all $B$, we call $A$ the $\Lambda$ set.</li></li>
+<li>If $A$ could be represented by $A = B \cap C$, where $B$ is a lambda set and $C$ is a closed set, then we say $A$ is a λ-closed set.</li></li>
+<li>If $B$ is a λ-closed set, then for a space $\Omega$, $A = \Omega \backslash B$ is a λ-open set.</li></li>
+</ol>
+
+
+
+
+</blockquote>
+
+
+
+<div class="box wiki">
+    <div style="float: left;"> 
+        <a href="https://en.wikipedia.org/wiki/Closure_%28topology%29" class="image"><img src="https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2.png" width="60px" /></a>
+    </div>
+    <div style="margin-left: 70px; font-style:normal;">
+        <p>Check here to see <a href="https://en.wikipedia.org/wiki/Closure_%28topology%29"><b>Closure (topology)</b></a> in Wikipedia.</p>
+    </div>
+</div>
+
+
+
+
+<blockquote class="">
+
+
+  <p><strong>Weakly continuous</strong>:</p>
+
+<p>A function $f$ is weakly continuous if</p>
+
+<ol>
+<li>For any $x$, there exists a λ-open set $U$ that $x \in U$ and a open set $V$ that $f(x) \in V$.</li></li>
+<li>Consider that the closure of $V$ is $\mathrm{Cl}(V)$. If $f(U) \subset \mathrm{Cl}(V)$, then we say $f$ is weekly λ-continuous at $x$.</li></li>
+<li>For any $x$, if $f$ is weekly λ-continuous at $x$, then we say $f$ is weekly continuos.</li></li>
+</ol>
+
+
+
+
+</blockquote>
+
+
+
+<p>To read further materials about the concepts related to topology, you may check the following link:</p>
+
+<div class="box">
+  <p><strong id="ref-5" class="wrap_offset">[5]: </strong><i>Weakly λ-continuous functions</i>:</p>
+  <p><a href="http://www.kurims.kyoto-u.ac.jp/EMIS/journals/NSJOM/Papers/38_2/NSJOM_38_2_047_056.pdf" class="button icon fa-file-pdf-o">Reference</a></p>
+</div>
+
+<p>Here we would introduce another concept</p>
+
+<blockquote>
+    <p><b>Lower semi-continuous</b>:</p>
+    <div class="row">
+      <div class="6u 12u(mobilep)" style="margin-bottom:0">
+        <p>A function is lower semi-continuous when there exists countable points we are lower continuous ($x_0 = \lim\limits_{x \rightarrow x_{0-}} x$), while other points are continuous. Here we use a figure to show this concept.</p>
+      </div>
+      <div class="6u 12u(mobilep)" style="margin-bottom:0">
+        <img src="./Lower-semi.svg", >
+      </div>
+    </div>
+</blockquote>
 
 <h3 id="well-posedness-and-weak-convergence">Well-posedness and weak convergence</h3>
 
@@ -245,6 +361,96 @@
     <p>Now I have no idea on deriving this conclusion, because the original texts in the paper is ambiguous. As a compensation, I would try to finish this part in the future.</p>
   </div>
 </div>
+
+<p>Consider a regularizer $\mathcal{R}(\mathbb{V},~\cdot)=\psi(\boldsymbol{\Phi}(\mathbb{V},~\cdot))$ which is defined by a CNN $\boldsymbol{\Phi}(\mathbb{V},~x)$. Here we would like to show a group of conditions:</p>
+
+
+<div class="box">
+
+  <ol>
+<li>The regularizer $\mathcal{R}$ satisfies that:
+
+<ul>
+<li>For layer $l$, we have $\mathbb{A}_l (x)$ is bounded linear, i.e. $\exists~c_l,~\lVert x \rVert \leqslant c_l \lVert \mathbb{A}(x) \rVert$;</li>
+<li>$\sigma_l$ is a weekly continuous and coercive function.</li>
+<li>$\psi$ is a lower semi-continuous and coercive function.</li>
+</ul></li>
+<li>The data consistency term should satisfied that
+
+<ul>
+<li>For a $\tau \geqslant 1$, we have for any $y_1,~y_2,~y$, $\mathcal{D}(y_1,~y_2) \leqslant \tau \left( \mathcal{D}(y_1,~y) + \mathcal{D}(y,~y_2) \right)$.</li>
+<li>For any $y,~y_0$, $\mathcal{D}(y,~y_0)=0~ \Longleftrightarrow~ y=y_0$.</li>
+<li>For any $(y_k)_{k \in \mathbb{N}}$, $y_k \rightarrow y$~ \Longrightarrow~ \mathcal{D}(y_k,~y) \rightarrow 0$.</li>
+<li>$\mathcal{D}(\mathbf{F}(x),~y)$ is sequentially lower semi-continuous with respect to $x$.</li>
+</ul></li>
+</ol>
+
+
+</div>
+
+
+<p>We know that from the condition 1, we could derive the following conditions <span class='popsym' title="Indeed I do not know how we could get this conclusion, but we may need to learn [2], which is also difficult to read."></span>:</p>
+
+
+<div class="box">
+
+  <ul>
+<li>$\mathcal{R}$ is weakly and sequentially lower semi-continuous.</li>
+<li>Since $\mathcal{R}$ is coercive, for all $t &gt; 0,~ \alpha &gt; 0$ and $y$, we have that $\{ x | \mathcal{T}_{\alpha,~y}(x) \leqslant t \}$ is sequentially weakly (closed and bounded).</li>
+</ul>
+
+
+</div>
+
+
+<p>From the above conditions, then we could know that <span class='popsym' title="This derivation is also needed to be studied by reading [2]."></span>:</p>
+
+<h4 id="theorem-1">Theorem 1</h4>
+
+
+
+
+<blockquote class="">
+
+
+  <p><strong>Well-posedness of CNN-regularization</strong>:</p>
+
+<p>If the conditions 1,2 are satisfied, we would know that</p>
+
+<ol>
+<li><p>For all $\alpha &gt; 0$ and $y$, $\exists~\mathcal{T}_{\alpha,~y}(x)$.</p></li>
+
+<li><p>If $y_k \rightarrow y$ and $x_k \in \arg \min \mathcal{T}_{\alpha,~y}(x)$, there exists the weak accumulation points $(x_k)_{k \in \mathbb{N}}$ which is derived from the minimizer $\mathcal{T}_{\alpha,~y}(x)$.</p></li>
+
+<li><p>Consider $y = \mathbf{F}(x)$, we have $(y_k)_{k \in \mathbb{N}}$ that $\mathcal{D}(y_k,~y) + \mathcal{D}(y,~y_k) \leqslant \delta_k$, where $(\delta_k)_{k \in \mathbb{N}} \rightarrow 0$. Suppose that $x_k$ is k<sup>th</sup> iterative solution, i.e. $x_k \in \arg \min \mathcal{T}_{\alpha,~\delta_k}(x,~y_k)$. Then we could choose $\alpha$ that</p></li>
+</ol>
+
+<div class="overflow">
+\begin{align}
+  \lim\limits_{\delta \rightarrow 0} \alpha (\delta) = \lim\limits_{\delta \rightarrow 0} \frac{ \delta }{ \alpha (\delta) } = 0.
+\end{align}
+</div>
+
+<p>Then we have such conclusions <span class='popsym' title="I could not understand why we get these conclusions."></span></p>
+
+<ol>
+<li><p>Weak accumulation points $(x_k)_{k \in \mathbb{N}}$ are the solution of $\eqref{fml:iss:int2}$.</p></li>
+
+<li><p>$(x_k)_{k \in \mathbb{N}}$ has at least one weak accumulation point $x_+$.</p></li>
+
+<li><p>Any weakly convergent subsequence $(x_k)_{k \in \mathbb{N}}$ satisfies $\mathcal{R}(\mathbb{V},~x_{k(n)}) \rightarrow \mathcal{R}(\mathbb{V},~x_+)$.</p></li>
+
+<li><p>If the solution of $\eqref{fml:iss:int2}$ (also the step 1) is unique, then we know $(x_k) \rightarrow x_+$.</p></li>
+</ol>
+
+
+
+
+</blockquote>
+
+
+
+<h3 id="strong-convergence-and-non-linearity">Strong convergence and non-linearity</h3>
 
 <div class="box" style="color:#FB8; padding-bottom:40px">
   <div style="float: left;"> 
