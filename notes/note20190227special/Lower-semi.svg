@@ -8,7 +8,7 @@
 </g>
 <path fill="none" stroke="cyan" d="M0 0Q53.5 153 107 76.5M107 51Q160.5 -25.5 214 153"/>
 </g>
-<g><circle cx="107" cy="51" r="4" fill="cyan"/><circle cx="107" cy="51" r="2" fill="white"/></g>
+<g><circle cx="107" cy="51" r="4" fill="cyan"/><circle cx="107" cy="51" r="2" fill="none"/></g>
 <circle cx="107" cy="76.5" r="4" fill="cyan"/>
 <circle cx="107" cy="102" r="4" fill="white"/>
 <text x="107" y="126" font-family="Times New Roman,serif" font-size="24" text-anchor="middle">
