@@ -216,7 +216,7 @@
         \mathbf{d} &= F(\mathbf{x}), \\
         \nabla S^T(\mathbf{d}) &= - 2 (\mathbf{d} - \mathbf{d}_{\ast})^T, \\
         \mathbf{H}(S) &= 2 \mathbf{I}, \\
-        \Delta \mathbf{d} &= \left( \frac{\partial F}{\partial \mathbf{x}} \Delta + \frac{1}{2} \mathbf{x}^T \mathbf{H}(F) \right) \mathbf{x} := \mathbf{J} \mathbf{x}.
+        \Delta \mathbf{d} &= \left( \frac{\partial F}{\partial \mathbf{x}} + \frac{1}{2} \Delta \mathbf{x}^T \mathbf{H}(F) \right) \Delta \mathbf{x} := \mathbf{J} \Delta \mathbf{x}.
     \end{aligned}
 \end{equation}
 </div>
@@ -310,14 +310,14 @@
 \begin{equation}
     \begin{aligned}
         \mathbf{K} &= 2 \left( \mathbf{J}^T \mathbf{J} \right)^{-1} \mathbf{J}^T. \\
-        \mathbf{J} &= \frac{\partial F}{\partial \mathbf{x}} \Delta + \frac{1}{2} \mathbf{x}^T \mathbf{H}(F).
+        \mathbf{J} &= \frac{\partial F}{\partial \mathbf{x}} + \frac{1}{2} \Delta \mathbf{x}^T \mathbf{H}(F).
     \end{aligned}
 \end{equation}
 </div>
 
 <p>Then we would find, if and only if $\mathbf{K}$ is a constant, i.e. the problem is totally linear, $\mathbf{K}$ would not change according to the measurements $\mathbf{d}_{\ast}$, because $\mathbf{J}(\mathbf{x})$ is a function of earth model $\mathbf{x}$. If the model is non-linear, then $\mathbf{J}$ would be different for any different $\mathbf{d}_{\ast}$.</p>
 
-<p>So in most cases, the descent trajectory of $\mathbf{x}$ would not be the same for the training set and the testing data if we apply the traditional gradient descent methods. However, in this method, the author apply the same direction of training phase on the testing phase. This scheme would not get converged results unless the training set and the testing data are totally the same. In the following figure, we show why this method is not reasonable. In Chinese, we call such a method &ldquo;刻舟求剑&rdquo;.</p>
+<p>In practice, the descent trajectory of $\mathbf{x}$ would not be the same for the training set and the testing data if we apply the traditional gradient descent methods. However, in this method, the author apply the same direction of training phase on the testing phase. This scheme would not get converged results unless the training set and the testing data are highly similar. The following figure show why the testing phase could not converge well in some cases.</p>
 
 <table>
 <thead>
