@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on Rosenkreutz Studio</title>
+    <title>hugo on Rosenkreutz Studio</title>
     <link>https://cainmagi.github.io/tags/hugo/</link>
-    <description>Recent content in Hugo on Rosenkreutz Studio</description>
+    <description>Recent content in hugo on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 24 May 2018 16:13:10 -0500</lastBuildDate>

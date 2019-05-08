@@ -1,0 +1,549 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	
+	<meta name="generator" content="Hugo 0.55.1" />
+	<title>Notes on May 05, 2019 &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	
+	
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Notes on May 05, 2019</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>May 5, 2019</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>May 8, 2019</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/notes" title="Notes">Notes</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/theory" title="Theory">Theory</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/research" title="research">research</a>
+                                                    
+                                                    <a class="ui label" href="/tags/optimization" title="optimization">optimization</a>
+                                                    
+                                                    <a class="ui label" href="/tags/algorithm" title="algorithm">algorithm</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/notes/default.jpg" alt="" /></span>
+                                
+                            </header>
+                            
+                            <hr/>
+                            <h1 id="contents">Contents</h1>
+                            <p><nav id="TableOfContents">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#algorithm-for-geosteering-inversion">Algorithm for geosteering inversion</a>
+<ul>
+<li><a href="#theory">Theory</a></li>
+<li><a href="#problem">Problem</a></li>
+</ul></li>
+<li><a href="#cnn-fwi">CNN-FWI</a>
+<ul>
+<li><a href="#theory-1">Theory</a></li>
+<li><a href="#problem-1">Problem</a></li>
+</ul></li>
+</ul>
+</nav></p>
+                            
+                            <hr/>
+                            
+
+<h1 id="introduction">Introduction</h1>
+
+<p>In this article, we would introduce two SEG-2018 expanded abstracts. The first one is about a new learning algorithm for transient electromagnetic method (TEM) inversion, and the second one is about using deep learning to solve FWI. In the following parts, we would discuss about the problems of the two papers and analyze which parts are not well proved. The two papers are listed below.</p>
+
+<div class="box">
+  <div class="row">
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+      <p><strong id="ref-1" class="wrap_offset">[1]: </strong><i>Application of supervised descent method for transient EM data inversion</i>:</p>
+      <p><a href="https://library.seg.org/doi/abs/10.1190/segam2018-2998074.1" class="button icon fa-file-pdf-o">Reference</a></p>
+    </div>
+    <div class="6u 12u(mobilep)" style="margin-bottom:2em">
+      <p><strong id="ref-2" class="wrap_offset">[2]: </strong><i>Feature-capturing full-waveform inversion using a convolutional neural network</i>:</p>
+      <p><a href="https://library.seg.org/doi/abs/10.1190/segam2018-2963265.1" class="button icon fa-file-pdf-o">Reference</a></p>
+    </div>
+  </div>
+</div>
+
+<h1 id="algorithm-for-geosteering-inversion">Algorithm for geosteering inversion</h1>
+
+<h2 id="theory">Theory</h2>
+
+<p>In traditional method, TEM inversion is based on a theoretically supported forward model, where the underground formation is divided into several layers, the earth model parameters include</p>
+
+<ul>
+<li>${\rho}_i$: resistivity of the i<sup>th</sup> layer.</li>
+<li>$t_i$: thickness of the i<sup>th</sup> layer.</li>
+<li>$R$: radius of transmitting loop.</li>
+<li>$I$: strength of transmitting current.</li>
+<li>$z$: height of transmitter.</li>
+<li>$h$: height of the receiver.</li>
+</ul>
+
+<p>The above parameters are usually unknown in practical problems, while the following parameters could be defined by other parameters and prior information.</p>
+
+<ul>
+<li>$r_{te}$: reflection coefficient.</li>
+<li>$\lambda$: beam of electromagnetic wave.</li>
+<li>$\omega$: angular frequency.</li>
+<li>$r$: center offset between the transmitter loop and receiver coil.</li>
+</ul>
+
+<p>Then the inverse problem could be formulated as</p>
+
+<div class="overflow">
+\begin{align}
+  S( \mathbf{x} ) = \lVert F(\mathbf{x}) - \mathbf{d}_{\ast} \rVert_2^2,
+\end{align}
+</div>
+
+<p>where $F$ is the forward model, $\mathbf{x}$ contains the earth model parameters and $\mathbf{d}_{\ast}$ include observed measurements. Hence we know $S$ is the data misfit which should be minimized during the optimization. Denote that $\mathbf{d} = F(\mathbf{x})$, generally the expansion of $S$ could be written as</p>
+
+<div class="overflow">
+\begin{align}
+    S(\mathbf{d} + \Delta \mathbf{d}) - S(\mathbf{d}) \approx \nabla S^T(\mathbf{d}) \Delta \mathbf{d} + \frac{1}{2} \Delta \mathbf{d}^T \mathbf{H}(S) \Delta \mathbf{d},
+\end{align}
+</div>
+
+<p>where</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        S(\mathbf{d}) &= \lVert \mathbf{d} - \mathbf{d}_{\ast} \rVert^2_2, \\
+        \mathbf{d} &= F(\mathbf{x}), \\
+        \nabla S^T(\mathbf{d}) &= - 2 (\mathbf{d} - \mathbf{d}_{\ast})^T, \\
+        \mathbf{H}(S) &= 2 \mathbf{I}, \\
+        \Delta \mathbf{d} &= \left( \frac{\partial F}{\partial \mathbf{x}} \Delta + \frac{1}{2} \mathbf{x}^T \mathbf{H}(F) \right) \mathbf{x} := \mathbf{J} \mathbf{x}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Solving the above stationary point problem, we could get that</p>
+
+<div class="overflow">
+\begin{align}
+    \Delta \mathbf{x} &= 2 \left( \mathbf{J}^T \mathbf{J} \right)^{-1} \mathbf{J}^T (\mathbf{d}_{\ast} - F(\mathbf{x})) := \mathbf{K} (F(\mathbf{x}) - \mathbf{d}_{\ast}).
+\end{align}
+</div>
+
+<p>The target of this paper is aimed at learning the matrix $\mathbf{K}$, which contains both the first-order and second-order derivatives.</p>
+
+<p>To perform the learning process, the author build a training set which contains a lot of training data pair $(\mathbf{x}^{(i)},~ \mathbf{d}^{(i)}_{\ast})$. Then the training algorithm could be written as</p>
+
+
+<div class="box">
+
+  <ul>
+<li>Select $\mathbf{x}_0$ as initial model.</li>
+<li>$\mathbf{x} = \mathbf{x}_0$.</li>
+<li>For $m = 1,~2,~,3,~\cdots,~M$:
+
+<ul>
+<li>$\mathbf{K}_m = \arg \min\limits_{\mathbf{K}} \left( \sum_{j=1}^N \lVert \Delta \mathbf{x}^{(j)} - \mathbf{K} \Delta \mathbf{d}^{(j)} \rVert^2_2 \right)$, where $\Delta \mathbf{x}^{(j)} = \mathbf{x}^{(j)} - \mathbf{x}$ and $\Delta \mathbf{d}^{(j)} = F(\mathbf{x}) - \mathbf{d}^{(j)}_{\ast}$.</li>
+<li>$\mathbf{x} = \mathbf{x} + \frac{1}{N} \sum_{j=1}^N \mathbf{K}_m \Delta \mathbf{d}^{(j)}$.</li>
+</ul></li>
+</ul>
+
+</div>
+
+
+<p>After training, we would get a series of derivatives $\mathbf{K}_m$. After that, in the testing process, we would not need to calculate derivatives from the forward model $F$. Assuming that we have a group of unknown measurements $\mathbf{d}^{(j)}_{\ast}$. Then the testing phase could be defined as</p>
+
+
+<div class="box">
+
+  <ul>
+<li>Select $\mathbf{x}_0$ as initial model, which should be the same as that in training phase.</li>
+<li>$\Delta \mathbf{d} = F(\mathbf{x}) - \mathbf{d}_{\ast}$, $\mathbf{x} = \mathbf{x}_0$.</li>
+<li>For $m = 1,~2,~,3,~\cdots,~M$:
+
+<ul>
+<li>$\mathbf{x} = \mathbf{x} + \mathbf{K}_m \Delta \mathbf{d}$.</li>
+<li>If RMS is lower than threshold, break.</li>
+<li>$\Delta \mathbf{d} = F(\mathbf{x}) - \mathbf{d}_{\ast}$.</li>
+</ul></li>
+</ul>
+
+</div>
+
+
+<p>Here we show two results of the proposed method:</p>
+
+<table>
+<thead>
+<tr>
+<th>True model and model-based SDM inversion results. (model based)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./pap1-res1.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>True model and model-based SDM inversion results. (pixel based)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./pap1-res2.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="problem">Problem</h2>
+
+<p>The main feature of this paper is that the parameter-free descent direction $\mathbf{K}_m$ could be derived from the training set. However, this feature is also the main problem of this paper, because actually $\mathbf{K}_m$ is not fixed for all measurements in any non-linear problem.</p>
+
+<p>Consider that the derivation of $\mathbf{K}_m$, we would know that</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbf{K} &= 2 \left( \mathbf{J}^T \mathbf{J} \right)^{-1} \mathbf{J}^T. \\
+        \mathbf{J} &= \frac{\partial F}{\partial \mathbf{x}} \Delta + \frac{1}{2} \mathbf{x}^T \mathbf{H}(F).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Then we would find, if and only if $\mathbf{K}$ is a constant, i.e. the problem is totally linear, $\mathbf{K}$ would not change according to the measurements $\mathbf{d}_{\ast}$, because $\mathbf{J}(\mathbf{x})$ is a function of earth model $\mathbf{x}$. If the model is non-linear, then $\mathbf{J}$ would be different for any different $\mathbf{d}_{\ast}$.</p>
+
+<p>So in most cases, the descent trajectory of $\mathbf{x}$ would not be the same for the training set and the testing data if we apply the traditional gradient descent methods. However, in this method, the author apply the same direction of training phase on the testing phase. This scheme would not get converged results unless the training set and the testing data are totally the same. In the following figure, we show why this method is not reasonable. In Chinese, we call such a method &ldquo;刻舟求剑&rdquo;.</p>
+
+<table>
+<thead>
+<tr>
+<th>A schema for training and testing. We use red line to show the proposed method and blue line to show the traditional method.</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./pap1-fig.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="cnn-fwi">CNN-FWI</h1>
+
+<h2 id="theory-1">Theory</h2>
+
+<p>In this paper, the author propose a CNN to perform FWI method. The main idea of this paper is very similar to our method, while the main difference of this paper is that the network in this paper does not have any input parameter. All of the values in input layer of this network are set as constant (1).</p>
+
+<p>Training such a network could be divided into two phases. The following part show the workflow of training phase.</p>
+
+<table>
+<thead>
+<tr>
+<th>Flow chart of training CNN.</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./pap2-chart.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Training this network could be described by:</p>
+
+
+<div class="box">
+
+  <ul>
+<li>Phase 1:
+
+<ul>
+<li>Initialize the network parameters by normal distribution. The input layer of the network is set fixed by 1.</li>
+<li>Using the initial guess of the velocity model $\mathbf{v}_i$ to train the network by model misfit $\lVert \mathbf{v} - \mathbf{v}_i \rVert^2_2$, where $\mathbf{v} := \mathcal{G}(\mathbf{w})$ is the network prediction.</li>
+</ul></li>
+<li>Phase 2:
+
+<ul>
+<li>Denote the error function (which is also the data misfit) as $\mathcal{E} := \frac{1}{2} \lVert P (\mathbf{u}) - \mathbf{d} \rVert^2_2 = \frac{1}{2} \left\lVert P \left( \mathbf{M}^{-1}(\mathbf{v}) \mathbf{f} \right) - \mathbf{d} \right\rVert^2_2$, where P is an operator that extracts the amplitudes at the receiver positions from the frequency-domain wavefield $\mathbf{u}$, and $\mathbf{d}$ is the frequency-domain complex-valued observed data. $\mathbf{M}(\mathbf{v})$ is the impedance matrix containing the velocity model $\mathbf{v}$ while $\mathbf{u}$ is the frequency source.</li>
+<li>Training the CNN by data misfit $\mathcal{E}$, the back-propagation could be described by two steps: $\nabla_{\mathbf{w}} \mathcal{E} (\mathbf{w}) := \nabla_{\mathbf{v}} \mathcal{E} (\mathbf{v}) \frac{\partial \mathbf{v}}{\partial \mathbf{w}}$.</li>
+</ul></li>
+</ul>
+
+</div>
+
+
+<p>The results are shown below. The author compare proposed CNN-FWI with other methods. Note that the CNN-FWI is trained by Adam, but its results are much smoother than Adam-FWI method.</p>
+
+<table>
+<thead>
+<tr>
+<th>Comparison of different methods.</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./pap2-res.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="problem-1">Problem</h2>
+
+<p>There is no doubt that the proposed method is very attractive compared to other methods. However, we have to say that the method in this paper is very irregular. We could get the abstract structure like this:</p>
+
+<table>
+<thead>
+<tr>
+<th>A schema for the abstract workflow.</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./pap2-fig.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>We would find that, if we want to get the gradient $\nabla \mathbf{x}$, we have to get the gradient $\nabla \mathbf{y}$ firstly. In another word, the precision of optimizing $\mathbf{x}$ could not exceed that of optimizing $\mathbf{y}$. Hence we would find that, although the results of the proposed method is better (smoother), actually the better results are acquired by reducing the precision of optimizing $\mathbf{y}$. The effect is alike with regularization.</p>
+
+<p>Compare to training $\mathbf{y}$ directly, training $\mathbf{x}$ requires us to adjust much more parameters, while each parameter would only influence the results a little bit. If we learn $\mathbf{y}$, the update happens locally for each iteration. However, if we learn $\mathbf{x}$, since the parameter is in latent space, each iteration would exert influences on all velocity model. Hence, we could know that why the CNN-FWI could get smoother results.</p>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmagi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119875813-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>

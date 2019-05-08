@@ -6,89 +6,35 @@
     <description>Recent content in Categories on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 11 Aug 2018 17:29:51 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 May 2019 12:06:02 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Bug</title>
-      <link>https://cainmagi.github.io/categories/bug/</link>
-      <pubDate>Sat, 11 Aug 2018 17:29:51 +0000</pubDate>
-      
-      <guid>https://cainmagi.github.io/categories/bug/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Command</title>
-      <link>https://cainmagi.github.io/categories/command/</link>
-      <pubDate>Thu, 14 Jun 2018 19:37:05 -0500</pubDate>
-      
-      <guid>https://cainmagi.github.io/categories/command/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Drafts</title>
-      <link>https://cainmagi.github.io/categories/drafts/</link>
-      <pubDate>Fri, 20 Jul 2018 05:37:52 -0500</pubDate>
-      
-      <guid>https://cainmagi.github.io/categories/drafts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Infomation</title>
-      <link>https://cainmagi.github.io/categories/infomation/</link>
-      <pubDate>Wed, 23 May 2018 16:49:20 -0500</pubDate>
-      
-      <guid>https://cainmagi.github.io/categories/infomation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Latex</title>
-      <link>https://cainmagi.github.io/categories/latex/</link>
-      <pubDate>Tue, 05 Feb 2019 17:26:37 -0600</pubDate>
-      
-      <guid>https://cainmagi.github.io/categories/latex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Main</title>
-      <link>https://cainmagi.github.io/categories/main/</link>
-      <pubDate>Wed, 23 May 2018 16:49:20 -0500</pubDate>
-      
-      <guid>https://cainmagi.github.io/categories/main/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Notes</title>
       <link>https://cainmagi.github.io/categories/notes/</link>
-      <pubDate>Thu, 28 Feb 2019 02:04:28 -0600</pubDate>
+      <pubDate>Sun, 05 May 2019 12:06:02 -0500</pubDate>
       
       <guid>https://cainmagi.github.io/categories/notes/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Papers</title>
-      <link>https://cainmagi.github.io/categories/papers/</link>
-      <pubDate>Wed, 27 Feb 2019 14:47:48 -0600</pubDate>
+      <title>Theory</title>
+      <link>https://cainmagi.github.io/categories/theory/</link>
+      <pubDate>Sun, 05 May 2019 12:06:02 -0500</pubDate>
       
-      <guid>https://cainmagi.github.io/categories/papers/</guid>
+      <guid>https://cainmagi.github.io/categories/theory/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Playground</title>
-      <link>https://cainmagi.github.io/categories/playground/</link>
-      <pubDate>Mon, 25 Feb 2019 00:17:46 -0600</pubDate>
+      <title>Papers</title>
+      <link>https://cainmagi.github.io/categories/papers/</link>
+      <pubDate>Mon, 04 Mar 2019 02:18:28 -0600</pubDate>
       
-      <guid>https://cainmagi.github.io/categories/playground/</guid>
+      <guid>https://cainmagi.github.io/categories/papers/</guid>
       <description></description>
     </item>
     
@@ -102,20 +48,29 @@
     </item>
     
     <item>
-      <title>Python</title>
-      <link>https://cainmagi.github.io/categories/python/</link>
-      <pubDate>Fri, 06 Jul 2018 13:52:21 -0500</pubDate>
+      <title>Web</title>
+      <link>https://cainmagi.github.io/categories/web/</link>
+      <pubDate>Mon, 25 Feb 2019 16:18:38 -0600</pubDate>
       
-      <guid>https://cainmagi.github.io/categories/python/</guid>
+      <guid>https://cainmagi.github.io/categories/web/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Q and A</title>
-      <link>https://cainmagi.github.io/categories/q-and-a/</link>
-      <pubDate>Thu, 14 Jun 2018 19:37:05 -0500</pubDate>
+      <title>tensorflow</title>
+      <link>https://cainmagi.github.io/categories/tensorflow/</link>
+      <pubDate>Mon, 25 Feb 2019 16:18:38 -0600</pubDate>
       
-      <guid>https://cainmagi.github.io/categories/q-and-a/</guid>
+      <guid>https://cainmagi.github.io/categories/tensorflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Playground</title>
+      <link>https://cainmagi.github.io/categories/playground/</link>
+      <pubDate>Mon, 25 Feb 2019 00:17:46 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/categories/playground/</guid>
       <description></description>
     </item>
     
@@ -129,29 +84,74 @@
     </item>
     
     <item>
-      <title>Tensorflow</title>
-      <link>https://cainmagi.github.io/categories/tensorflow/</link>
-      <pubDate>Mon, 25 Feb 2019 16:18:38 -0600</pubDate>
+      <title>latex</title>
+      <link>https://cainmagi.github.io/categories/latex/</link>
+      <pubDate>Tue, 05 Feb 2019 17:26:37 -0600</pubDate>
       
-      <guid>https://cainmagi.github.io/categories/tensorflow/</guid>
+      <guid>https://cainmagi.github.io/categories/latex/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Theory</title>
-      <link>https://cainmagi.github.io/categories/theory/</link>
-      <pubDate>Thu, 28 Feb 2019 02:04:28 -0600</pubDate>
+      <title>Bug</title>
+      <link>https://cainmagi.github.io/categories/bug/</link>
+      <pubDate>Sat, 11 Aug 2018 17:29:51 +0000</pubDate>
       
-      <guid>https://cainmagi.github.io/categories/theory/</guid>
+      <guid>https://cainmagi.github.io/categories/bug/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Web</title>
-      <link>https://cainmagi.github.io/categories/web/</link>
-      <pubDate>Mon, 25 Feb 2019 16:18:38 -0600</pubDate>
+      <title>Drafts</title>
+      <link>https://cainmagi.github.io/categories/drafts/</link>
+      <pubDate>Fri, 20 Jul 2018 05:37:52 -0500</pubDate>
       
-      <guid>https://cainmagi.github.io/categories/web/</guid>
+      <guid>https://cainmagi.github.io/categories/drafts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://cainmagi.github.io/categories/python/</link>
+      <pubDate>Fri, 06 Jul 2018 13:52:21 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Command</title>
+      <link>https://cainmagi.github.io/categories/command/</link>
+      <pubDate>Thu, 14 Jun 2018 19:37:05 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/categories/command/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Q and A</title>
+      <link>https://cainmagi.github.io/categories/q-and-a/</link>
+      <pubDate>Thu, 14 Jun 2018 19:37:05 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/categories/q-and-a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>infomation</title>
+      <link>https://cainmagi.github.io/categories/infomation/</link>
+      <pubDate>Wed, 23 May 2018 16:49:20 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/categories/infomation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>main</title>
+      <link>https://cainmagi.github.io/categories/main/</link>
+      <pubDate>Wed, 23 May 2018 16:49:20 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/categories/main/</guid>
       <description></description>
     </item>
     

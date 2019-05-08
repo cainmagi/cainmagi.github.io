@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Algorithm on Rosenkreutz Studio</title>
+    <title>algorithm on Rosenkreutz Studio</title>
     <link>https://cainmagi.github.io/tags/algorithm/</link>
-    <description>Recent content in Algorithm on Rosenkreutz Studio</description>
+    <description>Recent content in algorithm on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Feb 2019 02:04:28 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 05 May 2019 12:06:02 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on May 05, 2019</title>
+      <link>https://cainmagi.github.io/notes/note20190505/</link>
+      <pubDate>Sun, 05 May 2019 12:06:02 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190505/</guid>
+      <description>Introduction In this article, we would introduce two SEG-2018 expanded abstracts. The first one is about a new learning algorithm for transient electromagnetic method (TEM) inversion, and the second one is about using deep learning to solve FWI. In the following parts, we would discuss about the problems of the two papers and analyze which parts are not well proved. The two papers are listed below.
+[1]: Application of supervised descent method for transient EM data inversion:</description>
+    </item>
+    
+    <item>
+      <title>Special Notes on Mar. 4, 2019</title>
+      <link>https://cainmagi.github.io/notes/note20190304special/</link>
+      <pubDate>Mon, 04 Mar 2019 02:18:28 -0600</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190304special/</guid>
+      <description> Introduction In this topic, we would learn such a paper:
+Solving ill-posed inverse problems using iterative deep neural networks:
+Reference
+ </description>
+    </item>
     
     <item>
       <title>Special Notes on Feb. 28, 2019</title>
@@ -28,14 +50,9 @@ KT conditions Check here to see Karush–Kuhn–Tucker conditions in Wikipedia
       <pubDate>Wed, 27 Feb 2019 14:47:48 -0600</pubDate>
       
       <guid>https://cainmagi.github.io/notes/note20190227special/</guid>
-      <description>Introduction In this topic, we are learning an article for studying the theory of the convergence for the neural network applied on inverse problem. To be specific, the related articles include
-[1]: NETT: Solving Inverse Problems with Deep Neural Networks:
-Reference
- [2]: Generalized Bregman distances and convergence rates for non-convex regularization methods:
-Reference
-  [3]: On Total Convexity, Bregman Projections and Stability in Banach Spaces:
-Reference
- [4]: Solving ill-posed inverse problems using iterative deep neural networks:</description>
+      <description>This article is incomplete now. Due to the problem of comprehension, I decide not to continue to review this article. Maybe I would try to review it again in the future.
+ Introduction In this topic, we are learning an article for studying the theory of the convergence for the neural network applied on inverse problem. To be specific, the related articles include
+[1]: NETT: Solving Inverse Problems with Deep Neural Networks:</description>
     </item>
     
     <item>
