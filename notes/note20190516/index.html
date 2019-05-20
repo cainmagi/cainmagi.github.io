@@ -1,0 +1,910 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	
+	<meta name="generator" content="Hugo 0.55.1" />
+	<title>Note on May 16, 2019 &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	
+	
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Note on May 16, 2019</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>May 16, 2019</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>May 20, 2019</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/notes" title="Notes">Notes</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/papers" title="Papers">Papers</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/research" title="research">research</a>
+                                                    
+                                                    <a class="ui label" href="/tags/optimization" title="optimization">optimization</a>
+                                                    
+                                                    <a class="ui label" href="/tags/algorithm" title="algorithm">algorithm</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/notes/default.jpg" alt="" /></span>
+                                
+                            </header>
+                            
+                            <hr/>
+                            <h1 id="contents">Contents</h1>
+                            <p><nav id="TableOfContents">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#theory">Theory</a>
+<ul>
+<li><a href="#boundedness-of-time-step">Boundedness of time step</a>
+<ul>
+<li><a href="#case-1">Case 1</a></li>
+<li><a href="#case-2">Case 2</a></li>
+<li><a href="#case-3">Case 3</a></li>
+<li><a href="#upper-boundary">Upper boundary</a></li>
+</ul></li>
+<li><a href="#scale-invariance-of-time-step">Scale invariance of time step</a></li>
+<li><a href="#correction-for-initialization-bias">Correction for initialization bias</a></li>
+</ul></li>
+<li><a href="#proof-of-convergence">Proof of convergence</a>
+<ul>
+<li><a href="#features-of-convex-function">Features of convex function</a></li>
+<li><a href="#upper-bound-of-time-step">Upper bound of time step</a></li>
+</ul></li>
+</ul>
+</nav></p>
+                            
+                            <hr/>
+                            
+
+<h1 id="introduction">Introduction</h1>
+
+<p>First, let us introduce Adam which is an important first-order gradient descent algorithm for updating the weights in neural network. A brief introduction in Chinese could be referred <a href="https://cainmagi.github.io/tensorflow-guide/book-1-x/chapter-1/linear-regression/#_8">here</a>.</p>
+
+<p>The whole name of ADAM is &ldquo;<strong>adaptive moment estimation</strong>&rdquo;, which means it is a combination of <strong>adaptive learning rate</strong> and <strong>momentum estimation</strong>. In this article, we would discuss the theory and proof in the following paper:</p>
+
+<p><a href="https://arxiv.org/abs/1412.6980v8" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<p>In this article, we would discuss some proofs about the <strong>features</strong> of this algorithm. And we will also show why the proof for the convergence in the original paper is <strong>wrong</strong>.</p>
+
+<p>Consider that we have a neural network $\mathcal{D}_{\boldsymbol{\Theta}}$ where $\boldsymbol{\Theta}$ represents parameters. To optimize the loss function $\mathcal{L} \left( \mathbf{y}_k,~ \mathcal{D}_{\boldsymbol{\Theta}} (\mathbf{x}_k) \right)$, the algorithm could be described as</p>
+
+
+<div class="box">
+
+  <ul>
+<li>Denotation:
+
+<ul>
+<li>$T$: iteration number;</li>
+<li>$\epsilon$: learning rate;</li>
+<li>$\delta$: small indefinite amount that is usually 1e<sup>-8</sup>;</li>
+<li>$\rho_1,~\rho_2$: two decay rate;</li>
+<li>$\mathbf{s}$: momentum which is initialized as $\mathbf{0}$;</li>
+<li>$\mathbf{r}$: adaptive learning rate which is a diagonal matrix $\mathrm{diag}(\mathbf{0})$.</li>
+</ul></li>
+<li>Then in each iteration $t={1,~2,~3,~\cdots,~T}$, we have
+
+<ol>
+<li>Pick m samples randomly from a set (or pick those samples in sequence from a randomly shuffled set). We call the m samples $(\mathbf{x}_k,~\mathbf{y}_k)$ as a batch;</li>
+<li>Calculate the gradient $\mathbf{g} = \frac{1}{m} \nabla_{\boldsymbol{\Theta}} \sum\limits_{k=1}^m \mathcal{L} \left( \mathbf{y}_k,~ \mathcal{D}_{\boldsymbol{\Theta}} (\mathbf{x}_k) \right)$;</li>
+<li>Update the momentum by $\mathbf{s} \leftarrow \rho_1 \mathbf{s} + (1 - \rho_1) \mathbf{g}$;</li>
+<li>Update the adaptive learning rate by $\mathbf{r} \leftarrow \rho_2 \mathbf{r} + (1 - \rho_2) \mathrm{diag}(\mathbf{g})^2$;</li>
+<li>Correct the initialization bias by $\hat{\mathbf{s}} \leftarrow \dfrac{\mathbf{s}}{1 - \rho_1^t}$, $\hat{\mathbf{r}} \leftarrow \dfrac{\mathbf{r}}{1 - \rho_2^t}$;</li>
+<li>Update parameters by $\boldsymbol{\Theta} \leftarrow \boldsymbol{\Theta} - \dfrac{ \epsilon }{\delta + \sqrt{\hat{\mathbf{r}}}} \hat{\mathbf{s}}$.</li>
+</ol></li>
+</ul>
+
+</div>
+
+
+<h1 id="theory">Theory</h1>
+
+<p>In this part, we would discuss why Adam is designed like such a workflow. As mentioned, it is a combination of <strong>adaptive learning rate</strong> and <strong>momentum estimation</strong>. It could take the advantage of momentum optimization and guide the cumulative gradient skip some local minimum. In the meanwhile, it could also take advantage of the adaptive learning rate, which makes the algorithm invariant of the scale of calculated gradient. As a reference, reader could refer to section 2.1 and section 3 when going through the following discussions.</p>
+
+<h2 id="boundedness-of-time-step">Boundedness of time step</h2>
+
+<p>As mentioned, in step 6, parameters are updated by the time step $\Delta_t = \epsilon \frac{ \hat{\mathbf{s}} }{\sqrt{\hat{\mathbf{r}}}}$, where we omit the small value $\delta$. Hence, we could rewrite the time step with</p>
+
+<div class="overflow">
+\begin{align}
+    \Delta_t = \epsilon \frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t } \frac{ \mathbf{s} }{\sqrt{\mathbf{r}}}.
+\end{align}
+</div>
+
+<p>According to the paper, we divide the $\Delta_t$ into two cases. In the following discussion, we need to note that $\rho_1,~\rho_2 \in (0,~1)$.</p>
+
+<p>To have an intuitive view on the boundary of $|\Delta_t|$, we need to dig into the boundary of $\frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t }$ firstly. We have chosen 4 different cases to learn the upper bound of $\frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t }$.</p>
+
+<table>
+<thead>
+<tr>
+<th>$\sqrt{1 - \rho_2} &lt; 1 - \rho_1$</th>
+<th>$\sqrt{1 - \rho_2} &lt; 1 - \rho_1$</th>
+<th>$\sqrt{1 - \rho_2} = 1 - \rho_1$</th>
+<th>$\sqrt{1 - \rho_2} &gt; 1 - \rho_1$</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./rho1small-1.svg" alt="" /></td>
+<td><img src="./rho1small-2.svg" alt="" /></td>
+<td><img src="./rho1equal.svg" alt="" /></td>
+<td><img src="./rho1large.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>From the above tests, we would have such an assumption:</p>
+
+<ol>
+<li>When $\sqrt{1 - \rho_2} &lt; 1 - \rho_1$, $\frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t } &lt; 1$;</li>
+<li>When $\sqrt{1 - \rho_2} = 1 - \rho_1$, $\frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t } \leqslant 1$;</li>
+<li>When $\sqrt{1 - \rho_2} &gt; 1 - \rho_1$, $\frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t } &lt; \frac{ \sqrt{1 - \rho_2} }{ 1 - \rho_1 }$.</li>
+</ol>
+
+<p>In the following part, we would prove this assumption to be true.</p>
+
+<h3 id="case-1">Case 1</h3>
+
+<p>In the first case, we have $\sqrt{1 - \rho_2} &lt; 1 - \rho_1$. If we expand this condition, then we will get $\rho_2 &gt; 2 \rho_1 - \rho_1^2$.</p>
+
+<p>Similar, we could derive $\rho_2^t &gt; 2 \rho_1^t - \rho_1^{2t}$ from $\sqrt{1 - \rho_2^t} &lt; 1 - \rho_1^t$. Hence, if we could prove that</p>
+
+<div class="overflow">
+\begin{align}
+    \rho_2^t > (2 \rho_1 - \rho_1^2)^t > 2 \rho_1^t - \rho_1^{2t},
+\end{align}
+</div>
+
+<p>Then we could prove the assumption 1. Therefore, check the inequality in the right side of <a href="#mjx-eqn-2">$(2)$</a>, we could divide $\rho_1^t$ in both sides, then we get the equivalent inequality</p>
+
+<div class="overflow">
+\begin{align}
+    (2 - \rho_1)^t > 2 - \rho_1^t.
+\end{align}
+</div>
+
+<p>To prove this inequality, we need to prove a lemma:</p>
+
+
+
+
+<blockquote class="">
+
+
+  <h4 id="lemma-1">Lemma 1</h4>
+
+<p>Consider that $t \in \mathbb{Z}^+$, $x \in (0,~1)$, then we have</p>
+
+<div class="overflow">
+\begin{align}
+    (2 - x)^t > 2 - x^t.
+\end{align}
+</div>
+
+
+
+</blockquote>
+
+
+
+<p><strong><em>proof</em></strong>:</p>
+
+<p>To prove Lemma 1, we need to use mathematical deduction. First, consider the case of $t=2$, we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        x^2 &> 2 x,\\
+        2 x^2 &> 4 x,\\
+        4 + x^2 - 4 x &> 2 - x^2,\\
+        (2 - x)^2 &> 2 - x^2. 
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Then, assume that there is $(2 - x)^n &gt; 2 - x^n$, then we would have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        (2 - x)^{n+1} &= (2 - x)^n (2 - x) > (2 - x^n)(2 - x) \\
+        &> 4 - 2 x^n - 2 x + x^{n+1}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Because</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        1 - x^n > x (1 - x^n) = x - x^{n+1}, \\
+        1 - x^n - x + x^{n+1} > 0,\\
+        2 - 2 x^n - 2 x + 2 x^{n+1} > 0,\\
+        4 - 2 x^n - 2 x + x^{n+1} > 2 - x^{n+1}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>we could substitute <a href="#mjx-eqn-7">$(7)$</a> into <a href="#mjx-eqn-6">$(6)$</a>, and get that</p>
+
+<div class="overflow">
+\begin{align}
+    (2 - x)^{n+1} > 2 - x^{n+1}.
+\end{align}
+</div>
+
+<p>Hence <a href="#mjx-eqn-4">$(4)$</a> has been proved, and we would prove <a href="#mjx-eqn-3">$(3)$</a> to be true by Lemma 1. Subsequently, <a href="#mjx-eqn-2">$(2)$</a> would be proved by <a href="#mjx-eqn-3">$(3)$</a>, which means in the case of $\sqrt{1 - \rho_2} &lt; 1 - \rho_1$, we have</p>
+
+<div class="overflow">
+\begin{align}
+    \frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t } < 1.
+\end{align}
+</div>
+
+<h3 id="case-2">Case 2</h3>
+
+<p>Lemma 1 holds for any $x \in (0,~1)$, hence we know <a href="#mjx-eqn-3">$(3)$</a> is still true for any $t&gt;1$. It will be easy to derive that if $\sqrt{1 - \rho_2} = 1 - \rho_1$, when and only when $t=1$, the equality would hold in the following equation.</p>
+
+<div class="overflow">
+\begin{align}
+    \frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t } \leqslant 1.
+\end{align}
+</div>
+
+<h3 id="case-3">Case 3</h3>
+
+<p>When $\sqrt{1 - \rho_2} &gt; 1 - \rho_1$, we could get $\rho_2 &lt; 2 \rho_1 - \rho_1^2$ directly. But we want to prove that</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t } &< \frac{ \sqrt{1 - \rho_2} }{ 1 - \rho_1 }, \\
+        \frac{ 1 - \rho_2^t }{ 1 - \rho_2 } &< \left( \frac{ 1 - \rho_1^t }{ 1 - \rho_1 } \right)^2, \\
+        \sum_{i=0}^{t-1} \rho_2^i &< \left( \sum_{i=0}^{t-1} \rho_1^i \right)^2.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>In <a href="#mjx-eqn-11">$(11)$</a> we have rewritten the inequality in the form of the sum of geometric progression. Apparently, $\sum_{i=0}^{t-1} \rho^i$ increases with $\rho$ monotonically. Because $\rho_2 &lt; 2 \rho_1 - \rho_1^2$, we would know that</p>
+
+<div class="overflow">
+\begin{align}
+    \frac{ 1 - \rho_2^t }{ 1 - \rho_2 } < \frac{ 1 - (2 \rho_1 - \rho_1^2)^t }{ 1 - 2 \rho_1 + \rho_1^2 } = \frac{ 1 - \rho_1^t (2 - \rho_1)^t }{ (1 - \rho_1)^2 }.
+\end{align}
+</div>
+
+<p>To prove <a href="#mjx-eqn-11">$(11)$</a>, we need to prove such an inequality that</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \frac{ 1 - \rho_1^t (2 - \rho_1)^t }{ (1 - \rho_1)^2 } &< \left( \frac{ 1 - \rho_1^t }{ 1 - \rho_1 } \right)^2, \\
+        1 - \rho_1^t (2 - \rho_1)^t &< (1 - \rho_1^t)^2 = 1 - 2 \rho_1^t + \rho_1^{2t}, \\
+        2 &< (2 - \rho_1)^t + \rho_1^{t}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>If we solve the first-order gradient for such a function that</p>
+
+<div class="overflow">
+\begin{align}
+    f(x) = x^t + (2 - x)^t,
+\end{align}
+</div>
+
+<p>where $t&gt;1$. We would get $f&rsquo;(x) = t \left( x^{t-1} - (2-x)^{t-1} \right)$, which indicates that the minimal point lies on $x=1$, i.e. $f(x) &gt; 2$ for any $x \in (0,~1)$. Hence we know <a href="#mjx-eqn-12">$(12)$</a> is fulfilled. Consequently, we would prove <a href="#mjx-eqn-11">$(11)$</a>.</p>
+
+<h3 id="upper-boundary">Upper boundary</h3>
+
+<p>After finding the upper boundary of the coefficient $\frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t }$, we still need to confirm the upper boundary of $\frac{ \mathbf{s} }{\sqrt{\mathbf{r}}}$. Take the initialization into consideration, we would have that</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbf{s} &= (1 - \rho_1) \sum_{i=1}^t \rho_1^{t-i} \mathbf{g}_i, \\
+    \mathbf{r} &= (1 - \rho_2) \sum_{i=1}^t \rho_2^{t-i} \mathrm{diag}(\mathbf{g}_i)^2.
+\end{align}
+</div>
+
+<p>Hence we have</p>
+
+<div class="overflow">
+\begin{align}
+    \left| \frac{ \mathbf{s} }{\sqrt{\mathbf{r}}} \right| = \frac{ 1 - \rho_1 }{ \sqrt{1 - \rho_2} } \frac{ \left| \sum_{i=1}^t \rho_1^{t-i} \mathbf{g}_i \right| }{ \sqrt{ \sum_{i=1}^t \rho_2^{t-i} \mathbf{g}_i^2 } }.
+\end{align}
+</div>
+
+<p>Both the numerator and denominator in <a href="#mjx-eqn-17">$(17)$</a> are weighted sum, where we view $\mathbf{g}_i$ as a weight. If consider one element, we could rewrite <a href="#mjx-eqn-17">$(17)$</a> as</p>
+
+<div class="overflow">
+\begin{align}
+    \left| \frac{ \mathbf{s} }{\sqrt{\mathbf{r}}} \right|_{j} = \frac{ 1 - \rho_1 }{ \sqrt{1 - \rho_2} } \frac{ \left| \sum_{i=1}^t \rho_1^{t-i} g_{ij} \right| }{ \sqrt{ \sum_{i=1}^t \rho_2^{t-i} g_{ij}^2 } }.
+\end{align}
+</div>
+
+<p>There are two extreme cases. In the first one, the gradient is highly sparse, which means most of $g_{ij}$ would be 0. Consider the case when $g_{tj} \neq 0$, we would have</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbb{E} \left[ \frac{ \left| \sum_{i=1}^t \rho_1^{t-i} g_{ij} \right| }{ \sqrt{ \sum_{i=1}^t \rho_2^{t-i} g_{ij}^2 } } \right] \approx \mathbb{E} \left[ \frac{ \left| g_{tj} \right| }{ \sqrt{ g_{tj}^2 } } \right] = 1.
+\end{align}
+</div>
+
+<p>In the other case, the gradient are always in the same distribution, which means</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbb{E} \left[ \frac{ \left| \sum_{i=1}^t \rho_1^{t-i} g_{ij} \right| }{ \sqrt{ \sum_{i=1}^t \rho_2^{t-i} g_{ij}^2 } } \right] \approx \frac{ \left| \mathbb{E} [g_j] \sum_{i=1}^t \rho_1^{t-i} \right| }{ \sqrt{ \mathbb{E} [g_j^2] \sum_{i=1}^t \rho_2^{t-i} } } = \frac{1 - \rho_1^t}{ \sqrt{1 - \rho_2^t} } \frac{ \sqrt{1 - \rho_2} }{ 1 - \rho_1 }.
+\end{align}
+</div>
+
+<p>Therefore,</p>
+
+<div class="overflow">
+\begin{align}
+    \left| \frac{ \mathbf{s} }{\sqrt{\mathbf{r}}} \right| \leqslant \frac{ 1 - \rho_1 }{ \sqrt{1 - \rho_2} } \max \left( 1,~\frac{1 - \rho_1^t}{ \sqrt{1 - \rho_2^t} } \frac{ \sqrt{1 - \rho_2} }{ 1 - \rho_1 } \right) = \max \left( \frac{ 1 - \rho_1 }{ \sqrt{1 - \rho_2} },~\frac{1 - \rho_1^t}{ \sqrt{1 - \rho_2^t} } \right).
+\end{align}
+</div>
+
+<p>According to <a href="#mjx-eqn-1">$(1)$</a>, we have</p>
+
+<div class="overflow">
+\begin{align}
+    |\Delta_t| \leqslant \epsilon \frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t } \max \left( \frac{ 1 - \rho_1 }{ \sqrt{1 - \rho_2} },~\frac{1 - \rho_1^t}{ \sqrt{1 - \rho_2^t} } \right) \leqslant \epsilon \max \left( \frac{ 1 - \rho_1 }{ \sqrt{1 - \rho_2} } \frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t },~1 \right).
+\end{align}
+</div>
+
+<p>Take the aforementioned 3 cases into consideration, we would find that the upper boundary of the time step is</p>
+
+<div class="overflow">
+\begin{align}
+    |\Delta_t| < \epsilon \max \left( \frac{ 1 - \rho_1 }{ \sqrt{1 - \rho_2} } \max \left( 1,~ \frac{ \sqrt{1 - \rho_2} }{ 1 - \rho_1 } \right),~1 \right) = \epsilon \max \left( \frac{ 1 - \rho_1 }{ \sqrt{1 - \rho_2} },~ 1 \right),
+\end{align}
+</div>
+
+<p>which means</p>
+
+<ol>
+<li>When $\sqrt{1 - \rho_2} &lt; 1 - \rho_1$, $|\Delta_t| &lt; \epsilon \frac{ 1 - \rho_1 }{ \sqrt{1 - \rho_2} }$;</li>
+<li>When $\sqrt{1 - \rho_2} = 1 - \rho_1$, $|\Delta_t| \leqslant \epsilon$;</li>
+<li>When $\sqrt{1 - \rho_2} &gt; 1 - \rho_1$, $|\Delta_t| &lt; \epsilon$.</li>
+</ol>
+
+<h2 id="scale-invariance-of-time-step">Scale invariance of time step</h2>
+
+<p>One of the most attractive advantages of Adam is that the time step $|\Delta_t|$ is scale invariant. For example, if all gradients of Adam are enlarged by a coefficient $\alpha$, which means for any $\mathbf{g}_i$, we have $\hat{\mathbf{g}}_i = \alpha \mathbf{g}_i$, then we would have</p>
+
+<div class="overflow">
+\begin{align}
+    \Delta_t = \epsilon \frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t } \frac{ \alpha \mathbf{s} }{\sqrt{ \alpha^2 \mathbf{r}}} = \epsilon \frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t } \frac{ \mathbf{s} }{\sqrt{ \mathbf{r}}},
+\end{align}
+</div>
+
+<p>which means the scale of the gradient (or loss function) does not influence the calculated time step for each iteration. For example, if the gradient is the same for all time step, i.e. $\mathbf{g}_i = \mathbf{g}$, then $\frac{ \mathbf{s} }{\sqrt{ \mathbf{r}}}$ would be a constant which is not relevant to the value of $\mathbf{g}$. By substituting <a href="#mjx-eqn-17">$(17)$</a> and <a href="#mjx-eqn-20">$(20)$</a> into <a href="#mjx-eqn-1">$(1)$</a>, we would get the time step $\Delta_t = \epsilon$. The author call the ratio $\frac{ \hat{\mathbf{s}} }{\sqrt{ \hat{\mathbf{r}}}}$ as signal-to-noise ratio (SNR). The author claims that when near to the optimum, the SNR would be small, which helps the Adam change to a smaller learning rate like self-annealing <span class='popsym' title="Personally I do not agree with this idea, because Adam is different from Adgrad which has a cumulative sum of squared gradients in the denominator. Actually, the scale invariance of Adam makes the gradients does not supressed near the optimal point, it could only takes the advantage of the stochastic sum like plain SGD."></span>.</p>
+
+<p>Furthermore, we could consider another case where we apply different coefficient $\alpha_i$ to different gradient $\mathbf{g}_i$. Then we would get</p>
+
+<div class="overflow">
+\begin{align}
+    \Delta_t = \epsilon \frac{ \sqrt{1 - \rho_2^t} }{ 1 - \rho_1^t } \frac{ (1 - \rho_1) } { \sqrt{ 1 - \rho_2 } } \frac{ \sum_{i=1}^t \rho_1^{t-i} \alpha_i \mathbf{g}_i }{\sqrt{ \sum_{i=1}^t \rho_2^{t-i} \alpha_i^2 \mathrm{diag}(\mathbf{g}_i)^2 }}.
+\end{align}
+</div>
+
+<p>We would find that $\alpha_i$ serves as a weight for the gradient in this case. Then we would find another feature of Adam:</p>
+
+<p>During the optimization of Adam, a gradient with a large norm would takes a larger proportion in the calculation for $\Delta_t$, while the upper bound of $\Delta_t$ is well restricted and would not be influence by the norm of gradients.</p>
+
+<h2 id="correction-for-initialization-bias">Correction for initialization bias</h2>
+
+<p>In this part, we would answer a question about why we need to apply the step 5 in the algorithm (check the <a href="#introduction">introduction</a>). This step is aimed at correct the initialization bias of the algorithm. Readers may find the same discussion in the section 3 of the paper.</p>
+
+<p>Take the momentum $\mathbf{s}$ as an example. In <a href="#mjx-eqn-15">$(15)$</a>, we have already known that since the initialization of $\mathbf{s}$ is $\mathbf{0}$, it could be represented as</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbf{s} = (1 - \rho_1) \sum_{i=1}^t \rho_1^{t-i} \mathbf{g}_i.
+\end{align}
+</div>
+
+<p>Assume that the residual between two gradients is bounded by $\zeta$, i.e. $\left|\mathbb{E}\left[\mathbf{g}_i\right] - \mathbb{E}\left[\mathbf{g}_t\right] \right|_{\infty} &lt; \zeta$, we would have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbb{E}\left[\mathbf{s}\right] &= (1 - \rho_1) \sum_{i=1}^t \rho_1^{t-i} \mathbb{E}\left[\mathbf{g}_i\right] \\
+        &= (1 - \rho_1) \mathbb{E}\left[\mathbf{g}_t\right] \sum_{i=1}^t \left( \rho_1^{t-i} \right) + (1 - \rho_1) \sum_{i=1}^t \left( \rho_1^{t-i} \mathbb{E}\left[\mathbf{g}_i\right] - \mathbb{E}\left[\mathbf{g}_t\right] \right) \\
+        &< (1 - \rho_1) \mathbb{E}\left[\mathbf{g}_t\right] \frac{1 - \rho_1^t}{1 - \rho_1} + (1 - \rho_1) \zeta \frac{1 - \rho_1^t}{1 - \rho_1} \\
+        &= (1 - \rho_1^t) (\mathbb{E}\left[\mathbf{g}_t\right] + \zeta).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>The coefficient $(1 - \rho_1^t)$ in <a href="#mjx-eqn-27">$(27)$</a> is introduced by initializing the momentum with $\mathbf{0}$. What the step 6 does is canceling the influence of the initialization, which means</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbb{E}\left[\mathbf{g}_t\right] - \zeta < \mathbb{E}\left[\hat{\mathbf{s}}\right] < \mathbb{E}\left[\mathbf{g}_t\right] + \zeta.
+\end{align}
+</div>
+
+<p>Such a scheme could be also applied to $\mathbf{r}$ as well. If the distribution of the gradient is stationary, i.e. for any $i$, there is $\mathbb{E}\left[\mathbf{g}_i\right] = \mathbb{E}\left[\mathbf{g}\right]$, then $\zeta=0$. In this case, $\mathbb{E}\left[\hat{\mathbf{s}}\right]$ could serves as an unbiased estimation for $\mathbb{E}\left[\mathbf{g}\right]$. In fact, in practice the $\zeta$ is generally thought to be small.</p>
+
+<p>However, we may need to consider another case where the gradient is highly sparse. In such a case, $\zeta$ may be comparable with $\mathbb{E}\left[\mathbf{g}_t\right]$, which makes the momentum not accurate. To prevent such a case, it may be necessary to apply a small $\rho_1$ to make $\hat{\mathbf{s}}$ more similar to $\mathbf{g}_t$. If we do not make such a initial bias correction, $\mathbf{s}$ may be smaller especially for the initial steps. When the same case happens to $\mathbf{r}$, where $\rho_2$ is small, the too small $\mathbf{r}$ without correction would cause the $\Delta_t$ too large during the initial steps. As a comparison, the author claims that Adam could be self-annealing when applying to sparse gradients.</p>
+
+<h1 id="proof-of-convergence">Proof of convergence</h1>
+
+<div class="box" style="color:#FAA; padding-bottom:40px">
+  <div style="float: left;"> 
+    <p><i class="fa fa-exclamation-circle" aria-hidden="true" style="font-size: 50px"></i></p>
+  </div>
+  <div style="margin-left: 60px; font-style:normal;">
+    <p>The following part is incomplete. Because we have found that the first Lemma (Lemma 10.3) in the original paper is wrong, which means the following proof is based on false premises. We would not reproduce the wrong proof, instead, we will give an example which shows why Lemma 10.3 is wrong.</p>
+  </div>
+</div>
+
+<p>In the supplemental material, the author has given the whole proof of the convergence analysis. To prove such an algorithm to be converged, an important technique called &ldquo;<strong>regret analysis</strong>&rdquo; needs to be used. Since I am not familiar with this criteria, in the following part, I would only reproduce the author&rsquo;s proof.</p>
+
+<p>For any step $t \in {0,~1,~2,~\cdots,~T}$, we have parameters $\theta_t$ for a convex loss function $f_t(\theta_t)$. For different $t$, we use different $\theta_t$ and $f_t(\theta_t)$, because</p>
+
+<ul>
+<li>The parameters $\theta_t$ would be updated by the algorithm in each iteration;</li>
+<li>In each iteration, we use a different batch to train $\theta_t$. According to the theory stochastic optimization, the target of the loss function would be different, which means we need to use different $f_t(\cdot)$.</li>
+</ul>
+
+<p>Denote the optimum of $\theta_t$ is $\theta^{\ast}$, we could define the regret as</p>
+
+<div class="overflow">
+\begin{align}
+    R(T) = \sum_{t=1}^T \left[ f_t(\theta_t) - f_t(\theta^{\ast}) \right].
+\end{align}
+</div>
+
+<p>In regret analysis, we need to find the upper bound of $R(T)$, which would be discussed in the following part. To be emphasized, we do not apply norms in $R(T)$. In my idea, this kind of analysis is not like what we do in a general convergence analysis problem where we are required to find the boundary of error, i.e. $\lVert f_t(\theta_t) - f_t(\theta^{\ast}) \rVert &lt; \varepsilon$.</p>
+
+<h2 id="features-of-convex-function">Features of convex function</h2>
+
+<p>For any convex function, we have the following features:</p>
+
+
+
+
+<blockquote class="">
+
+
+  <h4 id="lemma-2">Lemma 2</h4>
+
+<p>For any $\lambda \in [0,~1]$, a convex scalar function $f: \mathbb{R}^d \rightarrow \mathbb{R}$ could be defined as</p>
+
+<div class="overflow">
+\begin{align}
+    \lambda f(x) + (1 - \lambda) f(y) \geqslant f( \lambda x + (1 - \lambda) y ).
+\end{align}
+</div>
+
+<p>Consider the first order gradient $\nabla f(x)$, we would have</p>
+
+<div class="overflow">
+\begin{align}
+    f(y) \geqslant f(x) + \nabla f(x) (y - x).
+\end{align}
+</div>
+
+<p>There is a conclusion that <a href="#mjx-eqn-30">$(30)$</a> $\leftrightarrow$ <a href="#mjx-eqn-31">$(31)$</a>. Both of the two equations suggest the &ldquo;<strong>strictly convex</strong>&rdquo; condition. In the following part, <a href="#mjx-eqn-31">$(31)$</a> would be used to confirm the upper boundary of the regret.</p>
+
+
+
+
+</blockquote>
+
+
+
+<p>We would not prove <a href="#lemma-2">Lemma 2</a> here. Readers who are interested in this criteria could refer to the following reading material</p>
+
+<p><a href="http://www.princeton.edu/~amirali/Public/Teaching/ORF523/S16/ORF523_S16_Lec7_gh.pdf" class="button icon fa-file-pdf-o">Reference</a></p>
+
+<p>We define the symbols in the following table:</p>
+
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$g_t$</td>
+<td>Gradient vector for time step $t$, i.e. $g_t := \nabla f_t (\theta_t)$.</td>
+</tr>
+
+<tr>
+<td>$g_{tj}$</td>
+<td>The j<sup>th</sup> element of $g_t$.</td>
+</tr>
+
+<tr>
+<td>$g_{1:t,j}$</td>
+<td>A sub-vector which contains the j<sup>th</sup> element from 1<sup>st</sup> to t<sup>th</sup> samples of $g_t$, i.e. $g_{1:t,j} := \{g_{1j},~g_{2j},~g_{3j},~\cdots,~g_{tj}\}$.</td>
+</tr>
+
+<tr>
+<td>$G$</td>
+<td>Upper bound of L<sub>2</sub> norm of $g$, i.e. for any $t$, there is $\lVert g_t \rVert_2 \leqslant G$.</td>
+</tr>
+
+<tr>
+<td>$G_{\infty}$</td>
+<td>Upper bound of L<sub>∞</sub> norm of $g$, i.e. for any $t$, there is $\lVert g_t \rVert_{\infty} \leqslant G_{\infty}$.</td>
+</tr>
+
+<tr>
+<td>$D$</td>
+<td>Upper bound of L<sub>2</sub> distance between two parameters in any time $m,~n$, i.e. $\lVert \theta_m - \theta_n \rVert_2 \leqslant D$.</td>
+</tr>
+
+<tr>
+<td>$D_{\infty}$</td>
+<td>Upper bound of L<sub>∞</sub> distance between two parameters in any time $m,~n$, i.e. $\lVert \theta_m - \theta_n \rVert_{\infty} \leqslant D_{\infty}$.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="upper-bound-of-time-step">Upper bound of time step</h2>
+
+
+
+
+<blockquote class="">
+
+
+  <h4 id="lemma-3">Lemma 3</h4>
+
+<p>Prove that</p>
+
+<div class="overflow">
+\begin{align}
+    \sum_{t=1}^T \sqrt{\frac{g_{tj}^2}{t}} \leqslant 2 G_{\infty} \lVert g_{1:T,j} \rVert_2.
+\end{align}
+</div>
+
+
+
+</blockquote>
+
+
+
+<p>This lemma is wrong. Although the original paper gives a proof, that proof is not correct due to a typo. However, it is not reasonable to fix the proof because <a href="#mjx-eqn-32">$(32)$</a> is not true. To examine the inequality in <a href="#mjx-eqn-34">$(34)$</a>, we write such codes:</p>
+
+<pre><code class="language-python">import numpy as np
+import random
+import matplotlib.pyplot as plt
+# Prepare the libs
+random.seed(10)
+np.random.seed(0)
+
+T = 30 # Define the iteration number as 30.
+xx = np.linspace(1,T,T) # X axis
+g = np.random.rand(T) # Use random variables as gradient in each iteration.
+Gi = np.amax(np.abs(g)) # Calculate the L-infinity norm.
+xl = np.cumsum(np.sqrt(g**2 / xx)) # Left side of the inequality.
+xr = 2 * Gi * np.sqrt(np.cumsum(g**2)) # Right side of the inequality.
+plt.xlabel('T')
+plt.plot(xx, g, label='$g_T$')
+plt.plot(xx, xl, label=r'$l(T) = \sum_{t=1}^T \sqrt{\dfrac{g^2_t}{t}}$')
+plt.plot(xx, xr, label=r'$r(T) = \sqrt{\sum_{t=1}^T g^2_t}$')
+plt.plot(xx, xr-xl, label=r'$r(t) - l(t)$') # Should be always &gt;0 if Lemma is true.
+plt.legend()
+plt.gcf().set_size_inches(5, 5), plt.tight_layout(), plt.show()
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>An example</th>
+<th>An counterexample</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img src="./conv-example.svg" alt="" /></td>
+<td><img src="./conv-counterexample.svg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>In the above two graphs, the orange line represents the left side in <a href="#mjx-eqn-34">$(34)$</a>, while the green line represents the right side in <a href="#mjx-eqn-34">$(34)$</a>. Therefore, if <a href="#lemma-3">Lemma 3</a> is true, the difference, i.e. the red line should be always $&gt;0$. In left example, we make $g_{tj} \sim U(0,~1)$. In this case, the <a href="#lemma-3">Lemma 3</a> seems to be true. However, if we change the gradients to $g_{tj} \sim U(-0.5,~0.5)$, we would get the right example, which is a counterexample of <a href="#lemma-3">Lemma 3</a>.</p>
+
+<p>In practice, since we are using stochastic algorithm (including Adam), it is rational to assume that the gradient could be either negative or positive. As we have such a counterexample, we would know that <a href="#lemma-3">Lemma 3</a> shows a wrong inequality.</p>
+
+<p>This error is a disaster, because the theorem about convergence in the original paper is proof on the basis of <a href="#lemma-3">Lemma 3</a>. As <a href="#lemma-3">Lemma 3</a> is wrong, there is unnecessary to learn the proof for the convergence. As a conclusion, it is not worth of learning more from this paper.</p>
+
+
+
+
+<blockquote class="">
+
+
+  <p>In original paper, a part of the author&rsquo;s proof is as below</p>
+
+<p><strong><em>proof</em></strong>:</p>
+
+<p>To prove it, we need to apply the mathematical deduction.</p>
+
+<p>First, consider the case of $t=1$, because $\lVert g_{1:1,j} \rVert_2 = \sqrt{\frac{g_{1j}^2}{1}}$. Then we know that <strong>when $2G_{\infty} \geqslant 1$</strong> <span class='popsym' title="This condition is not clarified in the original paper, i.e. if the assumption is not true, the proof would not be true."></span>, there will be $\sqrt{\frac{g_{1j}^2}{1}} \leqslant 2 G_{\infty} \lVert g_{1:1,j} \rVert_2$.</p>
+
+<p>Assume that</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \sum_{t=1}^{T+1} \sqrt{\frac{g_{tj}^2}{t}} &= \sum_{t=1}^T \sqrt{\frac{g_{tj}^2}{t}} + \sqrt{\frac{g_{(T+1)j}^2}{T+1}} \leqslant 2 G_{\infty} \lVert g_{1:T,j} \rVert_2 + \sqrt{\frac{g_{(T+1)j}^2}{T+1}} \\
+        &= 2 G_{\infty} \sqrt{\lVert g_{1:(T+1),j} \rVert_2^2 - g_{(T+1)j}^2} + \sqrt{\frac{g_{(T+1)j}^2}{T+1}}
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>According to $a^2 - b^2 \leqslant a^2 - b^2 + \frac{b^4}{4a^2} = \left(a - \frac{b^2}{2 a}\right)$,</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \sqrt{\lVert g_{1:(T+1),j} \rVert_2^2 - g_{(T+1)j}^2} &\leqslant \lVert g_{1:(T+1),j} \rVert_2 - \frac{g_{(T+1)j}^2}{2 \lVert g_{1:(T+1),j} \rVert_2} \\
+        &\leqslant \lVert g_{1:(T+1),j} \rVert_2 - \frac{g_{(T+1)j}^2}{2 \sqrt{(T+1)G_{\infty}^2}}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>From <a href="#mjx-eqn-34">$(34)$</a> we would get</p>
+
+<div class="overflow">
+\begin{align}
+    2 G_{\infty} \sqrt{\lVert g_{1:(T+1),j} \rVert_2^2 - g_{(T+1)j}^2} + \sqrt{\frac{g_{(T+1)j}^2}{T+1}} \leqslant 2 G_{\infty} \lVert g_{1:(T+1),j} \rVert_2 - \frac{g_{(T+1)j}^2}{\sqrt{T+1}} + \sqrt{\frac{g_{(T+1)j}^2}{T+1}}.
+\end{align}
+</div>
+
+<p>Since the author mistake $g_{(T+1)j}^2$ by $\sqrt{g_{(T+1)j}^2}$, the proof is wrong.</p>
+
+
+
+
+</blockquote>
+
+
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmagi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119875813-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>

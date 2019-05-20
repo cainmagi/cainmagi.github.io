@@ -1,0 +1,469 @@
+<!DOCTYPE HTML>
+<html>
+    <!-- Header -->
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="A Ph.D student in University of Houston (UH). Interested area includes: machine learning, programming and religion.">
+	<meta name="author" content="Yuchen Jin">
+	
+	<meta name="generator" content="Hugo 0.55.1" />
+	<title>Special Notes on May 15, 2019 &middot; Rosenkreutz Studio</title>
+	<!-- Stylesheets -->
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/tooltipster-sideTip-borderless.min.css" />
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/main.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/title.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/extensions.css"/>
+	<link rel="stylesheet" href="https://cainmagi.github.io/css/jq-images.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	
+	
+	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="https://cainmagi.github.io/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="https://cainmagi.github.io/" class="logo"><strong>CainMagi</strong> <span>University of Houston</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="https://cainmagi.github.io/">Home</a></li>
+            
+                <li><a href="https://cainmagi.github.io/about">About</a></li>
+            
+                <li><a href="https://cainmagi.github.io/notes">Notes</a></li>
+            
+                <li><a href="https://cainmagi.github.io/researches">Researches</a></li>
+            
+                <li><a href="https://cainmagi.github.io/projects">Projects</a></li>
+            
+                <li><a href="https://cainmagi.github.io/playground">Playground</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="http://welllogging.egr.uh.edu/" class="button special fit">Laboratory Page</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header id="pagetitle" class="major">
+                                <h1 id='main_title'>Special Notes on May 15, 2019</h1>
+                                <table class="sub-title">
+                                    <tbody>
+                                        <tr>
+                                            <th>Date:</th>
+                                            <td>May 15, 2019</td>
+                                        </tr> 
+                                        <tr>
+                                            <th>Last Updated:</th>
+                                            <td>May 15, 2019</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Categories:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label categ" href="/categories/notes" title="Notes">Notes</a>
+                                                    
+                                                    <a class="ui label categ" href="/categories/theory" title="Theory">Theory</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tags:</th>
+                                            <td><section class="dream-tags">
+                                                    <a class="ui label" href="/tags/research" title="research">research</a>
+                                                    
+                                                    <a class="ui label" href="/tags/algorithm" title="algorithm">algorithm</a>
+                                                    
+                                                    <a class="ui label" href="/tags/nips" title="NIPS">NIPS</a>
+                                                    
+                                                    <a class="ui label" href="/tags/optimization" title="optimization">optimization</a>
+                                                    
+                                                
+                                            </section></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <span class="image main"><img src="/img/notes/special.jpg" alt="" /></span>
+                                
+                            </header>
+                            
+                            <hr/>
+                            <h1 id="contents">Contents</h1>
+                            <p><nav id="TableOfContents">
+<ul>
+<li><a href="#solve-the-lasso-problem">Solve the Lasso problem</a></li>
+<li><a href="#learn-the-dictionary">Learn the dictionary</a></li>
+</ul>
+</nav></p>
+                            
+                            <hr/>
+                            
+
+<p>In this article, we would discuss the trick about training and testing phases for dictionary learning (sparse coding). The original work could be referred <a href="https://papers.nips.cc/paper/2979-efficient-sparse-coding-algorithms">here</a>. As extra reading materials, we suggest reading <a href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf"><em>Convex Optimization</em></a> for understanding how to apply Lagrangian method and <a href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf"><em>Matrix Cookbook</em></a> to refer some conclusions about how to calculate gradients for matrices.</p>
+
+<p>The pdf version of this article could be found here:</p>
+
+<p><a href="./deduction-dictlearn.pdf" class="button icon fa-file-pdf-o">PDF version</a></p>
+
+<h1 id="solve-the-lasso-problem">Solve the Lasso problem</h1>
+
+<p>Consider the testing phase of sparse coding which could be formulated as</p>
+
+<div class="overflow">
+\begin{align}
+    \min\limits_{{\{\boldsymbol{\alpha}_i\}}_{i=1}^{N}}~&{\sum_{i=1}^{N} \left({\lVert \mathbf{x}_i - \mathbf{D}\boldsymbol{\alpha}_i \rVert}_2^2 + \lambda {\lVert \boldsymbol{\alpha}_i \rVert}_1 \right)}.
+\end{align}
+</div>
+
+<p>Then we could find the stationary point according to the first-order gradient,</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \frac{\mathrm{d}}{\mathrm{d}\boldsymbol{\alpha}_k} &\left(\sum_{i=1}^{N} \left({\lVert \mathbf{x}_i - \mathbf{D}\boldsymbol{\alpha}_i \rVert}_2^2 + \lambda {\lVert \boldsymbol{\alpha}_i \rVert}_1 \right) \right) \\
+        &= \frac{\mathrm{d}}{\mathrm{d}\boldsymbol{\alpha}_k} \left( {\lVert \mathbf{x}_k - \mathbf{D}\boldsymbol{\alpha}_k \rVert}_2^2 + \lambda {\lVert \boldsymbol{\alpha}_k \rVert}_1 \right) \\
+        &= \frac{\mathrm{d}}{\mathrm{d}\boldsymbol{\alpha}_k} \left( (\mathbf{x}_k - \mathbf{D}\boldsymbol{\alpha}_k)^T(\mathbf{x}_k - \mathbf{D}\boldsymbol{\alpha}_k) \right) + \lambda\mathrm{sign}(\boldsymbol{\alpha}_k)\\
+        &= \frac{\mathrm{d}}{\mathrm{d}\boldsymbol{\alpha}_k} \left( -2\boldsymbol{\alpha}_k^T\mathbf{D}^T\mathbf{x}_k + \boldsymbol{\alpha}_k^T\mathbf{D}^T\mathbf{D}\boldsymbol{\alpha}_k \right) + \lambda\mathrm{sign}(\boldsymbol{\alpha}_k)\\
+        &= -2 \mathbf{D}^T\mathbf{x}_k + 2 \mathbf{D}^T\mathbf{D} \boldsymbol{\alpha}_k + \lambda \mathrm{sign}(\boldsymbol{\alpha}_k) = 0.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p><a href="#mjx-eqn-2">$(2)$</a> indicates the analytical solution for Lasso problem implicitly. To find the best $\boldsymbol{\alpha}_k$, we still need to apply some tricks. Denote that $\boldsymbol{\theta}_k = \mathrm{sign}(\boldsymbol{\alpha}_k)$, we could rewrite <a href="#mjx-eqn-2">$(2)$</a> as</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \boldsymbol{\alpha}_k = (\mathbf{D}^T\mathbf{D})^{-1}(\mathbf{D}^T\mathbf{x}_k-\frac{\lambda}{2}\boldsymbol{\theta}_k).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Since $\boldsymbol{\theta}_k = \mathrm{sign}(\boldsymbol{\alpha}_k)$, we could apply $\mathrm{sign}(\cdot)$ to both sides of <a href="#mjx-eqn-3">$(3)$</a>, then we get</p>
+
+<div class="overflow">
+\begin{equation}\label{fml:c5:LassoSoluRelax1}
+    \begin{aligned}
+        \mathrm{sign} \left(\frac{1}{\lambda}\frac{\mathrm{d} \mathrm{Lasso}}{\mathrm{d}\boldsymbol{\alpha}_k} \right) &=  \mathrm{sign}\left((\mathbf{D}^T\mathbf{D})^{-1}(\mathbf{D}^T\mathbf{x}_k-\frac{\lambda}{2}\boldsymbol{\theta}_k)\right) - \boldsymbol{\theta}_k \\
+        &= \mathrm{sign}\left(\mathbf{D}^T\mathbf{x}_k-\frac{\lambda}{2}\boldsymbol{\theta}_k\right) - \boldsymbol{\theta}_k \\
+        &= \mathrm{sign}\left(\mathbf{y}_k-\lambda\boldsymbol{\theta}_k\right) - \boldsymbol{\theta}_k = 0.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p><a href="#mjx-eqn-4">$(4)$</a> indicates a fast solution for <a href="#mjx-eqn-2">$(2)$</a>. It proves that considering that the $i^{\mathrm{th}}$ element of $\mathbf{y}_k$, i.e. $y_{ki}$, we would find that when $y_{ki} &gt; \lambda$, $\alpha_{ki} &gt; 0$, and when $y_{ki} &lt; -\lambda$, $\alpha_{ki} &lt; 0$. Furthermore, when $y_{ki} \in [-\lambda,~\lambda]$, $\alpha_{ki}=0$. After confirming $\boldsymbol{\theta}_k$, it will be easy to get $\boldsymbol{\alpha}_k$ from <a href="#mjx-eqn-3">$(3)$</a> directly.</p>
+
+<h1 id="learn-the-dictionary">Learn the dictionary</h1>
+
+<p>If we rewrite the coding as a matrix as below,</p>
+
+<div class="overflow">
+\begin{equation}
+    \mathbf{A} = \left[
+    \begin{array}{c c c c}
+        \boldsymbol{\alpha}_1 & \boldsymbol{\alpha}_2 & \cdots & \boldsymbol{\alpha}_N
+    \end{array}
+    \right],
+\end{equation}
+</div>
+
+<p>then we could rewrite the dictionary learning problem by Frobenius norm,</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \min\limits_{\mathbf{D}}~&{\lVert \mathbf{X} - \mathbf{D}\mathbf{A}\rVert}^2_F, \\
+        \textrm{s.t.}~&{\lVert D(:,k) \rVert}_2 \leqslant 1,~\forall k \in \{1,2,\ldots,K\}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Training dictionary requires us to train $\mathbf{D}$ and $\mathbf{A}$ alternatively. The method for training $\mathbf{A}$ has been discussed before, hence we would discuss how to train $\mathbf{D}$ in the following part. Subsequently, we only note that the trainable variable is $\mathbf{D}$ in <a href="#mjx-eqn-6">$(6)$</a>, which means <a href="#mjx-eqn-1">$(1)$</a> and <a href="#mjx-eqn-6">$(6)$</a> require to be solved alternatively.</p>
+
+<p>Solving the dictionary training need us to use Lagrangian multiplier method. Denote the multiplier as $\mu_j$, we could incorporate the constraints into the problem,</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathcal{L}(\mathbf{D},~\boldsymbol{\mu}) = {\lVert \mathbf{X} - \mathbf{D}\mathbf{A}\rVert}^2_F + \sum_{j=1}^{K}\mu_j\sum_{i=1}^{D}(D_{ij}^2-1).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>The first term of <a href="#mjx-eqn-7">$(7)$</a> could be expanded as</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        {\lVert \mathbf{X} - \mathbf{D}\mathbf{A}\rVert}^2_F &= \mathrm{Tr}((\mathbf{X} - \mathbf{D}\mathbf{A})(\mathbf{X} - \mathbf{D}\mathbf{A})^T) \\
+        &= \mathrm{Tr}(\mathbf{X}\mathbf{X}^T) + \mathrm{Tr}(\mathbf{D}\mathbf{A}\mathbf{A}^T\mathbf{D}^T) -  2\mathrm{Tr}(\mathbf{D}\mathbf{A}\mathbf{X}^T).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Denote a diagonal matrix $\boldsymbol{\Lambda}$ where each element is $\mu_j$, Then the second term could be rewritten as</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \sum_{j=1}^{K}\mu_j\sum_{i=1}^{D}(D_{ij}^2-1) &= \sum_{j=1}^{K}\mu_j\sum_{i=1}^{D}(D_{ij}^2) - \sum_{j=1}^{K}\mu_j\\
+        &= \mathrm{Tr}(\mathbf{D}\boldsymbol{\Lambda}\mathbf{D}^T - \boldsymbol{\Lambda}).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Hence we could rewrite <a href="#mjx-eqn-7">$(7)$</a> as</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathcal{L}(\mathbf{D},~\boldsymbol{\Lambda}) = \mathrm{Tr}(\mathbf{X}\mathbf{X}^T + \mathbf{D}\mathbf{A}\mathbf{A}^T\mathbf{D}^T -  2\mathbf{D}\mathbf{A}\mathbf{X}^T + \mathbf{D}\boldsymbol{\Lambda}\mathbf{D}^T - \boldsymbol{\Lambda}).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Apply the first-order partial gradient to $\mathbf{D}$, we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \frac{\mathrm{d}}{\mathrm{d}\mathbf{D}} \left( \mathcal{L}(\mathbf{D},~\boldsymbol{\Lambda}) \right) &= \frac{\mathrm{d}}{\mathrm{d}\mathbf{D}} \left( \mathrm{Tr}( \mathbf{D}\mathbf{A}\mathbf{A}^T\mathbf{D}^T -  2\mathbf{D}\mathbf{A}\mathbf{X}^T + \mathbf{D}\boldsymbol{\Lambda}\mathbf{D}^T \right)\\
+        &= 2\mathbf{D}\mathbf{A}\mathbf{A}^T - 2\mathbf{X}\mathbf{A}^T + 2\mathbf{D}\boldsymbol{\Lambda} = 0.\\
+        \mathbf{D} &= \mathbf{X}\mathbf{A}^T(\mathbf{A}\mathbf{A}^T+\boldsymbol{\Lambda})^{-1}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Substitute <a href="#mjx-eqn-11">$(11)$</a> into <a href="#mjx-eqn-10">$(10)$</a>, we would have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathcal{L}(\boldsymbol{\Lambda}) &= \min\limits_{\mathbf{D}}~\mathcal{L}(\mathbf{D},~\boldsymbol{\Lambda}) \\
+        &= \mathrm{Tr}(\mathbf{X}\mathbf{X}^T + \mathbf{D}\mathbf{A}\mathbf{A}^T\mathbf{D}^T -  2\mathbf{D}\mathbf{A}\mathbf{X}^T + \mathbf{D}\boldsymbol{\Lambda}\mathbf{D}^T - \boldsymbol{\Lambda})\\
+        &= \mathrm{Tr}(\mathbf{X}\mathbf{X}^T + \mathbf{D}(\mathbf{A}\mathbf{A}^T+\boldsymbol{\Lambda})\mathbf{D}^T -  2\mathbf{D}\mathbf{A}\mathbf{X}^T - \boldsymbol{\Lambda})\\
+        &= \mathrm{Tr}(\mathbf{X}\mathbf{X}^T + \mathbf{X}\mathbf{A}^T(\mathbf{A}\mathbf{A}^T+\boldsymbol{\Lambda})^{-1}(\mathbf{A}\mathbf{A}^T+\boldsymbol{\Lambda})(\mathbf{A}\mathbf{A}^T+\boldsymbol{\Lambda})^{-1}\mathbf{A}\mathbf{X}^T \\
+        &~~~~~~- 2\mathbf{X}\mathbf{A}^T(\mathbf{A}\mathbf{A}^T + \boldsymbol{\Lambda})^{-1}\mathbf{A}\mathbf{X}^T - \boldsymbol{\Lambda})\\
+        &= \mathrm{Tr}(\mathbf{X}\mathbf{X}^T - \mathbf{X}\mathbf{A}^T(\mathbf{A}\mathbf{A}^T+\boldsymbol{\Lambda})^{-1}\mathbf{A}\mathbf{X}^T - \boldsymbol{\Lambda}).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Note that $\mathbf{D}$ has been represented by $\boldsymbol{\Lambda}$, we would know that minimizing $\mathcal{L}(\cdot)$ could be applied on $\boldsymbol{\Lambda}$ solely. Hence we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \frac{\partial \min\limits_{\mathbf{D}}~\mathcal{L}}{\partial \mu_i} &= \mathrm{Tr}\left( \frac{\partial \mathbf{X}\mathbf{X}^T}{\partial \mu_i} - \frac{ \partial \mathbf{X}\mathbf{A}^T(\mathbf{A}\mathbf{A}^T+\boldsymbol{\Lambda})^{-1}\mathbf{A}\mathbf{X}^T}{ \partial \mu_i } - \frac{\partial\boldsymbol{\Lambda}}{\partial \mu_i} \right)\\
+        &= -\mathrm{Tr}\left( \frac{ \partial \mathbf{X}\mathbf{A}^T(\mathbf{A}\mathbf{A}^T+\boldsymbol{\Lambda})^{-1}\mathbf{A}\mathbf{X}^T }{ \partial \mu_i } \right) - 1.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>In <a href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf"><em>Matrix Cookbook</em></a>, there has been a conclusion that</p>
+
+<div class="overflow">
+\begin{align}
+    \mathrm{Tr}\left( \frac{\partial \mathbf{P}^T (\mathbf{X}+\mathbf{A})^{-1} \mathbf{P} }{\partial x_i} \right) = -{\lVert \mathbf{P}^T (\mathbf{X}+\mathbf{A})^{-1} \mathbf{e}_i \rVert}^2_2.
+\end{align}
+</div>
+
+<p>Apply <a href="#mjx-eqn-14">$(14)$</a> to <a href="#mjx-eqn-13">$(13)$</a>, we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \frac{\partial \min\limits_{\mathbf{D}}~\mathcal{L}}{\partial \mu_i} = {\lVert \mathbf{X}\mathbf{A}^T (\mathbf{A}\mathbf{A}^T+\boldsymbol{\Lambda})^{-1} \mathbf{e}_i \rVert}^2_2 - 1 = 0.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p><a href="#mjx-eqn-15">$(15)$</a> is in the quadratic form, hence it is convex and we could find the analytical solution for $\boldsymbol{\Lambda}$. Substitute $\boldsymbol{\Lambda}$ into <a href="#mjx-eqn-11">$(11)$</a>, we would solve $\mathbf{D}$.</p>
+
+<p>An interesting thing is that if anyone substitute <a href="#mjx-eqn-11">$(11)$</a> into <a href="#mjx-eqn-15">$(15)$</a>, then it will be</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        {\lVert \mathbf{D} \mathbf{e}_i \rVert}^2_2 = {\lVert D(:,i) \rVert}_2 = 1,
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>which shows that the solution revealed in <a href="#mjx-eqn-11">$(11)$</a> and <a href="#mjx-eqn-15">$(15)$</a> fulfills the constraints in <a href="#mjx-eqn-6">$(6)$</a> strictly.</p>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+                  <section>
+    <div class="inner" id="disqus_thread"></div>
+    <script type="text/javascript">
+
+    (function() {
+          
+          
+          if (window.location.hostname == "localhost")
+                return;
+
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var disqus_shortname = 'rosenkreutz-studio';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div class="inner"><a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></div>
+</section>
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="mailto:cainmagi@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                
+                    <li><a href="https://weibo.com/u/5885093621" class="icon alt fa-weibo" target="_blank"><span class="label">Weibo</span></a></li>
+                
+                    <li><a href="https://github.com/cainmagi" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://steamcommunity.com/id/cainmagi" class="icon alt fa-steam" target="_blank"><span class="label">Steam</span></a></li>
+                
+                    <li><a href="https://www.youtube.com/channel/UCzqpNK5qFMy5_cI1i0Z1nQw" class="icon alt fa-youtube-play" target="_blank"><span class="label">Youtube</span></a></li>
+                
+                    <li><a href="https://music.163.com/#/user/home?id=276304206" class="icon alt fa-music" target="_blank"><span class="label">Netease Music</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Well-logging laboratory, Department of Electrical and Computer Engineering, University of Houston</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://cainmagi.github.io/js/jquery.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrolly.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.scrollex.min.js"></script>
+    <script src="https://cainmagi.github.io/js/jquery.elevatezoom.js" type="text/javascript"></script>
+    <script src="https://cainmagi.github.io/js/jquery.images.js"></script>
+    <script src="https://cainmagi.github.io/js/skel.min.js"></script>
+    <script src="https://cainmagi.github.io/js/util.js"></script>
+    <script type="text/javascript" src="https://cainmagi.github.io/js/tooltipster.bundle.min.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="https://cainmagi.github.io/js/main.js"></script>
+    <script src="https://cainmagi.github.io/js/extensions.js"></script>
+    
+    
+    <script src="https://cainmagi.github.io/js/title.js"></script>
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119875813-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    
+    
+    
+    <script src="https://cainmagi.github.io/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="https://cainmagi.github.io/css/vs2015adp.css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js", "boldsymbol.js", "color.js"]
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+    
+    TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+    </body>
+</html>

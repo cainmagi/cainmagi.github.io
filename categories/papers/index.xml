@@ -6,10 +6,22 @@
     <description>Recent content in Papers on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Mar 2019 02:18:28 -0600</lastBuildDate>
+    <lastBuildDate>Thu, 16 May 2019 15:03:10 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/categories/papers/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Note on May 16, 2019</title>
+      <link>https://cainmagi.github.io/notes/note20190516/</link>
+      <pubDate>Thu, 16 May 2019 15:03:10 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190516/</guid>
+      <description>Introduction First, let us introduce Adam which is an important first-order gradient descent algorithm for updating the weights in neural network. A brief introduction in Chinese could be referred here.
+The whole name of ADAM is &amp;ldquo;adaptive moment estimation&amp;rdquo;, which means it is a combination of adaptive learning rate and momentum estimation. In this article, we would discuss the theory and proof in the following paper:
+Reference
+In this article, we would discuss some proofs about the features of this algorithm.</description>
+    </item>
     
     <item>
       <title>Special Notes on Mar. 4, 2019</title>
@@ -20,7 +32,9 @@
       <description> Introduction In this topic, we would learn such a paper:
 Solving ill-posed inverse problems using iterative deep neural networks:
 Reference
- </description>
+ 
+This article is still being produced. Please wait for several days to see the full edition.
+ </description>
     </item>
     
     <item>

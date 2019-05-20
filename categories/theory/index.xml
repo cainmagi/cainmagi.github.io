@@ -6,10 +6,22 @@
     <description>Recent content in Theory on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 May 2019 12:06:02 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 15 May 2019 17:40:04 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/categories/theory/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Special Notes on May 15, 2019</title>
+      <link>https://cainmagi.github.io/notes/note20190515special/</link>
+      <pubDate>Wed, 15 May 2019 17:40:04 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190515special/</guid>
+      <description>In this article, we would discuss the trick about training and testing phases for dictionary learning (sparse coding). The original work could be referred here. As extra reading materials, we suggest reading Convex Optimization for understanding how to apply Lagrangian method and Matrix Cookbook to refer some conclusions about how to calculate gradients for matrices.
+The pdf version of this article could be found here:
+PDF version
+Solve the Lasso problem Consider the testing phase of sparse coding which could be formulated as</description>
+    </item>
     
     <item>
       <title>Notes on May 05, 2019</title>
