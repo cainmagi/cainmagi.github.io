@@ -689,14 +689,14 @@ np.random.seed(0)
 
 T = 30 # Define the iteration number as 30.
 xx = np.linspace(1,T,T) # X axis
-g = np.random.rand(T) # Use random variables as gradient in each iteration.
+g = np.random.rand(T) - 0.5 # Use random variables as gradient in each iteration.
 Gi = np.amax(np.abs(g)) # Calculate the L-infinity norm.
 xl = np.cumsum(np.sqrt(g**2 / xx)) # Left side of the inequality.
 xr = 2 * Gi * np.sqrt(np.cumsum(g**2)) # Right side of the inequality.
 plt.xlabel('T')
 plt.plot(xx, g, label='$g_T$')
 plt.plot(xx, xl, label=r'$l(T) = \sum_{t=1}^T \sqrt{\dfrac{g^2_t}{t}}$')
-plt.plot(xx, xr, label=r'$r(T) = \sqrt{\sum_{t=1}^T g^2_t}$')
+plt.plot(xx, xr, label=r'$r(T) = 2 G_{\infty} \sqrt{\sum_{t=1}^T g^2_t}$')
 plt.plot(xx, xr-xl, label=r'$r(t) - l(t)$') # Should be always &gt;0 if Lemma is true.
 plt.legend()
 plt.gcf().set_size_inches(5, 5), plt.tight_layout(), plt.show()
