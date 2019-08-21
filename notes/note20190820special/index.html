@@ -9,7 +9,7 @@
 	<meta name="author" content="Yuchen Jin">
 	
 	<meta name="generator" content="Hugo 0.55.1" />
-	<title>Deep Learning for AGT &middot; Rosenkreutz Studio</title>
+	<title>Chinese translated lecture notes for MATH 6366 @ UH &middot; Rosenkreutz Studio</title>
 	<!-- Stylesheets -->
 	
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" type="text/css">
@@ -26,6 +26,8 @@
 
 	<!-- Custom Fonts -->
 	
+	
+	<link rel="stylesheet" type="text/css" href="https://cainmagi.github.io/css/chinese.css" />
 	
 	<link href="https://cainmagi.github.io/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -89,25 +91,23 @@
                     <section id="one">
                         <div class="inner">
                             <header id="pagetitle" class="major">
-                                <h1 id='main_title'>Deep Learning for AGT</h1>
+                                <h1 id='main_title'>Chinese translated lecture notes for MATH 6366 @ UH</h1>
                                 <table class="sub-title">
                                     <tbody>
                                         <tr>
                                             <th>Date:</th>
-                                            <td>May 25, 2018</td>
+                                            <td>Aug 20, 2019</td>
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>May 27, 2018</td>
+                                            <td>Aug 20, 2019</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
                                             <td><section class="dream-tags">
-                                                    <a class="ui label categ" href="/categories/projects" title="Projects">Projects</a>
+                                                    <a class="ui label categ" href="/categories/notes" title="Notes">Notes</a>
                                                     
-                                                    <a class="ui label categ" href="/categories/python" title="python">python</a>
-                                                    
-                                                    <a class="ui label categ" href="/categories/tensorflow" title="tensorflow">tensorflow</a>
+                                                    <a class="ui label categ" href="/categories/theory" title="Theory">Theory</a>
                                                     
                                                 
                                             </section></td>
@@ -115,19 +115,13 @@
                                         <tr>
                                             <th>Tags:</th>
                                             <td><section class="dream-tags">
-                                                    <a class="ui label" href="/tags/python" title="python">python</a>
+                                                    <a class="ui label" href="/tags/lecture" title="lecture">lecture</a>
                                                     
-                                                    <a class="ui label" href="/tags/python-c-api" title="python-c-api">python-c-api</a>
+                                                    <a class="ui label" href="/tags/inverse-problem" title="inverse-problem">inverse-problem</a>
                                                     
-                                                    <a class="ui label" href="/tags/deep-learning" title="deep-learning">deep-learning</a>
+                                                    <a class="ui label" href="/tags/optimization" title="optimization">optimization</a>
                                                     
-                                                    <a class="ui label" href="/tags/signal-processing" title="signal-processing">signal-processing</a>
-                                                    
-                                                    <a class="ui label" href="/tags/seismic-processing" title="seismic-processing">seismic-processing</a>
-                                                    
-                                                    <a class="ui label" href="/tags/denoising" title="denoising">denoising</a>
-                                                    
-                                                    <a class="ui label" href="/tags/tensorflow" title="tensorflow">tensorflow</a>
+                                                    <a class="ui label" href="/tags/algorithm" title="algorithm">algorithm</a>
                                                     
                                                 
                                             </section></td>
@@ -135,49 +129,13 @@
                                     </tbody>
                                 </table>
                                 
-                                <span class="image main"><img src="/img/projects/python_agt_201804_title.jpg" alt="" /></span>
+                                <span class="image main"><img src="/img/notes/note20190820sp.jpg" alt="" /></span>
                                 
                             </header>
                             
                             <hr/>
-                            <h1 id="contents">Contents</h1>
-                            <p><nav id="TableOfContents">
-<ul>
-<li><a href="#introduction">Introduction</a>
-<ul>
-<li><a href="#beat-tone-network">Beat Tone Network</a></li>
-<li><a href="#denoising">Denoising</a></li>
-</ul></li>
-<li><a href="#project-page">Project Page</a></li>
-</ul>
-</nav></p>
-                            
-                            <hr/>
-                            
-
-<h1 id="introduction">Introduction</h1>
-
-<p>This project is for AGT (Advanced Geophysical Technology) and 2018 SEG (Society of Exploration Geophysicists) conference. We concentrate on the seismic raw data and use deep learning approaches to improve the performance in some special application.</p>
-
-<h2 id="beat-tone-network">Beat Tone Network</h2>
-
-<p>The first application is for improving the FWI of Beat Tone, see here to learn the background of this application:</p>
-
-<p><a href="https://library.seg.org/doi/abs/10.1190/segam2014-0978.1" class="button icon fa-file-pdf-o">Reference</a></p>
-
-<p>When the basic signal frequency increases, the effectiveness of the Beat Tone method reduces significantly. To solve this problem, we may use the synthetic low frequency data to perform the supervised learning and let the deep network predict the low frequency data based on high frequency ones. We feed the normalized 1D raw data and beat tone result into the network and get the prediction for low frequency results. The project could get good results for FWI inversion.</p>
-
-<h2 id="denoising">Denoising</h2>
-
-<p>Viewing the results collected by shot-gather devices as image, we may be able to use the deep learning tools to denoise the data. Now we only consider the supervised learning approach, which requires us to add random white noise to the clean synthetic data and train the network to let it regress on the clean data.</p>
-
-<p>Indeed, this approach is a simple attempt and not good enough, we may try to explore how to perform the unsupervised learning with structured noise, which is more valuable for real applications.</p>
-
-<h1 id="project-page">Project Page</h1>
-
-<p>See here to view the main page of this project. This project has not been published yet, so in the main page we only provides some background and theoretical knowledge. You could not see any information for the real applications and data here.</p>
-
-<p><a href="https://cainmagi.github.io/AGT-Deep-Net/" class="button icon fa-github">Git Page</a></p>
+                            <div id='react-app'>
+</div>
 
                         </div>
                     </section>
@@ -254,8 +212,6 @@
     <script src="https://cainmagi.github.io/js/extensions.js"></script>
     
     
-    <script src="https://cainmagi.github.io/js/title.js"></script>
-    
 
     
 <script type="application/javascript">
@@ -308,6 +264,8 @@ if (!doNotTrack) {
 
     
 
+    
+        <script src="./note20190820sp.min.js"></script>
     
 
     </body>

@@ -6,10 +6,19 @@
     <description>Recent content in lecture on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Feb 2019 13:04:50 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2019 02:02:02 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/tags/lecture/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Chinese translated lecture notes for MATH 6366 @ UH</title>
+      <link>https://cainmagi.github.io/notes/note20190820special/</link>
+      <pubDate>Tue, 20 Aug 2019 02:02:02 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190820special/</guid>
+      <description> </description>
+    </item>
     
     <item>
       <title>Stochastic optimization I: from Monte-Carlo methods to Gibbs sampling</title>

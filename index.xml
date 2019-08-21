@@ -6,10 +6,19 @@
     <description>Recent content on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 May 2019 15:03:10 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2019 02:02:02 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Chinese translated lecture notes for MATH 6366 @ UH</title>
+      <link>https://cainmagi.github.io/notes/note20190820special/</link>
+      <pubDate>Tue, 20 Aug 2019 02:02:02 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190820special/</guid>
+      <description> </description>
+    </item>
     
     <item>
       <title>Note on May 16, 2019</title>
