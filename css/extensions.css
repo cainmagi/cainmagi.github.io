@@ -348,3 +348,10 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
     margin-top: inherit;
     padding-top: inherit;
 }
+
+/* Table */
+div.mintable table {
+    width: max-content;
+    min-width: 40%;
+    margin: 0 auto 2em auto;
+}

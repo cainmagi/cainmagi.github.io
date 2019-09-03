@@ -6,10 +6,19 @@
     <description>Recent content in optimization on Rosenkreutz Studio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Aug 2019 02:02:02 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 31 Aug 2019 12:06:21 -0500</lastBuildDate>
     
 	<atom:link href="https://cainmagi.github.io/tags/optimization/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Note on Aug. 31, 2019</title>
+      <link>https://cainmagi.github.io/notes/note20190831/</link>
+      <pubDate>Sat, 31 Aug 2019 12:06:21 -0500</pubDate>
+      
+      <guid>https://cainmagi.github.io/notes/note20190831/</guid>
+      <description>Introduction In the notes on May 16, we have already talked about the Adam algorithm. Combining the first-order momentum and the adaptive learning rate, Adam performs the normalization on the gradients. When the gradient is too strong, Adam correct it by reducing the learning rate, vice versa. In the aforementioned notes, we have explained why Adam is designed like this and pointed out that the proof of Adam is not correct.</description>
+    </item>
     
     <item>
       <title>Chinese translated lecture notes for MATH 6366 @ UH</title>
