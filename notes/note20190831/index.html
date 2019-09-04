@@ -98,7 +98,7 @@
                                         </tr> 
                                         <tr>
                                             <th>Last Updated:</th>
-                                            <td>Sep 3, 2019</td>
+                                            <td>Sep 4, 2019</td>
                                         </tr>
                                         <tr>
                                             <th>Categories:</th>
@@ -141,7 +141,9 @@
 <ul>
 <li><a href="#start-from-a-strong-assumption">Start from a strong assumption</a></li>
 <li><a href="#generalize-the-proof-in-online-cases">Generalize the proof in online cases</a></li>
+<li><a href="#generalize-the-proof-in-stochastic-cases">Generalize the proof in stochastic cases</a></li>
 </ul></li>
+<li><a href="#amsgrad">AMSGrad</a></li>
 </ul></li>
 </ul>
 </nav></p>
@@ -418,7 +420,7 @@
 \end{align}
 </div>
 
-<p>From <a href="#mjx-eqn-10">$(10)$</a>, we would get the condition $\beta_2 \leqslant \dfrac{1}{1 + C^2}$ easily. So when we let $\beta_2 0 \dfrac{1}{1 + C^2}$, we have $T_2 \geqslant T_1$, which means $\hat{\mathbf{x}}_{3t+4} \geqslant \mathbf{x}_{3t+1} = 1$.</p>
+<p>From <a href="#mjx-eqn-10">$(10)$</a>, we would get the condition $\beta_2 \leqslant \dfrac{1}{1 + C^2}$ easily. So when we let $\beta_2 = \dfrac{1}{1 + C^2}$, we have $T_2 \geqslant T_1$, which means $\hat{\mathbf{x}}_{3t+4} \geqslant \mathbf{x}_{3t+1} = 1$.</p>
 
 <p>Therefore, in any case, we would find that $\hat{\mathbf{x}}_{3t+4} \geqslant 1$, i.e. we could derive $\mathbf{x}_{3t+4} = 1$ when we start from $\mathbf{x}_{3t+1} = 1$. In this case, we know that for any $t$, there would be $f_{3t+1}(\mathbf{x}_{3t+1}) = C$. Since $f_{3t+1}(\mathbf{x}) \geqslant f_{3t+1}(-1) = -C$, $f_{3t+2}(\mathbf{\mathbf{x}_{3t+2}}),~f_{3t+3}(\mathbf{\mathbf{x}_{3t+3}}) \geqslant -1$ and $f_{3t+2}(\mathbf{-1}),~f_{3t+3}(\mathbf{-1}) = -1$, we could calculate the regret during the 3 steps:</p>
 
@@ -501,7 +503,7 @@
 
 <tr>
 <td><span id='cd-3'>3</span></td>
-<td>$\dfrac{3(1 - \beta_1)}{2\sqrt{1 - \beta_2}} \left(1 + \dfrac{\gamma (1 - \gamma^{C-1})}{1 - \gamma} \right) + \dfrac{\beta_1^{C/2-1}}{1 - \beta_1} &lt; \dfrac{C}{3}$</td>
+<td>$\dfrac{3}{2}(1 - \beta_1) \sqrt{\dfrac{1 + \beta_2}{1 - \beta_2}} \left(1 + \dfrac{\gamma (1 - \gamma^{C-1})}{1 - \gamma} \right) + \dfrac{\beta_1^{C/2-1}}{1 - \beta_1} &lt; \dfrac{C}{2}$, where $\gamma = \dfrac{\beta_1}{\sqrt{\beta_2}}$</td>
 </tr>
 </tbody>
 </table>
@@ -522,13 +524,13 @@
 
 <p>If <a href="#cd-1">Condition 1</a> holds, and let $\mathbf{m}_{t} \leqslant 0$, we could get $\mathbf{m}_{t+C} \leqslant 0$ from <a href="#mjx-eqn-14">$(14)$</a>.</p>
 
-<p>Then we need to set a time point $T&rsquo;$ to ensure that for any large enough $t \leqslant T&rsquo;$, we would have $t + C \leqslant \tau^t t$, where $\tau \leqslant \frac{3}{2}$. Such a condition implies that we only talk about the case when $T \rightarrow \infty$.</p>
+<p>Then we need to set a time point $T&rsquo;$ to ensure that for any large enough $t \leqslant T&rsquo;$, we would have $t + C \leqslant \tau^2 t$, where $\tau \leqslant \frac{3}{2}$. Such a condition implies that we only talk about the case when $T \rightarrow \infty$.</p>
 
 <p>After that, we need to specify the range of the second order momentum. Consider that</p>
 
 <div class="overflow">
 \begin{align}
-    \mathbf{v}_{t+i-1} = (1 - \beta_2) \sum\limits_{j=1}^{t+i-1} \beta_2^{t+i-1-j} \mathbf{g}_j^2.
+    \mathbf{v}_{t+i} = (1 - \beta_2) \sum\limits_{j=1}^{t+i} \beta_2^{t+i-j} \mathbf{g}_j^2.
 \end{align}
 </div>
 
@@ -536,7 +538,7 @@
 
 <div class="overflow">
 \begin{align}
-    \mathbf{v}_{t+i-1} \geqslant (1 - \beta_2) \beta_2^{i-2} C^2.
+    \mathbf{v}_{t+i} \geqslant (1 - \beta_2) \beta_2^{i-1} C^2.
 \end{align}
 </div>
 
@@ -545,7 +547,7 @@
 <div class="overflow">
 \begin{equation}
     \begin{aligned}
-        \mathbf{v}_{t+i-1} &\leqslant (1 - \beta_2) \left[ \sum\limits_{h=1}^k \beta_2^{t+i-1-hC} C^2 + \sum\limits_{j=1}^{t+i-1} \beta_2^{t+i-1-j} \right] \\
+        \mathbf{v}_{t+i} &\leqslant (1 - \beta_2) \left[ \sum\limits_{h=1}^k \beta_2^{t+i-hC} C^2 + \sum\limits_{j=1}^{t+i} \beta_2^{t+i-j} \right] \\
         &\leqslant (1 - \beta_2) \left[ \beta_2^{i'-1}C^2 \sum\limits_{h=0}^{k-1} \beta_2^{hC} + \frac{1}{1 - \beta_2} \right] \\
         &\leqslant (1 - \beta_2) \left[ \frac{\beta_2^{i'-1} C^2}{1 - \beta_2^C} + \frac{1}{1 - \beta_2} \right] \leqslant 2 .
     \end{aligned}
@@ -563,6 +565,120 @@
     \end{aligned}
 \end{equation}
 </div>
+
+<p>After confirming the bounds of first order momentum and second order momentum, we could perform the similar derivation on $\mathbf{x}_{t+C}$, like what we have done during <a href="#start-from-a-strong-assumption">the last section</a>:</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \mathbf{x}_{t+1} &= \Pi_{\mathcal{F}}\left( \mathbf{x}_{t} + \delta_t \right), && \\
+        \delta_t &= - \frac{\alpha}{\sqrt{t}} \frac{(1 - \beta_1)C + \beta_1 \mathbf{m}_t}{ \sqrt{(1 - \beta_2)C^2 + \beta_2 \mathbf{v}_t} }, && \\
+        \mathbf{x}_{t+i} &= \Pi_{\mathcal{F}}\left( \mathbf{x}_{t+i-1} + \delta_{t+i-1} \right), && \\
+        \delta_{t+i} &= - \frac{\alpha}{\sqrt{t+i}} \frac{-(1 - \beta_1) + \beta_1 \mathbf{m}_{t+i}}{ \sqrt{(1 - \beta_2) + \beta_2 \mathbf{v}_{t+i}} }, && i \in \{1,~2,~\cdots,~C-1\}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Since the projection function $\Pi_{\mathcal{F}}$ in this problem is just a simple range correction function, i.e. $\Pi_{\mathcal{F}}(\cdot) = \min(1,~\cdot)$. There is a lemma showing that the final point $\mathbf{x}_{t+C}$ has the lower boundary defined by accumulated updates:</p>
+
+<div class="overflow">
+\begin{align}
+    \mathbf{x}_{t+C} \geqslant \min \left( 1,~ \mathbf{x}_{t} + \sum_{i=0}^{C-1} \delta_{t+i} \right).
+\end{align}
+</div>
+
+<p>We would talk about the proof in two cases. In the first case, we assume that $\mathbf{x}_{t}=1$, hence our target is to prove $\sum_{i=0}^{C-1} \delta_{t+i} \geqslant 0$. Let us ignore $\delta_t$ firstly.</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \sum_{i=1}^{C-1} \delta_{t+i} &= \sum_{i=1}^{C-1} - \frac{\alpha}{\sqrt{t+i}} \frac{-(1 - \beta_1) + \beta_1 \mathbf{m}_{t+i}}{ \sqrt{(1 - \beta_2) + \beta_2 \mathbf{v}_{t+i}} } && \\
+        &= \sum_{i=1}^{C-1} - \frac{\alpha}{\sqrt{t+i}} \frac{-(1 - \beta_1) + (1 - \beta_1) \left( \sum_{j=1}^{i-1} \beta_1^j (-1) \right) + (1 - \beta_1) \beta_1^i C + \beta_1^{i+1} \mathbf{m}_{t}}{ \sqrt{(1 - \beta_2) + \beta_2 \mathbf{v}_{t+i}} } && \left(\text{Expand}~\mathbf{m}_{t+i} \right) \\
+        &\geqslant \sum_{i=1}^{C-1} \frac{\alpha}{\sqrt{t+i}} \frac{(1 - \beta_1) + (1 - \beta_1) \left( \sum_{j=1}^{i-1} \beta_1^j \right) - (1 - \beta_1) \beta_1^i C}{ \sqrt{(1 - \beta_2) + \beta_2 \mathbf{v}_{t+i}} } && \left(\mathbf{m}_{t} \leqslant 0 \right) \\
+        &\geqslant \sum_{i=1}^{C-1} \frac{\alpha}{\tau \sqrt{t}} \frac{(1 - \beta_1) + (1 - \beta_1) \left( \sum_{j=1}^{i-1} \beta_1^j \right)}{ \sqrt{(1 - \beta_2) + \beta_2 \mathbf{v}_{t+i}} } - \sum_{i=1}^{C-1} \frac{\alpha}{\sqrt{t}} \frac{(1 - \beta_1) \beta_1^i C}{ \sqrt{(1 - \beta_2) + \beta_2 \mathbf{v}_{t+i}} } && \left( t \leqslant t + i \leqslant t + C \leqslant \tau^2 t  \right) \\
+        &\geqslant \sum_{i=1}^{C-1} \frac{\alpha}{\tau \sqrt{t}} \frac{(1 - \beta_1) + (1 - \beta_1) \left( \sum_{j=1}^{i-1} \beta_1^j \right)}{ \sqrt{(1 - \beta_2) + \beta_2 \mathbf{v}_{t+i}} } - \sum_{i=1}^{C-1} \frac{\alpha}{\sqrt{t}} \frac{(1 - \beta_1) \beta_1^i C}{ \sqrt{(1 - \beta_2) + \beta_2^i (1-\beta_2) C^2 } } && \left( \mathbf{v}_{t+i} \geqslant (1 - \beta_2) \beta_2^{i-1} C^2  \right) \\
+        &= \sum_{i=1}^{C-1} \frac{\alpha}{\tau \sqrt{t}} \frac{1 - \beta_1^i }{ \sqrt{(1 - \beta_2) + \beta_2 \mathbf{v}_{t+i}} } - \sum_{i=1}^{C-1} \frac{\alpha}{\sqrt{t}} \frac{(1 - \beta_1) \beta_1^i C}{ \sqrt{(1 - \beta_2) + \beta_2^i (1-\beta_2) C^2 } } && \left( \sum_{j=0}^{i-1} \beta_1^j = \frac{1 - \beta_1^i}{1 - \beta_1} \right) \\
+        &\geqslant \sum_{i=i'-1}^{C-1} \frac{\alpha}{\tau \sqrt{t}} \frac{(1 - \beta_1) \left( \sum_{j=0}^{i-1} \beta_1^j \right)}{ \sqrt{(1 - \beta_2) + 2\beta_2} } - \sum_{i=1}^{C-1} \frac{\alpha}{\sqrt{t}} \frac{(1 - \beta_1) \beta_1^i C}{ \sqrt{(1 - \beta_2) + \beta_2^i (1-\beta_2) C^2 } } && \left( \mathbf{v}_{t+i} \leqslant 2  \right) \\
+        &\geqslant \frac{\alpha}{\tau \sqrt{t}} \sum_{i=i'-1}^{C-1} \frac{1 - \beta_1^i }{ \sqrt{(1 - \beta_2) + 2\beta_2} } - \frac{\alpha}{\sqrt{t}} \frac{1 - \beta_1}{\sqrt{1-\beta_2}} \sum_{i=1}^{C-1} \frac{\beta_1^i}{ \sqrt{\beta_2^i} }. && \left( \text{Remove}~(1-\beta_2) \right)
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Consider the first term, we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \frac{\alpha}{\tau \sqrt{t}} \sum_{i=i'-1}^{C-1} \frac{1 - \beta_1^i }{ \sqrt{(1 - \beta_2) + 2\beta_2} } &= \frac{\alpha}{\tau \sqrt{t (1 + \beta_2)}} \sum_{i=i'-1}^{C-1} \left( 1 - \beta_1^i \right) \\
+        &\geqslant \frac{\alpha}{\tau \sqrt{t (1 + \beta_2)}} \left( C - i' - \frac{\beta_1^{i'-1}}{1 - \beta_1}\right).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Define that $\gamma = \frac{\beta_1}{\sqrt{\beta_2}}$, then we would rewrite the second term as</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \frac{\alpha}{\sqrt{t}} \frac{1 - \beta_1}{\sqrt{1-\beta_2}} \sum_{i=1}^{C-1} \frac{\beta_1^i}{ \sqrt{\beta_2^i} } &= \frac{\alpha}{\sqrt{t}} \frac{1 - \beta_1}{\sqrt{1-\beta_2}} \sum_{i=1}^{C-1} \gamma^i \\
+        &= \frac{\alpha}{\sqrt{t}} \frac{1 - \beta_1}{\sqrt{1-\beta_2}} \frac{\gamma (1 - \gamma^{C-1})}{1 - \gamma}.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Substitute <a href="#mjx-eqn-22">$(22)$</a> and <a href="#mjx-eqn-23">$(23)$</a> into <a href="#mjx-eqn-21">$(21)$</a>, and let $\gamma = \frac{3}{2}$, $i&rsquo;=\frac{C}{2}$, then we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \sum_{i=1}^{C-1} \delta_{t+i} &\geqslant \frac{\alpha}{\tau \sqrt{t (1 + \beta_2)}} \left( C - i' - \frac{\beta_1^{i'-1}}{1 - \beta_1}\right) - \frac{\alpha}{\sqrt{t}} \frac{\gamma (1 - \beta_1) (1 - \gamma^{C-1})}{(1 - \gamma)\sqrt{1-\beta_2}} \\
+        &= \frac{2\alpha}{3\sqrt{t (1 + \beta_2)}} \left( \frac{C}{2} - \frac{\beta_1^{\frac{C}{2}-1}}{1 - \beta_1}\right) - \frac{\alpha}{\sqrt{t}} \frac{\gamma (1 - \beta_1) (1 - \gamma^{C-1})}{(1 - \gamma)\sqrt{1-\beta_2}} \geqslant 0.
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>The final inequality holds because of <a href="#cd-3">Condition 3</a>. Therefore, we get $\mathbf{x}_{t+C} \geqslant 1$ based on <a href="#mjx-eqn-20">$(20)$</a> and <a href="#mjx-eqn-24">$(24)$</a>.</p>
+
+<p>Now let us consider the other case, i.e. $\mathbf{x}_{t} &lt; 1$. In this case, we need to prove that $\mathbf{x}_{t+C} \geqslant \mathbf{x}_{t} + \xi$, where $\xi$ is a constant. If such an inequality holds, we would know that for any initial guess, $\mathbf{x}_{t}$ would increase after every $C$ steps until $\mathbf{x}_{t} = 1$. So the Adam could not get converged.</p>
+
+<p>To complete the derivation, we need to take $\delta_t$ into consideration. According to <a href="#mjx-eqn-19">$(19)$</a>, we have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \delta_t &= - \frac{\alpha}{\sqrt{t}} \frac{(1 - \beta_1)C + \beta_1 \mathbf{m}_t}{ \sqrt{(1 - \beta_2)C^2 + \beta_2 \mathbf{v}_t} } && \\
+        &\geqslant - \frac{\alpha}{\sqrt{t}} \frac{(1 - \beta_1)C}{ \sqrt{(1 - \beta_2)C^2 + \beta_2 \mathbf{v}_t} } && \left(\mathbf{m}_{t} \leqslant 0 \right) \\
+        &\geqslant - \frac{\alpha}{\sqrt{t}} \frac{1 - \beta_1}{ \sqrt{1 - \beta_2} } && \left( \text{Remove}~\mathbf{v}_t \right).
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>Combine <a href="#mjx-eqn-24">$(24)$</a> and <a href="#mjx-eqn-25">$(25)$</a>, we would have</p>
+
+<div class="overflow">
+\begin{equation}
+    \begin{aligned}
+        \sum_{i=0}^{C-1} \delta_{t+i} &\geqslant \frac{2\alpha}{3\sqrt{t (1 + \beta_2)}} \left( \frac{C}{2} - \frac{\beta_1^{\frac{C}{2}-1}}{1 - \beta_1}\right) - \frac{\alpha}{\sqrt{t}} \frac{\gamma (1 - \beta_1) (1 - \gamma^{C-1})}{(1 - \gamma)\sqrt{1-\beta_2}} - \frac{\alpha}{\sqrt{t}} \frac{1 - \beta_1}{ \sqrt{1 - \beta_2} } \\
+        &= \frac{2\alpha}{3\sqrt{t (1 + \beta_2)}} \left( \frac{C}{2} - \frac{\beta_1^{\frac{C}{2}-1}}{1 - \beta_1}\right) - \frac{\alpha}{\sqrt{t}} \frac{1 - \beta_1}{ \sqrt{1 - \beta_2} } \left( 1 + \frac{\gamma (1 - \gamma^{C-1})}{1 - \gamma} \right) \\
+        &= \frac{2\alpha}{3\sqrt{t (1 + \beta_2)}} \left( \frac{C}{2} - \frac{\beta_1^{\frac{C}{2}-1}}{1 - \beta_1} - \frac{3}{2} (1 - \beta_1) \sqrt{\frac{1+\beta_2}{1-\beta_2}} \left( 1 + \frac{\gamma (1 - \gamma^{C-1})}{1 - \gamma} \right) \right) = \frac{\alpha}{\sqrt{t}} \lambda
+    \end{aligned}
+\end{equation}
+</div>
+
+<p>In the final equality, $\lambda &gt; 0$ is guaranteed by <a href="#cd-3">Condition 3</a>, hence we know that if we start with an arbitrary $\mathbf{x}_{t}$, it will keep increasing until $\mathbf{x}_{t+kC} = 1$.</p>
+
+<div class="box" style="color:#6CF; padding-bottom:40px">
+  <div style="float: left;"> 
+    <p><i class="fa fa-info-circle" aria-hidden="true" style="font-size: 50px"></i></p>
+  </div>
+  <div style="margin-left: 60px; font-style:normal;">
+    <p>This proof is not totally strict somehow, for example, $\lambda &gt; 0$ could not guarantee that $\mathbf{x}_{t}$ would not get the super bound before $\mathbf{x}_{t+kC} = 1$. The correct form should be $\lambda &gt; \xi$. Actually, I have fixed some typos in the original article, so you may find that in this part my derivation is a little bit different from the original scripture.</p>
+  </div>
+</div>
+
+<h3 id="generalize-the-proof-in-stochastic-cases">Generalize the proof in stochastic cases</h3>
+
+<h2 id="amsgrad">AMSGrad</h2>
 
 <div class="box" style="color:#FB8; padding-bottom:40px">
   <div style="float: left;"> 
