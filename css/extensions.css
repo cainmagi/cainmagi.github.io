@@ -355,3 +355,17 @@ div.mintable table {
     min-width: 40%;
     margin: 0 auto 2em auto;
 }
+
+table.wikitable{
+    min-width: max-content;
+}
+
+table.wikitable td{
+    padding: 0.25rem 0.75rem;
+    vertical-align: middle;
+}
+
+table.wikitable th{
+    padding: 0.25rem 0.75rem;
+    vertical-align: middle;
+}
