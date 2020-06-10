@@ -36,6 +36,10 @@ div .overflow .check{
     overflow-y: hidden;
 }
 
+div .overflow:last-child {
+    padding-bottom: 0;
+}
+
 @media screen and (max-width: 600px) {
     div .wiki{
         float: none;
